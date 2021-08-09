@@ -11,11 +11,6 @@ LANG = 'ES' # DE, BG, ES, FR
 
 SOURCE = open('./source.json', 'r')
 
-try:
-    DESTINATION = open(f'./{LANG.lower()}.json', 'x')
-except FileExistsError:
-    DESTINATION = open(f'./{LANG.lower()}.json', 'w')
-
 def get_usage_info():
     response = requests.get(f'{URL}usage', headers=HEADERS)
     if response.status_code == 200:
@@ -50,6 +45,11 @@ print(f'Translator is running.\nScript started at {START}.')
 get_usage_info()
 data = json.load(SOURCE)
 translate(data)
+
+try:
+    DESTINATION = open(f'./{LANG.lower()}.json', 'x')
+except FileExistsError:
+    DESTINATION = open(f'./{LANG.lower()}.json', 'w')
 
 DESTINATION.write(json.dumps(data, indent=2))
 
