@@ -1,0 +1,1846 @@
+{
+    "COMMON": {
+        "YES": "Yes",
+        "NO": "No",
+        "ALL": "Everything",
+        "ALLS": "All",
+        "ALLES": "All",
+        "NONE": "None",
+        "NAME": "Name",
+        "VERSE": "Towards",
+        "CAUSAL": "Causale",
+        "OPERATIONS": "Operations",
+        "ENTRANCE": "Entry",
+        "EXIT": "Exit",
+        "CODE": "Code",
+        "ORDER": "Order",
+        "GROUP": "Group",
+        "MONITORING": "Monitoring",
+        "DEPENDS-ON": "It depends on",
+        "IDENTIFIER": "Identifier",
+        "TYPE": "Type",
+        "GENERAL": "General",
+        "EXPORT-FORMAT": "Export format",
+        "OTHER": "More",
+        "DELTAS": "Discriminators",
+        "OFFSET": "Offset",
+        "OPTIONS": "Options",
+        "DELIMITER": "Delimiter",
+        "LINE": "Line",
+        "FILE": "Files",
+        "HASH": "Hash",
+        "DATA": "Data",
+        "DETAILS": "Details on",
+        "RUNNING": "Execution",
+        "LIMIT": "Threshold",
+        "SCRAP": "Scrap",
+        "SCORE": "Score",
+        "PRIORITY": "Priorities",
+        "PAGINATION": {
+            "NEXT": "Go ahead",
+            "END": "End",
+            "START": "Start",
+            "PREVIOUS": "Back"
+        },
+        "DIRECTION": {
+            "ENTER": "Enter",
+            "EXIT": "Exit",
+            "BOTH": "Enter/Exit"
+        },
+        "RESULTS": {
+            "TYPE": "Result type",
+            "NAME": "Result",
+            "CARD": "Result card",
+            "VALUE": "Result value"
+        },
+        "VALUE": {
+            "NAME": "Value",
+            "CARD": "Value tag",
+            "TYPE": "Value type"
+        },
+        "PATHS": {
+            "PHOTO": "Photo path"
+        },
+        "MATH": {
+            "PERCENTAGE": "Percentage",
+            "SURPLUS": "Excess",
+            "DEFICIENCY": "Defect",
+            "RESULT": "Result",
+            "RATIO": "Report",
+            "MAX": "Massimo",
+            "MIN": "Minimum",
+            "VARIABLE": "Variable",
+            "CONSTANT": "Constante",
+            "OPERATOR": "Operator",
+            "SUM": "Sum",
+            "ZEROES": "Zeri",
+            "DIVISION": "Division",
+            "MULTIPLICATION": "Multiplication",
+            "SUBTRACTION": "Subtraction",
+            "OPERATION": "Arithmetic operation",
+            "OPERATING": "Operating",
+            "OPERATING-TYPE": "Operand type",
+            "CALCULATION": "Calculation",
+            "PARAMETERS": "Parameters",
+            "NEW": "New value",
+            "OF": "at",
+            "BOOLEANS": {
+                "TRUE": "True",
+                "FALSE": "Fake",
+                "IF": {
+                    "TRUE": "If true",
+                    "FALSE": "If false"
+                }
+            }
+        },
+        "BOARDS": {
+            "SINGULAR": "Noticeboard",
+            "UPLOAD": "Upload bulletin board"
+        },
+        "ORDERING": {
+            "QUALIFY": "Company, title and badge",
+            "BADGE": "Company and badge",
+            "LASTNAME": "Company and surname",
+            "DEPARTMENT": "Company, department and badge"
+        },
+        "FORMAT": {
+            "VALUE": {
+                "NAME": "Values format",
+                "SEXAGESIMAL": "Sexagesimal",
+                "CENTESIMAL": "Centesimal"
+            }
+        },
+        "TEXT": {
+            "NOTE": "Note",
+            "NOTES": {
+                "NOTE-1": "Note 1",
+                "NOTE-2": "Note 2"
+            },
+            "MEMO": "Memo",
+            "MESSAGE": "Message",
+            "TEXT": "Text",
+            "COMMENT": "Comment",
+            "CAPTION": "Legend",
+            "SUMMARY": "Summary"
+        },
+        "DEVICES": {
+            "TERMINAL": "Terminal",
+            "DEVICE": "Device"
+        },
+        "SETTINGS": {
+            "VISIBLE": "Viewable",
+            "PRINTABLE": "Printable",
+            "COVERABLE": "Compensate",
+            "IGNORE": "Not managed (processing)",
+            "EXCLUDE": "Exclude (g/m)"
+        },
+        "FEATURE": {
+            "NAME": "Features",
+            "FUNCTIONS": {
+                "ADD": "Add",
+                "COPY": "Copy",
+                "LIST": "List",
+                "SPECIAL": "Special",
+                "BUILD": "Build",
+                "ELAB": "Process",
+                "MOD": "Edit",
+                "CAN": "Delete",
+                "HELP": "User Guide",
+                "PRINT": "Print"
+            }
+        },
+        "QUANTITY": {
+            "MAX": "Maximum quantity",
+            "MIN": "Minimum quantity",
+            "NUMBER": "Number"
+        },
+        "SELECT": {
+            "EMPTY": "No items found"
+        },
+        "SCRIPT": {
+            "FILE": "Scripts (files)",
+            "NAME": "Script",
+            "PRIORITY": "Script Priority",
+            "CONFIGURED": "Configured script",
+            "PRE-PROCESSING": "Preprocessing scripts",
+            "CONFIGURED-PRE-PROCESSING": "Preprocessing script (configured)"
+        },
+        "MODES": {
+            "NAME": "Mode",
+            "REQUIRED": "Mandatory",
+            "REQUIREED": "Mandatory",
+            "OPTIONAL": "Optional",
+            "FIELDS": "Voice mode",
+            "WORKTIMES": "Timetable mode",
+            "MANUAL": "Manual mode",
+            "STAMPING": "Stamping mode",
+            "ELABORATION": "Processing mode",
+            "ASSIGNMENT": "Assignment mode",
+            "ADD": "Insertion mode",
+            "PRESENCE": "Presence",
+            "EXEMPT": "Exempt"
+        },
+        "ERRORS": {
+            "SESSION-EXPIRED": {
+                "TITLE": "Session expired",
+                "MESSAGE": "You are not authenticated, please login again to continue."
+            },
+            "FATAL-ERROR": {
+                "TITLE": "Error",
+                "MESSAGE": "An unexpected error has occurred, please try again later."
+            },
+            "DATE": {
+                "PHYSICLAWSBROKEN": "Sorry, but this software is not yet able to break the laws of physics. Please enter an end date later than the start date."
+            },
+            "UNAUTHORIZED": {
+                "TITLE": "Not enabled.",
+                "MESSAGE": "You are not enabled for this feature of the Oltre Suite.",
+                "LICENSE": "Your license does not include this feature of Oltre Suite. Contact us to unlock new features."
+            },
+            "NO-DATA": "The search yielded no results.",
+            "FORMS": {
+                "GENERIC": "Some validation errors occurred, the information you entered may not be correct. Please correct them to continue.",
+                "REQUIRED": "Mandatory field",
+                "INVALID-EMAIL": "Invalid email",
+                "VALIDATION": "Invalid data",
+                "NOT-UNIQUE": "This value is already in use"
+            }
+        },
+        "SUCCESS": {
+            "TITLE": "Operation completed.",
+            "TEXT": "Data saved successfully",
+            "PASSWORD": "Your password has been successfully updated.",
+            "DELETE": "Data deleted successfully",
+            "UPDATE": "Data updated correctly",
+            "CREATE": "New object created correctly"
+        },
+        "FORMS": {
+            "MANDATORY-FIELDS": "Fields marked with * are mandatory",
+            "FROM": "From",
+            "TO": "A",
+            "ERROR": "Error",
+            "ERRORS": "Errors",
+            "WARNING": "Attention",
+            "DATE": "Choose a date",
+            "EMAIL": "Email",
+            "FAX": "Fax",
+            "WWW": "Website",
+            "FIELDS": {
+                "FIELD": "Camp",
+                "FIELDS": "Fields",
+                "ADDITIONALS": "Additional fields"
+            },
+            "MAXLENGTH": "Maximum {{maxLength}} characters",
+            "MINLENGTH": "Minimum {{minLength}} characters",
+            "MAX": "Maximum {{max}}",
+            "MIN": "Minimum {{min}}",
+            "LENGTHS": "Length between {{ minLength }} and {{ maxLength }} characters"
+        },
+        "PLACE": {
+            "CITY": "City",
+            "ZONE": "Zone",
+            "STATE": "Status",
+            "ADDRESS": "Address",
+            "ZIP": "ZIP CODE",
+            "LATITUDE": "Latitudinde",
+            "LONGITUDE": "Longitude",
+            "RESIDENCE-DOMICILE": "Residence and domicile",
+            "DOMICILE": {
+                "NAME": "Domicile",
+                "ADDRESS": "Home address",
+                "ZIPCODE": "Postal code (domicile)",
+                "PROVINCE": "Province of domicile"
+            },
+            "RESIDENCE": {
+                "NAME": "Residence",
+                "ADDRESS": "Home address",
+                "ZIPCODE": "Postal code (residence)",
+                "PROVINCE": "Province of residence"
+            },
+            "LENGTH": "Length",
+            "HIGH": "High",
+            "MIDDLE": "Medium",
+            "LOW": "Low",
+            "FLOOR": "Plan",
+            "ROOM": "Room"
+        },
+        "MEDICAL": {
+            "BLOODGROUP": "Blood group",
+            "ALLERGIES": "Allergies",
+            "EMERGENCY-CONCTACT": "Emergency contact"
+        },
+        "MILITARY": {
+            "CODE": "Military code",
+            "SERVICEYEARS": "Years of service",
+            "RANK": "Grade",
+            "SPECIALTY": "Specialities",
+            "INTERNSHIP": "Intern"
+        },
+        "CLOTHING": {
+            "SIZE": {
+                "PANTS": "Trouser size",
+                "SHIRT": "Shirt size",
+                "SHOES": "Shoe size"
+            }
+        },
+        "TAX": {
+            "IBAN": "IBAN",
+            "CODE": "Tax code"
+        },
+        "TIME": {
+            "TIMEZONE": "Time zone (GMT)",
+            "DAYLIGHT": "Daylight saving time",
+            "PATRON": "Patron Saint",
+            "AT": "At",
+            "TO": "A",
+            "INTERVAL": "Time range",
+            "USE-HALFS": "Use half an hour",
+            "HALF-HOUR": "Half an hour",
+            "SINCE": "From",
+            "PERIOD": "Period",
+            "DATE": "Date",
+            "START": "Start",
+            "END": "End",
+            "HOLIDAYS-TYPE": {
+                "RECURRING": "Recurring holidays (every year)",
+                "ONEOFF": "Exclusive holidays this year"
+            },
+            "SCHEDULE": "Timetable",
+            "HOUR": "Now",
+            "HOURS": "Hours",
+            "TOTAL-HOURS": "Total hours",
+            "MIN": "Minimum hours",
+            "MAX": "Maximum hours",
+            "DAY": "Day",
+            "DAYS": "Days",
+            "CALENDAR": "Calendar",
+            "HOLIDAYS": "Holidays",
+            "WEEKLY": "Weekly",
+            "MONTHLY": "Monthly",
+            "WEEK": {
+                "FREQUENCY": "Weekly frequency",
+                "START": "Start day of the week",
+                "STOP": "End of week day",
+                "WEEK": "Week",
+                "END": "Weekend",
+                "MONDAY": "Monday",
+                "TUESDAY": "Tuesday",
+                "WEDNESDAY": "Wednesday",
+                "THURSDAY": "Thursday",
+                "FRIDAY": "Friday",
+                "SATURDAY": "Saturday",
+                "SUNDAY": "Sunday",
+                "HOLIDAY": "Festive"
+            },
+            "EXPIRATION": "Deadline",
+            "PREVIOUS-DAYS": "Previous days",
+            "MINUTES": "Minutes",
+            "SECONDS": "Seconds",
+            "MONTH": "Month",
+            "YEAR": "Year",
+            "WORKED": "Days worked",
+            "LIMIT": {
+                "MINUTES": "Threshold (minutes)",
+                "HOURS": "Threshold (hours)"
+            },
+            "DAYTIME": "Daytime",
+            "NIGHTIME": "Nocturne",
+            "PREVIOUS-DAY": "Previous day",
+            "BREAKFAST": {
+                "START": "Breakfast start time",
+                "END": "End time for breakfast"
+            },
+            "LUNCH": {
+                "START": "Lunch start time",
+                "END": "End time for lunch"
+            },
+            "SNACK": {
+                "START": "Snack time",
+                "END": "Snack time"
+            },
+            "DINNER": {
+                "START": "Dinner start time",
+                "END": "Dinner time"
+            }
+        },
+        "ROOT": {
+            "NAME": "Admin",
+            "LOGS": "Enable log",
+            "EXPORT": "Export transactions",
+            "HISTORY": "Historical file",
+            "PARAMETERS-LABEL": "Administrative parameters",
+            "DATABASES": {
+                "ORACLE1": "Oracle Type 1",
+                "SQL1": "Microsoft SQL Server Type 1",
+                "FTP1": "FTP file type 1",
+                "STANDARD-FTP": "FTP standards"
+            }
+        },
+        "PERMISSIONS": {
+            "GRANTED": "Granted",
+            "GRANTEEDS": "Granted",
+            "DENIED": "Denied",
+            "DENIEEDS": "Deny",
+            "AUTHORIZATION": "Authorization",
+            "ACCESS": {
+                "NAME": "Access permits",
+                "ASUSER": "Sign in as a user",
+                "API": "API Access",
+                "REQUEST": {
+                    "TRANSACTIONS": "Transaction request",
+                    "JUSTIFICATIONS": "Request for proof",
+                    "OVERTIME": "Overtime request",
+                    "CARD": "Card request",
+                    "FROM-CARD": "Request from the card",
+                    "CARD-MENU": "Access to the card menu",
+                    "AUTH": "Authorization request",
+                    "OVERTIME-AUTH": "Overtime request",
+                    "AUTO-AUTH": "Automatic authorization request",
+                    "MANUAL-AUTH": "Manual request for authorisation"
+                },
+                "OUTCOME": {
+                    "AUTH": "Result of authorisation request",
+                    "OVERTIME-AUTH": "Result of extraordinary authorization request"
+                },
+                "ANOMALIES": "Show anomalies"
+            }
+        },
+        "ANOMALIES": {
+            "ANOMALY": "Anomaly",
+            "ANOMALIES": "Anomalies"
+        },
+        "VALIDITY": {
+            "NAME": "Validity",
+            "START": "Start of validity",
+            "END": "End of validity"
+        },
+        "TEAM": {
+            "NAME": "Team",
+            "PLURAL": "Teams"
+        },
+        "COSTS": {
+            "HOURLY": "Hourly cost",
+            "BONUS": "Bonus",
+            "EUROS": "Cost in euro",
+            "MAINTENANCE": "Maintenance cost",
+            "COSTSALARY": "Costs and wages",
+            "SHIFT-SIMULATION": "Employee cost in shift simulation",
+            "MONTHLY": "Monthly cost",
+            "ACCRUALS": "Accruals",
+            "ALLOWANCE": "Allowances",
+            "DAILY-GROSS": "Daily gross",
+            "MEAL": "Meal cost",
+            "MEAL-NUMBER": {
+                "MEAL-1": "Meal cost 1",
+                "MEAL-2": "Meal cost 2",
+                "MEAL-3": "Meal cost 3"
+            },
+            "ROUNDING": "Rounding",
+            "ROUNDING-VALUE": "Rounding value",
+            "PAID": {
+                "DAYS": "Days paid",
+                "HOURS": "Paid hours"
+            },
+            "CHECKS": {
+                "FAMILYDAYS": "Family allowance days"
+            },
+            "DM10": "Days DM10"
+        },
+        "VALUES": {
+            "HOURLY": "Hourly value",
+            "BY-TRANSACTION": "Transaction value"
+        },
+        "LANGUAGES": {
+            "IT": "Italian",
+            "EN": "English"
+        },
+        "COMPANY": {
+            "COMPANY": "Company",
+            "DEPARTMENT": "Department",
+            "BRANCH": "Branch",
+            "OPENING": "Opening",
+            "CLOSURE": "Closing",
+            "BUSINESS-COST": "Charged to the company"
+        },
+        "GENDERS": {
+            "MALE": "Male",
+            "FEMALE": "Female",
+            "OTHER": "More"
+        },
+        "CUSTOMERS": {
+            "VAT": "VAT number",
+            "CUSTOMER": "Customer"
+        },
+        "EMPLOYEE": {
+            "KINSHIP": "Degree of relationship",
+            "WORKERS": "Workers",
+            "INAIL": "INAIL position",
+            "PAYROLL-NUMBER": "Payroll number",
+            "FIRSTNAME": "Name",
+            "LASTNAME": "Last name",
+            "LASTNAME-NOTE": "Note surname",
+            "MOTHERLASTNAME": "Mother's surname",
+            "EMPLOYEE": "Employee",
+            "QUALIFICATION": "Qualification",
+            "CURRENT-QUALIFICATION": "Current Qualification",
+            "TYPOLOGY": "Employee type",
+            "BADGE": "Badge",
+            "ALTERNATIVE-BADGE": "Alternative badge",
+            "BADGE-AUTOMATATION": "Fired badge automation",
+            "NUMBER": "Serial number",
+            "HIRING": "Hiring",
+            "DISMISSAL": "End of relationship",
+            "NIGHT-SHIFT": "Night shift",
+            "DIVIDED": "Hours divided",
+            "ACTIVE": "In force",
+            "INACTIVE": "Decommissioned",
+            "BEGIN": "Start time",
+            "BEGIN-MINUTES": "Start time (minutes)",
+            "END": "End time",
+            "END-MINUTES": "End time (minutes)",
+            "STAMPING-REQUIRED": "Stamping obligation",
+            "CITIZENSHIPCODE": "Citizenship code",
+            "PERSONAL-EMAIL": "Personal email",
+            "CONCTRACT-EXPIRATION": "Contract expiry date",
+            "GENRE": "Genre",
+            "CHILDREN-NUMBER": "Number of children",
+            "MARITAL-STATUS": "Marital status",
+            "MARITAL-OPTIONS": {
+                "CELIBATE": "Single",
+                "FREE": "Free",
+                "WIDOWED": "Widowed",
+                "SEPARATED": "Separated/divorced",
+                "MARRIED": "Married"
+            },
+            "SHIFT-WORKTIMES": "Shifts and working hours",
+            "SHIFT-TYPE": "Shift type",
+            "LEVEL": "Level",
+            "PARKINGUSE": "Parking use",
+            "SAVINGSBANKMEMBER": "Savings bank member",
+            "SYNDICALISED": "Syndicated",
+            "CATALOG": "Catalogue",
+            "VACATION": "Holidays",
+            "FIELDS": {
+                "NAME": "Free fields",
+                "FIELD-1": "Free field 1",
+                "FIELD-2": "Free field 2",
+                "FIELD-3": "Free field 3",
+                "FIELD-4": "Free field 4",
+                "FIELD-5": "Free field 5"
+            },
+            "PRESENCE": "Presence",
+            "EXEMPT": "Exempt"
+        },
+        "PAYSLIPS": {
+            "PAYSLIP": "Cedolino",
+            "PAYSLIPS": "Coupons",
+            "DOWNLOAD": "Download coupon"
+        },
+        "CREDIT": {
+            "STATE": "State credit",
+            "TYPE": "Credit type",
+            "CODE": "Credit code"
+        },
+        "LICENCES": {
+            "DRIVE": {
+                "NAME": "Driving licence",
+                "RELEASE-DATE": "License issue date"
+            }
+        },
+        "EDUCATION": {
+            "SCHOOL": "School",
+            "CERTIFICATE": {
+                "NAME": "Certificate",
+                "SCORE": "Score (certificate)",
+                "PLACE": "Place (certificate)"
+            },
+            "EDUCATION-CERTIFICATE": "Qualification",
+            "UNIVERSITY": "University",
+            "DEGREE-SCORE": "Degree score"
+        },
+        "INFO": {
+            "MASTER": "Master data",
+            "INFO": "Information",
+            "GENERAL": "General Information",
+            "DOCUMENTATION": "Manual",
+            "TIPS": "Tips",
+            "GDPR": "GDPR",
+            "STATUS": "Status",
+            "CONCTACT": "Contact Information",
+            "USED": "In use",
+            "USEDBY": "Used by",
+            "WORK": "Job Information",
+            "PERSONAL": "Personal information",
+            "CONCTRACT": "Contract Information",
+            "CREDIT": "Credit",
+            "EDUCATION": "Education",
+            "DRIVE": "Driving licence",
+            "MEDICAL": "Medical Information",
+            "MILITARY": "Military information",
+            "CLOTHING": "Clothing sizes",
+            "MEAL": "Meals"
+        },
+        "ACCOUNT": {
+            "ACCOUNT": "Profile",
+            "USER": "User",
+            "INFO": "Profile Info",
+            "SETTINGS": "Profile Settings",
+            "LOGOUT": "Exit",
+            "USERNAME": "User name",
+            "PASSWORD": "Password",
+            "SITE": ""
+        },
+        "ACTIONS": {
+            "GUIDE": "Go to the guide",
+            "WRITE": "Write",
+            "USE": "Use",
+            "CHANGE-FILTERS": "Edit filters",
+            "CONTACT-US": "Contact us",
+            "DRAG-TO-CHANGE": "Drag and drop to edit",
+            "DETAILS": "View details",
+            "DEPENDECIES": "See dependencies diagram",
+            "EDIT": "Edit",
+            "EXPAND-MINIMIZE": "Click to expand or reduce",
+            "EXPAND": "Click to expand",
+            "MINIMIZE": "Click to reduce",
+            "CLICK-TO-VIEW": "Click to view",
+            "NAME": "Action",
+            "ROUND": "Round",
+            "EXPORT": "Export",
+            "VIEW": "View",
+            "NONE": "No action",
+            "SELECTION": "Selection",
+            "MANUAL": "Set manually",
+            "PAGES": {
+                "RELOAD": "Reload page",
+                "HOME": "Back to home",
+                "BACK": "Back"
+            },
+            "CONTINUE": "Continued",
+            "RENAME": "Rename",
+            "CLOSE": "Close",
+            "PRINT": "Print",
+            "XML": "Xml",
+            "PREVIOUS-MONTH": "Previous month",
+            "NEXT-MONTH": "Next month",
+            "UNDO": "Cancel",
+            "SAVE": "Save",
+            "COMMIT": "Save changes",
+            "EDIT-FIELD": "To edit, select directly the field to be edited",
+            "NEXT": "Next",
+            "PREVIOUS": "Previous",
+            "NEW": "New",
+            "CREATE": "Create",
+            "EXECUTE": "Run",
+            "ENABLE-ALL": "Activate all",
+            "DISABLE-ALL": "Deactivate all",
+            "HANDLE": {
+                "NAME": "Manage",
+                "ELABORATION": "Manage in processing"
+            },
+            "DELETION": {
+                "DELETE": "Delete",
+                "TITLE": "Are you sure you want to eliminate",
+                "TEXT": "All data of this object and all its dependencies will be lost. The action is not reversible.",
+                "ALL": "Delete all"
+            },
+            "ADD-TO-BOOKMARKS": "Click to add to favorites",
+            "REMOVE-FROM-BOOKMARKS": "Click to remove from favorites",
+            "SEARCH": {
+                "SEARCH": "Search",
+                "NAME": "Search by name",
+                "FEATURE": "Search for a function in",
+                "CODENAME": "Search by name or code",
+                "CITYCODENAME": "Search by name, code or city",
+                "NUMBERCODENAME": "Search by name, surname or serial number",
+                "IDENTIFIER": "Search by ID",
+                "USER": "Search by user name"
+            },
+            "HIDE": {
+                "COMPANY": "Hide company",
+                "DEPARTMENT": "Hide Department",
+                "QUALIFY": "Hide Qualification",
+                "BADGE": "Hide badges",
+                "ROLL": "Hide serial number",
+                "STATUS": "Hide status",
+                "TRANSACTIONS": "Hide transactions",
+                "NOTE": "Hide memo"
+            },
+            "RANDOMIZE": "Make causal",
+            "NORMALIZE": "Normalize",
+            "COMPARE": "Compare"
+        },
+        "BIRTH": {
+            "DATE": "Date of birth",
+            "PLACE": "Place of birth",
+            "PROVINCE": "Province of birth"
+        },
+        "CONCTACTS": {
+            "EMAIL": "Email",
+            "PHONE": "Phone",
+            "MOBILE": "Mobile",
+            "INTERNAL-PHONE": "Internal telephone"
+        },
+        "TOTAL-HOURS": {
+            "TYPE": "Amount of hours",
+            "TYPES": {
+                "WORKTIME": "From working hours",
+                "CONCTRACT": "By contract"
+            },
+            "TOTAL-HOURS": "Hours",
+            "WEEKLY-TOTAL-HOURS": "Weekly hours",
+            "DAILY-TOTAL-HOURS": "Daily amount of hours",
+            "PERCENTAGE": "Percentage of total hours",
+            "VALUE": "Fixed value per hour",
+            "CONCURS": "Contributes to the total number of hours",
+            "NOT-CONCURS": "Does not count towards the total number of hours",
+            "REGULARS": "Ordinary hours",
+            "OVERTIMES": "Extraordinary hours",
+            "THEORETICAL": "Theoretical hours"
+        },
+        "OVERTIME": {
+            "MANAGEMENT": "Overtime management",
+            "FIELDS": "Extraordinary items"
+        }
+    },
+    "NOT-FOUND": {
+        "TITLE": "Page not found",
+        "TEXT": "We could not find the page you are looking for. Please return to"
+    },
+    "ERROR": {
+        "TITLE": "Internal error",
+        "TEXT": "An unexpected error has occurred, we suggest you try reloading the page or return to the home page. Do not hesitate to contact us if the error persists."
+    },
+    "CONNECTION-ERROR": {
+        "TITLE": "Connection error",
+        "TEXT": "A connection error has occurred. Please check your connection and try again.",
+        "ACTION": "Try again"
+    },
+    "LOGIN": {
+        "WELCOME": "Welcome to the <br><strong>Suite Beyond</strong>.",
+        "TITLE": "Sign in",
+        "SITE": "Choose a site",
+        "ERRORS": {
+            "NOT-FOUND": "User not found.",
+            "SITE-NOT-FOUND": {
+                "TITLE": "Site not found",
+                "TEXT": "The requested site was not found."
+            },
+            "UNAUTHORIZED": {
+                "TITLE": "User not enabled",
+                "MESSAGE": "It appears that you are not enabled to use Web Services in the Beyond Suite."
+            },
+            "AUTHENTICATION-FAILED": {
+                "TITLE": "Authentication failed",
+                "MESSAGE": "It was not possible to authenticate to Oltre Suite Web Services. Please check your login credentials and try again."
+            },
+            "ALREADY-ONLINE": {
+                "TITLE": "User already online",
+                "MESSAGE": "It seems that you are already using the services of the Suite Oltre.<br>If you do not recognize this activity it may be that someone is using your credentials without your knowledge."
+            },
+            "PASSWORD-EXPIRED": {
+                "TITLE": "Password expired",
+                "MESSAGE": "Your password has expired, please update your password to access Oltre Suite Web Services."
+            },
+            "SITE-UNAUTHORIZED": {
+                "TITLE": "Site not enabled",
+                "MESSAGE": "This site is not enabled for Oltre Suite Web Services access."
+            },
+            "NOT-ACTIVE": {
+                "TITLE": "Inactive account",
+                "MESSAGE": "This account is not active and do not take advantage of the Beyond Suite."
+            },
+            "WRONG-PASSWORD": "Wrong password."
+        }
+    },
+    "MANAGEMENT": {
+        "NAME": "Management",
+        "EXTRAORDINARY": "Extraordinary management",
+        "MENU": {
+            "TITLE": "Menu"
+        },
+        "HOME": {
+            "TITLE": "Home",
+            "EXPIRING": {
+                "TITLE": "Expiring password",
+                "TEXT": "Your password is expiring. <a class=\"simple-link\" href=\"/management/system/update-password/\">Change your password</a> before the"
+            },
+            "OVERVIEW": {
+                "ANOMALIES": "Anomalies",
+                "ACTIVITIES": "Activities",
+                "REQUESTS": "Requests"
+            },
+            "GOTO": {
+                "ANOMALIES": "See all anomalies",
+                "ACTIVITIES": "See all activities",
+                "REQUESTS": "See all requests"
+            }
+        },
+        "PRINT": {
+            "PREVIEW": "Print Preview",
+            "TABLE-VIEW": "View as table",
+            "NORMAL-VIEW": "Display as text"
+        },
+        "WORKSTATION": "Workstation",
+        "WORKTIME": {
+            "REGULAR": "Ordinary",
+            "OVERTIME": "Extraordinary",
+            "OVERTIME25": "Str. 25%",
+            "OVERTIME75": "Str. 75%",
+            "LIMIT": "Threshold hours worked"
+        },
+        "JUSTIFICATION": {
+            "JUSTIFICATION": "Justification",
+            "SURPLUS": "Excess justification",
+            "SURPLUS-CHECK": "Single excess control",
+            "JUSTIFICATED-HOURS": "Justified hours",
+            "CONCURS": "Contest"
+        },
+        "CANTEEN": {
+            "TITLE": "Canteen"
+        },
+        "TOOLS": {
+            "TITLE": "Tools"
+        },
+        "EXPORT": {
+            "TITLE": "Export"
+        },
+        "IMPORT": {
+            "TITLE": "Import"
+        },
+        "RESULTS": {
+            "TITLE": "Results"
+        },
+        "TIME-CARD": {
+            "TITLE": "Card",
+            "COLOR": "Label colour",
+            "STATUS": "Card status",
+            "TYPE": "Type of tag",
+            "MANAGE-FILTERS": {
+                "HEADER": "Set filters and start a search",
+                "CORPORATE-FILTER": "Company filters",
+                "EMPLOYEE-FILTER": "Dependent filters",
+                "UNDO-ELABORATION": "Cancel all processing",
+                "PROCESS-ALL": "Process everything"
+            },
+            "TABLE": {
+                "REMINDER": "Memo",
+                "SHOW": "Show originals"
+            },
+            "ACTIONS": {
+                "REMINDER": "Write or edit the note",
+                "SCHEDULE": "Select a time among those available",
+                "ADD-TRANSACTION": "Add transaction",
+                "ADD-JUSTIFICATION": "Add voucher"
+            },
+            "TRANSACTIONS": {
+                "TRANSACTION": "Transaction",
+                "TRANSACTIONS": "Transactions",
+                "LIST": "Transaction list",
+                "LOCALIZED": "There are geo-localized transactions",
+                "NOTES": "There are transactions with notes"
+            },
+            "PROCESSED": "Elaborate",
+            "NOT-PROCESSED": "Not processed",
+            "PROCESSEDS": "Elaborate",
+            "MONTHLY-NOTE": "Monthly note",
+            "DAILY": {
+                "TITLE": "Card (Daily)"
+            },
+            "SHEET": {
+                "TITLE": "Attendance sheet"
+            },
+            "PRINT": {
+                "TITLE": "Prints"
+            },
+            "PERIODICAL": {
+                "TITLE": "Card (Per.)"
+            },
+            "MACRO": {
+                "TITLE": "Card (Macro)"
+            },
+            "EXPORT": {
+                "TITLE": "Export Excel format"
+            },
+            "COUNTER": {
+                "TITLE": "Card (Cont.)"
+            },
+            "WORKSTATION": {
+                "TITLE": "Card (Post.)"
+            }
+        },
+        "SETTINGS": {
+            "TITLE": "Configuration",
+            "EDIT": "Edit parameters",
+            "PRINT": {
+                "TITLE": "Print parameters",
+                "GENERAL": {
+                    "TITLE": "Generali",
+                    "LOGO": "Includes logo"
+                },
+                "MONITORING": {
+                    "TITLE": "Absent/present",
+                    "DEPARTMENT": "One department per page"
+                },
+                "COUNTERS": {
+                    "TITLE": "Counters",
+                    "COUNTER": "One counter per page"
+                },
+                "SHEET": {
+                    "TITLE": "Attendance sheet",
+                    "GLOBAL": {
+                        "NAME": "Attendance sheet (global)",
+                        "LOGO": "INAIL logo",
+                        "FILE": "INAIL logo file",
+                        "START": "First page",
+                        "FOOTER": "Footer",
+                        "COMPANY": "Highlight company name",
+                        "DEAILS": "Detail of vouchers counted in days"
+                    },
+                    "REGULAR": {
+                        "NAME": "Attendance sheet",
+                        "DUE": "Due",
+                        "SUMMARY": "Fiscal press summary",
+                        "BALANCE": "Balance",
+                        "CARRY": "Reporting",
+                        "SURPLUS": "Excess",
+                        "ROWS": "Rows per page",
+                        "TOTAL": "Total days worked",
+                        "LAST": "Last sheet on new page",
+                        "DAYS": {
+                            "MINUTE": "At least one minute worked",
+                            "TRANSACTION": "At least one transaction",
+                            "BOTH": "Both",
+                            "WORKED": "Total processed",
+                            "HOLIDAY": "Total holidays"
+                        }
+                    }
+                },
+                "SUMMARY": {
+                    "TITLE": "Summary of items/justification",
+                    "PAGE": "Employees per page",
+                    "EMPLOYEE": "Significant employees only"
+                },
+                "WORKSTATION": {
+                    "TITLE": "Locations",
+                    "HOURS": "Detail of hours worked and weighed"
+                },
+                "REPORT": {
+                    "TITLE": "Supporting reports",
+                    "EMPLOYEE": "One employee per page"
+                }
+            },
+            "PARAMETERS": {
+                "TITLE": "Parameters",
+                "GENERAL": {
+                    "TITLE": "Generali",
+                    "EMPLOYEE-SORTING": "Order of employees",
+                    "RECORDS": "Results per page",
+                    "JUSTIFICATION": "Significant from to"
+                },
+                "PRODUCTION": {
+                    "TITLE": "Production",
+                    "SUSPEND": "Suspend activity open at exit",
+                    "RECALL": "Resume suspended activities at the entrance",
+                    "DELTA": "Time differences in validity"
+                },
+                "LOCATION": {
+                    "TITLE": "Locations",
+                    "RELATE": "Process referred to working time",
+                    "DETAIL": "Detail of hours worked and weighed",
+                    "ASSOCIATION": "Association app-stations",
+                    "MODES": {
+                        "COUPLE": "Pairs of transactions",
+                        "ENTRANCES": "Revenue only"
+                    },
+                    "INDENTIFIER": "Identifier - Name",
+                    "LIST": "List for Beyond"
+                },
+                "EARUBA-COMMUNICATIONS": {
+                    "TITLE": "eAruba Configuration"
+                },
+                "COUNTERS": {
+                    "TITLE": "Counters",
+                    "DEVICEMODE": "Terminal management mode",
+                    "TRANSACTION-IN-PRESENCES": "Attendance counter transactions",
+                    "DEVICEMODES": {
+                        "DEDICATED": "Dedicated",
+                        "CAUSALIZED": "Non-dedicated (causalized)",
+                        "NOT-CAUSALIZED": "Non-dedicated (non-caused)"
+                    }
+                },
+                "EMPLOYEES": {
+                    "TITLE": "Employees",
+                    "SALARNUMBERASNUMBER": "Serial number as payroll number",
+                    "EMPLOYEEADDITIONALFIELDS": "Activate additional fields",
+                    "ALLOWREADDELETEREQUESTS": "Allow edit/delete requests"
+                },
+                "LUNCH-BREAK": {
+                    "TITLE": "Canteen",
+                    "CANTEENTYPE": "Canteen type",
+                    "MEALVOUCHER": "Meal voucher (\u20ac)"
+                },
+                "REPORT": {
+                    "TITLE": "Report",
+                    "CREDITS": "Supporting credits",
+                    "SCHEDULED": "Scheduled until the end of the year",
+                    "AVAILABILITY": "Availability includes scheduled"
+                },
+                "SHIFTS": {
+                    "TITLE": "Shifts"
+                },
+                "ACTIONS": {
+                    "TITLE": "Actions"
+                },
+                "EVENTS": {
+                    "TITLE": "Events",
+                    "DAY": "Day of execution"
+                },
+                "CAPTURE": {
+                    "TITLE": "Acquisition",
+                    "OVERRIDE": "General message overwrites personal message",
+                    "SEND": "Send data to readers",
+                    "UPDATE": "Automatically updates reader data",
+                    "TIMEOUT": "Reader acquisition timeout (seconds)",
+                    "ADD": "Add terminal code to transaction (for direct)"
+                },
+                "EXPORT": {
+                    "TITLE": "Export",
+                    "SALARY": {
+                        "SALARIES": "Payroll",
+                        "NAME": "Export payroll",
+                        "CODES": "Payroll codes",
+                        "FILE": "Payroll export file (daily)",
+                        "REGULAR": "Ordinary hours code",
+                        "OVERTIME": "Overtime code",
+                        "UNIFIED": "Unified management of payroll codes",
+                        "INCLUDE": "Ordinary hours include competing ordinary items",
+                        "STRUCTURE": "Coupon structure by company"
+                    },
+                    "MANAGEMENT": {
+                        "NAME": "Management export"
+                    }
+                },
+                "PROCESSING": {
+                    "TITLE": "Processing",
+                    "PROCESS": "Automatic processing (card model)",
+                    "ASSIGN": "Automatic verse assignment",
+                    "TRANS": "Num. trans. => time (night)",
+                    "RECLASSIFICATION": "Extraordinary reclassification (periodic)",
+                    "CHECK": "Time control",
+                    "ACTIONS": {
+                        "ANOMALY": "Enter fault",
+                        "FIELD": "Choose item for excess hours",
+                        "SURPLUS": "Use overtime"
+                    },
+                    "FIELD": "Item Actual hours",
+                    "HOUR-CHECK": "Control of working hours and sworn hours",
+                    "SURPLUS": "Surplus item",
+                    "INHIBIT": "Inhibit control if absent"
+                },
+                "TIME-CARD": {
+                    "TITLE": "Card",
+                    "FORMAT": "Total format",
+                    "ORIGINAL-TRANSACTIONS": "Show original transactions",
+                    "TOTALS": "Show total hours",
+                    "HOLIDAYS-COLOR": "Holiday colour",
+                    "REGULARS": "Show ordinary hours",
+                    "OVERTIMES": "Show overtime",
+                    "CHANGE": "Edit transactions",
+                    "HIGHLIGHTS-CHANGED": "Highlight modified transactions",
+                    "EXCLUDE": "Exclude transactions with \"item\" causal",
+                    "EXCLUDE-WORKSTATION": "Exclude station transactions",
+                    "ROUND": "Rounding total items",
+                    "ROUND-CAUSALS": "Rounding of item totals",
+                    "CHECK": "Check for non-existent causes",
+                    "CAUSAL": "Display reason",
+                    "PERIOD": "Of the period",
+                    "PROGRESSIVE": "Progressive",
+                    "AUTOMATE": "Automatically assigns verses",
+                    "JUSTIFICATION": "View voucher",
+                    "HIGHLIGHTSANOMALY": "Highlight anomaly",
+                    "REMNANTS": "Show remaining amount of hours",
+                    "INCLUDE": "Ordinary hours include ordinary items contributing to",
+                    "WORKSTATION": "Show locations without hours",
+                    "PERIODICAL": "Periodic card balance",
+                    "YEARLYCREDITS": "Manage supporting credits by year -2",
+                    "CREDITS": "Manage negative credits",
+                    "NOTE": "View note"
+                },
+                "MISCELLANEA": {
+                    "TITLE": "Various",
+                    "REGULAR": "Ordinary use",
+                    "OVERTIME": "Extraordinary uses",
+                    "DIRECTION": "Overtime",
+                    "ORDERS": "Orders",
+                    "STARTWITHSATURDAY": "Start with Saturday",
+                    "THRESHOLD": "Justification threshold (minutes)",
+                    "DETAIL": "Item detail",
+                    "DAYS": "Days/month",
+                    "MINUTES": "Worked (minutes)",
+                    "CDP": "CPD",
+                    "CDPCODE": "CDP Code",
+                    "LIMIT": "Annual limit",
+                    "ROUNDENTRAMCE": "Round entry",
+                    "ROUNDEXIT": "Round output",
+                    "STRADDLING": "On horseback",
+                    "PIVOT": "Pivot",
+                    "SUMMARY": "Summary",
+                    "STRING": "String"
+                },
+                "TIMESCALE": {
+                    "TITLE": "Schedule",
+                    "DAYS": "Days of notice",
+                    "EMAIL": "Email notice"
+                },
+                "REFRESH-TIME": {
+                    "TITLE": "Referesh interval",
+                    "EMPLOYEES": "Monitoring absent and present (seconds)",
+                    "READERS": "Graphic Readers Monitoring (seconds)"
+                },
+                "MONITORING": {
+                    "TITLE": "Absent/present monitoring",
+                    "PRESENT": "Only present"
+                },
+                "TRANSACTION-IMPORT": {
+                    "TITLE": "Import transactions"
+                },
+                "APPEARANCES": {
+                    "TITLE": "Absences and attendances",
+                    "APPEARANCES": "Presence"
+                }
+            },
+            "TRANSACTIONS": {
+                "TITLE": "Transaction format",
+                "IMPORT": {
+                    "FILE": {
+                        "PRESENCES": "Attendance files",
+                        "COUNTERS": "Counter files",
+                        "MODE": "File management mode",
+                        "TITLE": "Transaction files"
+                    },
+                    "LEAVE": "Keep transactions (badge error)",
+                    "DELETE": "Delete transactions (same min. opposite direction)",
+                    "AUTO": "Automatic import",
+                    "REALLOCATE": "Reassignment of working hours",
+                    "FIRED": "Import fired transactions",
+                    "PLUGIN": "Run plugins",
+                    "GPS": "GPS coordinates accuracy",
+                    "VIRTUAL": "Authorize virtual transactions",
+                    "SCRIPT": "Import scripts",
+                    "DYNAMIC": "Export dynamic data",
+                    "CONFIGURED": "Import script (configured)"
+                }
+            },
+            "SCRIPTS": {
+                "TITLE": "Script",
+                "LIST": "List of scripts",
+                "EDIT": "Edit script",
+                "NEW": {
+                    "TITLE": "New script"
+                },
+                "INDEX": "Command position",
+                "DETAIL": "Script details",
+                "LAUNCH": {
+                    "WORKPLAN": "Working hours",
+                    "PRE-PROCESSING": "Pre-processing",
+                    "PROCESSING": "Periodic processing",
+                    "EXECUTE": "Run",
+                    "PAY-COLUMN": "Formula item",
+                    "IMPORT": "Import transactions"
+                },
+                "COMMANDS": {
+                    "NAME": "Script Commands",
+                    "NEW": "New command",
+                    "TEXT": "Set the command",
+                    "STEPS": {
+                        "NAME": "Command type",
+                        "ASSIGNMENT": "Assignment",
+                        "FUNCTION": "Function",
+                        "CONDITION": "Condition",
+                        "LABEL": "Label",
+                        "GAP": "Jump",
+                        "RETUNRN": "Return value",
+                        "ERROR": "Error to be assigned",
+                        "FIELD": "Field to read"
+                    },
+                    "MODES": {
+                        "OVERWRITE": "Overwrite"
+                    },
+                    "CARDS": {
+                        "DAILY": "Daily",
+                        "PERIODICAL": "Periodical",
+                        "STATUS": {
+                            "PREVIOUS": "Previous tag status",
+                            "CURRENT": "Current tag status"
+                        }
+                    },
+                    "FUNCTIONS": {
+                        "DATA": {
+                            "INDETIFIER": {
+                                "NAME": "Returns the daily working time identifier given the name",
+                                "SELECTED": "Returns the identifier of the selected daily work schedule"
+                            },
+                            "VALUE": {
+                                "WORKTIMES": "Returns the value of the field of the daily time table",
+                                "EMPLOYEES": "Returns the value of the field in the employee master table",
+                                "NOTE1": "Returns the value of the \"Note 1\" field of the employee master table",
+                                "NOTE2": " Returns the value of the \"Note 2\" field of the employee master table"
+                            }
+                        },
+                        "CALCULATION": {
+                            "ROUND": "Round off the value according to the quantity"
+                        },
+                        "DATE": {
+                            "CURRENT": "Returns the current date of the script",
+                            "TODAY": "Returns today's date",
+                            "DATE": "Returns the date from the internal value in days",
+                            "MONTH": {
+                                "FIRST": "Returns on the first day of the month",
+                                "LAST": "Returns the last day of the month"
+                            },
+                            "YEAR": {
+                                "FIRST": "Returns on the first day of the year",
+                                "LAST": "Returns on the last day of the year"
+                            },
+                            "WEEK": {
+                                "FIRST": "Returns the first day of the week",
+                                "LAST": "Returns the last day of the week"
+                            }
+                        },
+                        "GENERAL": {
+                            "ADD": "If the indicated voucher is present, adds the value to the indicated item",
+                            "WRITE": "If there is at least one transaction, write the value in the indicated item",
+                            "CHECK": "Checks the right to take a break, stamped by-the-ball, against a threshold of hours worked"
+                        },
+                        "CARD": {
+                            "LATEST": "Returns the most recent value of the indicated formula entry",
+                            "EXIST": "Returns 1 if the causal exists, 0 if it does not exist",
+                            "ERROR": "Writes the selected error on the daily card",
+                            "DIRECTION": "Returns the direction of the transaction 1=ENTER 0=EXIT",
+                            "TRANSACTION": "Returns the time of the transaction expressed in number of minutes",
+                            "NOTE": "Returns the transaction note",
+                            "IDENTIFIER": {
+                                "JUSTIFICARTION": "Returns the slip identifier",
+                                "WORKTIME": "Returns the daily working time identifier"
+                            },
+                            "ASSIGN": "Assigns a new daily working time to the card day",
+                            "STATUS": {
+                                "CURRENT": "Check the current status of the tag and jump to the indicated label",
+                                "PREVIOUS": "Check the previous status of the tag and jump to the indicated label",
+                                "WRITE": "Writes the status of the daily card"
+                            },
+                            "STAMPS": "Returns the number of clockings for the day",
+                            "TOTAL": "Returns the total hours worked in the day",
+                            "AMOUNT": "Returns the amount of hours (due) for the day",
+                            "CHANGE": "Change the voucher for the day"
+                        }
+                    }
+                }
+            }
+        },
+        "PROCESSING": {
+            "TITLE": "Processing",
+            "DAILY": {
+                "TITLE": "Processing (days)",
+                "ACTION": "Set filters and process hours worked"
+            },
+            "MACRO": {
+                "TITLE": "Processing (macro)",
+                "ACTION": "Set filters and process hours worked"
+            },
+            "PERIODICAL": {
+                "TITLE": "Processing (per.)",
+                "COMPLETE-NAME": "Periodic processing",
+                "ACTION": "Set filters and process hours worked"
+            },
+            "UNDO": {
+                "DAILY": {
+                    "TITLE": "Cancel processing. (daily)",
+                    "ACTION": "Set filters and cancel daily processing"
+                },
+                "MACRO": {
+                    "TITLE": "Cancel processing. (macro)",
+                    "ACTION": "Set filters and cancel macro processing"
+                },
+                "PERIODICAL": {
+                    "TITLE": "Cancel elab. (for.)",
+                    "ACTION": "Set filters and cancel periodic processing"
+                }
+            }
+        },
+        "SYSTEM": {
+            "TITLE": "System",
+            "LOGS": {
+                "TITLE": "Registry",
+                "LIST": "List of logs",
+                "FILTERS": "User filters",
+                "IP": "IP address"
+            },
+            "COMPANIES": {
+                "TITLE": "Companies",
+                "LIST": "List of companies",
+                "DETAIL": "Company detail",
+                "EDIT": "Edit company",
+                "ANOMALIES": "Email for anomalies",
+                "LOGO-WORDING": "Wording under INAIL logo",
+                "UNDO": "Cancellation of car receipts",
+                "INPS": "INPS Code",
+                "VALORIZE": "Enhance meal",
+                "DEPARTMENT": "Sort by department",
+                "PRESENT": "If present",
+                "SALARY-PARAMETERS": "Custom payroll parameters",
+                "G06": "G06 includes overtime",
+                "TOTAL-CODES": "Codes total hours worked",
+                "ADDITIONAL-CODES": "Use additional payroll codes",
+                "WORKERS": {
+                    "EXCLUDE-SHIFT": "Codes to be excluded (shift workers)",
+                    "EXCLUDE-NOT-SHIFT": "Codes to be excluded (non-shift workers)",
+                    "ADDITIONAL": "Additional code ordinary hours (shift workers)"
+                },
+                "LEAVES": {
+                    "SPECIAL-CODES": "Special payroll codes",
+                    "DAILY": "Payroll codes day slips"
+                },
+                "DISEASE": "Sick pay code",
+                "MATERNITY": "Maternity payroll code",
+                "COMPANY-AS-BRANCH": "Use company code as branch code",
+                "FILE": {
+                    "DAILY": "Daily file",
+                    "MONTHLY": "Monthly file",
+                    "ABSENCES": "Absence file"
+                },
+                "OFFICE": "Study code",
+                "SECTOR": "Sector code",
+                "ENTERPRISE": "Company code",
+                "NOT-EXPORTED": "Non-exported payroll codes in abbreviations",
+                "NOT-COUNTED": "Payroll codes overtime items not included in the total",
+                "RATES": "Item rates",
+                "MIX": "Payroll codes Mal./Mat./Inf.",
+                "NEW": {
+                    "TITLE": "New company"
+                }
+            },
+            "ROLES": {
+                "TITLE": "Access profiles",
+                "SINGULAR": "Access Profile",
+                "DETAIL": "Access profile details",
+                "LIST": "List of access profiles",
+                "EDIT": "Edit profile",
+                "NEW": {
+                    "TITLE": "New access profile"
+                }
+            },
+            "USERS": {
+                "TITLE": "Users",
+                "LIST": "Users list",
+                "DETAIL": "User details",
+                "EDIT": "Edit user",
+                "ENABLED": "Enabled",
+                "LAST-ACTIVITY": "Last activity",
+                "ACTIVE": "Active user",
+                "NOT-ACTIVE": "Inactive user",
+                "API": "With API access",
+                "NOT-API": "Without API access"
+            },
+            "UPDATE-PASSWORD": {
+                "TITLE": "Change password",
+                "TEXT": "",
+                "OLD-PASSWORD": "Current password",
+                "NEW-PASSWORD": "New password",
+                "REPEAT-PASSWORD": "Repeat the new password",
+                "ERRORS": {
+                    "NEW": "It's not safe enough",
+                    "REPEAT": "Passwords do not match",
+                    "EQUALS": "New password and current password cannot be the same"
+                }
+            }
+        },
+        "ARCHIVE": {
+            "TITLE": "Archives",
+            "CAUSALS": {
+                "TITLE": "Causes",
+                "DETAIL": "Causal details",
+                "EDIT": "Change reason",
+                "TYPES": {
+                    "COMPENSATION-ABSENSE": "No compensation",
+                    "ABSENSE": "Absence",
+                    "WORKTIME": "Timetable",
+                    "WORKTIME-ABSENSE": "Absence hours",
+                    "FIELD": "Entry",
+                    "COMMENT": "Comment"
+                },
+                "LIST": "Causes list",
+                "NEW": {
+                    "TITLE": "New reason"
+                }
+            },
+            "COUNTERS": {
+                "TITLE": "Counters",
+                "EDIT": "Edit counter",
+                "LIST": "Counters list",
+                "DETAIL": "Meter details"
+            },
+            "CONCTRACTS": {
+                "TITLE": "Contracts",
+                "SINGULAR": "Contract",
+                "LIST": "Contracts list",
+                "EDIT": "Contract modification",
+                "DETAIL": "Contract details",
+                "UNIT": "Unit daily hours",
+                "REPORT": "Next carry-over",
+                "NEW": {
+                    "TITLE": "New contract"
+                },
+                "DAYS": {
+                    "IN-A-ROW": {
+                        "TITLE": "Consecutive working days",
+                        "MAX": "Maximum number of consecutive days",
+                        "MIN": "Minimum number of consecutive days"
+                    },
+                    "PERIOD": {
+                        "TITLE": "Working days in the period",
+                        "MAX": "Maximum number of days in the period",
+                        "MIN": "Minimum number of days in the period"
+                    },
+                    "DAYOFF": {
+                        "TITLE": "Days off",
+                        "BETWEEN": "Maximum number of days between two mandatory rest periods",
+                        "HOLIDAYS": "Minimum number of public holidays in the period",
+                        "MANDATORY": "Minimum number of compulsory rests in the period",
+                        "OFFSET": "Maximum number of compensatory rests in the period"
+                    },
+                    "NIGHTS": {
+                        "MAX": "Maximum number of consecutive nights of work"
+                    }
+                },
+                "RATIO": "Excess hours report",
+                "OTHER": {
+                    "HOURS": "Minimum number of hours between shifts",
+                    "PART-TIME": "Part-time contract"
+                }
+            },
+            "REQUIREMENTS": {
+                "TITLE": "Needs",
+                "LIST": "Needs list",
+                "DETAIL": "Requirement details",
+                "EDIT": "Change in requirements",
+                "MAX": "Maximum number required",
+                "MIN": "Minimum number required",
+                "OPTIMAL": "Optimal number required",
+                "NEW": {
+                    "TITLE": "New requirements"
+                }
+            },
+            "TASKS": {
+                "TITLE": "Tasks",
+                "LIST": "Job list",
+                "EDIT": "Job change",
+                "NEW": {
+                    "TITLE": "New job"
+                }
+            },
+            "MINIMUM": {
+                "TITLE": "Minimum",
+                "LIST": "Minimum list",
+                "DETAIL": "Minimum detail",
+                "EDIT": "Minimum change",
+                "NEW": {
+                    "TITLE": "New minimum"
+                }
+            },
+            "PERCENTAGES": {
+                "TITLE": "Percentages",
+                "LIST": "Percentage list",
+                "DETAIL": "Percentage detail",
+                "EDIT": "Change percentage",
+                "NEW": {
+                    "TITLE": "New percentage"
+                }
+            },
+            "WORKSTATIONS": {
+                "TITLE": "Locations",
+                "LIST": "List of stations",
+                "DETAIL": "Workstation detail",
+                "EDIT": "Change location",
+                "NEW": {
+                    "TITLE": "New location"
+                }
+            },
+            "THRESHOLDS": {
+                "TITLE": "Thresholds",
+                "LIST": "Thresholds list",
+                "DETAIL": "Threshold detail",
+                "EDIT": "Change threshold",
+                "FM": "Hours per week (FM)",
+                "NEW": {
+                    "TITLE": "New threshold"
+                }
+            },
+            "TEAMS": {
+                "TITLE": "Teams",
+                "DETAIL": "Team details",
+                "LIST": "Teams list",
+                "EDIT": "Edit team",
+                "NEW": {
+                    "TITLE": "New team"
+                }
+            },
+            "TERMINALS": {
+                "TITLE": "Terminals",
+                "LIST": "Terminal list",
+                "EDIT": "Terminal Edit",
+                "DETAIL": "Terminal details",
+                "SENDING-PORT": "Command sending port",
+                "ADDRESS": {
+                    "PHYSICAL": "Physical address",
+                    "LOGICAL": "Logical address"
+                },
+                "INTER-TIME": "Maximum route interval (minutes)",
+                "ACCESS": "Mandatory access terminal",
+                "USER": {
+                    "TITLE": "User and security",
+                    "HASH": "Hash transaction",
+                    "CRYPT": "Encryption password",
+                    "BIO": "Biometric",
+                    "RECEIVE-BIO": "Biometric reception"
+                },
+                "TYPES": {
+                    "DIRECT": "Direct",
+                    "SLAVE": "Slave"
+                },
+                "CONNECTION": {
+                    "TITLE": "Connection settings",
+                    "FTP": "FTP Port",
+                    "IP": "IP sending commands"
+                },
+                "TRANSACTIONS": {
+                    "RECEIVED": "Received transaction format",
+                    "ARCHIVED": "Archived transaction format"
+                },
+                "TERMINALTYPE": "Terminal type",
+                "CAUSALS": "Causes of three digits",
+                "SPECIALS": "Special functions",
+                "NEW": {
+                    "TITLE": "New terminal"
+                }
+            },
+            "PERIODICAL-ELABORATION": {
+                "TITLE": "Periodic processing"
+            },
+            "CAUSAL-ROUNDING-BANDS": {
+                "TITLE": "Causal rounding bands",
+                "CLOSURE": "End of band closure",
+                "LIST": "List of causal rounding bands",
+                "EDIT": "Change causal rounding range",
+                "NEW": {
+                    "TITLE": "New causal rounding range"
+                }
+            },
+            "FORMULA-PAY-COLUMN-GROUPS": {
+                "TITLE": "Group voices formula",
+                "LIST": "Group list formula entries",
+                "DETAIL": "Formula item group detail",
+                "EDIT": "Edit formula entry group",
+                "NEW": {
+                    "TITLE": "New group voices formula"
+                }
+            },
+            "DAILY-WORKPLAN-CYCLES": {
+                "TITLE": "Time sequences Thu.",
+                "LIST": "List of daily time sequences",
+                "DETAIL": "Daily schedule details",
+                "EDIT": "Change daily time sequence",
+                "NEW": {
+                    "TITLE": "New daily time sequence"
+                }
+            },
+            "SEQUENCE": {
+                "SEQUENCE": "Sequence",
+                "SEQUENCES": "Sequences",
+                "LIST": "List of time sequences",
+                "EDIT": "Edit sequence",
+                "CYCLE": "Cycle",
+                "ORDER": "Order number"
+            },
+            "WEEKLY-WORKTIMES-SEQUENCE": {
+                "TITLE": "Week time sequence",
+                "DETAIL": "Weekly schedule details",
+                "NEW": {
+                    "TITLE": "New sequence"
+                }
+            },
+            "WORKTIMES-GROUP": {
+                "LIST": "Time group list",
+                "ABBR": "Time group",
+                "EDIT": "Change time group"
+            },
+            "DAILY-WORKTIMES-GROUP": {
+                "DETAIL": "Daily schedule group details",
+                "TITLE": "Time groups",
+                "AUTOMATIC-ASSIGNMENT": "In automatic assignment",
+                "ASSIGN-IF-ABSENT": "Assign if absent",
+                "NEW": {
+                    "TITLE": "New time group"
+                }
+            },
+            "WEEKLY-WORKPLAN-CYCLE-GROUPS": {
+                "LIST": "Time sequence group list",
+                "EDIT": "Change time sequence group",
+                "DETAIL": "Details group sequences times",
+                "TITLE": "Groups seq. hours wk.",
+                "SINGULAR": "Weekly schedule group",
+                "ABBR": "Sequence group",
+                "NEW": {
+                    "TITLE": "New time sequence group"
+                }
+            },
+            "ROUNDING-BANDS": {
+                "TITLE": "Rounding bands",
+                "LIST": "List of rounding ranges",
+                "DETAIL": "Rounding band details",
+                "TYPES": {
+                    "STEP": "Step",
+                    "START": "Band start",
+                    "END": "End of band",
+                    "FIXED": "Fixed",
+                    "HOURLY": "Timetable",
+                    "DIFFERENCES": "Difference"
+                },
+                "ROUND-ENTRANCE": "Entry rounding",
+                "ROUND-EXIT": "Output rounding",
+                "REBATE-ENTRANCE": "Entrance fee",
+                "REBATE-EXIT": "Exit allowance",
+                "NEW": {
+                    "TITLE": "New rounding range"
+                }
+            },
+            "REFERENCE-BANDS": {
+                "TITLE": "Reference bands",
+                "LIST": "List of reference bands",
+                "DETAIL": "Reference band details",
+                "REQUIRED": "Duty of attendance",
+                "OVERLAID": "Overlapping band",
+                "REPORT": "Carry over to the previous day",
+                "FLEXIBILITY": "Daily flexibility",
+                "VALUE": "Flexibility value",
+                "NEW": {
+                    "TITLE": "New reference band"
+                }
+            },
+            "CALENDARS": {
+                "TITLE": "Calendars",
+                "LIST": "Calendar list",
+                "DETAIL": "Calendar details",
+                "EDIT": "Change calendar",
+                "NEW": {
+                    "TITLE": "New calendar"
+                }
+            },
+            "BADGES": {
+                "TITLE": "Badge",
+                "LIST": "Badge list",
+                "DETAIL": "Badge details",
+                "EDIT": "Edit badge",
+                "TYPES": {
+                    "PERSON": "Person",
+                    "CHECK-POINT": "Control point",
+                    "VISITOR": "Visitor",
+                    "OPERATOR": "Operator"
+                },
+                "NEW": {
+                    "TITLE": "New badge"
+                }
+            },
+            "CUSTOMERS": {
+                "TITLE": "Customers",
+                "LIST": "Customer list",
+                "DETAIL": "Customer details",
+                "EDIT": "Edit customer",
+                "NEW": {
+                    "TITLE": "New customer"
+                }
+            },
+            "FIELDS": {
+                "NAME": "Entry",
+                "EDIT": "Edit entry"
+            },
+            "PAY-COLUMNS": {
+                "DETAIL": "Voice details",
+                "TITLE": "Entries",
+                "LIST": "List of entries",
+                "EDIT": "Edit entry",
+                "EXCLUDE": "Exclude (weekly hours from total hours)",
+                "COMPENSATE": {
+                    "NAME": "Compensation",
+                    "DAY": "Daily compensation",
+                    "PERIOD": "Periodic compensation"
+                },
+                "RECLASSIFICATION": {
+                    "PERIOD": "Reclassification period",
+                    "LIMIT": "Threshold reclassification for the period"
+                },
+                "SURPLUS": "Towards overtime carry-over",
+                "PRINT-TEXT": "Press text",
+                "NEW": {
+                    "TITLE": "New entry"
+                }
+            },
+            "FORMULA-PAY-COLUMNS": {
+                "DETAIL": "Voice details",
+                "TITLE": "Formula items",
+                "SINGULAR": "Formula item",
+                "NEW": {
+                    "TITLE": "New formula entry"
+                }
+            },
+            "BRANCHES": {
+                "TITLE": "Branches",
+                "CODE": "Branch code",
+                "FILTERS": "Search branches",
+                "DETAIL": "Branch details",
+                "EDIT": "Change branch office",
+                "LIST": "List of branches",
+                "NEW": {
+                    "TITLE": "New branch"
+                }
+            },
+            "DEPARTMENTS": {
+                "TITLE": "Departments",
+                "LIST": "List of departments",
+                "DETAIL": "Department details",
+                "EDIT": "Change department",
+                "NEW": {
+                    "TITLE": "New department"
+                },
+                "GRAPH": {
+                    "TITLE": "Diagram of departments"
+                }
+            },
+            "WORKTIMES": {
+                "NAME": "Timetable",
+                "PLURAL": "Working hours",
+                "EDIT": "Change of schedule",
+                "LIST": "Timetable"
+            },
+            "DAILY-WORKTIMES": {
+                "TITLE": "Daily timetables",
+                "SINGULAR": "Daily timetable",
+                "HOURS": "Daily hours",
+                "DETAIL": "Daily schedule details",
+                "NEW": {
+                    "TITLE": "New daily timetable"
+                }
+            },
+            "WEEKLY-WORKPLANS": {
+                "TITLE": "Weekly schedules",
+                "SINGULAR": "Weekly timetable",
+                "LIST": "Weekly schedule",
+                "EDIT": "Change of weekly timetable",
+                "HOURS": "Hours per week",
+                "DETAIL": "Weekly schedule details",
+                "TOTAL": "Daily totals include non-competing receipts",
+                "NEW": {
+                    "TITLE": "New weekly timetable"
+                },
+                "DAYS": {
+                    "REPORT": "Carry-over days",
+                    "LEAVE": "Supporting days"
+                },
+                "LIMIT": {
+                    "CHECK": "Daily threshold control",
+                    "HOURS": "Daily threshold hours",
+                    "REPORT": "Carry-over threshold",
+                    "LEAVE": "Justification threshold"
+                },
+                "PAY-COLUMNS": {
+                    "PROGRESSIVE": "Progressive voice",
+                    "BALANCE": {
+                        "POSITIVE": "Item positive balance",
+                        "NEGATIVE": "Item negative balance",
+                        "LEAVE": "Justification for negative balance"
+                    },
+                    "REPORT": {
+                        "POSITIVE": "Positive carry-over item"
+                    }
+                }
+            },
+            "POSITIONS": {
+                "TITLE": "Qualifications",
+                "LIST": "Qualifications list",
+                "EDIT": "Change qualification",
+                "CURRENT": "Current Qualification",
+                "SALARCODE": "Pay code",
+                "DETAIL": "Qualification details",
+                "NEW": {
+                    "TITLE": "New qualification"
+                },
+                "GRAPH": {
+                    "TITLE": "Qualification scheme"
+                }
+            },
+            "LEAVES": {
+                "TITLE": "Justifications",
+                "CODE": {
+                    "NAME": "Supporting code",
+                    "NEW": "New supporting code",
+                    "OLD": "Old supporting code"
+                },
+                "SHIFT-TYPES": {
+                    "LOCK": "Lock",
+                    "BALANCE": "Flexible",
+                    "PLAN": "Set"
+                },
+                "LIST": "List of receipts",
+                "DETAIL": "Justification Details",
+                "EDIT": "Change of voucher",
+                "PRIORITY": "Compensation priority",
+                "TYPE": "Type (shifts)",
+                "REPORTABLE": "Carry over credit",
+                "CALLABLE": "Requested",
+                "RATE": "Priority quota current year (hours)",
+                "DAY-COUNTING": "Counting by days (print detail of daily card)",
+                "NEW": {
+                    "TITLE": "New jurisprudence"
+                }
+            },
+            "EMPLOYEES": {
+                "FILTERS": "Use filters to search for employees",
+                "TITLE": "Employees",
+                "DETAIL": "Employee details",
+                "EDIT": "Edit the information of",
+                "COUNT-NIGHT-HOURS": "Night counting",
+                "LIST": "Employees list",
+                "NEW": {
+                    "TITLE": "New employee"
+                }
+            }
+        },
+        "ACCESS": {
+            "TITLE": "Access control"
+        },
+        "PRESENCES": {
+            "TITLE": "Presence detection"
+        },
+        "PATROLS": {
+            "TITLE": "Patrols management"
+        },
+        "PRODUCTION": {
+            "TITLE": "Production control",
+            "PRODUCTION": "Production"
+        },
+        "DEVICES": {
+            "TITLE": "Device Management"
+        },
+        "SHIFTS": {
+            "TITLE": "Shift management"
+        },
+        "EARUBA": {
+            "PORT": "Bring eAruba",
+            "IP": "IP eAruba",
+            "PHPPORT": "Port eAruba php",
+            "MAXTASKS": "Maximum number of operations",
+            "LAZARUS": "Lazarus version"
+        }
+    }
+}
