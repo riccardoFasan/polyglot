@@ -21,14 +21,13 @@ class Deepl:
             print(f'\nAuthentication error: {response.status_code}\n')
 
     def get_translated_word(self, word):
-        print(f'Translating: "{word}"...')
         response = requests.get(f'{self.URL}translate?auth_key={self.KEY}&text={word}&target_lang={self.lang}&source_lang=IT')
         if response.status_code == 200:
             try:
                 translation = json.loads(response.text)['translations'][0]['text']
-                print(f'Found: "{translation}"\n')
+                print(f'Translation found: "{word}" => {translation}"')
                 return translation
             except: 
                 pass
-        print(f'No traslation found\n')
+        print(f'No traslation found for "{word}"!')
         return ''
