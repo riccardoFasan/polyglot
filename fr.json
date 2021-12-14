@@ -1,0 +1,2272 @@
+{
+  "COMMON": {
+    "YES": "Oui",
+    "NO": "Non",
+    "ALL": "Tout",
+    "ALLS": "Tous",
+    "ALLES": "Tous",
+    "NONE": "Aucun",
+    "NAME": "Nom",
+    "VERSE": "Vers",
+    "CAUSAL": "Causale",
+    "OPERATIONS": "Op\u00e9rations",
+    "ENTRANCE": "Entr\u00e9e",
+    "EXIT": "Sortie",
+    "CODE": "Code",
+    "ORDER": "Commandez",
+    "GROUP": "Groupe",
+    "MONITORING": "Surveillance",
+    "DEPENDS-ON": "Cela d\u00e9pend de",
+    "IDENTIFIER": "Identifiant",
+    "TYPE": "Type",
+    "GENERAL": "G\u00e9n\u00e9ral",
+    "OTHER": "Plus de",
+    "DELTAS": "Discriminateurs",
+    "OFFSET": "D\u00e9calage",
+    "OPTIONS": "Options",
+    "DELIMITER": "D\u00e9limiteur",
+    "LINE": "Ligne",
+    "FILE": "Fichiers",
+    "HASH": "Hash",
+    "DATA": "Donn\u00e9es",
+    "DETAILS": "D\u00e9tails sur",
+    "RUNNING": "Ex\u00e9cution",
+    "LIMIT": "Seuil",
+    "SCRAP": "Ferrailleur",
+    "SCORE": "Score",
+    "CYCLICALITY": "Cyclicit\u00e9",
+    "PRIORITY": "Priorit\u00e9s",
+    "LANGUAGE": "Langue",
+    "POSITION": "Localisation",
+    "FORMATS": {
+      "EXPORT": "Format d'exportation",
+      "VIEW": "Format d'affichage",
+      "PRINT": "Format d'impression"
+    },
+    "PAGINATION": {
+      "NEXT": "Suivant",
+      "END": "Fin",
+      "START": "D\u00e9but",
+      "PREVIOUS": "Dos"
+    },
+    "DIRECTION": {
+      "ENTER": "Entrez",
+      "EXIT": "Sortie",
+      "BOTH": "Entr\u00e9e/Sortie"
+    },
+    "RESULTS": {
+      "TYPE": "Type de r\u00e9sultat",
+      "NAME": "R\u00e9sultat",
+      "CARD": "Carte de r\u00e9sultats",
+      "VALUE": "Valeur du r\u00e9sultat"
+    },
+    "VALUE": {
+      "NAME": "Valeur",
+      "CARD": "\u00c9tiquette de valeur",
+      "TYPE": "Type de valeur"
+    },
+    "PATHS": {
+      "PHOTO": "Chemin des photos"
+    },
+    "MATH": {
+      "PERCENTAGE": "Pourcentage",
+      "SURPLUS": "Exc\u00e8s",
+      "DEFICIENCY": "D\u00e9fauts",
+      "RESULT": "R\u00e9sultat",
+      "RATIO": "Rapport",
+      "MAX": "Massimo",
+      "MIN": "Minimum",
+      "VARIABLE": "Variable",
+      "CONSTANT": "Constant",
+      "OPERATOR": "Op\u00e9rateur",
+      "SUM": "Somme",
+      "ZEROES": "Zeri",
+      "DIVISION": "Division",
+      "MULTIPLICATION": "Multiplication",
+      "SUBTRACTION": "Soustraction",
+      "OPERATION": "Op\u00e9ration arithm\u00e9tique",
+      "OPERATING": "Fonctionnement",
+      "OPERATING-TYPE": "Type d'op\u00e9rande",
+      "CALCULATION": "Calcul",
+      "PARAMETERS": "Param\u00e8tres",
+      "NEW": "Nouvelle valeur",
+      "OF": "sur",
+      "INSTANCE": "Instance",
+      "BOOLEANS": {
+        "TRUE": "V\u00e9ritable",
+        "FALSE": "Faux",
+        "IF": {
+          "TRUE": "Si c'est le cas",
+          "FALSE": "Si c'est faux"
+        }
+      }
+    },
+    "BOARDS": {
+      "SINGULAR": "Tableau d'affichage",
+      "UPLOAD": "T\u00e9l\u00e9charger le tableau d'affichage"
+    },
+    "ORDERING": {
+      "QUALIFY": "Entreprise, titre et badge",
+      "BADGE": "Entreprise et badge",
+      "LASTNAME": "Entreprise et nom de famille",
+      "DEPARTMENT": "Entreprise, d\u00e9partement et badge"
+    },
+    "FORMAT": {
+      "VALUE": {
+        "NAME": "Format de la valeur",
+        "SEXAGESIMAL": "Sexag\u00e9simal",
+        "CENTESIMAL": "Cent\u00e9simal"
+      }
+    },
+    "TEXT": {
+      "NOTE": "Note",
+      "NOTES": {
+        "NOTE-1": "Note 1",
+        "NOTE-2": "Note 2"
+      },
+      "MEMO": "M\u00e9mo",
+      "MESSAGE": "Message",
+      "TEXT": "Texte",
+      "COMMENT": "Commentaire",
+      "CAPTION": "L\u00e9gende",
+      "SUMMARY": "R\u00e9sum\u00e9"
+    },
+    "DEVICES": {
+      "TERMINAL": "Terminal",
+      "DEVICE": "Dispositif"
+    },
+    "SETTINGS": {
+      "VISIBLE": "Consultable sur",
+      "PRINTABLE": "Imprimable",
+      "COVERABLE": "Compenser",
+      "IGNORE": "Non g\u00e9r\u00e9 (traitement)",
+      "EXCLUDE": "Exclure (g/m)"
+    },
+    "FEATURE": {
+      "NAME": "Fonction",
+      "FUNCTIONS": {
+        "ADD": "Ajouter",
+        "COPY": "Copie",
+        "LIST": "Liste",
+        "SPECIAL": "Sp\u00e9cial",
+        "BUILD": "Construire",
+        "ELAB": "Elabor\u00e9",
+        "MOD": "Modifier",
+        "CAN": "Supprimer",
+        "HELP": "Guide de l'utilisateur",
+        "PRINT": "Imprimer"
+      }
+    },
+    "QUANTITY": {
+      "MAX": "Quantit\u00e9 maximale",
+      "MIN": "Quantit\u00e9 minimale",
+      "NUMBER": "Num\u00e9ro"
+    },
+    "SELECT": {
+      "EMPTY": "Aucun \u00e9l\u00e9ment trouv\u00e9"
+    },
+    "SCRIPT": {
+      "FILE": "Scripts (fichiers)",
+      "NAME": "Script",
+      "PRIORITY": "Priorit\u00e9s du script",
+      "CONFIGURED": "Script configur\u00e9",
+      "PRE-PROCESSING": "Scripts de pr\u00e9traitement",
+      "CONFIGURED-PRE-PROCESSING": "Script de pr\u00e9traitement (configur\u00e9)"
+    },
+    "MODES": {
+      "NAME": "Mode",
+      "REQUIRED": "Obligatoire",
+      "REQUIREED": "Obligatoire",
+      "OPTIONAL": "En option",
+      "FIELDS": "Mode vocal",
+      "WORKTIMES": "Modes de fonctionnement",
+      "MANUAL": "Mode manuel",
+      "STAMPING": "Mode d'emboutissage",
+      "ELABORATION": "Mode de traitement",
+      "ASSIGNMENT": "M\u00e9thode d'allocation",
+      "ADD": "Mode d'insertion",
+      "PRESENCE": "Pr\u00e9sence",
+      "EXEMPT": "Exempt"
+    },
+    "ERRORS": {
+      "SESSION-EXPIRED": {
+        "TITLE": "Session expir\u00e9e",
+        "MESSAGE": "Vous n'\u00eates pas authentifi\u00e9, veuillez vous connecter \u00e0 nouveau pour continuer."
+      },
+      "FATAL-ERROR": {
+        "TITLE": "Erreur",
+        "MESSAGE": "Une erreur inattendue s'est produite, veuillez r\u00e9essayer plus tard"
+      },
+      "DATE": {
+        "PHYSICLAWSBROKEN": "D\u00e9sol\u00e9, mais ce logiciel n'est pas encore capable de briser les lois de la physique. Veuillez saisir une date de fin ult\u00e9rieure \u00e0 la date de d\u00e9but."
+      },
+      "UNAUTHORIZED": {
+        "TITLE": "Non activ\u00e9.",
+        "MESSAGE": "Vous n'\u00eates pas autoris\u00e9 \u00e0 utiliser cette fonctionnalit\u00e9 de l'Oltre Suite.",
+        "LICENSE": "Votre licence n'inclut pas cette fonctionnalit\u00e9 de l'Oltre Suite. Contactez-nous pour d\u00e9bloquer de nouvelles fonctions."
+      },
+      "NO-DATA": "La recherche n'a donn\u00e9 aucun r\u00e9sultat.",
+      "FORMS": {
+        "GENERIC": "Des erreurs de validation se sont produites, les informations saisies peuvent ne pas \u00eatre correctes. Veuillez les corriger pour continuer.",
+        "REQUIRED": "Champ obligatoire",
+        "INVALID-EMAIL": "Courriel non valide",
+        "VALIDATION": "Donn\u00e9es non valides",
+        "NOT-UNIQUE": "Cette valeur est d\u00e9j\u00e0 utilis\u00e9e"
+      }
+    },
+    "SUCCESS": {
+      "TITLE": "Op\u00e9ration termin\u00e9e.",
+      "TEXT": "Donn\u00e9es sauvegard\u00e9es avec succ\u00e8s",
+      "PASSWORD": "Votre mot de passe a \u00e9t\u00e9 mis \u00e0 jour avec succ\u00e8s.",
+      "DELETE": "Donn\u00e9es supprim\u00e9es avec succ\u00e8s",
+      "UPDATE": "Les donn\u00e9es sont correctement mises \u00e0 jour",
+      "CREATE": "Nouvel objet cr\u00e9\u00e9 correctement"
+    },
+    "FORMS": {
+      "MANDATORY-FIELDS": "Les champs marqu\u00e9s d'un * sont obligatoires",
+      "EMPTY": "Il n'y a actuellement aucun contenu disponible pour cette page.",
+      "FROM": "De",
+      "TO": "A",
+      "ERROR": "Erreur",
+      "ERRORS": "Erreurs",
+      "WARNING": "Attention",
+      "DATE": "Choisissez une date",
+      "EMAIL": "Courriel :",
+      "FAX": "Fax",
+      "WWW": "Site web",
+      "FIELDS": {
+        "FIELD": "Camp",
+        "FIELDS": "Champs",
+        "ADDITIONALS": "Champs suppl\u00e9mentaires"
+      },
+      "MAXLENGTH": "Maximum {{maxLength}} de caract\u00e8res",
+      "MINLENGTH": "Minimum {{minLength}} de caract\u00e8res",
+      "MAX": "Maximum {{max}}",
+      "MIN": "Minimum {{min}}",
+      "LENGTHS": "Longueur comprise entre {{ minLength }} et {{ maxLength }} caract\u00e8res"
+    },
+    "PLACE": {
+      "CITY": "Ville",
+      "ZONE": "Zone",
+      "STATE": "Statut",
+      "ADDRESS": "Adresse",
+      "ZIP": "CODE POSTAL",
+      "LATITUDE": "Latitudinde",
+      "LONGITUDE": "Longitude",
+      "RESIDENCE-DOMICILE": "R\u00e9sidence et domicile",
+      "DOMICILE": {
+        "NAME": "Domicile",
+        "ADDRESS": "Adresse du domicile",
+        "ZIPCODE": "Code postal (domicile)",
+        "PROVINCE": "Province de domicile"
+      },
+      "RESIDENCE": {
+        "NAME": "R\u00e9sidence",
+        "ADDRESS": "Adresse du domicile",
+        "ZIPCODE": "Code postal (r\u00e9sidence)",
+        "PROVINCE": "Province de r\u00e9sidence"
+      },
+      "LENGTH": "Longueur",
+      "HIGH": "Haut",
+      "MIDDLE": "Moyen",
+      "LOW": "Basse",
+      "FLOOR": "Plan",
+      "ROOM": "Chambre"
+    },
+    "MEDICAL": {
+      "BLOODGROUP": "Groupe sanguin",
+      "ALLERGIES": "Allergies",
+      "EMERGENCY-CONCTACT": "Contact d'urgence"
+    },
+    "MILITARY": {
+      "CODE": "Code militaire",
+      "SERVICEYEARS": "Ann\u00e9es de service",
+      "RANK": "Grade",
+      "SPECIALTY": "Sp\u00e9cialit\u00e9s",
+      "INTERNSHIP": "Stagiaire"
+    },
+    "CLOTHING": {
+      "SIZE": {
+        "PANTS": "Taille du pantalon",
+        "SHIRT": "Taille de la chemise",
+        "SHOES": "Taille des chaussures"
+      }
+    },
+    "TAX": {
+      "IBAN": "IBAN",
+      "CODE": "Code des imp\u00f4ts"
+    },
+    "TIME": {
+      "TIMEZONE": "Fuseau horaire (GMT)",
+      "DAYLIGHT": "L'heure d'\u00e9t\u00e9",
+      "PATRON": "Saint Patron",
+      "SINGLE-DAYS": "Jours simples",
+      "AT": "Sur",
+      "TO": "A",
+      "INTERVAL": "Intervalle horaire",
+      "USE-HALFS": "Utiliser les demi-heures",
+      "HALF-HOUR": "Une demi-heure",
+      "SINCE": "De",
+      "PERIOD": "P\u00e9riode",
+      "DATE": "Date",
+      "DAYOFF": "Reposez-vous",
+      "DAYS-NUMBER": "Nombre de jours",
+      "START": "D\u00e9but",
+      "END": "Fin",
+      "DATE-START": "Date de d\u00e9but",
+      "DATE-END": "Date de fin",
+      "TIME-OPENING": "Heures d'ouverture",
+      "TIME-CLOSURE": "Heure de fermeture",
+      "LOCATION-DATE": "Date, heure et lieu",
+      "HOLIDAYS-TYPE": {
+        "RECURRING": "Vacances r\u00e9currentes (chaque ann\u00e9e)",
+        "ONEOFF": "Des vacances exclusives cette ann\u00e9e"
+      },
+      "ADJECTIVES": {
+        "DAY": "Quotidiennement",
+        "WEEK": "Hebdomadaire",
+        "MONTH": "Mensuel",
+        "YEAR": "Annuel",
+        "DATE": "En date du"
+      },
+      "SCHEDULE": "Horaire",
+      "HOUR": "Maintenant",
+      "HOURS": "Heures",
+      "TOTAL-HOURS": "Total des heures",
+      "MIN": "Heures minimum",
+      "MAX": "Heures maximales",
+      "DAY": "Jour",
+      "DAYS": "Jours",
+      "CALENDAR": "Calendrier",
+      "HOLIDAYS": "Vacances",
+      "WEEKLY": "Hebdomadaire",
+      "MONTHLY": "Mensuel",
+      "WEEK": {
+        "FREQUENCY": "Fr\u00e9quence hebdomadaire",
+        "START": "D\u00e9but du jour de la semaine",
+        "STOP": "Fin de la journ\u00e9e de la semaine",
+        "WEEK": "Semaine",
+        "END": "Week-end",
+        "MONDAY": "Lundi",
+        "TUESDAY": "Mardi",
+        "WEDNESDAY": "Mercredi",
+        "THURSDAY": "Jeudi",
+        "FRIDAY": "Vendredi",
+        "SATURDAY": "Samedi",
+        "SUNDAY": "Dimanche",
+        "HOLIDAY": "Festive"
+      },
+      "EXPIRATION": "Date limite",
+      "PREVIOUS-DAYS": "Jours pr\u00e9c\u00e9dents",
+      "MINUTES": "Proc\u00e8s-verbal",
+      "SECONDS": "Secondes",
+      "MONTH": "Mois",
+      "YEAR": "Ann\u00e9e",
+      "WORKED": "Jours travaill\u00e9s",
+      "LIMIT": {
+        "MINUTES": "Seuil (minutes)",
+        "HOURS": "Seuil (heures)"
+      },
+      "DAYTIME": "En journ\u00e9e",
+      "NIGHTIME": "Nocturne",
+      "PREVIOUS-DAY": "Jour pr\u00e9c\u00e9dent",
+      "BREAKFAST": {
+        "START": "Heure de d\u00e9but du petit-d\u00e9jeuner",
+        "END": "Heure de fin du petit-d\u00e9jeuner"
+      },
+      "LUNCH": {
+        "START": "Heure de d\u00e9but du d\u00e9jeuner",
+        "END": "Fin de l'heure du d\u00e9jeuner"
+      },
+      "SNACK": {
+        "START": "L'heure du go\u00fbter",
+        "END": "Fin de l'heure du go\u00fbter"
+      },
+      "DINNER": {
+        "START": "Heure de d\u00e9but du d\u00eener",
+        "END": "Fin de l'heure du d\u00eener"
+      }
+    },
+    "ROOT": {
+      "NAME": "Admin",
+      "LOGS": "Activer le journal",
+      "EXPORT": "Transactions d'exportation",
+      "HISTORY": "Dossier historique",
+      "ROOT-NAME": "Nom d'utilisateur de l'administrateur",
+      "ROOT-PASSWORD": "Mot de passe administrateur",
+      "PARAMETERS-LABEL": "Param\u00e8tres administratifs",
+      "DATABASES": {
+        "ORACLE1": "Oracle type 1",
+        "SQL1": "Microsoft SQL Server type 1",
+        "FTP1": "Type de fichier FTP 1",
+        "STANDARD-FTP": "Normes FTP"
+      }
+    },
+    "PERMISSIONS": {
+      "GRANTED": "Accord\u00e9",
+      "GRANTEEDS": "Accord\u00e9",
+      "DENIED": "Refus\u00e9",
+      "DENIEEDS": "Refuser",
+      "AUTHORIZATION": "Autorisation",
+      "ACCESS": {
+        "NAME": "Permis d'acc\u00e8s",
+        "ASUSER": "Connectez-vous en tant qu'utilisateur",
+        "API": "Acc\u00e8s aux API",
+        "REQUEST": {
+          "TRANSACTIONS": "Demande de transaction",
+          "JUSTIFICATIONS": "Demande de justification",
+          "OVERTIME": "Demande d'heures suppl\u00e9mentaires",
+          "CARD": "Demande de carte",
+          "FROM-CARD": "Demande de la carte",
+          "CARD-MENU": "Acc\u00e8s au menu de la carte",
+          "AUTH": "Demande d'autorisation",
+          "OVERTIME-AUTH": "Demande d'heures suppl\u00e9mentaires",
+          "AUTO-AUTH": "Demande automatique d'autorisation",
+          "MANUAL-AUTH": "Demande manuelle d'autorisation"
+        },
+        "OUTCOME": {
+          "AUTH": "R\u00e9sultat de la demande d'autorisation",
+          "OVERTIME-AUTH": "R\u00e9sultat de la demande d'autorisation extraordinaire"
+        },
+        "ANOMALIES": "Afficher les anomalies"
+      }
+    },
+    "ANOMALIES": {
+      "ANOMALY": "Anomalie",
+      "ANOMALIES": "Anomalies"
+    },
+    "VALIDITY": {
+      "NAME": "Validit\u00e9",
+      "START": "D\u00e9but de la validit\u00e9",
+      "END": "Fin de validit\u00e9"
+    },
+    "TEAM": {
+      "NAME": "\u00c9quipe",
+      "PLURAL": "\u00c9quipes"
+    },
+    "COSTS": {
+      "HOURLY": "Co\u00fbt horaire",
+      "BONUS": "Bonus",
+      "EUROS": "Co\u00fbt en euros",
+      "MAINTENANCE": "Co\u00fbt de la maintenance",
+      "COSTSALARY": "Co\u00fbts et salaires",
+      "SHIFT-SIMULATION": "Co\u00fbt de l'employ\u00e9 dans la simulation d'\u00e9quipes",
+      "MONTHLY": "Co\u00fbt mensuel",
+      "ACCRUALS": "Comptes de r\u00e9gularisation",
+      "ALLOWANCE": "Allocations",
+      "DAILY-GROSS": "Brut journalier",
+      "MEAL": "Frais de repas",
+      "MEAL-NUMBER": {
+        "MEAL-1": "Co\u00fbt du repas 1",
+        "MEAL-2": "Frais de repas 2",
+        "MEAL-3": "Frais de repas 3"
+      },
+      "ROUNDING": "Arrondir",
+      "ROUNDING-VALUE": "Valeur arrondie",
+      "PAID": {
+        "DAYS": "Jours pay\u00e9s",
+        "HOURS": "Heures r\u00e9mun\u00e9r\u00e9es"
+      },
+      "CHECKS": {
+        "FAMILYDAYS": "Jours d'allocations familiales"
+      },
+      "DM10": "DM10 jours"
+    },
+    "VALUES": {
+      "HOURLY": "Valeur horaire",
+      "BY-TRANSACTION": "Valeur de la transaction"
+    },
+    "LANGUAGES": {
+      "IT": "Italien",
+      "EN": "Anglais",
+      "ES": "Espagnol",
+      "FR": "Fran\u00e7ais",
+      "DE": "Allemand",
+      "BG": "Bulgare"
+    },
+    "COMPANY": {
+      "COMPANY": "Entreprise",
+      "DEPARTMENT": "D\u00e9partement",
+      "BRANCH": "Branche",
+      "OPENING": "Ouverture",
+      "CLOSURE": "Fermeture",
+      "BUSINESS-COST": "Imput\u00e9 \u00e0 l'entreprise"
+    },
+    "GENDERS": {
+      "MALE": "Homme",
+      "FEMALE": "Femme",
+      "OTHER": "Plus de"
+    },
+    "CUSTOMERS": {
+      "VAT": "Num\u00e9ro de TVA",
+      "CUSTOMER": "Client"
+    },
+    "EMPLOYEE": {
+      "KINSHIP": "Degr\u00e9 de relation",
+      "WORKERS": "Travailleurs",
+      "INAIL": "Position de l'INAIL",
+      "PAYROLL-NUMBER": "Num\u00e9ro de paie",
+      "FIRSTNAME": "Nom",
+      "LASTNAME": "Nom de famille",
+      "LASTNAME-NOTE": "Nom de famille de la note",
+      "MOTHERLASTNAME": "Nom de famille de la m\u00e8re",
+      "EMPLOYEE": "Employ\u00e9",
+      "QUALIFICATION": "Qualification",
+      "CURRENT-QUALIFICATION": "Qualification actuelle",
+      "TYPOLOGY": "Type d'employ\u00e9",
+      "BADGE": "Badges",
+      "ALTERNATIVE-BADGE": "Badge alternatif",
+      "BADGE-AUTOMATATION": "Badgeage automatis\u00e9",
+      "NUMBER": "Num\u00e9ro de s\u00e9rie",
+      "HIRING": "Recrutement",
+      "DISMISSAL": "Fin de la relation",
+      "NIGHT-SHIFT": "Travail de nuit",
+      "DIVIDED": "Heures divis\u00e9es",
+      "ACTIVE": "En vigueur",
+      "INACTIVE": "Rejet\u00e9",
+      "BEGIN": "Heure de d\u00e9but",
+      "BEGIN-MINUTES": "Temps de d\u00e9marrage (minutes)",
+      "END": "Heure de fin",
+      "END-MINUTES": "Temps de fin (minutes)",
+      "STAMPING-REQUIRED": "Obligation de timbrer",
+      "CITIZENSHIPCODE": "Code de citoyennet\u00e9",
+      "PERSONAL-EMAIL": "Courriel personnel",
+      "CONCTRACT-EXPIRATION": "Expiration du contrat",
+      "GENRE": "Genre",
+      "CHILDREN-NUMBER": "Nombre d'enfants",
+      "MARITAL-STATUS": "\u00c9tat civil",
+      "MARITAL-OPTIONS": {
+        "CELIBATE": "Simple",
+        "FREE": "Gratuit",
+        "WIDOWED": "Veuf ou veuve",
+        "SEPARATED": "S\u00e9par\u00e9/divorc\u00e9",
+        "MARRIED": "Mari\u00e9 \u00e0"
+      },
+      "SHIFT-WORKTIMES": "\u00c9quipes et heures de travail",
+      "SHIFT-TYPE": "Type d'\u00e9quipe",
+      "LEVEL": "Niveau",
+      "PARKINGUSE": "Utilisation du parking",
+      "SAVINGSBANKMEMBER": "Membre de la Caisse d'\u00e9pargne",
+      "SYNDICALISED": "Syndiqu\u00e9",
+      "CATALOG": "Catalogue",
+      "VACATION": "Vacances",
+      "FIELDS": {
+        "NAME": "Champs libres",
+        "FIELD-1": "Champ libre 1",
+        "FIELD-2": "Champ libre 2",
+        "FIELD-3": "Champ libre 3",
+        "FIELD-4": "Champ libre 4",
+        "FIELD-5": "Champ libre 5"
+      },
+      "PRESENCE": "Pr\u00e9sence",
+      "EXEMPT": "Exempt"
+    },
+    "PAYSLIPS": {
+      "PAYSLIP": "Cedolino",
+      "PAYSLIPS": "Coupons",
+      "DOWNLOAD": "Coupon de t\u00e9l\u00e9chargement"
+    },
+    "CREDIT": {
+      "STATE": "Cr\u00e9dit d'\u00c9tat",
+      "TYPE": "Type de cr\u00e9dit",
+      "CODE": "Code de cr\u00e9dit"
+    },
+    "LICENCES": {
+      "DRIVE": {
+        "NAME": "Permis de conduire",
+        "RELEASE-DATE": "Date de d\u00e9livrance de la licence"
+      }
+    },
+    "EDUCATION": {
+      "SCHOOL": "\u00c9cole",
+      "CERTIFICATE": {
+        "NAME": "Certificat",
+        "SCORE": "Score (certificat)",
+        "PLACE": "Lieu (certificat)"
+      },
+      "EDUCATION-CERTIFICATE": "Qualification",
+      "UNIVERSITY": "Universit\u00e9",
+      "DEGREE-SCORE": "Note du dipl\u00f4me"
+    },
+    "INFO": {
+      "MASTER": "Donn\u00e9es de base",
+      "INFO": "Information",
+      "GENERAL": "Informations g\u00e9n\u00e9rales",
+      "DOCUMENTATION": "Manuel",
+      "TIPS": "Conseils",
+      "GDPR": "GDPR",
+      "STATUS": "Statut",
+      "CONCTACT": "Informations de contact",
+      "USED": "En cours d'utilisation",
+      "USEDBY": "Utilis\u00e9 par",
+      "WORK": "Informations sur l'emploi",
+      "PERSONAL": "Informations personnelles",
+      "CONCTRACT": "Informations sur le contrat",
+      "CREDIT": "Cr\u00e9dit",
+      "EDUCATION": "\u00c9ducation",
+      "DRIVE": "Permis de conduire",
+      "MEDICAL": "Informations m\u00e9dicales",
+      "MILITARY": "Informations militaires",
+      "CLOTHING": "Tailles des v\u00eatements",
+      "MEAL": "Repas"
+    },
+    "ACCOUNT": {
+      "ACCOUNT": "Profil",
+      "USER": "Utilisateur",
+      "INFO": "Informations sur le profil",
+      "SETTINGS": "Param\u00e8tres du profil",
+      "LOGOUT": "Sortie",
+      "USERNAME": "Nom de l'utilisateur",
+      "PASSWORD": "Mot de passe",
+      "SITE": ""
+    },
+    "ACTIONS": {
+      "GUIDE": "Aller au guide",
+      "WRITE": "\u00c9crire \u00e0",
+      "USE": "Utilisez",
+      "CHANGE-FILTERS": "Modifier les filtres",
+      "CONTACT-US": "Nous contacter",
+      "DRAG-TO-CHANGE": "Glisser-d\u00e9poser pour modifier",
+      "DETAILS": "Voir les d\u00e9tails",
+      "DEPENDECIES": "Voir le diagramme des d\u00e9pendances",
+      "EDIT": "Modifier",
+      "EXPAND-MINIMIZE": "Cliquez pour agrandir ou r\u00e9duire",
+      "EXPAND": "Cliquez pour d\u00e9velopper",
+      "MINIMIZE": "Cliquez pour r\u00e9duire",
+      "CLICK-TO-VIEW": "Cliquez pour voir",
+      "CLICK-TO-REVERSE": "Cliquez pour inverser",
+      "NAME": "Action",
+      "ROUND": "Ronde",
+      "EXPORT": "Exportation",
+      "VIEW": "Voir",
+      "NONE": "Pas d'action",
+      "SELECTION": "S\u00e9lection",
+      "MANUAL": "R\u00e9gler manuellement",
+      "PAGES": {
+        "RELOAD": "Recharger la page",
+        "HOME": "Retour \u00e0 l'accueil",
+        "BACK": "Dos"
+      },
+      "CONTINUE": "Suite du site",
+      "RENAME": "Renommer",
+      "CLOSE": "Fermer",
+      "PRINT": "Imprimer",
+      "XML": "Xml",
+      "PREVIOUS-MONTH": "Mois pr\u00e9c\u00e9dent",
+      "NEXT-MONTH": "Le mois prochain",
+      "UNDO": "Annuler",
+      "SAVE": "Sauvez",
+      "COMMIT": "Sauvegarder les changements",
+      "EDIT-FIELD": "Pour \u00e9diter, s\u00e9lectionnez directement le champ \u00e0 \u00e9diter.",
+      "NEXT": "Suivant",
+      "PREVIOUS": "Pr\u00e9c\u00e9dent",
+      "NEW": "Nouveau",
+      "CREATE": "Cr\u00e9er",
+      "EXECUTE": "Ex\u00e9cuter",
+      "ENABLE-ALL": "Activer tous les",
+      "DISABLE-ALL": "D\u00e9sactiver tout",
+      "HANDLE": {
+        "NAME": "G\u00e9rer",
+        "ELABORATION": "G\u00e9rer en cours de traitement"
+      },
+      "DELETION": {
+        "DELETE": "Supprimer",
+        "TITLE": "Vous \u00eates s\u00fbr de vouloir supprimer",
+        "TEXT": "Toutes les donn\u00e9es de cet objet et toutes ses d\u00e9pendances seront perdues. L'action n'est pas r\u00e9versible.",
+        "ALL": "Supprimer tout"
+      },
+      "ADD-TO-BOOKMARKS": "Cliquez pour ajouter aux favoris",
+      "REMOVE-FROM-BOOKMARKS": "Cliquez pour supprimer des favoris",
+      "SEARCH": {
+        "SEARCH": "Recherche",
+        "NAME": "Recherche par nom",
+        "FEATURE": "Recherchez une fonction dans",
+        "CODENAME": "Recherche par nom ou par code",
+        "CITYCODENAME": "Recherche par nom, code ou ville",
+        "NUMBERCODENAME": "Recherche par pr\u00e9nom, nom de famille ou num\u00e9ro de s\u00e9rie",
+        "IDENTIFIER": "Recherche par ID",
+        "USER": "Recherche par nom d'utilisateur"
+      },
+      "HIDE": {
+        "COMPANY": "Cacher la soci\u00e9t\u00e9",
+        "DEPARTMENT": "Cacher le d\u00e9partement",
+        "QUALIFY": "Cacher la qualification",
+        "BADGE": "Cacher les badges",
+        "ROLL": "Cacher le num\u00e9ro de s\u00e9rie",
+        "STATUS": "Cacher le statut",
+        "TRANSACTIONS": "Cacher les transactions",
+        "NOTE": "Cacher le m\u00e9mo"
+      },
+      "RANDOMIZE": "Faire la causalit\u00e9",
+      "NORMALIZE": "Normaliser",
+      "COMPARE": "Comparez"
+    },
+    "BIRTH": {
+      "DATE": "Date de naissance",
+      "PLACE": "Lieu de naissance",
+      "PROVINCE": "Province de naissance"
+    },
+    "CONTACTS": {
+      "EMAIL": "Courriel :",
+      "PHONE": "T\u00e9l\u00e9phone",
+      "MOBILE": "Mobile",
+      "INTERNAL-PHONE": "T\u00e9l\u00e9phone interne"
+    },
+    "TOTAL-HOURS": {
+      "TYPE": "Type d'heures",
+      "TYPES": {
+        "WORKTIME": "Du temps de travail",
+        "CONCTRACT": "Par contrat"
+      },
+      "TOTAL-HOURS": "Heures",
+      "WEEKLY-TOTAL-HOURS": "Heures par semaine",
+      "DAILY-TOTAL-HOURS": "Nombre d'heures par jour",
+      "PERCENTAGE": "Pourcentage du total des heures",
+      "VALUE": "Valeur fixe par heure",
+      "CONCURS": "Contribue au nombre total d'heures",
+      "NOT-CONCURS": "Ne compte pas dans le nombre total d'heures",
+      "REGULARS": "Heures ordinaires",
+      "OVERTIMES": "Heures extraordinaires",
+      "NOT-COUNTED": "Heures non compt\u00e9es",
+      "THEORETICAL": "Heures th\u00e9oriques"
+    },
+    "OVERTIME": {
+      "MANAGEMENT": "Gestion des heures suppl\u00e9mentaires",
+      "FIELDS": "Les voix des heures suppl\u00e9mentaires"
+    }
+  },
+  "LOGIN": {
+    "WELCOME": "Bienvenue dans la <br><strong>Suite Beyond</strong>.",
+    "TITLE": "Acc\u00e8s",
+    "SITE": "Choisir un site",
+    "ERRORS": {
+      "NOT-FOUND": "Utilisateur non trouv\u00e9.",
+      "SITE-NOT-FOUND": {
+        "TITLE": "Site non trouv\u00e9",
+        "TEXT": "Le site demand\u00e9 n'a pas pu \u00eatre trouv\u00e9."
+      },
+      "UNAUTHORIZED": {
+        "TITLE": "Utilisateur non activ\u00e9",
+        "MESSAGE": "Il semble que vous ne soyez pas en mesure d'utiliser les services Web de l'Oltre Suite."
+      },
+      "AUTHENTICATION-FAILED": {
+        "TITLE": "\u00c9chec de l'authentification",
+        "MESSAGE": "Il n'a pas \u00e9t\u00e9 possible de s'authentifier aupr\u00e8s des services Web de l'Oltre Suite. Veuillez v\u00e9rifier vos informations d'acc\u00e8s et r\u00e9essayer."
+      },
+      "ALREADY-ONLINE": {
+        "TITLE": "Utilisateur d\u00e9j\u00e0 en ligne",
+        "MESSAGE": "Il semble que vous utilisiez d\u00e9j\u00e0 les services de Suite Oltre.<br>Si vous ne reconnaissez pas cette activit\u00e9, il se peut que quelqu'un utilise vos informations d'identification \u00e0 votre insu."
+      },
+      "PASSWORD-EXPIRED": {
+        "TITLE": "Mot de passe expir\u00e9",
+        "MESSAGE": "Votre mot de passe a expir\u00e9, mettez \u00e0 jour votre mot de passe pour pouvoir acc\u00e9der aux services Web de l'Oltre Suite."
+      },
+      "SITE-UNAUTHORIZED": {
+        "TITLE": "Site non activ\u00e9",
+        "MESSAGE": "Ce site ne permet pas d'acc\u00e9der aux services Web d'Oltre Suite."
+      },
+      "NOT-ACTIVE": {
+        "TITLE": "Compte inactif",
+        "MESSAGE": "Ce compte n'est pas actif et vous n'utilisez pas la Beyond Suite."
+      },
+      "WRONG-PASSWORD": "Mot de passe incorrect."
+    }
+  },
+  "MANAGEMENT": {
+    "NOT-FOUND": {
+      "TITLE": "Page non trouv\u00e9e",
+      "LINE-1": "D\u00e9sol\u00e9, nous ne pouvons pas trouver la page que vous recherchez.",
+      "LINE-2": "Vous pouvez peut-\u00eatre trouver ce que vous cherchez ici :"
+    },
+    "ERROR": {
+      "TITLE": "Erreur interne",
+      "TEXT": "Une erreur inattendue s'est produite, veuillez essayer de recharger la page ou de retourner \u00e0 la page d'accueil. N'h\u00e9sitez pas \u00e0 nous contacter si l'erreur persiste."
+    },
+    "CONNECTION-ERROR": {
+      "TITLE": "Erreur de connexion",
+      "TEXT": "Une erreur de connexion s'est produite. Veuillez v\u00e9rifier votre connexion et r\u00e9essayer.",
+      "ACTION": "Essayez \u00e0 nouveau"
+    },
+    "NAME": "Gestion",
+    "EXTRAORDINARY": "Une gestion extraordinaire",
+    "MENU": {
+      "TITLE": "Menu"
+    },
+    "HOME": {
+      "TITLE": "Accueil",
+      "EXPIRING": {
+        "TITLE": "Mots de passe expir\u00e9s",
+        "TEXT": "Votre mot de passe a expir\u00e9. <a class=\"simple-link\" href=\"/management/system/update-password/\">Changez votre mot de passe</a> avant le"
+      },
+      "OVERVIEW": {
+        "ANOMALIES": "Anomalies",
+        "ACTIVITIES": "Activit\u00e9s",
+        "REQUESTS": "Demandes"
+      },
+      "GOTO": {
+        "ANOMALIES": "Voir toutes les anomalies",
+        "ACTIVITIES": "Voir toutes les activit\u00e9s",
+        "REQUESTS": "Voir toutes les demandes"
+      }
+    },
+    "PRINT": {
+      "PREVIEW": "Aper\u00e7u avant impression",
+      "TABLE-VIEW": "Afficher sous forme de tableau",
+      "NORMAL-VIEW": "Afficher en tant que texte"
+    },
+    "WORKSTATION": "Poste de travail",
+    "WORKTIME": {
+      "REGULAR": "Ordinaire",
+      "OVERTIME": "Extraordinaire",
+      "OVERTIME25": "Str. 25",
+      "OVERTIME75": "Str. 75",
+      "LIMIT": "Seuil des heures travaill\u00e9es"
+    },
+    "JUSTIFICATION": {
+      "JUSTIFICATION": "Justification",
+      "SURPLUS": "Justification de l'exc\u00e8s",
+      "SURPLUS-CHECK": "Contr\u00f4le de l'exc\u00e9dent unique",
+      "JUSTIFICATED-HOURS": "Heures justifi\u00e9es",
+      "CONCURS": "Elle est en concurrence avec"
+    },
+    "CANTEEN": {
+      "TITLE": "Cantine"
+    },
+    "TOOLS": {
+      "TITLE": "Outils",
+      "QUALIFICATION": {
+        "TITLE": "Autorisations"
+      },
+      "OPEN-VISITS": {
+        "TITLE": "Visites libres"
+      },
+      "VISITS": {
+        "TITLE": "Visites"
+      },
+      "MONITORING-ABSENT-PRESENT": {
+        "TITLE": "Suivi des absents/pr\u00e9sents"
+      },
+      "EDIT-DAILY-WORKPLAN": {
+        "TITLE": "Changement de l'horaire quotidien"
+      },
+      "MAINTENANCE": {
+        "TITLE": "Maintenance"
+      },
+      "LEAVES-MANAGEMENT": {
+        "TITLE": "Gestion des recettes"
+      },
+      "PAYROLL-CODES-MANAGEMENT": {
+        "TITLE": "Gestion des codes de paie"
+      },
+      "ANOMALIES-MANAGEMENT": {
+        "TITLE": "Gestion des pannes"
+      },
+      "EXCEL-EXPORT": {
+        "TITLE": "Exportation excel"
+      },
+      "RUN-SCRIPT": {
+        "TITLE": "Ex\u00e9cuter des scripts"
+      },
+      "COMPANY-DASHBOARD": {
+        "TITLE": "Entreprises de tableaux de bord"
+      },
+      "ONPREMISES-COUNT": {
+        "TITLE": "Compte OnPremises"
+      },
+      "EMPLOYEES-COUNT": {
+        "TITLE": "Compter les employ\u00e9s"
+      },
+      "BLOCK-SITE": {
+        "TITLE": "Site de blocage"
+      },
+      "DASHBOARD": {
+        "TITLE": "Tableau d'affichage"
+      },
+      "ABSENT-PRESENT": {
+        "TITLE": "Absent/pr\u00e9sent"
+      },
+      "TIMESCALE": {
+        "TITLE": "Horaire"
+      },
+      "CHECK-VERSION": {
+        "TITLE": "V\u00e9rifier la version"
+      },
+      "ITUP-USAGE": {
+        "TITLE": "Utiliser ITup"
+      },
+      "BADGE-UPLOAD": {
+        "TITLE": "T\u00e9l\u00e9charger des badges"
+      },
+      "AUTHORIZATIONS-STATUS": {
+        "TITLE": "Statut d'autorisation"
+      },
+      "EARUBA-REBOOT": {
+        "TITLE": "Red\u00e9marrer eAruba"
+      },
+      "RECOVERY": {
+        "TITLE": "R\u00e9cup\u00e9ration"
+      },
+      "TERMINAL-CHART-MONITORING": {
+        "TITLE": "Surveillance graphique du terminal"
+      },
+      "STORAGE": {
+        "TITLE": "Archivage"
+      }
+    },
+    "EXPORT": {
+      "TITLE": "Exportation",
+      "PAYROLL": {
+        "TITLE": "Exportation de la paie"
+      },
+      "MANAGEMENT": {
+        "TITLE": "Gestion de l'exportation"
+      }
+    },
+    "IMPORT": {
+      "TITLE": "Importation",
+      "TRANSACTIONS-COUNTER": {
+        "TITLE": "Transactions d'importation (compteurs)"
+      },
+      "ERRORS": {
+        "TITLE": "Erreurs d'importation"
+      },
+      "TRANSACTIONS": {
+        "TITLE": "Importer des transactions"
+      },
+      "WORKSTRATIONS": {
+        "TITLE": "Stations d'importation"
+      },
+      "UPLOAD-TRANSACTIONS": {
+        "TITLE": "T\u00e9l\u00e9chargement des transactions"
+      },
+      "XATLAS-EMPLOYEES": {
+        "TITLE": "WS XAtlas (employ\u00e9s)"
+      },
+      "XATLAS-TRANSACTIONS": {
+        "TITLE": "WS XAtlas (transactions)"
+      }
+    },
+    "RESULTS": {
+      "TITLE": "R\u00e9sultats",
+      "ABNORMAL-ROUTES": {
+        "TITLE": "Routes anormales"
+      },
+      "ABSENSES": {
+        "TITLE": "Absences"
+      },
+      "ABSENSE-COVERAGES": {
+        "TITLE": "Couverture des absences"
+      },
+      "ACTIVITY-MANAGEMENT": {
+        "TITLE": "Activit\u00e9 de gestion"
+      },
+      "BIOMETRICS": {
+        "TITLE": "Biom\u00e9trie"
+      },
+      "CHECKPOINTS": {
+        "TITLE": "Points de contr\u00f4le"
+      },
+      "COUNTERS": {
+        "TITLE": "Transactions (compteurs)"
+      },
+      "WORKSTATIONS": {
+        "TITLE": "Transactions (lieux)"
+      },
+      "WORKSTATIONS-REPORT": {
+        "TITLE": "Rapport sur les postes de travail"
+      },
+      "DETAILED-CREDIT-REPORT": {
+        "TITLE": "Rapport de cr\u00e9dit d\u00e9taill\u00e9"
+      },
+      "SUMMARY-CREDIT-REPORT": {
+        "TITLE": "R\u00e9sum\u00e9 du rapport de cr\u00e9dit"
+      },
+      "DAILY-ROUTE-REPORT": {
+        "TITLE": "Rapport quotidien sur l'itin\u00e9raire"
+      },
+      "EMPLOYEE-PHASE": {
+        "TITLE": "Rapport de phase"
+      },
+      "EMPLOYEE-REPORT": {
+        "TITLE": "Rapports des employ\u00e9s"
+      },
+      "JOB-REPORT": {
+        "TITLE": "Rapports de travail"
+      },
+      "LEAVE-REPORT": {
+        "TITLE": "Rapports de justification"
+      },
+      "MEAL-REPORT": {
+        "TITLE": "Rapport sur les repas"
+      },
+      "OPERATOR-REPORT": {
+        "TITLE": "Rapports des op\u00e9rateurs"
+      },
+      "PRODUCT-REPORT": {
+        "TITLE": "Rapports d'articles"
+      },
+      "RECRUITMENET-DISMISSAL-REPORT": {
+        "TITLE": "Rapport sur les recrutements et les licenciements"
+      },
+      "COMPLETED-ROUTE": {
+        "TITLE": "Itin\u00e9raires achev\u00e9s"
+      },
+      "SHIFT-PLAN": {
+        "TITLE": "Plan d'affectation"
+      },
+      "TRANSACTIONS": {
+        "TITLE": "Transactions"
+      },
+      "WORKING-DAYS-REPORT": {
+        "TITLE": "D\u00e9clarer les jours travaill\u00e9s"
+      },
+      "MACHINING-CENTER": {
+        "TITLE": "Centres de production"
+      },
+      "PHASE-REPORT": {
+        "TITLE": "Rapport de phase"
+      }
+    },
+    "TIME-CARD": {
+      "TITLE": "Carte",
+      "COLOR": "Couleur de l'\u00e9tiquette",
+      "STATUS": "Statut de la carte",
+      "TYPE": "Type de carte",
+      "TYPES": {
+        "DAILY": "Quotidiennement",
+        "PERIODICAL": "P\u00e9riodique",
+        "COUNTERS": "Compteurs",
+        "WORKSTATIONS": "Sites",
+        "MACRO": "Macro"
+      },
+      "MANAGE-FILTERS": {
+        "HEADER": "D\u00e9finir des filtres et lancer une recherche",
+        "CORPORATE-FILTER": "Filtres d'entreprise",
+        "EMPLOYEE-FILTER": "Filtres d\u00e9pendants",
+        "UNDO-ELABORATION": "Annuler tous les traitements",
+        "PROCESS-ALL": "Traiter tous les"
+      },
+      "TABLE": {
+        "REMINDER": "M\u00e9mo",
+        "SHOW": "Montrer les originaux"
+      },
+      "ACTIONS": {
+        "REMINDER": "R\u00e9diger ou modifier la note",
+        "SCHEDULE": "S\u00e9lectionnez une heure parmi celles disponibles",
+        "ADD-TRANSACTION": "Ajouter une transaction",
+        "ADD-JUSTIFICATION": "Ajouter une justification"
+      },
+      "TRANSACTIONS": {
+        "TRANSACTION": "Transaction",
+        "TRANSACTIONS": "Transactions",
+        "LIST": "Liste des transactions",
+        "LOCALIZED": "Il existe des transactions g\u00e9o-localis\u00e9es",
+        "NOTES": "Il y a des transactions avec des notes"
+      },
+      "PROCESSED": "\u00c9labor\u00e9",
+      "NOT-PROCESSED": "Non trait\u00e9",
+      "PROCESSEDS": "Processus",
+      "MONTHLY-NOTE": "Note mensuelle",
+      "DAILY": {
+        "TITLE": "Carte de jour"
+      },
+      "SHEET": {
+        "TITLE": "Feuille de pr\u00e9sence"
+      },
+      "PRINT": {
+        "TITLE": "Imprim\u00e9s"
+      },
+      "PERIODICAL": {
+        "TITLE": "Carte p\u00e9riodique"
+      },
+      "MACRO": {
+        "TITLE": "Carte (macro)"
+      },
+      "EXPORT": {
+        "TITLE": "Exportation au format Excel"
+      },
+      "COUNTERS": {
+        "TITLE": "Carte (pions)"
+      },
+      "WORKSTATIONS": {
+        "TITLE": "Carte (stations)"
+      }
+    },
+    "SETTINGS": {
+      "TITLE": "Configuration",
+      "EDIT": "Modifier les param\u00e8tres",
+      "PRINT": {
+        "TITLE": "Param\u00e8tres d'impression",
+        "GENERAL": {
+          "TITLE": "Generali",
+          "LOGO": "Inclut le logo"
+        },
+        "MONITORING": {
+          "TITLE": "Absent/pr\u00e9sent",
+          "DEPARTMENT": "Un d\u00e9partement par page"
+        },
+        "COUNTERS": {
+          "TITLE": "Compteurs",
+          "COUNTER": "Un compteur par page"
+        },
+        "SHEET": {
+          "TITLE": "Feuille de pr\u00e9sence",
+          "GLOBAL": {
+            "NAME": "Feuille de pr\u00e9sence (globale)",
+            "LOGO": "Logo de l'INAIL",
+            "FILE": "Fichier logo INAIL",
+            "START": "Page d'accueil",
+            "FOOTER": "Pied de page",
+            "COMPANY": "Mettez le nom de l'entreprise en \u00e9vidence",
+            "DEAILS": "D\u00e9tail des pi\u00e8ces justificatives compt\u00e9es en jours"
+          },
+          "REGULAR": {
+            "NAME": "Feuille de pr\u00e9sence",
+            "DUE": "Due",
+            "SUMMARY": "R\u00e9sum\u00e9 de la presse fiscale",
+            "BALANCE": "Balance",
+            "CARRY": "Je rapporte",
+            "SURPLUS": "Surplus",
+            "ROWS": "Lignes par page",
+            "TOTAL": "Total des jours travaill\u00e9s",
+            "LAST": "Derni\u00e8re feuille sur une nouvelle page",
+            "DAYS": {
+              "MINUTE": "Au moins une minute travaill\u00e9e",
+              "TRANSACTION": "Au moins une transaction",
+              "BOTH": "Les deux sites",
+              "WORKED": "Total trait\u00e9",
+              "HOLIDAY": "Total des vacances"
+            }
+          }
+        },
+        "SUMMARY": {
+          "TITLE": "R\u00e9sum\u00e9 des points/justification",
+          "PAGE": "Employ\u00e9s par page",
+          "EMPLOYEE": "Employ\u00e9s importants uniquement"
+        },
+        "WORKSTATION": {
+          "TITLE": "Sites",
+          "HOURS": "D\u00e9tail des heures travaill\u00e9es et pes\u00e9es"
+        },
+        "REPORT": {
+          "TITLE": "Rapports de justification",
+          "EMPLOYEE": "Un employ\u00e9 par page"
+        }
+      },
+      "PARAMETERS": {
+        "TITLE": "Param\u00e8tres",
+        "GENERAL": {
+          "TITLE": "Generali",
+          "EMPLOYEE-SORTING": "Ordre des employ\u00e9s",
+          "RECORDS": "R\u00e9sultats par page",
+          "JUSTIFICATION": "De \u00e0"
+        },
+        "PRODUCTION": {
+          "TITLE": "Production",
+          "SUSPEND": "Suspendre l'activit\u00e9 ouverte \u00e0 la sortie",
+          "RECALL": "Reprise des activit\u00e9s suspendues \u00e0 l'entr\u00e9e",
+          "DELTA": "Diff\u00e9rences de validit\u00e9 dans le temps"
+        },
+        "LOCATION": {
+          "TITLE": "Sites",
+          "RELATE": "Elabore sur le temps de travail",
+          "DETAIL": "D\u00e9tail des heures travaill\u00e9es et pes\u00e9es",
+          "ASSOCIATION": "Association App-Post",
+          "MODES": {
+            "COUPLE": "Paires de transactions",
+            "ENTRANCES": "Revenus uniquement"
+          },
+          "INDENTIFIER": "Identificateur - Nom",
+          "LIST": "Liste pour Beyond"
+        },
+        "EARUBA-COMMUNICATIONS": {
+          "TITLE": "Configuration d'eAruba"
+        },
+        "COUNTERS": {
+          "TITLE": "Compteurs",
+          "DEVICEMODE": "Mode de gestion du terminal",
+          "TRANSACTION-IN-PRESENCES": "Op\u00e9rations au comptoir des pr\u00e9sences",
+          "DEVICEMODES": {
+            "DEDICATED": "D\u00e9di\u00e9",
+            "CAUSALIZED": "Non-d\u00e9di\u00e9 (causal)",
+            "NOT-CAUSALIZED": "Non d\u00e9di\u00e9s (non caus\u00e9s)"
+          }
+        },
+        "EMPLOYEES": {
+          "TITLE": "Employ\u00e9s",
+          "SALARNUMBERASNUMBER": "Num\u00e9ro de s\u00e9rie comme num\u00e9ro de paie",
+          "EMPLOYEEADDITIONALFIELDS": "Activez les champs suppl\u00e9mentaires",
+          "ALLOWREADDELETEREQUESTS": "Autoriser les demandes de modification/suppression"
+        },
+        "LUNCH-BREAK": {
+          "TITLE": "Cantine",
+          "CANTEENTYPE": "Type de cantine",
+          "MEALVOUCHER": "Bon de repas (\u20ac)"
+        },
+        "REPORT": {
+          "TITLE": "Rapport",
+          "CREDITS": "Cr\u00e9dits de soutien",
+          "SCHEDULED": "Pr\u00e9vu jusqu'\u00e0 la fin de l'ann\u00e9e",
+          "AVAILABILITY": "La disponibilit\u00e9 comprend la programmation"
+        },
+        "SHIFTS": {
+          "TITLE": "Quarts de travail"
+        },
+        "ACTIONS": {
+          "TITLE": "Actions"
+        },
+        "EVENTS": {
+          "TITLE": "\u00c9v\u00e9nements",
+          "DAY": "Jour de l'ex\u00e9cution"
+        },
+        "CAPTURE": {
+          "TITLE": "Acquisition",
+          "OVERRIDE": "Le message g\u00e9n\u00e9ral \u00e9crase le message personnel",
+          "SEND": "Envoyer des donn\u00e9es aux lecteurs",
+          "UPDATE": "Mise \u00e0 jour automatique des donn\u00e9es du lecteur",
+          "TIMEOUT": "D\u00e9lai d'acquisition du lecteur (secondes)",
+          "ADD": "Ajouter le code du terminal \u00e0 la transaction (pour le direct)"
+        },
+        "EXPORT": {
+          "TITLE": "Exportation",
+          "SALARY": {
+            "SALARIES": "Paie",
+            "NAME": "Exportation de la paie",
+            "CODES": "Codes de paie",
+            "FILE": "Fichier d'exportation de la paie (quotidien)",
+            "REGULAR": "Code des heures ordinaires",
+            "OVERTIME": "Code des heures suppl\u00e9mentaires",
+            "UNIFIED": "Gestion unifi\u00e9e de la paie",
+            "INCLUDE": "Les heures ordinaires comprennent les \u00e9l\u00e9ments ordinaires concurrents",
+            "STRUCTURE": "Structure des coupons par entreprise"
+          },
+          "MANAGEMENT": {
+            "NAME": "Gestion de l'exportation"
+          }
+        },
+        "PROCESSING": {
+          "TITLE": "Traitement",
+          "PROCESS": "Traitement automatique (mod\u00e8le de carte)",
+          "ASSIGN": "Attribution automatique des versets",
+          "TRANS": "Num. trans. => heure (nuit)",
+          "RECLASSIFICATION": "Reclassement extraordinaire (p\u00e9riodique)",
+          "CHECK": "Contr\u00f4le du temps",
+          "ACTIONS": {
+            "ANOMALY": "Entrer la faute",
+            "FIELD": "Choisir l'article pour les heures exc\u00e9dentaires",
+            "SURPLUS": "Utiliser les heures suppl\u00e9mentaires"
+          },
+          "FIELD": "Poste Heures r\u00e9elles",
+          "HOUR-CHECK": "Contr\u00f4le des heures travaill\u00e9es et des heures asserment\u00e9es",
+          "SURPLUS": "Article exc\u00e9dentaire",
+          "INHIBIT": "Inhiber le contr\u00f4le en cas d'absence"
+        },
+        "TIME-CARD": {
+          "TITLE": "Carte",
+          "FORMAT": "Format total",
+          "ORIGINAL-TRANSACTIONS": "Afficher les transactions originales",
+          "TOTALS": "Afficher le nombre total d'heures",
+          "HOLIDAYS-COLOR": "Couleur de vacances",
+          "REGULARS": "Afficher les heures ordinaires",
+          "OVERTIMES": "Afficher les heures suppl\u00e9mentaires",
+          "CHANGE": "Traiter les transactions",
+          "HIGHLIGHTS-CHANGED": "Mettre en \u00e9vidence les transactions modifi\u00e9es",
+          "EXCLUDE": "Exclure les transactions dont le motif du paiement est \"article\".",
+          "EXCLUDE-WORKSTATION": "Exclure les transactions de la station",
+          "ROUND": "Arrondissement des totaux des articles",
+          "ROUND-CAUSALS": "Arrondissement des totaux des articles",
+          "CHECK": "V\u00e9rifier les causes inexistantes",
+          "CAUSAL": "Raison de l'affichage",
+          "PERIOD": "De la p\u00e9riode",
+          "PROGRESSIVE": "Progressif",
+          "AUTOMATE": "Attribution automatique des versets",
+          "JUSTIFICATION": "Voir la justification",
+          "HIGHLIGHTSANOMALY": "Mettre en \u00e9vidence l'anomalie",
+          "REMNANTS": "Afficher le nombre d'heures restantes",
+          "INCLUDE": "Les heures ordinaires comprennent les \u00e9l\u00e9ments ordinaires contribuant \u00e0",
+          "WORKSTATION": "Afficher les lieux sans les heures",
+          "PERIODICAL": "Solde de la carte p\u00e9riodique",
+          "YEARLYCREDITS": "G\u00e9rer les cr\u00e9dits de soutien par an -2",
+          "CREDITS": "G\u00e9rer les cr\u00e9dits n\u00e9gatifs",
+          "NOTE": "Note d'affichage"
+        },
+        "MISCELLANEA": {
+          "TITLE": "Divers",
+          "REGULAR": "Utilisation ordinaire",
+          "OVERTIME": "Utilisations extraordinaires",
+          "DIRECTION": "Heures suppl\u00e9mentaires",
+          "ORDERS": "Commandes",
+          "STARTWITHSATURDAY": "Commencez par le samedi",
+          "THRESHOLD": "Seuil de justification (minutes)",
+          "DETAIL": "D\u00e9tail de l'article",
+          "DAYS": "Jours/mois",
+          "MINUTES": "Travaill\u00e9 (minutes)",
+          "CDP": "CPD",
+          "CDPCODE": "Code CDP",
+          "LIMIT": "Limite annuelle",
+          "ROUNDENTRAMCE": "Entr\u00e9e ronde",
+          "ROUNDEXIT": "Sortie ronde",
+          "STRADDLING": "A cheval",
+          "PIVOT": "Pivot",
+          "SUMMARY": "R\u00e9sum\u00e9",
+          "STRING": "Cha\u00eene de caract\u00e8res"
+        },
+        "TIMESCALE": {
+          "TITLE": "Horaire",
+          "DAYS": "Jours de pr\u00e9avis",
+          "EMAIL": "Avis par courriel"
+        },
+        "REFRESH-TIME": {
+          "TITLE": "Intervalle de r\u00e9f\u00e9rence",
+          "EMPLOYEES": "Surveillance des absents et des pr\u00e9sents (secondes)",
+          "READERS": "Surveillance du lecteur graphique (secondes)"
+        },
+        "MONITORING": {
+          "TITLE": "Suivi des absents/pr\u00e9sents",
+          "PRESENT": "Pr\u00e9sent uniquement"
+        },
+        "TRANSACTION-IMPORT": {
+          "TITLE": "Importer des transactions"
+        },
+        "APPEARANCES": {
+          "TITLE": "Absence et pr\u00e9sence",
+          "APPEARANCES": "Pr\u00e9sence"
+        }
+      },
+      "TRANSACTIONS": {
+        "TITLE": "Format de la transaction",
+        "TYPE": "Type de transaction",
+        "IMPORT": {
+          "FILE": {
+            "PRESENCES": "Dossiers de pr\u00e9sence",
+            "COUNTERS": "Fiches de comptoir",
+            "MODE": "Mode de gestion des fichiers",
+            "TITLE": "Fichiers de transaction"
+          },
+          "LEAVE": "Conserver les transactions (erreur de badge)",
+          "DELETE": "Effacer des transactions (m\u00eame min., sens contraire)",
+          "AUTO": "Importation automatique",
+          "REALLOCATE": "R\u00e9affectation des heures de travail",
+          "FIRED": "Importation de transactions vir\u00e9es",
+          "PLUGIN": "Ex\u00e9cuter les plugins",
+          "GPS": "Pr\u00e9cision des coordonn\u00e9es GPS",
+          "VIRTUAL": "Autoriser les transactions virtuelles",
+          "SCRIPT": "Scripts d'importation",
+          "DYNAMIC": "Exportation de donn\u00e9es dynamiques",
+          "CONFIGURED": "Script d'importation (configur\u00e9)"
+        }
+      },
+      "SCRIPTS": {
+        "TITLE": "Script",
+        "LIST": "Liste de scripts",
+        "EDIT": "Editer le script",
+        "NEW": {
+          "TITLE": "Nouveau script"
+        },
+        "INDEX": "Poste de commandement",
+        "DETAIL": "D\u00e9tails du script",
+        "LAUNCH": {
+          "WORKPLAN": "Heures de travail",
+          "PRE-PROCESSING": "Pr\u00e9-traitement",
+          "PROCESSING": "Traitement p\u00e9riodique",
+          "EXECUTE": "Ex\u00e9cuter",
+          "PAY-COLUMN": "Entr\u00e9e de la formule",
+          "IMPORT": "Importer des transactions"
+        },
+        "COMMANDS": {
+          "NAME": "Commandes de script",
+          "NEW": "Nouvelle commande",
+          "TEXT": "D\u00e9finir la commande",
+          "STEPS": {
+            "NAME": "Type de commande",
+            "ASSIGNMENT": "Affectation",
+            "FUNCTION": "Fonction",
+            "CONDITION": "Condition",
+            "LABEL": "\u00c9tiquette",
+            "GAP": "Sauter",
+            "RETUNRN": "Valeur de retour",
+            "ERROR": "Erreur \u00e0 attribuer",
+            "FIELD": "Champ \u00e0 lire"
+          },
+          "MODES": {
+            "OVERWRITE": "\u00c9craser"
+          },
+          "CARDS": {
+            "DAILY": "Quotidiennement",
+            "PERIODICAL": "P\u00e9riodique",
+            "STATUS": {
+              "PREVIOUS": "Statut ant\u00e9rieur de la carte",
+              "CURRENT": "Statut actuel de la carte"
+            }
+          },
+          "FUNCTIONS": {
+            "DATA": {
+              "INDETIFIER": {
+                "NAME": "Retourne l'identifiant du temps de travail quotidien donn\u00e9 par le nom",
+                "SELECTED": "Renvoie l'identifiant du plan de travail journalier s\u00e9lectionn\u00e9."
+              },
+              "VALUE": {
+                "WORKTIMES": "Renvoie la valeur du champ dans le tableau des horaires journaliers.",
+                "EMPLOYEES": "Renvoie la valeur du champ dans la table de base des employ\u00e9s.",
+                "NOTE1": "Renvoie la valeur du champ \"Note 1\" de la table de base des employ\u00e9s.",
+                "NOTE2": " Retourne la valeur du champ \"Note 2\" de la table de base des employ\u00e9s."
+              }
+            },
+            "CALCULATION": {
+              "ROUND": "Arrondir la valeur en fonction de la quantit\u00e9"
+            },
+            "DATE": {
+              "CURRENT": "Retourne la date actuelle du script",
+              "TODAY": "Retourne la date du jour",
+              "DATE": "Retourne la date de la valeur interne en jours.",
+              "MONTH": {
+                "FIRST": "Retour le premier jour du mois",
+                "LAST": "Renvoie le dernier jour du mois"
+              },
+              "YEAR": {
+                "FIRST": "Retour le premier jour de l'ann\u00e9e",
+                "LAST": "Retour le dernier jour de l'ann\u00e9e"
+              },
+              "WEEK": {
+                "FIRST": "Renvoie le premier jour de la semaine",
+                "LAST": "Renvoie le dernier jour de la semaine"
+              }
+            },
+            "GENERAL": {
+              "ADD": "Si le bon indiqu\u00e9 est pr\u00e9sent, ajoute la valeur \u00e0 l'entr\u00e9e indiqu\u00e9e",
+              "WRITE": "S'il y a au moins une transaction, \u00e9crivez la valeur indiqu\u00e9e dans la rubrique indiqu\u00e9e.",
+              "CHECK": "V\u00e9rifie le droit \u00e0 la pause, timbr\u00e9 \u00e0 l'heure, par rapport \u00e0 un seuil d'heures travaill\u00e9es"
+            },
+            "CARD": {
+              "LATEST": "Renvoie la valeur la plus r\u00e9cente de l'entr\u00e9e de formule indiqu\u00e9e",
+              "EXIST": "Renvoie 1 si le causal existe, 0 s'il n'existe pas.",
+              "ERROR": "\u00c9crit l'erreur s\u00e9lectionn\u00e9e sur la carte journali\u00e8re",
+              "DIRECTION": "Renvoie le sens de la transaction 1=ENTER 0=EXIT",
+              "TRANSACTION": "Renvoie l'heure de la transaction exprim\u00e9e en nombre de minutes.",
+              "NOTE": "Renvoie la note de transaction",
+              "IDENTIFIER": {
+                "JUSTIFICARTION": "Renvoie l'identifiant du bon d'achat",
+                "WORKTIME": "Renvoie l'identifiant du temps de travail quotidien"
+              },
+              "ASSIGN": "Attribue un nouveau temps de travail quotidien au jour de la carte",
+              "STATUS": {
+                "CURRENT": "V\u00e9rifier l'\u00e9tat actuel de l'\u00e9tiquette et passer \u00e0 l'\u00e9tiquette indiqu\u00e9e",
+                "PREVIOUS": "V\u00e9rifier l'\u00e9tat pr\u00e9c\u00e9dent de l'\u00e9tiquette et passer \u00e0 l'\u00e9tiquette indiqu\u00e9e",
+                "WRITE": "\u00c9crit l'\u00e9tat de la carte journali\u00e8re"
+              },
+              "STAMPS": "Donne le nombre de pointages pour la journ\u00e9e.",
+              "TOTAL": "Donne le nombre total d'heures travaill\u00e9es dans la journ\u00e9e.",
+              "AMOUNT": "Renvoie le nombre d'heures (dues) pour la journ\u00e9e.",
+              "CHANGE": "Modifier la justification de la journ\u00e9e"
+            }
+          }
+        }
+      }
+    },
+    "PROCESSING": {
+      "TITLE": "Traitement",
+      "DAILY": {
+        "TITLE": "Traitement (quotidien)",
+        "ACTION": "D\u00e9finir des filtres et traiter les heures travaill\u00e9es"
+      },
+      "MACRO": {
+        "TITLE": "Traitement (macro)",
+        "ACTION": "D\u00e9finir des filtres et traiter les heures travaill\u00e9es"
+      },
+      "PERIODICAL": {
+        "TITLE": "Traitement (p\u00e9riodique)",
+        "COMPLETE-NAME": "Traitement p\u00e9riodique",
+        "ACTION": "D\u00e9finir des filtres et traiter les heures travaill\u00e9es"
+      },
+      "UNDO": {
+        "DAILY": {
+          "TITLE": "Traitement des annulations (quotidien)",
+          "ACTION": "D\u00e9finir des filtres et annuler le traitement quotidien"
+        },
+        "MACRO": {
+          "TITLE": "Traitement de l'annulation (macro)",
+          "ACTION": "D\u00e9finir des filtres et annuler le traitement des macros"
+        },
+        "PERIODICAL": {
+          "TITLE": "Annulation du traitement (p\u00e9riodique)",
+          "ACTION": "D\u00e9finir les filtres et annuler les traitements p\u00e9riodiques"
+        }
+      }
+    },
+    "SYSTEM": {
+      "TITLE": "Syst\u00e8me",
+      "LOGS": {
+        "TITLE": "Registre",
+        "LIST": "Liste des journaux",
+        "FILTERS": "Filtres utilisateurs",
+        "IP": "Adresse IP",
+        "PROVIDER": "Fournisseur de services"
+      },
+      "SITES": {
+        "TITLE": "Sites",
+        "LIST": "Liste des sites",
+        "DETAIL": "D\u00e9tail du site",
+        "EDIT": "Modifier le site",
+        "PROFILE": "Profil de l'entreprise",
+        "SPECIAL": "Options sp\u00e9ciales",
+        "TRANSACTIONS-IMPORT-PROFILE": "Profil d'importation des transactions",
+        "TRANSACTIONS-IMPORT-SPECIAL": "Transactions d'importation (Sp\u00e9cial)",
+        "FTP": "FTP (Sp\u00e9cial)",
+        "PAY-PER-USE": "Paiement \u00e0 l'utilisation",
+        "SHIFT-KEY": "Touche Shift",
+        "SHIFT-CODE": "Code de changement de vitesse",
+        "ONLINE-DAYS": "Jours en ligne par rapport \u00e0 aujourd'hui",
+        "ADDITIONAL-PAYROLL-OPTIONS": "Options de paie suppl\u00e9mentaires",
+        "WS-SETTINGS": "Param\u00e8tres des services Web",
+        "TRANSACTION-COUNTER": "Compteur de transactions",
+        "DATE-START-COUNTING": "Date de d\u00e9but du comptage",
+        "GUIDE": "Activer le manuel de l'utilisateur",
+        "NEW": {
+          "TITLE": "Nouveau site"
+        }
+      },
+      "COMPANIES": {
+        "TITLE": "Entreprises",
+        "LIST": "Liste des entreprises",
+        "DETAIL": "D\u00e9tails de l'entreprise",
+        "EDIT": "Soci\u00e9t\u00e9 d'\u00e9dition",
+        "ANOMALIES": "Courriel pour les anomalies",
+        "LOGO-WORDING": "Libell\u00e9 sous le logo INAIL",
+        "UNDO": "Annulation des re\u00e7us de voiture",
+        "INPS": "Code INPS",
+        "VALORIZE": "Am\u00e9liorer le repas",
+        "DEPARTMENT": "Trier par d\u00e9partement",
+        "PRESENT": "Si elle est pr\u00e9sente",
+        "SALARY-PARAMETERS": "Param\u00e8tres de paie personnalis\u00e9s",
+        "G06": "G06 comprend les heures suppl\u00e9mentaires",
+        "TOTAL-CODES": "Codes des heures totales travaill\u00e9es",
+        "ADDITIONAL-CODES": "Utiliser des codes de paie suppl\u00e9mentaires",
+        "WORKERS": {
+          "EXCLUDE-SHIFT": "Codes \u00e0 exclure (travailleurs post\u00e9s)",
+          "EXCLUDE-NOT-SHIFT": "Codes \u00e0 exclure (travailleurs non post\u00e9s)",
+          "ADDITIONAL": "Code additionnel heures ordinaires (travailleurs post\u00e9s)"
+        },
+        "LEAVES": {
+          "SPECIAL-CODES": "Codes de paie sp\u00e9ciaux",
+          "DAILY": "Codes de paie - Fiches journali\u00e8res"
+        },
+        "DISEASE": "Code de l'indemnit\u00e9 de maladie",
+        "MATERNITY": "Code de paie pour la maternit\u00e9",
+        "COMPANY-AS-BRANCH": "Utiliser le code de la soci\u00e9t\u00e9 comme code de la branche",
+        "FILE": {
+          "DAILY": "Fichier quotidien",
+          "MONTHLY": "Dossier mensuel",
+          "ABSENCES": "Dossiers d'absences"
+        },
+        "OFFICE": "Code d'\u00e9tude",
+        "SECTOR": "Code du secteur",
+        "ENTERPRISE": "Soci\u00e9t\u00e9",
+        "NOT-EXPORTED": "Codes de paie non export\u00e9s en abr\u00e9viations",
+        "NOT-COUNTED": "Codes de paie des heures suppl\u00e9mentaires non comptabilis\u00e9es dans le total",
+        "RATES": "Tarifs des articles",
+        "MIX": "Codes de paie Mal./Mat./Inf.",
+        "NEW": {
+          "TITLE": "Nouvelle entreprise"
+        }
+      },
+      "ROLES": {
+        "TITLE": "Profils d'acc\u00e8s",
+        "SINGULAR": "Profil d'acc\u00e8s",
+        "DETAIL": "Acc\u00e9der aux d\u00e9tails du profil",
+        "LIST": "Liste des profils d'acc\u00e8s",
+        "EDIT": "Modifier le profil",
+        "NEW": {
+          "TITLE": "Nouveau profil d'acc\u00e8s"
+        }
+      },
+      "USERS": {
+        "TITLE": "Utilisateurs",
+        "LIST": "Liste des utilisateurs",
+        "DETAIL": "D\u00e9tails de l'utilisateur",
+        "EDIT": "Modifier l'utilisateur",
+        "ENABLED": "Activ\u00e9",
+        "LAST-ACTIVITY": "Derni\u00e8re activit\u00e9",
+        "ACTIVE": "Utilisateur actif",
+        "NOT-ACTIVE": "Utilisateur inactif",
+        "API": "Avec l'acc\u00e8s aux API",
+        "NOT-API": "Sans acc\u00e8s aux API",
+        "APP-SITES": "Applications et sites"
+      },
+      "UPDATE-PASSWORD": {
+        "TITLE": "Modifier le mot de passe",
+        "TEXT": "",
+        "OLD-PASSWORD": "Mot de passe actuel",
+        "NEW-PASSWORD": "Nouveau mot de passe",
+        "REPEAT-PASSWORD": "R\u00e9p\u00e9tez le nouveau mot de passe",
+        "ERRORS": {
+          "NEW": "Pas assez s\u00e9curis\u00e9",
+          "REPEAT": "Les mots de passe ne correspondent pas",
+          "EQUALS": "Le nouveau mot de passe et le mot de passe actuel ne peuvent pas \u00eatre les m\u00eames"
+        }
+      },
+      "DATABASE-ACQUISITION": {
+        "TITLE": "Acquisition de bases de donn\u00e9es"
+      },
+      "DATABASE-DELETION": {
+        "TITLE": "Suppression de la base de donn\u00e9es"
+      },
+      "DATABASE-EXPORT": {
+        "TITLE": "Exportation de la base de donn\u00e9es"
+      },
+      "DATABASE-IMPORT": {
+        "TITLE": "Importation de la base de donn\u00e9es"
+      },
+      "MESSAGE-EDITOR": {
+        "TITLE": "\u00c9diteur de messages"
+      },
+      "MESSAGE-IMPORT": {
+        "TITLE": "Importation de messages"
+      },
+      "MESSAGE-EXPORT": {
+        "TITLE": "Exportation de messages"
+      },
+      "DATABASE-MANAGEMENT": {
+        "TITLE": "Gestion des bases de donn\u00e9es biom\u00e9triques"
+      },
+      "SITE-EXPORT": {
+        "TITLE": "Site d'exportation"
+      },
+      "ONPREMISES": {
+        "TITLE": "Sur site"
+      },
+      "SYSTEM-STATUS": {
+        "TITLE": "\u00c9tat du syst\u00e8me"
+      },
+      "SQL-ACCESS": {
+        "TITLE": "Acc\u00e8s SQL"
+      },
+      "HISTORICIZATION": {
+        "TITLE": "Historicisation"
+      },
+      "ACTIVE-USERS": {
+        "TITLE": "Utilisateurs actifs"
+      },
+      "AUTOMATIONS": {
+        "TITLE": "Automatismes"
+      },
+      "FUNCTIONS": {
+        "TITLE": "Fonctions"
+      },
+      "MENU-GROUPS": {
+        "TITLE": "Groupes de menus"
+      }
+    },
+    "ARCHIVE": {
+      "TITLE": "Archives",
+      "VISITORS": {
+        "TITLE": "Visiteurs"
+      },
+      "DAILY-ACCESS-RULES": {
+        "TITLE": "R\u00e8gles d'acc\u00e8s quotidien"
+      },
+      "WEEKLY-ACCESS-RULES": {
+        "TITLE": "R\u00e8gles d'acc\u00e8s hebdomadaires"
+      },
+      "SENSORS": {
+        "TITLE": "Capteurs"
+      },
+      "TIME-SLOTS": {
+        "TITLE": "Cr\u00e9neaux horaires"
+      },
+      "VISITOR-CLASSES": {
+        "TITLE": "Classes de visiteurs"
+      },
+      "COLLECTION-CENTERS": {
+        "TITLE": "Centres de production"
+      },
+      "MINIMUMS": {
+        "TITLE": "Minimums"
+      },
+      "WORKPLAN-GROUP-LISTS": {
+        "TITLE": "Groupes horaires quotidiens"
+      },
+      "PERIODIC-ELABORATIONS": {
+        "TITLE": "Traitement p\u00e9riodique"
+      },
+      "SHIFTS-SIMULATIONS": {
+        "TITLE": "Simulations d'\u00e9quipes"
+      },
+      "NOTES": {
+        "TITLE": "Notes"
+      },
+      "CHECKPOINTS": {
+        "TITLE": "Points de collecte"
+      },
+      "DAILY-ROUTES": {
+        "TITLE": "Itin\u00e9raires quotidiens"
+      },
+      "WEEKLY-ROUTES": {
+        "TITLE": "Itin\u00e9raires hebdomadaires"
+      },
+      "MACHINING-CENTERS": {
+        "TITLE": "Centres de production"
+      },
+      "PRODUCTS": {
+        "TITLE": "Produits"
+      },
+      "PHASES": {
+        "TITLE": "\u00c9tapes"
+      },
+      "NEEDS": {
+        "TITLE": "Besoin de"
+      },
+      "CAUSALS": {
+        "TITLE": "Causes",
+        "DETAIL": "D\u00e9tails causaux",
+        "EDIT": "Changement de motif",
+        "TYPES": {
+          "COMPENSATION-ABSENSE": "Aucune compensation",
+          "ABSENSE": "Absence",
+          "WORKTIME": "Horaire",
+          "WORKTIME-ABSENSE": "Absence d'heures",
+          "FIELD": "Entr\u00e9e",
+          "COMMENT": "Commentaire"
+        },
+        "LIST": "Liste des raisons",
+        "NEW": {
+          "TITLE": "Nouvelle raison"
+        }
+      },
+      "COUNTERS": {
+        "TITLE": "Compteurs",
+        "EDIT": "Compteur d'\u00e9dition",
+        "LIST": "Liste des compteurs",
+        "DETAIL": "D\u00e9tails du compteur"
+      },
+      "CONTRACTS": {
+        "TITLE": "Contrats",
+        "SINGULAR": "Contrat",
+        "LIST": "Liste des contrats",
+        "EDIT": "Changement de contrat",
+        "DETAIL": "D\u00e9tails du contrat",
+        "UNIT": "Heures journali\u00e8res de l'unit\u00e9",
+        "REPORT": "Report suivant",
+        "NEW": {
+          "TITLE": "Nouveau contrat"
+        },
+        "DAYS": {
+          "IN-A-ROW": {
+            "TITLE": "Jours ouvrables cons\u00e9cutifs",
+            "MAX": "Nombre maximal de jours cons\u00e9cutifs",
+            "MIN": "Nombre minimum de jours cons\u00e9cutifs"
+          },
+          "PERIOD": {
+            "TITLE": "Jours ouvrables de la p\u00e9riode",
+            "MAX": "Nombre maximal de jours dans la p\u00e9riode",
+            "MIN": "Nombre minimum de jours dans la p\u00e9riode"
+          },
+          "DAYOFF": {
+            "TITLE": "Jours de cong\u00e9",
+            "BETWEEN": "Nombre maximal de jours entre deux repos obligatoires",
+            "HOLIDAYS": "Repos minimum de vacances au cours de la p\u00e9riode",
+            "MANDATORY": "Repos minimum obligatoire au cours de la p\u00e9riode",
+            "OFFSET": "Repos compensatoire maximal au cours de la p\u00e9riode"
+          },
+          "NIGHTS": {
+            "MAX": "Nombre maximal de nuits cons\u00e9cutives de travail"
+          }
+        },
+        "RATIO": "Rapport sur les heures exc\u00e9dentaires",
+        "OVERTIME-RATIO": "Rapport sur les heures suppl\u00e9mentaires",
+        "OTHER": {
+          "HOURS": "Nombre minimum d'heures entre les quarts de travail",
+          "PART-TIME": "Contrat \u00e0 temps partiel"
+        }
+      },
+      "REQUIREMENTS": {
+        "TITLE": "Besoin de",
+        "LIST": "Liste des besoins",
+        "DETAIL": "D\u00e9tails des besoins",
+        "EDIT": "Modification des exigences",
+        "MAX": "Nombre maximal requis",
+        "MIN": "Nombre minimum requis",
+        "OPTIMAL": "Nombre optimal requis",
+        "NEW": {
+          "TITLE": "Nouvelles exigences"
+        }
+      },
+      "TASKS": {
+        "TITLE": "T\u00e2ches",
+        "LIST": "Liste des emplois",
+        "EDIT": "Changement d'emploi",
+        "NEW": {
+          "TITLE": "Nouvel emploi"
+        }
+      },
+      "MINIMUM": {
+        "TITLE": "Minimums",
+        "LIST": "Liste minimale",
+        "DETAIL": "D\u00e9tail minimum",
+        "EDIT": "Changement minimum",
+        "NEW": {
+          "TITLE": "Nouveau minimum"
+        }
+      },
+      "PERCENTAGES": {
+        "TITLE": "Pourcentages",
+        "LIST": "Liste des pourcentages",
+        "DETAIL": "D\u00e9tail des pourcentages",
+        "EDIT": "Variation en pourcentage",
+        "NEW": {
+          "TITLE": "Nouveau pourcentage"
+        }
+      },
+      "WORKSTATIONS": {
+        "TITLE": "Sites",
+        "LIST": "Liste des sites",
+        "DETAIL": "D\u00e9tail du poste de travail",
+        "EDIT": "Changement de lieu",
+        "NEW": {
+          "TITLE": "Nouvel emplacement"
+        }
+      },
+      "THRESHOLDS": {
+        "TITLE": "Seuils",
+        "LIST": "Liste des seuils",
+        "DETAIL": "D\u00e9tail du seuil",
+        "EDIT": "Seuil de changement",
+        "FM": "Heures par semaine (FM)",
+        "NEW": {
+          "TITLE": "Nouveau seuil"
+        }
+      },
+      "TEAMS": {
+        "TITLE": "\u00c9quipes",
+        "DETAIL": "D\u00e9tails de l'\u00e9quipe",
+        "LIST": "Liste des \u00e9quipes",
+        "EDIT": "Equipe de r\u00e9daction",
+        "NEW": {
+          "TITLE": "Nouvelle \u00e9quipe"
+        }
+      },
+      "TERMINALS": {
+        "TITLE": "Terminaux",
+        "LIST": "Liste des terminaux",
+        "EDIT": "Modification du terminal",
+        "DETAIL": "D\u00e9tails du terminal",
+        "SENDING-PORT": "Port d'envoi de la commande",
+        "ADDRESS": {
+          "PHYSICAL": "Adresse physique",
+          "LOGICAL": "Adresse logique"
+        },
+        "INTER-TIME": "Intervalle maximal entre les itin\u00e9raires (minutes)",
+        "ACCESS": "Terminal d'acc\u00e8s obligatoire",
+        "USER": {
+          "TITLE": "Utilisateur et s\u00e9curit\u00e9",
+          "HASH": "Transaction de hachage",
+          "CRYPT": "Mot de passe de cryptage",
+          "BIO": "Biom\u00e9trie",
+          "RECEIVE-BIO": "R\u00e9ception biom\u00e9trique"
+        },
+        "TYPES": {
+          "DIRECT": "Direct",
+          "SLAVE": "Esclave"
+        },
+        "CONNECTION": {
+          "TITLE": "Param\u00e8tres de connexion",
+          "FTP": "Port FTP",
+          "IP": "Envoi de commandes par IP"
+        },
+        "TRANSACTIONS": {
+          "RECEIVED": "Format de la transaction re\u00e7ue",
+          "ARCHIVED": "Format des transactions archiv\u00e9es"
+        },
+        "TERMINALTYPE": "Type de terminal",
+        "CAUSALS": "Causes de trois chiffres",
+        "SPECIALS": "Fonctions sp\u00e9ciales",
+        "NEW": {
+          "TITLE": "Nouveau terminal"
+        }
+      },
+      "PERIODICAL-ELABORATION": {
+        "TITLE": "Traitement p\u00e9riodique"
+      },
+      "CAUSAL-ROUNDING-BANDS": {
+        "TITLE": "Bandes d'arrondi causal",
+        "CLOSURE": "Fermeture de fin de bande",
+        "LIST": "Liste des bandes d'arrondi causal",
+        "EDIT": "Modification de la bande d'arrondi causal",
+        "NEW": {
+          "TITLE": "Nouvelle bande d'arrondi causal"
+        }
+      },
+      "FORMULA-PAY-COLUMN-GROUPS": {
+        "TITLE": "Formule de voix de groupe",
+        "LIST": "Entr\u00e9es de formule de liste de groupe",
+        "DETAIL": "Formule de d\u00e9tail du groupe d'articles",
+        "EDIT": "Modifier le groupe d'entr\u00e9e de la formule",
+        "NEW": {
+          "TITLE": "Nouvelle formule de groupe vocal"
+        }
+      },
+      "DAILY-WORKPLAN-CYCLES": {
+        "TITLE": "S\u00e9quences horaires quotidiennes",
+        "LIST": "Liste des s\u00e9quences horaires quotidiennes",
+        "DETAIL": "D\u00e9tails de l'horaire quotidien",
+        "EDIT": "Modifier la s\u00e9quence horaire quotidienne",
+        "NEW": {
+          "TITLE": "Nouvelle s\u00e9quence horaire quotidienne"
+        }
+      },
+      "SEQUENCE": {
+        "SEQUENCE": "S\u00e9quence",
+        "SEQUENCES": "S\u00e9quences",
+        "LIST": "Liste des s\u00e9quences temporelles",
+        "EDIT": "S\u00e9quence d'\u00e9dition",
+        "CYCLE": "Cycle",
+        "ORDER": "Num\u00e9ro de commande"
+      },
+      "WEEKLY-WORKTIMES-SEQUENCE": {
+        "TITLE": "S\u00e9quence de l'horaire hebdomadaire",
+        "DETAIL": "D\u00e9tails du d\u00e9roulement de l'horaire hebdomadaire",
+        "NEW": {
+          "TITLE": "Nouvelle s\u00e9quence"
+        }
+      },
+      "WORKTIMES-GROUP": {
+        "LIST": "Liste des groupes horaires",
+        "ABBR": "Groupe de temps",
+        "EDIT": "Groupe de temps de changement"
+      },
+      "DAILY-WORKPLANS-GROUP": {
+        "DETAIL": "D\u00e9tails de l'horaire quotidien du groupe",
+        "TITLE": "Groupes de temps",
+        "AUTOMATIC-ASSIGNMENT": "En affectation automatique",
+        "ASSIGN-IF-ABSENT": "Attribuer si absent",
+        "NEW": {
+          "TITLE": "Nouveau groupe horaire"
+        }
+      },
+      "WEEKLY-WORKPLAN-CYCLE-GROUPS": {
+        "LIST": "Liste des groupes de s\u00e9quences temporelles",
+        "EDIT": "Modifier le groupe de s\u00e9quences temporelles",
+        "DETAIL": "D\u00e9tails des s\u00e9quences de groupe",
+        "TITLE": "Groupes d'horaires hebdomadaires",
+        "SINGULAR": "Groupe d'horaires hebdomadaires",
+        "ABBR": "Groupe de s\u00e9quences",
+        "NEW": {
+          "TITLE": "Nouveau groupe de s\u00e9quences temporelles"
+        }
+      },
+      "WEEKLY-WORKPLAN-CYCLES": {
+        "LIST": "Liste des s\u00e9quences horaires hebdomadaires",
+        "EDIT": "Modification de l'ordre des horaires hebdomadaires",
+        "DETAIL": "D\u00e9tails de l'horaire hebdomadaire",
+        "TITLE": "S\u00e9quence de l'horaire hebdomadaire",
+        "SINGULAR": "S\u00e9quence de l'horaire hebdomadaire",
+        "ABBR": "S\u00e9quence",
+        "NEW": {
+          "TITLE": "Nouvelles s\u00e9quences d'horaires hebdomadaires"
+        }
+      },
+      "ROUNDING-BANDS": {
+        "TITLE": "Bandes d'arrondi",
+        "LIST": "Liste des plages d'arrondis",
+        "DETAIL": "Arrondir les d\u00e9tails de la bande",
+        "TYPES": {
+          "STEP": "\u00c9tape",
+          "START": "D\u00e9but de la bande",
+          "END": "Fin de la bande",
+          "FIXED": "Correction de",
+          "HOURLY": "Horaire",
+          "DIFFERENCES": "Diff\u00e9rence"
+        },
+        "ROUND-ENTRANCE": "Arrondi d'entr\u00e9e",
+        "ROUND-EXIT": "Arrondissement de la sortie",
+        "REBATE-ENTRANCE": "Droits d'entr\u00e9e",
+        "REBATE-EXIT": "Subvention de sortie",
+        "NEW": {
+          "TITLE": "Nouvelle gamme d'arrondis"
+        }
+      },
+      "REFERENCE-BANDS": {
+        "TITLE": "Bandes de r\u00e9f\u00e9rence",
+        "SINGULAR": "Bande de r\u00e9f\u00e9rence",
+        "LIST": "Liste des bandes de r\u00e9f\u00e9rence",
+        "DETAIL": "D\u00e9tails de la bande de r\u00e9f\u00e9rence",
+        "REQUIRED": "Obligation de pr\u00e9sence",
+        "OVERLAID": "Bande de chevauchement",
+        "REPORT": "Report sur le jour pr\u00e9c\u00e9dent",
+        "FLEXIBILITY": "Flexibilit\u00e9 quotidienne",
+        "VALUE": "Valeur de la flexibilit\u00e9",
+        "NEW": {
+          "TITLE": "Nouvelle bande de r\u00e9f\u00e9rence"
+        }
+      },
+      "CALENDARS": {
+        "TITLE": "Calendriers",
+        "LIST": "Liste des calendriers",
+        "DETAIL": "D\u00e9tails du calendrier",
+        "EDIT": "Modifier le calendrier",
+        "NEW": {
+          "TITLE": "Nouveau calendrier"
+        }
+      },
+      "BADGES": {
+        "TITLE": "Badges",
+        "LIST": "Liste des badges",
+        "DETAIL": "D\u00e9tails du badge",
+        "EDIT": "Modifier le badge",
+        "TYPES": {
+          "PERSON": "Personne",
+          "CHECK-POINT": "Point de contr\u00f4le",
+          "VISITOR": "Visiteur",
+          "OPERATOR": "Op\u00e9rateur",
+          "ACCESSORY": "Accessoire"
+        },
+        "NEW": {
+          "TITLE": "Nouveau badge"
+        }
+      },
+      "CUSTOMERS": {
+        "TITLE": "Clients",
+        "LIST": "Liste des clients",
+        "DETAIL": "D\u00e9tails du client",
+        "EDIT": "Changer de client",
+        "NEW": {
+          "TITLE": "Nouveau client"
+        }
+      },
+      "FIELDS": {
+        "NAME": "Entr\u00e9e",
+        "EDIT": "Modifier l'entr\u00e9e"
+      },
+      "PAY-COLUMNS": {
+        "DETAIL": "D\u00e9tails de la voix",
+        "TITLE": "Entr\u00e9es",
+        "LIST": "Liste des entr\u00e9es",
+        "EDIT": "Modifier l'entr\u00e9e",
+        "EXCLUDE": "Exclure (les heures hebdomadaires du total des heures)",
+        "COMPENSATE": {
+          "NAME": "Compensation",
+          "DAY": "Indemnisation journali\u00e8re",
+          "PERIOD": "Compensation p\u00e9riodique"
+        },
+        "RECLASSIFICATION": {
+          "PERIOD": "P\u00e9riode de reclassement",
+          "LIMIT": "Reclassement du seuil pour la p\u00e9riode"
+        },
+        "SURPLUS": "Vers le report des heures suppl\u00e9mentaires",
+        "PRINT-TEXT": "Texte de presse",
+        "NEW": {
+          "TITLE": "Nouvelle entr\u00e9e"
+        }
+      },
+      "FORMULA-PAY-COLUMNS": {
+        "DETAIL": "D\u00e9tails de la voix",
+        "TITLE": "Entr\u00e9es de formules",
+        "SINGULAR": "Entr\u00e9e de la formule",
+        "LIST": "Liste des entr\u00e9es de la formule",
+        "EDIT": "Modifier l'entr\u00e9e de la formule",
+        "FORMATS": {
+          "MINUTES": "Heures et minutes",
+          "CENTS": "Heures et centimes",
+          "NUMBERS": "Num\u00e9rique",
+          "DECIMAL": "D\u00e9cimal",
+          "ALPHANUMERIC": "Alphanum\u00e9rique"
+        },
+        "NEW": {
+          "TITLE": "Entr\u00e9e d'une nouvelle formule"
+        }
+      },
+      "BRANCHES": {
+        "TITLE": "Branches",
+        "CODE": "Code de la branche",
+        "FILTERS": "Recherche de branches",
+        "DETAIL": "D\u00e9tails de la branche",
+        "EDIT": "Changement de branche",
+        "LIST": "Liste des branches",
+        "NEW": {
+          "TITLE": "Nouvelle branche"
+        }
+      },
+      "DEPARTMENTS": {
+        "TITLE": "D\u00e9partements",
+        "LIST": "Liste des d\u00e9partements",
+        "DETAIL": "D\u00e9tails du d\u00e9partement",
+        "EDIT": "Changer de d\u00e9partement",
+        "NEW": {
+          "TITLE": "Nouveau d\u00e9partement"
+        },
+        "GRAPH": {
+          "TITLE": "Diagramme des d\u00e9partements"
+        }
+      },
+      "WORKTIMES": {
+        "NAME": "Horaire",
+        "PLURAL": "Heures de travail",
+        "EDIT": "Changement d'horaire",
+        "LIST": "Liste des horaires"
+      },
+      "DAILY-WORKPLANS": {
+        "TITLE": "Horaires quotidiens",
+        "TOLERANCE": "Tol\u00e9rance",
+        "LIST": "Horaire quotidien",
+        "SINGULAR": "Horaire quotidien",
+        "REMOVE-BAND": "Suppression de la derni\u00e8re bande trait\u00e9e",
+        "MINIMUM-OVERTIME": "Heures suppl\u00e9mentaires minimales par bande",
+        "HOURS": "Heures quotidiennes",
+        "MIN-HOURS": "Heures minimales quotidiennes",
+        "MAX-HOURS": "Heures maximales quotidiennes",
+        "DETAIL": "D\u00e9tails de l'horaire quotidien",
+        "EDIT": "Changement de l'horaire quotidien",
+        "DEDUCTION": "D\u00e9duction",
+        "DAY-LIMIT": "Reclassement de jour (seuil)",
+        "PAYROLL-DEDUCTION": "Poste de d\u00e9duction",
+        "WORKSTATION-DEDUCTION": "D\u00e9duction sur les postes",
+        "NIGHT": "Nuit (entr\u00e9e le jour suivant)",
+        "RESCUE": {
+          "NAME": "Mode de r\u00e9cup\u00e9ration",
+          "SAME": "M\u00eame groupe",
+          "NEXT": "Bande flexible suivante",
+          "FREE": "Gratuit"
+        },
+        "CANTEEN": {
+          "FLEXIBLE": "Flexible",
+          "RIGID": "Rigide",
+          "VIRTUAL": "Virtual",
+          "TIME": "Temps de travail",
+          "STAMPED": "Timbr\u00e9/compt\u00e9",
+          "CONTINUOUS": "Temps de travail continu",
+          "NOT-STAMPED": "Si la cantine n'est pas estampill\u00e9e"
+        },
+        "COMPENSATE": {
+          "MAX": "Maximum \u00e0 indemniser",
+          "LEAVE": "Compensation de la justification"
+        },
+        "LEAVES": {
+          "DELAY": "Justification des retards",
+          "ANTICIPATE": "Bulletin de versement anticip\u00e9"
+        },
+        "NO-TRANSACTIONS": "M\u00eame sans transactions",
+        "TYPES": {
+          "NORMAL": "Normal",
+          "ABSENCES": "Compensation des absences",
+          "DELAY": "Retards/avancements"
+        },
+        "NEW": {
+          "TITLE": "Nouvel horaire quotidien"
+        },
+        "OVERTIME": {
+          "NAME": "Extraordinaire",
+          "HOURS": "Heures suppl\u00e9mentaires dans le total des heures travaill\u00e9es"
+        },
+        "LIMIT": "Seuil minimal d'heures travaill\u00e9es"
+      },
+      "WEEKLY-WORKPLANS": {
+        "TITLE": "Horaires hebdomadaires",
+        "SINGULAR": "Horaire hebdomadaire",
+        "LIST": "Horaire hebdomadaire",
+        "EDIT": "Changement d'horaire hebdomadaire",
+        "HOURS": "Heures par semaine",
+        "DETAIL": "D\u00e9tails de l'horaire hebdomadaire",
+        "TOTAL": "Le total quotidien comprend les recettes non concurrentielles",
+        "NEW": {
+          "TITLE": "Nouvel horaire hebdomadaire"
+        },
+        "DAYS": {
+          "REPORT": "Jours de report",
+          "LEAVE": "Journ\u00e9es de soutien"
+        },
+        "LIMIT": {
+          "CHECK": "Contr\u00f4le du seuil quotidien",
+          "HOURS": "Heures de seuil quotidiennes",
+          "REPORT": "Seuil de report",
+          "LEAVE": "Seuil de justification"
+        },
+        "PAY-COLUMNS": {
+          "PROGRESSIVE": "Voix progressiste",
+          "BALANCE": {
+            "POSITIVE": "Poste Solde positif",
+            "NEGATIVE": "Solde n\u00e9gatif du poste",
+            "LEAVE": "Justification du solde n\u00e9gatif"
+          },
+          "REPORT": {
+            "POSITIVE": "Report positif"
+          }
+        }
+      },
+      "POSITIONS": {
+        "TITLE": "Qualifications",
+        "LIST": "Liste de qualification",
+        "EDIT": "Changement de qualification",
+        "CURRENT": "Qualification actuelle",
+        "SALARCODE": "Code de r\u00e9mun\u00e9ration",
+        "DETAIL": "D\u00e9tails de la qualification",
+        "NEW": {
+          "TITLE": "Nouvelle qualification"
+        },
+        "GRAPH": {
+          "TITLE": "Programme de qualification"
+        }
+      },
+      "LEAVES": {
+        "TITLE": "Justifications",
+        "CODE": {
+          "NAME": "Code de soutien",
+          "NEW": "Nouveau code de soutien",
+          "OLD": "Ancien code de soutien"
+        },
+        "SHIFT-TYPES": {
+          "LOCK": "Serrure",
+          "BALANCE": "Flexible",
+          "PLAN": "D\u00e9finir"
+        },
+        "LIST": "Liste de re\u00e7us",
+        "DETAIL": "D\u00e9tails de la justification",
+        "EDIT": "Changement de bon d'achat",
+        "PRIORITY": "Compensation prioritaire",
+        "TYPE": "Type (\u00e9quipes)",
+        "REPORTABLE": "Report de cr\u00e9dit",
+        "CALLABLE": "Applicable",
+        "RATE": "Quota prioritaire de l'ann\u00e9e en cours (heures)",
+        "DAY-COUNTING": "Comptage par jours (impression des d\u00e9tails de la carte quotidienne)",
+        "NEW": {
+          "TITLE": "Nouvelle jurisprudence"
+        }
+      },
+      "EMPLOYEES": {
+        "FILTERS": "Utilisez des filtres pour rechercher des employ\u00e9s",
+        "TITLE": "Employ\u00e9s",
+        "DETAIL": "D\u00e9tails de l'employ\u00e9",
+        "EDIT": "Modifier les informations de",
+        "COUNT-NIGHT-HOURS": "Comptage nocturne",
+        "LIST": "Liste des employ\u00e9s",
+        "NEW": {
+          "TITLE": "Nouvel employ\u00e9"
+        }
+      }
+    },
+    "ACCESS": {
+      "TITLE": "Contr\u00f4le d'acc\u00e8s"
+    },
+    "PRESENCES": {
+      "TITLE": "Enregistrement du temps"
+    },
+    "PATROLS": {
+      "TITLE": "Gestion des patrouilles"
+    },
+    "PRODUCTION": {
+      "TITLE": "Contr\u00f4le de la production",
+      "PRODUCTION": "Production"
+    },
+    "DEVICES": {
+      "TITLE": "Gestion des dispositifs"
+    },
+    "SHIFTS": {
+      "TITLE": "Gestion de l'\u00e9quipe"
+    },
+    "EARUBA": {
+      "PORT": "Port eAruba",
+      "IP": "IP eAruba",
+      "PHPPORT": "Port php d'eAruba",
+      "MAXTASKS": "Nombre maximal d'op\u00e9rations",
+      "LAZARUS": "Version Lazarus"
+    }
+  }
+}

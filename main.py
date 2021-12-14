@@ -2,7 +2,7 @@ from datetime import datetime
 from deepl import Deepl
 from translation import Translation
 
-LANG = 'BG' # DE, BG, ES, FR, ES
+LANG = 'DE' # DE, BG, ES, FR, ES
 
 START = datetime.now()
 print(f'Translator is running.\nScript started at {START}.')
