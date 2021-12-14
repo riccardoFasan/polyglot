@@ -71,3 +71,6 @@ class JSONManager(TranslationManager):
         destination = self.get_destination_file()
         destination.write(json.dumps(self.translations_dict, indent=2))
         destination.close()
+
+
+# TODO: POManager

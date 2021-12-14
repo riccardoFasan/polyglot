@@ -2,6 +2,8 @@ import requests, json
 
 class Deepl:
     
+    # TODO: Move the api key in an external file and require it as input at first usage
+
     KEY = 'fc589597-ab6f-4955-b98f-f6ba8fa80246:fx'
     URL = 'https://api-free.deepl.com/v2/'
     HEADERS = {
