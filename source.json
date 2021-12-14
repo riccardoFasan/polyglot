@@ -20,7 +20,6 @@
         "IDENTIFIER": "Identificativo",
         "TYPE": "Tipo",
         "GENERAL": "Generale",
-        "EXPORT-FORMAT": "Formato d'esportazione",
         "OTHER": "Altro",
         "DELTAS": "Discriminatori",
         "OFFSET": "Offset",
@@ -35,7 +34,15 @@
         "LIMIT": "Soglia",
         "SCRAP": "Scarto",
         "SCORE": "Punteggio",
+        "CYCLICALITY": "Ciclicità",
         "PRIORITY": "Priorità",
+        "LANGUAGE": "Lingua",
+        "POSITION": "Posizione",
+        "FORMATS": {
+            "EXPORT": "Formato d'esportazione",
+            "VIEW": "Formato visualizzazione",
+            "PRINT": "Formato stampa"
+        },
         "PAGINATION": {
             "NEXT": "Avanti",
             "END": "Fine",
@@ -70,7 +77,7 @@
             "MAX": "Massimo",
             "MIN": "Minimo",
             "VARIABLE": "Variabile",
-            "CONSTANT": "Constante",
+            "CONSTANT": "Costante",
             "OPERATOR": "Operatore",
             "SUM": "Somma",
             "ZEROES": "Zeri",
@@ -84,6 +91,7 @@
             "PARAMETERS": "Parametri",
             "NEW": "Nuovo valore",
             "OF": "su",
+            "INSTANCE": "Istanza",
             "BOOLEANS": {
                 "TRUE": "Vero",
                 "FALSE": "Falso",
@@ -135,7 +143,7 @@
             "EXCLUDE": "Escludi (g/m)"
         },
         "FEATURE": {
-            "NAME": "Funzionalità",
+            "NAME": "Funzione",
             "FUNCTIONS": {
                 "ADD": "Aggiungi",
                 "COPY": "Copia",
@@ -216,6 +224,7 @@
         },
         "FORMS": {
             "MANDATORY-FIELDS": "I campi contrassegnati con * sono obbligatori",
+            "EMPTY": "Al momento non ci sono contenuti disponibii per questa pagina.",
             "FROM": "Da",
             "TO": "A",
             "ERROR": "Errore",
@@ -291,6 +300,7 @@
             "TIMEZONE": "Fuso orario (GMT)",
             "DAYLIGHT": "Ora legale",
             "PATRON": "Santo patrono",
+            "SINGLE-DAYS": "Giornate singole",
             "AT": "Alle",
             "TO": "A",
             "INTERVAL": "Intervallo orario",
@@ -299,11 +309,25 @@
             "SINCE": "Da",
             "PERIOD": "Periodo",
             "DATE": "Data",
+            "DAYOFF": "Riposo",
+            "DAYS-NUMBER": "Numero di giorni",
             "START": "Inizio",
             "END": "Fine",
+            "DATE-START": "Data d'inizio",
+            "DATE-END": "Data di fine",
+            "TIME-OPENING": "Ora d'apertura",
+            "TIME-CLOSURE": "Ora di chiusura",
+            "LOCATION-DATE": "Data, ora e localizzazione",
             "HOLIDAYS-TYPE": {
                 "RECURRING": "Festività ricorrenti (ogni anno)",
                 "ONEOFF": "Festività esclusive di quest'anno"
+            },
+            "ADJECTIVES": {
+                "DAY": "Giornaliero",
+                "WEEK": "Settimanale",
+                "MONTH": "Mensile",
+                "YEAR": "Annuale",
+                "DATE": "Alla data"
             },
             "SCHEDULE": "Orario",
             "HOUR": "Ora",
@@ -368,6 +392,8 @@
             "LOGS": "Abilita log",
             "EXPORT": "Export transazioni",
             "HISTORY": "File storico",
+            "ROOT-NAME": "Username amministratore",
+            "ROOT-PASSWORD": "Password amministratore",
             "PARAMETERS-LABEL": "Parametri amministrativi",
             "DATABASES": {
                 "ORACLE1": "Oracle tipo 1",
@@ -452,7 +478,11 @@
         },
         "LANGUAGES": {
             "IT": "Italiano",
-            "EN": "Inglese"
+            "EN": "Inglese",
+            "ES": "Spagnolo",
+            "FR": "Francese",
+            "DE": "Tedesco",
+            "BG": "Bulgaro"
         },
         "COMPANY": {
             "COMPANY": "Azienda",
@@ -498,7 +528,7 @@
             "BEGIN-MINUTES": "Ora d'inizio (minuti)",
             "END": "Ora di fine",
             "END-MINUTES": "Ora di fine (minuti)",
-            "STAMPING-REQUIRED": "Obbligo timbratura",
+            "STAMPING-REQUIRED": "Obbligo di timbratura",
             "CITIZENSHIPCODE": "Codice di cittadinanza",
             "PERSONAL-EMAIL": "Email personale",
             "CONCTRACT-EXPIRATION": "Scadenza del contratto",
@@ -604,6 +634,7 @@
             "EXPAND": "Clicca per espandere",
             "MINIMIZE": "Clicca per ridurre",
             "CLICK-TO-VIEW": "Clicca per visualizzare",
+            "CLICK-TO-REVERSE": "Clicca per invertire",
             "NAME": "Azione",
             "ROUND": "Arrotonda",
             "EXPORT": "Esporta",
@@ -675,7 +706,7 @@
             "PLACE": "Luogo di nascita",
             "PROVINCE": "Provincia di nascita"
         },
-        "CONCTACTS": {
+        "CONTACTS": {
             "EMAIL": "Email",
             "PHONE": "Telefono",
             "MOBILE": "Cellulare",
@@ -696,25 +727,13 @@
             "NOT-CONCURS": "Non concorre al monte ore",
             "REGULARS": "Ore ordinarie",
             "OVERTIMES": "Ore strordinarie",
+            "NOT-COUNTED": "Ore non conteggiate",
             "THEORETICAL": "Ore teoriche"
         },
         "OVERTIME": {
             "MANAGEMENT": "Gestione straordinario",
             "FIELDS": "Voci di straordinario"
         }
-    },
-    "NOT-FOUND": {
-        "TITLE": "Pagina non trovata",
-        "TEXT": "Non siamo riusciti a trovare la pagina che stai cercando. Ti consigliamo di tornare alla"
-    },
-    "ERROR": {
-        "TITLE": "Errore interno",
-        "TEXT": "Si è verificato un errore imprevisto, ti consigliamo di provare a ricaricare la pagina oppure di tornare alla home. Non esitare a contattarci se l'errore dovesse persistere."
-    },
-    "CONNECTION-ERROR": {
-        "TITLE": "Errore di connessione",
-        "TEXT": "Si è verificato un errore di connessione. Controlla la tua connessione e riprova.",
-        "ACTION": "Riprova"
     },
     "LOGIN": {
         "WELCOME": "Benvenuto nella <br><strong>Suite Oltre</strong>",
@@ -754,10 +773,24 @@
         }
     },
     "MANAGEMENT": {
+        "NOT-FOUND": {
+            "TITLE": "Pagina non trovata",
+            "LINE-1": "Ci dispiace, non riusciamo a trovare la pagina che stai cercando.",
+            "LINE-2": "Forse puoi trovare ciò che stai cercando qui:"
+        },
+        "ERROR": {
+            "TITLE": "Errore interno",
+            "TEXT": "Si è verificato un errore imprevisto, ti consigliamo di provare a ricaricare la pagina oppure di tornare alla home. Non esitare a contattarci se l'errore dovesse persistere."
+        },
+        "CONNECTION-ERROR": {
+            "TITLE": "Errore di connessione",
+            "TEXT": "Si è verificato un errore di connessione. Controlla la tua connessione e riprova.",
+            "ACTION": "Riprova"
+        },
         "NAME": "Gestionale",
         "EXTRAORDINARY": "Gestione straordinaria",
         "MENU": {
-            "TITLE": "Menu"
+            "TITLE": "Menù"
         },
         "HOME": {
             "TITLE": "Home",
@@ -800,22 +833,212 @@
             "TITLE": "Mensa"
         },
         "TOOLS": {
-            "TITLE": "Strumenti"
+            "TITLE": "Strumenti",
+            "QUALIFICATION": {
+                "TITLE": "Abilitazioni"
+            },
+            "OPEN-VISITS": {
+                "TITLE": "Visite aperte"
+            },
+            "VISITS": {
+                "TITLE": "Visite"
+            },
+            "MONITORING-ABSENT-PRESENT": {
+                "TITLE": "Monitoraggio assenti/presenti"
+            },
+            "EDIT-DAILY-WORKPLAN": {
+                "TITLE": "Modifica orari giornalieri"
+            },
+            "MAINTENANCE": {
+                "TITLE": "Manutenzione"
+            },
+            "LEAVES-MANAGEMENT": {
+                "TITLE": "Gestione giustificativi"
+            },
+            "PAYROLL-CODES-MANAGEMENT": {
+                "TITLE": "Gestione codici paghe"
+            },
+            "ANOMALIES-MANAGEMENT": {
+                "TITLE": "Gestione anomalie"
+            },
+            "EXCEL-EXPORT": {
+                "TITLE": "Esporta excel"
+            },
+            "RUN-SCRIPT": {
+                "TITLE": "Esegui script"
+            },
+            "COMPANY-DASHBOARD": {
+                "TITLE": "Dashboard aziende"
+            },
+            "ONPREMISES-COUNT": {
+                "TITLE": "Conto OnPremises"
+            },
+            "EMPLOYEES-COUNT": {
+                "TITLE": "Conta dipendenti"
+            },
+            "BLOCK-SITE": {
+                "TITLE": "Blocca sito"
+            },
+            "DASHBOARD": {
+                "TITLE": "Bacheca"
+            },
+            "ABSENT-PRESENT": {
+                "TITLE": "Assenti/presenti"
+            },
+            "TIMESCALE": {
+                "TITLE": "Scadenzario"
+            },
+            "CHECK-VERSION": {
+                "TITLE": "Controlla versione"
+            },
+            "ITUP-USAGE": {
+                "TITLE": "Uso ITup"
+            },
+            "BADGE-UPLOAD": {
+                "TITLE": "Carica Badge"
+            },
+            "AUTHORIZATIONS-STATUS": {
+                "TITLE": "Stato autorizzazioni"
+            },
+            "EARUBA-REBOOT": {
+                "TITLE": "Riavvio eAruba"
+            },
+            "RECOVERY": {
+                "TITLE": "Recupero"
+            },
+            "TERMINAL-CHART-MONITORING": {
+                "TITLE": "Monitoraggio grafico terminali"
+            },
+            "STORAGE": {
+                "TITLE": "Archiviazione"
+            }
         },
         "EXPORT": {
-            "TITLE": "Esportazione"
+            "TITLE": "Esportazione",
+            "PAYROLL": {
+                "TITLE": "Esportazione paghe"
+            },
+            "MANAGEMENT": {
+                "TITLE": "Esportazione gestionale"
+            }
         },
         "IMPORT": {
-            "TITLE": "Importazione"
+            "TITLE": "Importazione",
+            "TRANSACTIONS-COUNTER": {
+                "TITLE": "Importa transazioni (contatori)"
+            },
+            "ERRORS": {
+                "TITLE": "Importa errori"
+            },
+            "TRANSACTIONS": {
+                "TITLE": "Importa transazioni"
+            },
+            "WORKSTRATIONS": {
+                "TITLE": "Importa postazioni"
+            },
+            "UPLOAD-TRANSACTIONS": {
+                "TITLE": "Upload transazioni"
+            },
+            "XATLAS-EMPLOYEES": {
+                "TITLE": "WS XAtlas (dipendenti)"
+            },
+            "XATLAS-TRANSACTIONS": {
+                "TITLE": "WS XAtlas (transazioni)"
+            }
         },
         "RESULTS": {
-            "TITLE": "Risultati"
+            "TITLE": "Risultati",
+            "ABNORMAL-ROUTES": {
+                "TITLE": "Percorsi anomali"
+            },
+            "ABSENSES": {
+                "TITLE": "Assenze"
+            },
+            "ABSENSE-COVERAGES": {
+                "TITLE": "Copertura assenze"
+            },
+            "ACTIVITY-MANAGEMENT": {
+                "TITLE": "Attività gestionale"
+            },
+            "BIOMETRICS": {
+                "TITLE": "Biometrie"
+            },
+            "CHECKPOINTS": {
+                "TITLE": "Punti di controllo"
+            },
+            "COUNTERS": {
+                "TITLE": "Transazioni (contatori)"
+            },
+            "WORKSTATIONS": {
+                "TITLE": "Transazioni (postazioni)"
+            },
+            "WORKSTATIONS-REPORT": {
+                "TITLE": "Report postazioni"
+            },
+            "DETAILED-CREDIT-REPORT": {
+                "TITLE": "Report credito dettagliato"
+            },
+            "SUMMARY-CREDIT-REPORT": {
+                "TITLE": "Report credito riassuntivo"
+            },
+            "DAILY-ROUTE-REPORT": {
+                "TITLE": "Report percorso giornaliero"
+            },
+            "EMPLOYEE-PHASE": {
+                "TITLE": "Report fasi"
+            },
+            "EMPLOYEE-REPORT": {
+                "TITLE": "Report dipendenti"
+            },
+            "JOB-REPORT": {
+                "TITLE": "Report commesse"
+            },
+            "LEAVE-REPORT": {
+                "TITLE": "Report giustificativi"
+            },
+            "MEAL-REPORT": {
+                "TITLE": "Report pasti"
+            },
+            "OPERATOR-REPORT": {
+                "TITLE": "Report operatori"
+            },
+            "PRODUCT-REPORT": {
+                "TITLE": "Report articoli"
+            },
+            "RECRUITMENET-DISMISSAL-REPORT": {
+                "TITLE": "Report assunzioni e licenziamenti"
+            },
+            "COMPLETED-ROUTE": {
+                "TITLE": "Percorsi completati"
+            },
+            "SHIFT-PLAN": {
+                "TITLE": "Piano turni"
+            },
+            "TRANSACTIONS": {
+                "TITLE": "Transazioni"
+            },
+            "WORKING-DAYS-REPORT": {
+                "TITLE": "Report giorni lavorati"
+            },
+            "MACHINING-CENTER": {
+                "TITLE": "Centri di produzione"
+            },
+            "PHASE-REPORT": {
+                "TITLE": "Report fasi"
+            }
         },
         "TIME-CARD": {
             "TITLE": "Cartellino",
             "COLOR": "Colore cartellino",
             "STATUS": "Stato del cartellino",
             "TYPE": "Tipo di cartellino",
+            "TYPES": {
+                "DAILY": "Giornaliero",
+                "PERIODICAL": "Periodico",
+                "COUNTERS": "Contatori",
+                "WORKSTATIONS": "Postazioni",
+                "MACRO": "Macro"
+            },
             "MANAGE-FILTERS": {
                 "HEADER": "Imposta i filtri e avvia una ricerca",
                 "CORPORATE-FILTER": "Filtri aziendali",
@@ -845,7 +1068,7 @@
             "PROCESSEDS": "Elaborati",
             "MONTHLY-NOTE": "Nota mensile",
             "DAILY": {
-                "TITLE": "Cartellino (Giorn.)"
+                "TITLE": "Cartellino giornaliero"
             },
             "SHEET": {
                 "TITLE": "Foglio presenze"
@@ -854,19 +1077,19 @@
                 "TITLE": "Stampe"
             },
             "PERIODICAL": {
-                "TITLE": "Cartellino (Per.)"
+                "TITLE": "Cartellino periodico"
             },
             "MACRO": {
-                "TITLE": "Cartellino (Macro)"
+                "TITLE": "Cartellino (macro)"
             },
             "EXPORT": {
                 "TITLE": "Esporta formato Excel"
             },
-            "COUNTER": {
-                "TITLE": "Cartellino (Cont.)"
+            "COUNTERS": {
+                "TITLE": "Cartellino (contatori)"
             },
-            "WORKSTATION": {
-                "TITLE": "Cartellino (Post.)"
+            "WORKSTATIONS": {
+                "TITLE": "Cartellino (postazioni)"
             }
         },
         "SETTINGS": {
@@ -1112,6 +1335,7 @@
             },
             "TRANSACTIONS": {
                 "TITLE": "Formato transazioni",
+                "TYPE": "Tipo transazioni",
                 "IMPORT": {
                     "FILE": {
                         "PRESENCES": "File presenze",
@@ -1242,7 +1466,7 @@
         "PROCESSING": {
             "TITLE": "Elaborazione",
             "DAILY": {
-                "TITLE": "Elaborazione (giorn.)",
+                "TITLE": "Elaborazione (giornaliero)",
                 "ACTION": "Imposta i filtri ed elabora le ore lavorate"
             },
             "MACRO": {
@@ -1250,21 +1474,21 @@
                 "ACTION": "Imposta i filtri ed elabora le ore lavorate"
             },
             "PERIODICAL": {
-                "TITLE": "Elaborazione (per.)",
+                "TITLE": "Elaborazione (periodico)",
                 "COMPLETE-NAME": "Elaborazione periodica",
                 "ACTION": "Imposta i filtri ed elabora le ore lavorate"
             },
             "UNDO": {
                 "DAILY": {
-                    "TITLE": "Annulla elab. (giorn.)",
+                    "TITLE": "Annulla elaborazione (giornaliero)",
                     "ACTION": "Imposta i filtri e annulla l'elaborazione giornaliera"
                 },
                 "MACRO": {
-                    "TITLE": "Annulla elab. (macro)",
+                    "TITLE": "Annulla elaborazione (macro)",
                     "ACTION": "Imposta i filtri e annulla l'elaborazione macro"
                 },
                 "PERIODICAL": {
-                    "TITLE": "Annulla elab. (per.)",
+                    "TITLE": "Annulla elaborazione (periodico)",
                     "ACTION": "Imposta i filtri e annulla l'elaborazione periodica"
                 }
             }
@@ -1275,7 +1499,31 @@
                 "TITLE": "Registro di sistema",
                 "LIST": "Lista dei log",
                 "FILTERS": "Filtri utente",
-                "IP": "Indirizzo IP"
+                "IP": "Indirizzo IP",
+                "PROVIDER": "Service provider"
+            },
+            "SITES": {
+                "TITLE": "Siti",
+                "LIST": "Lista dei siti",
+                "DETAIL": "Dettaglio sito",
+                "EDIT": "Modifica sito ",
+                "PROFILE": "Profilo aziendale",
+                "SPECIAL": "Opzioni speciali",
+                "TRANSACTIONS-IMPORT-PROFILE": "Profilo import transazioni",
+                "TRANSACTIONS-IMPORT-SPECIAL": "Importazione transazioni (Speciale)",
+                "FTP": "FTP (Speciale)",
+                "PAY-PER-USE": "Pay per use",
+                "SHIFT-KEY": "Chiave turni",
+                "SHIFT-CODE": "Codice turni",
+                "ONLINE-DAYS": "Giorni online rispetto a oggi",
+                "ADDITIONAL-PAYROLL-OPTIONS": "Opzioni aggiuntive paghe",
+                "WS-SETTINGS": "Impostazioni Web Services",
+                "TRANSACTION-COUNTER": "Contatore transazioni",
+                "DATE-START-COUNTING": "Data inizio conteggi",
+                "GUIDE": "Abilita manuale utente",
+                "NEW": {
+                    "TITLE": "Nuovo sito"
+                }
             },
             "COMPANIES": {
                 "TITLE": "Aziende",
@@ -1341,7 +1589,8 @@
                 "ACTIVE": "Utente attivo",
                 "NOT-ACTIVE": "Utente non attivo",
                 "API": "Con accesso alle API",
-                "NOT-API": "Senza accesso alle API"
+                "NOT-API": "Senza accesso alle API",
+                "APP-SITES": "Applicazioni e siti"
             },
             "UPDATE-PASSWORD": {
                 "TITLE": "Cambio password",
@@ -1354,10 +1603,118 @@
                     "REPEAT": "Le password non corrispondono",
                     "EQUALS": "La nuova password e quella corrente non posso essere uguali"
                 }
+            },
+            "DATABASE-ACQUISITION": {
+                "TITLE": "Acquisizione database"
+            },
+            "DATABASE-DELETION": {
+                "TITLE": "Eliminazione database"
+            },
+            "DATABASE-EXPORT": {
+                "TITLE": "Esporta database"
+            },
+            "DATABASE-IMPORT": {
+                "TITLE": "Importa database"
+            },
+            "MESSAGE-EDITOR": {
+                "TITLE": "Editor messaggi"
+            },
+            "MESSAGE-IMPORT": {
+                "TITLE": "Importa messaggi"
+            },
+            "MESSAGE-EXPORT": {
+                "TITLE": "Exporta messaggi"
+            },
+            "DATABASE-MANAGEMENT": {
+                "TITLE": "Gestione database biometrico"
+            },
+            "SITE-EXPORT": {
+                "TITLE": "Esport sito"
+            },
+            "ONPREMISES": {
+                "TITLE": "OnPremises"
+            },
+            "SYSTEM-STATUS": {
+                "TITLE": "Stato del sistema"
+            },
+            "SQL-ACCESS": {
+                "TITLE": "Accesso SQL"
+            },
+            "HISTORICIZATION": {
+                "TITLE": "Storicizzazione"
+            },
+            "ACTIVE-USERS": {
+                "TITLE": "Utenti attivi"
+            },
+            "AUTOMATIONS": {
+                "TITLE": "Automatismi"
+            },
+            "FUNCTIONS": {
+                "TITLE": "Funzioni"
+            },
+            "MENU-GROUPS": {
+                "TITLE": "Gruppi menù"
             }
         },
         "ARCHIVE": {
             "TITLE": "Archivi",
+            "VISITORS": {
+                "TITLE": "Visitatori"
+            },
+            "DAILY-ACCESS-RULES": {
+                "TITLE": "Regole di accesso giornaliere"
+            },
+            "WEEKLY-ACCESS-RULES": {
+                "TITLE": "Regole di accesso settimanali"
+            },
+            "SENSORS": {
+                "TITLE": "Sensori"
+            },
+            "TIME-SLOTS": {
+                "TITLE": "Fasce orarie"
+            },
+            "VISITOR-CLASSES": {
+                "TITLE": "Classi di visitatori"
+            },
+            "COLLECTION-CENTERS": {
+                "TITLE": "Centri di produzione"
+            },
+            "MINIMUMS": {
+                "TITLE": "Minimi"
+            },
+            "WORKPLAN-GROUP-LISTS": {
+                "TITLE": "Gruppi orari giornalieri"
+            },
+            "PERIODIC-ELABORATIONS": {
+                "TITLE": "Elaorazioni periodiche"
+            },
+            "SHIFTS-SIMULATIONS": {
+                "TITLE": "Simulazioni turni"
+            },
+            "NOTES": {
+                "TITLE": "Note"
+            },
+            "CHECKPOINTS": {
+                "TITLE": "Punti di raccolta"
+            },
+            "DAILY-ROUTES": {
+                "TITLE": "Percorsi giornalieri"
+            },
+            "WEEKLY-ROUTES": {
+                "TITLE": "Percorsi settimanali"
+            },
+            "MACHINING-CENTERS": {
+                "TITLE": "Centri di produzione"
+            },
+            "PRODUCTS": {
+                "TITLE": "Prodotti"
+            },
+            "PHASES": {
+                "TITLE": "Fasi"
+            },
+            "NEEDS": {
+                "TITLE": "Fabbisogni"
+            },
             "CAUSALS": {
                 "TITLE": "Causali",
                 "DETAIL": "Dettagli causale",
@@ -1381,7 +1738,7 @@
                 "LIST": "Lista contatori",
                 "DETAIL": "Dettagli contatore"
             },
-            "CONCTRACTS": {
+            "CONTRACTS": {
                 "TITLE": "Contratti",
                 "SINGULAR": "Contratto",
                 "LIST": "Lista contratti",
@@ -1395,26 +1752,27 @@
                 "DAYS": {
                     "IN-A-ROW": {
                         "TITLE": "Giorni di lavoro consecutivi",
-                        "MAX": "Massimo numero di giorni consecutivi",
-                        "MIN": "Minimo numero di giorni consecutivi"
+                        "MAX": "Giorni massimi consecutivi",
+                        "MIN": "Giorni minimi consecutivi"
                     },
                     "PERIOD": {
                         "TITLE": "Giorni di lavoro nel periodo",
-                        "MAX": "Massimo numero di giorni nel periodo",
-                        "MIN": "Minimo numero di giorni nel periodo"
+                        "MAX": "Giorni massimi nel periodo",
+                        "MIN": "Giorni minimi nel periodo"
                     },
                     "DAYOFF": {
                         "TITLE": "Giorni di riposo",
-                        "BETWEEN": "Massimo numero di giorni tra due riposi obbligatori",
-                        "HOLIDAYS": "Minimo numero di riposi festivi nel periodo",
-                        "MANDATORY": "Minimo numero di riposi obbligatori nel periodo",
-                        "OFFSET": "Massimo numero di riposi compensativi nel periodo"
+                        "BETWEEN": "Giorni massimi tra due riposi obbligatori",
+                        "HOLIDAYS": "Riposi minimo festivi nel periodo",
+                        "MANDATORY": "Riposi minimo obbligatori nel periodo",
+                        "OFFSET": "Riposi massimi compensativi nel periodo"
                     },
                     "NIGHTS": {
-                        "MAX": "Massimo numero di notti consecutive di lavoro"
+                        "MAX": "Notti massime consecutive di lavoro"
                     }
                 },
                 "RATIO": "Rapporto eccedenza ore",
+                "OVERTIME-RATIO": "Rapporto eccedenza ore straordinari",
                 "OTHER": {
                     "HOURS": "Minimo numero di ore tra due turni",
                     "PART-TIME": "Contratto part-time"
@@ -1547,7 +1905,7 @@
                 }
             },
             "DAILY-WORKPLAN-CYCLES": {
-                "TITLE": "Sequenze orari gio.",
+                "TITLE": "Sequenze orari giornalieri",
                 "LIST": "Lista sequenze orari giornalieri",
                 "DETAIL": "Dettagli sequenze orari giornalieri",
                 "EDIT": "Modifca sequenza oraria giornaliera ",
@@ -1564,7 +1922,7 @@
                 "ORDER": "Numero d'ordine"
             },
             "WEEKLY-WORKTIMES-SEQUENCE": {
-                "TITLE": "Sequenza orari sett.",
+                "TITLE": "Sequenza orari settimanali",
                 "DETAIL": "Dettagli sequenza orari settimanali",
                 "NEW": {
                     "TITLE": "Nuova sequenza"
@@ -1575,7 +1933,7 @@
                 "ABBR": "Gruppo orari",
                 "EDIT": "Modifica gruppo orario "
             },
-            "DAILY-WORKTIMES-GROUP": {
+            "DAILY-WORKPLANS-GROUP": {
                 "DETAIL": "Dettagli gruppo orari giornaliero",
                 "TITLE": "Gruppi orari",
                 "AUTOMATIC-ASSIGNMENT": "In assegnazione automatica",
@@ -1588,11 +1946,22 @@
                 "LIST": "Lista gruppo sequenze orari",
                 "EDIT": "Modifica gruppo sequenze orari ",
                 "DETAIL": "Dettagli gruppo sequenze orari",
-                "TITLE": "Gruppi seq. orari sett.",
+                "TITLE": "Gruppi sequenze orari settimanali",
                 "SINGULAR": "Gruppo sequenze orari settimanali",
                 "ABBR": "Gruppo sequenze",
                 "NEW": {
                     "TITLE": "Nuovo gruppo sequenze orari"
+                }
+            },
+            "WEEKLY-WORKPLAN-CYCLES": {
+                "LIST": "Lista sequenze orari settimanali",
+                "EDIT": "Modifica sequenza orari settimanali",
+                "DETAIL": "Dettagli sequenze orari settimanali",
+                "TITLE": "Sequenza orari settimanali",
+                "SINGULAR": "Sequenza orari settimanali",
+                "ABBR": "Sequenza",
+                "NEW": {
+                    "TITLE": "Nuovo sequenze orari settimanali"
                 }
             },
             "ROUNDING-BANDS": {
@@ -1617,6 +1986,7 @@
             },
             "REFERENCE-BANDS": {
                 "TITLE": "Fasce di riferimento",
+                "SINGULAR": "Fascia di riferimento",
                 "LIST": "Lista fasce di riferimento",
                 "DETAIL": "Dettagli fascia di riferimento",
                 "REQUIRED": "Obbligo di presenza",
@@ -1646,7 +2016,8 @@
                     "PERSON": "Persona",
                     "CHECK-POINT": "Punto di controllo",
                     "VISITOR": "Visitatore",
-                    "OPERATOR": "Operatore"
+                    "OPERATOR": "Operatore",
+                    "ACCESSORY": "Accessorio"
                 },
                 "NEW": {
                     "TITLE": "Nuovo badge"
@@ -1690,6 +2061,15 @@
                 "DETAIL": "Dettagli voce",
                 "TITLE": "Voci formula",
                 "SINGULAR": "Voce formula",
+                "LIST": "Lista voci formula",
+                "EDIT": "Modifica voce formula ",
+                "FORMATS": {
+                    "MINUTES": "Ore e minuti",
+                    "CENTS": "Ore e centesimi",
+                    "NUMBERS": "Numerica",
+                    "DECIMAL": "Decimale",
+                    "ALPHANUMERIC": "Alfanumerica"
+                },
                 "NEW": {
                     "TITLE": "Nuova voce formula"
                 }
@@ -1723,14 +2103,60 @@
                 "EDIT": "Modifica orario ",
                 "LIST": "Lista orari"
             },
-            "DAILY-WORKTIMES": {
+            "DAILY-WORKPLANS": {
                 "TITLE": "Orari giornalieri",
+                "TOLERANCE": "Tolleranza",
+                "LIST": "Lista orari giornalieri",
                 "SINGULAR": "Orario giornaliero",
+                "REMOVE-BAND": "Toglie da ultima fascia lavorata",
+                "MINIMUM-OVERTIME": "Minimo straordinario per fascia",
                 "HOURS": "Ore giornaliere",
+                "MIN-HOURS": "Ore giornaliere minime",
+                "MAX-HOURS": "Ore giornaliere massime",
                 "DETAIL": "Dettagli orario giornaliero",
+                "EDIT": "Modifica orario giornaliero ",
+                "DEDUCTION": "Detrazione",
+                "DAY-LIMIT": "Riclassifica giorno (soglia)",
+                "PAYROLL-DEDUCTION": "Voce detrazione",
+                "WORKSTATION-DEDUCTION": "Detrazione su postazioni",
+                "NIGHT": "Orario notturno (entrata giorno successivo)",
+                "RESCUE": {
+                    "NAME": "Modalità di recupero",
+                    "SAME": "Stessa fascia",
+                    "NEXT": "Fascia flessibile successiva",
+                    "FREE": "Libera"
+                },
+                "CANTEEN": {
+                    "FLEXIBLE": "Flessibile",
+                    "RIGID": "Rigida",
+                    "VIRTUAL": "Virtuale",
+                    "TIME": "Tempo lavorato",
+                    "STAMPED": "Timbrata/conteggiata",
+                    "CONTINUOUS": "Tempo lavorato continuato",
+                    "NOT-STAMPED": "Se mensa non timbrata"
+                },
+                "COMPENSATE": {
+                    "MAX": "Massimo da compensare",
+                    "LEAVE": "Giustificativo compensazione"
+                },
+                "LEAVES": {
+                    "DELAY": "Giustificativo ritardi",
+                    "ANTICIPATE": "Giustificativo anticipi"
+                },
+                "NO-TRANSACTIONS": "Anche senza transazioni",
+                "TYPES": {
+                    "NORMAL": "Normale",
+                    "ABSENCES": "Compensazione assenze",
+                    "DELAY": "Ritardi/anticipi"
+                },
                 "NEW": {
                     "TITLE": "Nuovo orario giornaliero"
-                }
+                },
+                "OVERTIME": {
+                    "NAME": "Straordinari",
+                    "HOURS": "Straordinari in totale ore lavorate"
+                },
+                "LIMIT": "Soglia minima ore lavorate"
             },
             "WEEKLY-WORKPLANS": {
                 "TITLE": "Orari settimanali",

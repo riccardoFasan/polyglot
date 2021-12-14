@@ -7,7 +7,7 @@ HEADERS = {
     'Content-Type' : 'application/json'
 }
 
-LANG = 'ES' # DE, BG, ES, FR
+LANG = 'ES' # DE, BG, ES, FR, ES
 
 SOURCE = open('./source.json', 'r')
 
