@@ -7,7 +7,7 @@ HEADERS = {
     'Content-Type' : 'application/json'
 }
 
-LANG = 'ES' # DE, BG, ES, FR, ES
+LANG = 'BG' # DE, BG, ES, FR, ES
 
 SOURCE = open('./source.json', 'r')
 
@@ -32,15 +32,6 @@ def api_call(word):
     print(f'No traslation found\n')
     return ''
 
-def translate(dict, bar, i=0):
-    for key, value in dict.items():
-        if isinstance(value, __builtins__.dict):
-            translate(value, bar, i)
-        else:
-            dict[key] = api_call(value)
-            i += 1
-            bar.update(i)
-
 def get_number_of_dicts(dict):
     number = 0
     for key, value in dict.items():
@@ -57,9 +48,20 @@ get_usage_info()
 data = json.load(SOURCE)
 
 NUMBER_OF_DICTS = get_number_of_dicts(data)
+completion_count = 0
 
 with progressbar.ProgressBar(max_value=NUMBER_OF_DICTS, redirect_stdout=True) as bar:
-    translate(data, bar)
+
+    def translate(dict):
+        for key, value in dict.items():
+            if isinstance(value, __builtins__.dict):
+                translate(value)
+            else:
+                dict[key] = api_call(value)
+                completion_count += 1
+                bar.update(completion_count)
+
+    translate(data)
 
 try:
     DESTINATION = open(f'./{LANG.lower()}.json', 'x')
