@@ -17,7 +17,7 @@ class Translation:
 
     @property
     def destination_path(self):
-        return f'./{self.deepl.lang.lower()}.json',
+        return f'./{self.deepl.lang.lower()}.json'
 
     def translate_source(self):
         self.load_source()
