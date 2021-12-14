@@ -7,7 +7,7 @@ class Translation:
     source_dict = dict()
     translations_dict = dict()
 
-    completion_count = 1
+    completion_count = 0
     number_of_dicts = 0
 
     bar = progressbar.ProgressBar(max_value=number_of_dicts, redirect_stdout=True)
