@@ -1,38 +1,45 @@
-import json, progressbar
+import os, json, progressbar
+from colorama import Fore
 
 class TranslationManager: 
-
-    SOURCE_PATH = './source.json'
 
     translations_dict = dict()
     completion_count = 0
     progress_bar = None
 
-    def __init__(self, deepl):
+    def __init__(self, deepl, source_file, target_path=None):
         self.deepl = deepl
+        self.source_file = source_file
+        self.check_source_file()
+        self.target_path = target_path if target_path and os.path.isdir(target_path) else os.getcwd()
 
-    @property
-    def destination_path(self):
-        return f'./{self.deepl.lang.lower()}.json'
+    def check_source_file(self):
+        if not os.path.exists(self.source_file):
+            print(Fore.RED + f'Error: "{self.source_file}" does not exist!')
+            os._exit(0)
 
     def get_destination_file(self):
         try:
-            return open(self.destination_path, 'x')
+            return open(self.target_file, 'x')
         except FileExistsError:
-            return open(self.destination_path, 'w')
+            return open(self.target_file, 'w')
 
-    def get_progress_bar(self):
-        number_of_dicts = self.get_number_of_dicts()
-        return progressbar.ProgressBar(max_value=number_of_dicts, redirect_stdout=True)
+    @property
+    def target_file(self):
+        return f'./{self.deepl.lang.lower()}.json'
 
     def translate_source_file(self):
         self.load_source()
         self.progress_bar = self.get_progress_bar()
 
     def load_source(self):
-        source = open(self.SOURCE_PATH, 'r')
+        source = open(self.source_file, 'r')
         self.translations_dict = json.load(source) 
         source.close()
+
+    def get_progress_bar(self):
+        number_of_dicts = self.get_number_of_dicts()
+        return progressbar.ProgressBar(max_value=number_of_dicts, redirect_stdout=True)
 
 class JSONManager(TranslationManager):
 

@@ -9,19 +9,32 @@ class Deepl:
         'Content-Type' : 'application/json'
     }
 
-    def __init__(self, lang):
-        self.lang = lang
+    def __init__(self, target_lang=None, source_lang=None):
+        self.target_lang = target_lang
+        self.source_lang = source_lang
 
-    def get_usage_info(self):
+    def print_usage_info(self):
         response = requests.get(f'{self.URL}usage', headers=self.HEADERS)
         if response.status_code == 200:
-            usage_info = json.loads(response.text)
-            print(f"\nAuthenticated.\nUsed: {usage_info['character_count']} \nLimit: {usage_info['character_limit']}\n")
+            body = json.loads(response.text)
+            print(f"\nAPI key: {self.KEY}.\nUsed characters: {body['character_count']} \nCharacters limit: {body['character_limit']}\n")
         else:
-            print(f'\nAuthentication error: {response.status_code}\n')
+            print(f"\nError retrieving usage info: {response.status_code}\n")
+
+    def print_supported_languages(self):
+        response = requests.get(f'{self.URL}languages', headers=self.HEADERS)
+        if response.status_code == 200:
+            body = json.loads(response.text)
+            for lang in body:
+                print(f"{lang['name']} ({lang['language']})")
+        else:
+            print(f'\Error retrieving the supported languages: {response.status_code}\n')
 
     def get_translated_word(self, word):
-        response = requests.get(f'{self.URL}translate?auth_key={self.KEY}&text={word}&target_lang={self.lang}&source_lang=IT')
+        endpoint = f"{self.URL}translate?auth_key={self.KEY}&text={word}&target_lang={self.target_lang}"
+        if self.source_lang: 
+            endpoint += f"&source_lang={self.source_lang}"
+        response = requests.get(endpoint)
         if response.status_code == 200:
             try:
                 translation = json.loads(response.text)['translations'][0]['text']

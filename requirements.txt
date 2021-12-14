@@ -3,6 +3,7 @@ appdirs==1.4.4
 astroid==2.4.2
 certifi==2020.6.20
 charset-normalizer==2.0.9
+colorama==0.4.4
 distlib==0.3.1
 filelock==3.0.12
 grapheme==0.6.0
