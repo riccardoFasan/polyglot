@@ -1,6 +1,6 @@
 import requests, json
 
-class DeeplRequest:
+class Deepl:
     
     KEY = 'fc589597-ab6f-4955-b98f-f6ba8fa80246:fx'
     URL = 'https://api-free.deepl.com/v2/'
