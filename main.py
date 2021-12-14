@@ -10,6 +10,7 @@ def translate(args):
     deepl = Deepl(args.target_lang, args.source_lang)  
     translation_manager = JSONManager(deepl, args.source_file, args.target_path)
     translation_manager.translate_source_file()
+    # TODO: PO files support
 
 def print_data_or_translate(args):
     if args.action == 'translate':
