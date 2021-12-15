@@ -64,6 +64,5 @@ class JSONManager(TranslationManager):
     def write_translations(self):
         with open(self.target_file, 'a+') as destination:
             destination.write(json.dumps(self.translations_dict, indent=2))
-            destination.close()
 
 # TODO: POManager

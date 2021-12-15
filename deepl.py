@@ -13,13 +13,11 @@ class Deepl:
 
     def get_api_key(self):
         with open(self.KEY_PATH, 'a+') as key_file:
-            key_file.seek(0)
+            key_file.seek(0) # Nosense, but OK
             key = key_file.read()
             if key == '':
-                print('Type here your Deepl API key:')
-                key = str(input())
+                key = input('Type here your Deepl API key:')
                 key_file.write(key)
-            key_file.close()
             return key
 
     @property
