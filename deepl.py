@@ -56,5 +56,5 @@ class Deepl:
                 return translation
             except: 
                 pass
-        print(f'No traslation found for "{word}"!')
+        print(Fore.YELLOW + f'No traslation found for "{word}"!')
         return ''
