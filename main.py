@@ -1,16 +1,25 @@
-import argparse
+import argparse, os
 from colorama import init, Fore
 
 from deepl import Deepl
-from translation import JSONManager
+from translation import JSONManager, PoManager
 
 init()
 
 def translate(args):
     deepl = Deepl(args.target_lang, args.source_lang)  
-    translation_manager = JSONManager(deepl, args.source_file, args.target_path)
-    translation_manager.translate_source_file()
-    # TODO: PO files support
+    
+    name, extension = os.path.splitext(args.source_file)
+
+    if extension == '.json':
+        manager = JSONManager(deepl, args.source_file, args.target_path)
+    elif extension == '.po':
+        manager = PoManager(deepl, args.source_file, args.target_path)
+    else:
+        print(Fore.RED + f'No manager for {extension} files')
+        os._exit(0)
+
+    manager.translate_source_file()
 
 def print_data_or_translate(args):
     if args.action == 'translate':

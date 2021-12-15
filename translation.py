@@ -1,9 +1,10 @@
 import os, json, progressbar
 from colorama import Fore
 
-class TranslationManager: 
+class AbstractManager: 
 
-    translations_dict = dict()
+    EXTENSION = ''
+
     completion_count = 0
     progress_bar = None
 
@@ -13,41 +14,50 @@ class TranslationManager:
         self.check_source_file()
         self.target_path = target_path if target_path and os.path.isdir(target_path) else os.getcwd()
 
+    @property
+    def target_file(self):
+        return f'{self.target_path}/{self.deepl.target_lang.lower()}.{self.EXTENSION}'
+
     def check_source_file(self):
         if not os.path.exists(self.source_file):
             print(Fore.RED + f'Error: "{self.source_file}" does not exist!')
             os._exit(0)
-
-    @property
-    def target_file(self):
-        return f'./{self.deepl.lang.lower()}.json'
 
     def translate_source_file(self):
         self.load_source()
         self.progress_bar = self.get_progress_bar()
 
     def load_source(self):
-        source = open(self.source_file, 'r')
-        self.translations_dict = json.load(source) 
-        source.close()
+        pass
+
+    def number_of_translations(self):
+        pass
 
     def get_progress_bar(self):
-        number_of_dicts = self.get_number_of_dicts()
-        return progressbar.ProgressBar(max_value=number_of_dicts, redirect_stdout=True)
+        number_of_translations = self.number_of_translations()
+        return progressbar.ProgressBar(max_value=number_of_translations, redirect_stdout=True)
 
-class JSONManager(TranslationManager):
+class JSONManager(AbstractManager):
+
+    EXTENSION = 'json'
+
+    translations_dict = dict()
+
+    def load_source(self):
+        with open(self.source_file, 'r') as source:
+            self.translations_dict = json.load(source) 
 
     def translate_source_file(self):
         super().translate_source_file()
         self.translate_dict()
         self.write_translations()
 
-    def get_number_of_dicts(self, obj=None):
+    def number_of_translations(self, obj=None):
         if obj == None:     
             obj = self.translations_dict
         number = 0
         for key, value in obj.items():
-            number += self.get_number_of_dicts(value) if isinstance(value, dict) else  1
+            number += self.number_of_translations(value) if isinstance(value, dict) else  1
         return number
 
     def translate_dict(self, obj=None):
@@ -65,4 +75,13 @@ class JSONManager(TranslationManager):
         with open(self.target_file, 'a+') as destination:
             destination.write(json.dumps(self.translations_dict, indent=2))
 
-# TODO: POManager
+class PoManager(AbstractManager):
+
+    EXTENSION = 'po'
+
+    def load_source(self):
+        with open(self.source_file, 'r') as source:
+            print(source.read())
+
+    def translate_source_file(self):
+        super().translate_source_file()
