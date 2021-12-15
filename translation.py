@@ -83,6 +83,7 @@ class PoManager(AbstractManager):
 
     def write_translations(self):
         with open(self.target_file, 'a+') as destination:
+            # TODO: suport occurencies and use polib.POFile() to create the new file
             for key, value in self.translations_dict.items():
                 destination.write(f'\nmsgid "{key}"\n')
                 destination.write(f'msgstr "{value}"\n')
