@@ -11,6 +11,7 @@ idna==3.3
 isort==5.7.0
 lazy-object-proxy==1.4.3
 mccabe==0.6.1
+polib==1.1.1
 progressbar2==3.55.0
 pylint==2.6.0
 python-utils==2.5.6
