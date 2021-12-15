@@ -9,14 +9,14 @@ class Deepl:
     def __init__(self, target_lang=None, source_lang=None):
         self.target_lang = target_lang
         self.source_lang = source_lang
-        self.key = self.get_api_key()
+        self.key = self.get_or_ask_key()
 
-    def get_api_key(self):
+    def get_or_ask_key(self):
         with open(self.KEY_PATH, 'a+') as key_file:
             key_file.seek(0) # Nosense, but OK
             key = key_file.read()
             if key == '':
-                key = input('Type here your Deepl API key:')
+                key = input('Type here your Deepl API key: ')
                 key_file.write(key)
             return key
 
@@ -33,7 +33,7 @@ class Deepl:
             body = json.loads(response.text)
             print(f"\nAPI key: {self.key}.\nUsed characters: {body['character_count']} \nCharacters limit: {body['character_limit']}\n")
         else:
-            print(Fore.Red + f"\nError retrieving usage info: {response.status_code}\n")
+            print(Fore.RED + f"\nError retrieving usage info: {response.status_code}\n")
 
     def print_supported_languages(self):
         response = requests.get(f'{self.BASE_URL}languages', headers=self.headers)
@@ -42,7 +42,7 @@ class Deepl:
             for lang in body:
                 print(f"{lang['name']} ({lang['language']})")
         else:
-            print(Fore.Red + f'\Error retrieving the supported languages: {response.status_code}\n')
+            print(Fore.RED + f'\Error retrieving the supported languages: {response.status_code}\n')
 
     def get_translated_word(self, word):
         endpoint = f"{self.BASE_URL}translate?auth_key={self.KEY}&text={word}&target_lang={self.target_lang}"
