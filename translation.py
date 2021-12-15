@@ -18,12 +18,6 @@ class TranslationManager:
             print(Fore.RED + f'Error: "{self.source_file}" does not exist!')
             os._exit(0)
 
-    def get_destination_file(self):
-        try:
-            return open(self.target_file, 'x')
-        except FileExistsError:
-            return open(self.target_file, 'w')
-
     @property
     def target_file(self):
         return f'./{self.deepl.lang.lower()}.json'
@@ -68,9 +62,8 @@ class JSONManager(TranslationManager):
                 self.progress_bar.update(self.completion_count)
 
     def write_translations(self):
-        destination = self.get_destination_file()
-        destination.write(json.dumps(self.translations_dict, indent=2))
-        destination.close()
-
+        with open(self.target_file, 'a+') as destination:
+            destination.write(json.dumps(self.translations_dict, indent=2))
+            destination.close()
 
 # TODO: POManager

@@ -1,39 +1,53 @@
 import requests, json
+from colorama import Fore
 
 class Deepl:
-    
-    # TODO: Move the api key in an external file and require it as input at first usage
 
-    KEY = 'fc589597-ab6f-4955-b98f-f6ba8fa80246:fx'
-    URL = 'https://api-free.deepl.com/v2/'
-    HEADERS = {
-        'Authorization' : f'DeepL-Auth-Key {KEY}',
-        'Content-Type' : 'application/json'
-    }
+    BASE_URL = 'https://api-free.deepl.com/v2/'
+    KEY_PATH = './api_key.txt'
 
     def __init__(self, target_lang=None, source_lang=None):
         self.target_lang = target_lang
         self.source_lang = source_lang
+        self.key = self.get_api_key()
+
+    def get_api_key(self):
+        with open(self.KEY_PATH, 'a+') as key_file:
+            key_file.seek(0)
+            key = key_file.read()
+            if key == '':
+                print('Type here your Deepl API key:')
+                key = str(input())
+                key_file.write(key)
+            key_file.close()
+            return key
+
+    @property
+    def headers(self):
+            return {
+            'Authorization' : f'DeepL-Auth-Key {self.key}',
+            'Content-Type' : 'application/json'
+        }
 
     def print_usage_info(self):
-        response = requests.get(f'{self.URL}usage', headers=self.HEADERS)
+        response = requests.get(f'{self.BASE_URL}usage', headers=self.headers)
         if response.status_code == 200:
             body = json.loads(response.text)
-            print(f"\nAPI key: {self.KEY}.\nUsed characters: {body['character_count']} \nCharacters limit: {body['character_limit']}\n")
+            print(f"\nAPI key: {self.key}.\nUsed characters: {body['character_count']} \nCharacters limit: {body['character_limit']}\n")
         else:
-            print(f"\nError retrieving usage info: {response.status_code}\n")
+            print(Fore.Red + f"\nError retrieving usage info: {response.status_code}\n")
 
     def print_supported_languages(self):
-        response = requests.get(f'{self.URL}languages', headers=self.HEADERS)
+        response = requests.get(f'{self.BASE_URL}languages', headers=self.headers)
         if response.status_code == 200:
             body = json.loads(response.text)
             for lang in body:
                 print(f"{lang['name']} ({lang['language']})")
         else:
-            print(f'\Error retrieving the supported languages: {response.status_code}\n')
+            print(Fore.Red + f'\Error retrieving the supported languages: {response.status_code}\n')
 
     def get_translated_word(self, word):
-        endpoint = f"{self.URL}translate?auth_key={self.KEY}&text={word}&target_lang={self.target_lang}"
+        endpoint = f"{self.BASE_URL}translate?auth_key={self.KEY}&text={word}&target_lang={self.target_lang}"
         if self.source_lang: 
             endpoint += f"&source_lang={self.source_lang}"
         response = requests.get(endpoint)
