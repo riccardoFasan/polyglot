@@ -45,7 +45,7 @@ class Deepl:
             print(Fore.RED + f'\Error retrieving the supported languages: {response.status_code}\n')
 
     def get_translated_word(self, word):
-        endpoint = f"{self.BASE_URL}translate?auth_key={self.KEY}&text={word}&target_lang={self.target_lang}"
+        endpoint = f"{self.BASE_URL}translate?auth_key={self.key}&text={word}&target_lang={self.target_lang}"
         if self.source_lang: 
             endpoint += f"&source_lang={self.source_lang}"
         response = requests.get(endpoint)
