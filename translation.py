@@ -33,9 +33,8 @@ class AbstractManager:
         self.load_translations_dict()
         self.progress_bar = self.get_progress_bar()
         self.translate_dict()
-        self.progress_bar = None
-        self.make_translated_files()
         print('\nTranslation completed.')
+        self.make_translated_files()
 
     def get_number_of_translations(self):
         pass
