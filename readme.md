@@ -8,7 +8,7 @@ There are three available commands: translate, print_usage_data, print_supported
 
 ### Translate
 
-"Translate" is This is the main feature of this script. It takes and reads the passed file and creates one or more files with the translations.
+"Translate" is the main feature of this script. It takes and reads the passed file and creates one or more files with the translations.
 
 In case of a JSON, it returns a new JSON. In case of a PO file it returns a PO and a MO files. 
 
