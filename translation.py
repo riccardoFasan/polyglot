@@ -95,7 +95,7 @@ class PoManager(AbstractManager):
         pofile = self.pofile_source
         for entry in pofile:
             self.translations_dict[entry.msgid] = { 
-                "msgstr" : entry.msgstr,
+                "msgstr" : entry.msgid if entry.msgstr == ''else entry.msgstr,
                 "occurrences" : entry.occurrences   
             }
 
