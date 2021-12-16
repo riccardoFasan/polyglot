@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 And that's all.
 
-Soon the whole script will be packaged for pip and other package managers
+Soon the whole script will be packaged for pip and other package managers.
 
 ## Usage
 
