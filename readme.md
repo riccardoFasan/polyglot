@@ -31,7 +31,7 @@ python main.py translate -p en.json -t IT
 
 ### Advanced usage
 
-E.g.: we have a .po source in English and we want a .po file translated into Japanese with the corresponding .mo file in our house.
+E.g.: we have a .po source in English and we want a .po file translated into Japanese with the corresponding .mo file in our home.
 
 ```shell
 python main.py translate -p en.po -t JA -o $HOME
