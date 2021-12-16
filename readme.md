@@ -2,15 +2,25 @@
 
 Automation script that, using the [**DeepL API**](https://www.deepl.com/it/docs-api/), generates a **JSON** or a **PO** file from a given source file.
 
+## Installation
+
+Install [Python](https://www.python.org/) if you haven't already done so, then download the source code. To install the dependencies run:
+
+```shell
+pip install -r requirements.txt
+```
+
+And that's all.
+
+Soon the whole script will be packaged for pip and other package managers
+
 ## Usage
 
 There are three available commands: translate, print_usage_data and print_supported_languages. 
 
 ### Translate
 
-"Translate" is the main feature of this script. It reads the passed file and creates one or more new files with the translations.
-
-In case of a JSON, it returns a new JSON. In case of a PO file it returns a PO and a MO files. 
+"Translate" is the main feature of this script. It reads the passed file and creates one or more new files with the translations. In case of a JSON, it returns a new JSON. In case of a PO file it returns a PO and a MO files. 
 
 #### Command options
 
@@ -60,5 +70,3 @@ python main.py print_supported_languages
 - [Progressbar 2](https://github.com/WoLpH/python-progressbar)
 
 - [Polib](https://github.com/izimobil/polib/)
-
-
