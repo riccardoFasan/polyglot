@@ -33,8 +33,7 @@ class Deepl:
             body = json.loads(response.text)
             print(f"\nAPI key: {self.key}.\nUsed characters: {body['character_count']} \nCharacters limit: {body['character_limit']}\n")
         else:
-            print(Fore.RED + f"\nError retrieving usage info: {response.status_code}\n")
-            print(Fore.RESET + f'')
+            print(Fore.RED + f"\nError retrieving usage info.", f'Error code: {response.status_code}.', Fore.RESET + f'\n')
 
     def print_supported_languages(self):
         response = requests.get(f'{self.BASE_URL}languages', headers=self.headers)
@@ -43,8 +42,7 @@ class Deepl:
             for lang in body:
                 print(f"{lang['name']} ({lang['language']})")
         else:
-            print(Fore.RED + f'\Error retrieving the supported languages: {response.status_code}\n')
-            print(Fore.RESET + f'')
+            print(Fore.RED + f'\Error retrieving the supported languages.', f'Error code: {response.status_code}.', Fore.RESET + f'\n')
 
     def get_translated_word(self, word):
         endpoint = f"{self.BASE_URL}translate?auth_key={self.key}&text={word}&target_lang={self.target_lang}"
@@ -57,7 +55,7 @@ class Deepl:
                 print(f'"{word}" => {translation}"')
                 return translation
             except: 
-                pass
-        print(Fore.YELLOW + f'No traslation found for "{word}"!')
-        print(Fore.RESET + f'')
+                print(Fore.YELLOW + f'\nNo traslation found for "{word}"!', Fore.RESET + f'')
+        else:
+            print(Fore.RED + f'\nError translating "{word}".', f'Error code: {response.status_code}.', Fore.RESET + f'\n')
         return ''
