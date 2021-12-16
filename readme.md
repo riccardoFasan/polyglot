@@ -4,7 +4,7 @@ Automation script that, using the [**DeepL API**](https://www.deepl.com/it/docs-
 
 ## Usage
 
-There are three available commands: translate, print_usage_data, print_supported_languages. 
+There are three available commands: translate, print_usage_data and print_supported_languages. 
 
 ### Translate
 
