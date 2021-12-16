@@ -14,12 +14,12 @@ In case of a JSON, it returns a new JSON. In case of a PO file it returns a PO a
 
 #### Command options
 
-| Short-form | Long-form          | Required | Description                                                                                                                                        |
-| ---------- | ------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| -p         | --source_file      | yes      | The JSON or PO file to be translated.                                                                                                              |
-| -t         | --target_lang      | yes      | the code of the language into which you want to translate the source file                                                                          |
-| -o         | --target_directory | no       | The directory where the output file will be located. Will be used the working directory if this option is invalid or not used.                     |
-| -s         | --source_lang      | no       | Source file language code. Detected automatically by DeepL by default. Specifying it can increase performance and make translations more accurate. |
+| Option                 | Required | Description                                                                                                                                        |
+|:---------------------- |:-------- |:-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -p, --source_file      | yes      | The JSON or PO file to be translated.                                                                                                              |
+| -t, --target_lang      | yes      | the code of the language into which you want to translate the source file                                                                          |
+| -o, --target_directory | no       | The directory where the output file will be located. **Will be used the working directory if this option is invalid or not used**.                 |
+| -s, --source_lang      | no       | Source file language code. Detected automatically by DeepL by default. Specifying it can increase performance and make translations more accurate. |
 
 ### Basic usage
 
