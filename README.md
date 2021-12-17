@@ -1,6 +1,6 @@
 # DeepL Automation Script
 
-Automation script that, using the [**DeepL API**](https://www.deepl.com/it/docs-api/), generates a **JSON** or a **PO** file from a given source file.
+Automation script that, using the [**DeepL API**](https://www.deepl.com/it/docs-api/), generates a translated (**JSON** or **PO**) file from a given source file.
 
 ## Installation
 
