@@ -2,7 +2,7 @@ import argparse, os
 from colorama import init, Fore
 
 from deepl import Deepl
-from translation import JSONManager, PoManager
+from managers import JSONManager, PoManager
 
 init()
 

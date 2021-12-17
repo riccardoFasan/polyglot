@@ -1,24 +1,19 @@
 import requests, json
+from pathlib import Path
 from colorama import Fore
 
 class Deepl:
 
     BASE_URL = 'https://api-free.deepl.com/v2/'
-    KEY_PATH = './api_key.txt'
 
     def __init__(self, target_lang=None, source_lang=None):
         self.target_lang = target_lang
         self.source_lang = source_lang
         self.key = self.get_or_ask_key()
 
-    def get_or_ask_key(self):
-        with open(self.KEY_PATH, 'a+') as key_file:
-            key_file.seek(0) # Nosense, but OK
-            key = key_file.read()
-            if key == '':
-                key = input('Type here your Deepl API key: ')
-                key_file.write(key)
-            return key
+    @property
+    def key_path(self):
+        return f'{Path.home()}/.deepl_api_key.txt'
 
     @property
     def headers(self):
@@ -26,6 +21,15 @@ class Deepl:
             'Authorization' : f'DeepL-Auth-Key {self.key}',
             'Content-Type' : 'application/json'
         }
+
+    def get_or_ask_key(self):
+        with open(self.key_path, 'a+') as key_file:
+            key_file.seek(0) # Nosense, but OK
+            key = key_file.read()
+            if key == '':
+                key = input('Type here your Deepl API key: ')
+                key_file.write(key)
+            return key
 
     def print_usage_info(self):
         response = requests.get(f'{self.BASE_URL}usage', headers=self.headers)
