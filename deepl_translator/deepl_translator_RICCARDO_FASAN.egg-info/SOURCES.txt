@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+deepl_translator/deepl_translator_RICCARDO_FASAN.egg-info/PKG-INFO
+deepl_translator/deepl_translator_RICCARDO_FASAN.egg-info/SOURCES.txt
+deepl_translator/deepl_translator_RICCARDO_FASAN.egg-info/dependency_links.txt
+deepl_translator/deepl_translator_RICCARDO_FASAN.egg-info/top_level.txt

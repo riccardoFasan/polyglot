@@ -1,6 +1,6 @@
 import requests, json
-from pathlib import Path
 from colorama import Fore
+from pathlib import Path
 
 class Deepl:
 
