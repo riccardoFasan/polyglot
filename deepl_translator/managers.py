@@ -80,7 +80,7 @@ class JSONManager(AbstractManager):
             destination.write(json.dumps(self.translations_dict, indent=2))
             print(f'\nGenerated {self.target_file}.')
 
-class PoManager(AbstractManager):
+class POManager(AbstractManager):
 
     EXTENSION = 'po'
 

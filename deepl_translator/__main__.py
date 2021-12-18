@@ -2,7 +2,7 @@ import argparse, os
 from colorama import init, Fore
 
 from .deepl import Deepl
-from .managers import JSONManager, PoManager
+from .managers import JSONManager, POManager
 
 init()
 
@@ -25,7 +25,7 @@ def translate_or_print_data(parser):
         if extension == '.json':
             manager = JSONManager(deepl, args.source_file, args.target_directory)
         elif extension == '.po':
-            manager = PoManager(deepl, args.source_file, args.target_directory)
+            manager = POManager(deepl, args.source_file, args.target_directory)
         else:
             print(Fore.RED + f'No manager for {extension} files')
             os._exit(0)
