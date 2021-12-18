@@ -8,7 +8,7 @@ Using the [**DeepL API**](https://www.deepl.com/it/docs-api/), Deeply generates 
 Install [Python](https://www.python.org/) if you haven't already done so, then use **pip** to install Deeply.
 
 ```shell
-pip install deeply
+pip install deeply-translator
 ```
 
 And that's all.
