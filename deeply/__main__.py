@@ -1,19 +1,23 @@
+#!/usr/bin/env python3
+
 import argparse, os
 from colorama import init, Fore
 
-from .deepl import Deepl
-from .managers import JSONManager, POManager
+from deeply.deepl import Deepl
+from deeply.managers import JSONManager, POManager
 
 init()
 
-def translate_or_print_data(parser):
+def translate_or_print_data():
     
+    parser = get_parser()
     args = parser.parse_args()
-    deepl = Deepl(args.target_lang, args.source_lang)  
 
     if not args.action:
         print(Fore.RED + f"No action selected.")
         os._exit(0)
+
+    deepl = Deepl(args.target_lang, args.source_lang)  
 
     if args.action == 'translate':
 
@@ -51,5 +55,4 @@ def get_parser():
     return parser
 
 if __name__ == '__main__':
-    parser = get_parser()
-    translate_or_print_data(parser)
+    translate_or_print_data()

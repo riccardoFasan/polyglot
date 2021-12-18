@@ -1,4 +1,38 @@
 __pycache__
 */__pycache__
+
+.DS_Store
+node_modules
+/dist
+
+# local env files
+/env/
+/venv/
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
 .vscode
-dist
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Private configs
+config.py
+test.py
+config
+*.old
+
+#build files
+build
+*egg-info
+updatePyPi.sh
+deezer
