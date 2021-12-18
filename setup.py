@@ -6,15 +6,15 @@ HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
 setup(
-    name="deeply",
-    version="1.0.1",
+    name="deeply-translator",
+    version="1.0.2",
     description="Automation CLI tool that, using the DeepL API, generates a JSON or a PO file from a given source file.",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/riccardoFasan/deepl-translator-script",
+    url="https://github.com/riccardoFasan/deeply",
     project_urls={
-        "BugTracker" : "https://github.com/riccardoFasan/deepl-translator-script/issues",
-        "Homepage" : "https://github.com/riccardoFasan/deepl-translator-script"
+        "BugTracker" : "https://github.com/riccardoFasan/deeply/issues",
+        "Homepage" : "https://github.com/riccardoFasan/deeply"
     },
     author="Riccardo Fasan",
     author_email="fasanriccardo21@gmail.com",
