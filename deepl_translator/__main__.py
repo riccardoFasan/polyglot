@@ -11,7 +11,12 @@ def translate_or_print_data(parser):
     args = parser.parse_args()
     deepl = Deepl(args.target_lang, args.source_lang)  
 
+    if not args.action:
+        print(Fore.RED + f"No action selected.")
+        os._exit(0)
+
     if args.action == 'translate':
+
         if args.source_file is None or args.target_lang is None:
             parser.error("translate requires --source_file and --target_lang.")
         
@@ -29,13 +34,11 @@ def translate_or_print_data(parser):
     
         print(Fore.GREEN + f'\nFinish.\n')
     
-    else:
-        if args.action == 'print_supported_languages':
-            deepl.print_supported_languages()
-        elif args.action == 'print_usage_info':
-            deepl.print_usage_info()
-        else:
-            print(Fore.RED + f"No action selected.")
+    elif args.action == 'print_supported_languages':
+        deepl.print_supported_languages()
+
+    elif args.action == 'print_usage_info':
+        deepl.print_usage_info()
 
 def get_parser():
     actions = [ 'translate', 'print_supported_languages', 'print_usage_info']
