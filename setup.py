@@ -7,7 +7,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="deeply",
-    version="0.0.5",
+    version="0.0.6",
     description="Automation CLI tool that, using the DeepL API, generates a JSON or a PO file from a given source file.",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -28,10 +28,14 @@ setup(
     packages=find_packages(exclude=("tests",)),
     include_package_data=True,
     install_requires=[
-        "colorama",
-        "polib",
-        "progressbar2",
-        "requests"
+        "six>=1.16.0"
+        "python-utils>=2.5.6",
+        "colorama>=0.4.4",
+        "polib>=1.1.1",
+        "progressbar2>=3.55",
+        "charset-normalizer>=2.0.9",
+        "requests>=2.26.0",
+        "requests-toolbelt>=0.9.1",
     ],
     entry_points={
         "console_scripts": [
