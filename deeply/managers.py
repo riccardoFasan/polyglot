@@ -10,15 +10,15 @@ class AbstractManager:
 
     translations_dict = dict()
 
-    def __init__(self, deepl, source_file, target_directory=None):
+    def __init__(self, deepl, source_file, output_directory=None):
         self.source_file = source_file
         self.check_source_file()
         self.deepl = deepl
-        self.target_directory = target_directory if target_directory and os.path.isdir(target_directory) else os.getcwd()
+        self.output_directory = output_directory if output_directory and os.path.isdir(output_directory) else os.getcwd()
 
     @property
     def target_file(self):
-        return f'{self.target_directory}/{self.deepl.target_lang.lower()}.{self.EXTENSION}'
+        return f'{self.output_directory}/{self.deepl.target_lang.lower()}.{self.EXTENSION}'
 
     def get_progress_bar(self):
         number_of_translations = self.get_number_of_translations()
@@ -119,6 +119,6 @@ class POManager(AbstractManager):
 
         pofile.save(self.target_file)
 
-        mofile = f'{self.target_directory}/{self.deepl.target_lang.lower()}.mo'
+        mofile = f'{self.output_directory}/{self.deepl.target_lang.lower()}.mo'
         pofile.save_as_mofile(mofile)
         print(f'\nGenerated {self.target_file} and {mofile}.')
