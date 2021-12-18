@@ -61,7 +61,7 @@ deeply print_usage_data
 It returns the list of languages currently supported by DeepL, run with:
 
 ```shell
-python -m deeply print_supported_languages
+deeply print_supported_languages
 ```
 
 ## Dependencies
