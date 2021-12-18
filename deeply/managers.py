@@ -11,9 +11,9 @@ class AbstractManager:
     translations_dict = dict()
 
     def __init__(self, deepl, source_file, target_directory=None):
-        self.deepl = deepl
         self.source_file = source_file
         self.check_source_file()
+        self.deepl = deepl
         self.target_directory = target_directory if target_directory and os.path.isdir(target_directory) else os.getcwd()
 
     @property
