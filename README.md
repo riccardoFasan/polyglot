@@ -32,7 +32,7 @@ There are three available commands: translate, print_usage_data and print_suppor
 | -o, --output_directory | no       | The directory where the output file will be located. **Will be used the working directory if this option is invalid or not used**.                 |
 | -s, --source_lang      | no       | Source file language code. Detected automatically by DeepL by default. Specifying it can increase performance and make translations more accurate. |
 
-### Basic usage
+#### Basic usage
 
 E.g.: we have a .json source in English and we want to translate it in Italian.
 
@@ -40,7 +40,7 @@ E.g.: we have a .json source in English and we want to translate it in Italian.
 deeply translate -p en.json -t IT
 ```
 
-### Advanced usage
+#### Advanced usage
 
 E.g.: we have a .po source in English and we want a .po file translated into Japanese with the corresponding .mo file in our home. We specify the source language to benefit DeepL.
 
