@@ -53,13 +53,13 @@ def get_parser():
     actions: list[str] = ['translate',
                           'print_supported_languages', 'print_usage_info']
     parser: ArgumentParser = ArgumentParser(
-        description='Using the DeepL API, this script translate the given json or po file')
+        description='Using the DeepL API, this script translate the given file.')
     parser.add_argument(
         'action', type=str, help="The action that will be exectued.", choices=actions)
     parser.add_argument('-p', '--source_file', type=str,
-                        help='The JSON or PO file to be translated. Required if the action is "translate"', default=None)
+                        help='The file to be translated. Required if the action is "translate."', default=None)
     parser.add_argument('-t', '--target_lang', type=str,
-                        help='the code of the language into which you want to translate the source file. Required if the action is "translate"', default=None)
+                        help='the code of the language into which you want to translate the source file. Required if the action is "translate".', default=None)
     parser.add_argument('-o', '--output_directory', type=str,
                         help='The directory where the output file will be located. Will be used the working directory if this option is invalid or not used.', default=None)
     parser.add_argument('-s', '--source_lang', type=str,

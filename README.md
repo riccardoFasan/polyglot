@@ -23,9 +23,11 @@ And that's all.
 
 Soon the whole script will be packaged for other package managers like pacman, apt and brew.
 
-### Optional
+### Optional: add Deeply to PATH
 
 I suggest you to update your PATH in order to call the command faster.
+
+The following example is for Linux, but you can easily find online how to update the PATH of your OS.
 
 ```shell
 export PATH=$PATH:$HOME/.local/bin
@@ -51,7 +53,7 @@ There are three available commands: translate, print_usage_data and print_suppor
 
 | Option                 | Required | Description                                                                                                                                        |
 |:---------------------- |:-------- |:-------------------------------------------------------------------------------------------------------------------------------------------------- |
-| -p, --source_file      | yes      | The JSON or PO file to be translated.                                                                                                              |
+| -p, --source_file      | yes      | The file to be translated.                                                                                                                         |
 | -t, --target_lang      | yes      | the code of the language into which you want to translate the source file                                                                          |
 | -o, --output_directory | no       | The directory where the output file will be located. **Will be used the working directory if this option is invalid or not used**.                 |
 | -s, --source_lang      | no       | Source file language code. Detected automatically by DeepL by default. Specifying it can increase performance and make translations more accurate. |
