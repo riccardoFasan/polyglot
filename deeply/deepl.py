@@ -65,15 +65,15 @@ class Deepl:
             print(Fore.RED + f'\Error retrieving the supported languages.',
                   f'Error code: {response.status_code}.', Fore.RESET + f'\n')
 
-    def translate(self, text: str):
-        endpoint: str = f"{self.BASE_URL}translate?auth_key={self.key}&text={text}&target_lang={self.target_lang}"
+    def translate(self, entry: str):
+        endpoint: str = f"{self.BASE_URL}translate?auth_key={self.key}&text={entry}&target_lang={self.target_lang}"
 
         if self.source_lang:
             endpoint += f"&source_lang={self.source_lang}"
 
         response: Response = requests.get(endpoint)
         body: dict = json.loads(response.text)
-        truncated_text: str = self.get_truncated_text(text)
+        truncated_text: str = self.get_truncated_text(entry)
 
         if response.status_code == 200:
 
@@ -82,7 +82,7 @@ class Deepl:
             if translation:
                 truncated_translation: str = self.get_truncated_text(
                     translation)
-                print(f'"{truncated_text}" => {truncated_translation}"')
+                print(f'"{truncated_text}" => "{truncated_translation}"')
                 return translation
 
             # Writing this 2 print in one line causes an error and it prints nothing. No idea why.
@@ -95,7 +95,7 @@ class Deepl:
             print(Fore.RED + f'\nError translating "{truncated_text}".\n\n',
                   f'Error code: {response.status_code}.\n', f'Error message: {message}', Fore.RESET + f'\n')
 
-        return ''
+        return None
 
     def get_translation(self, body: dict):
         try:
