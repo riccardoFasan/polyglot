@@ -1,6 +1,5 @@
 import requests
 import json
-import re
 from colorama import Fore
 from pathlib import Path
 from requests.models import Response

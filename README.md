@@ -13,9 +13,29 @@ Install [Python](https://www.python.org/) if you haven't already done so, then u
 pip install deeply-translator
 ```
 
+Then you can run Deeply by running:
+
+```shell
+python -m deeply
+```
+
 And that's all.
 
 Soon the whole script will be packaged for other package managers like pacman, apt and brew.
+
+### Optional
+
+I suggest you to update your PATH in order to call the command faster.
+
+```shell
+export PATH=$PATH:$HOME/.local/bin
+```
+
+Now you can run deeply simply with: 
+
+```shell
+deeply
+```
 
 ## Usage
 
@@ -71,5 +91,7 @@ deeply print_supported_languages
 ## Dependencies
 
 - [Colorama](https://github.com/tartley/colorama)
+
 - [Progressbar 2](https://github.com/WoLpH/python-progressbar)
+
 - [Polib](https://github.com/izimobil/polib/)
