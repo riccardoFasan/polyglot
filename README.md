@@ -1,7 +1,9 @@
 # Deeply - Automate translations with DeepL
 
 Deeply is a CLI tool that automates translations tasks.
-Using the [**DeepL API**](https://www.deepl.com/it/docs-api/), Deeply generates a translated (**JSON** or **PO**) file from a given source file.
+Using the [**DeepL API**](https://www.deepl.com/it/docs-api/), Deeply generates a translated file from a given source file. 
+
+Deeply is born to translate **JSON** and **PO** files, but it supports even **common text files**, like .txt.
 
 ## Installation
 
@@ -21,7 +23,9 @@ There are three available commands: translate, print_usage_data and print_suppor
 
 ### Translate
 
-"Translate" is the main feature of this script. It reads the passed file and creates one or more new files with the translations. In case of a JSON, it returns a new JSON. In case of a PO file it returns a PO and a MO files. 
+"Translate" is the main feature of Deeply. It reads the passed file and creates one or more new files with the translations. It creates a new file with the translations and doesn't edit the source file. 
+
+> ℹ️ In the case of a PO file, it returns both a PO and an MO file.
 
 #### Command options
 

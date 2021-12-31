@@ -35,4 +35,3 @@ config
 build
 *egg-info
 updatePyPi.sh
-deezer
