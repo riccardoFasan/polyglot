@@ -82,9 +82,11 @@ class JSONManager(DictionaryManager):
         if not obj:
             obj = self.source_content
         number: int = 0
+
         for key, value in obj.items():
             number += self.get_number_of_translations(
                 value) if isinstance(value, dict) else 1
+
         return number
 
     def load_source_content(self):
@@ -92,11 +94,15 @@ class JSONManager(DictionaryManager):
             self.source_content = json.load(source)
 
     def translate(self, obj=None):
+
         if not obj:
             obj = self.source_content
+
         for key, value in obj.items():
+
             if isinstance(value, dict):
                 self.translate(value)
+
             else:
                 obj[key] = self.deepl.translate(value)
                 self.completion_count += 1
@@ -119,6 +125,7 @@ class POManager(DictionaryManager):
 
     def load_source_content(self):
         pofile: POFile = self.pofile_source
+
         for entry in pofile:
             self.source_content[entry.msgid] = {
                 "msgstr": entry.msgid if entry.msgstr == '' else entry.msgstr,
