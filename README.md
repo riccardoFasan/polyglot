@@ -71,7 +71,5 @@ deeply print_supported_languages
 ## Dependencies
 
 - [Colorama](https://github.com/tartley/colorama)
-
 - [Progressbar 2](https://github.com/WoLpH/python-progressbar)
-
 - [Polib](https://github.com/izimobil/polib/)
