@@ -31,7 +31,7 @@ I suggest you to update your PATH in order to call the command faster.
 export PATH=$PATH:$HOME/.local/bin
 ```
 
-Now you can run deeply simply with: 
+Now you can run Deeply simply with: 
 
 ```shell
 deeply
