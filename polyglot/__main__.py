@@ -4,7 +4,7 @@ import os
 from argparse import ArgumentParser
 from colorama import init, Fore
 
-from polyglot.deepl import Deepl
+from polyglot.deepl_request import DeeplRequest
 from polyglot.managers import BaseManager, JSONManager, POManager
 
 init()
@@ -19,7 +19,7 @@ def translate_or_print_data():
         print(Fore.RED + f"No action selected.")
         os._exit(0)
 
-    deepl: Deepl = Deepl(args.target_lang, args.source_lang)
+    deepl: DeeplRequest = DeeplRequest(args.target_lang, args.source_lang)
 
     if args.action == 'translate':
 
@@ -51,11 +51,11 @@ def translate_or_print_data():
 
 def get_parser():
     actions: list[str] = ['translate',
-                          'print_supported_languages', 'print_usage_info']
+                          'print_supported_languages', 'print_usage_info', 'change_api_key']
     parser: ArgumentParser = ArgumentParser(
         description='Using the DeepL API, this script translate the given file.')
     parser.add_argument(
-        'action', type=str, help="The action that will be exectued.", choices=actions)
+        'action', type=str, help="The action that will be exectued. The following options are for the translate command.", choices=actions)
     parser.add_argument('-p', '--source_file', type=str,
                         help='The file to be translated. Required if the action is "translate."', default=None)
     parser.add_argument('-t', '--target_lang', type=str,

@@ -4,14 +4,14 @@ from polib import POEntry, POFile, pofile
 from progressbar import ProgressBar
 from colorama import Fore
 
-from polyglot.deepl import Deepl
+from polyglot.deepl_request import DeeplRequest
 
 
 class BaseManager:
 
     content: str = ''
 
-    def __init__(self, deepl: Deepl, source_file: str, output_directory: str = None):
+    def __init__(self, deepl: DeeplRequest, source_file: str, output_directory: str = None):
         self.source_file = source_file
         self.check_source_file()
         self.deepl = deepl

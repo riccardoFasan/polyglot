@@ -5,7 +5,7 @@ from pathlib import Path
 from requests.models import Response
 
 
-class Deepl:
+class DeeplRequest:
 
     BASE_URL: str = 'https://api-free.deepl.com/v2/'
     LEN_LIMIT: int = 150
@@ -48,11 +48,9 @@ class Deepl:
             percentage: int = round((character_count / character_limit) * 100)
             print(
                 f"\nAPI key: {self.key}.\nCharacters limit: {character_limit}")
-
             print_color: str = self.get_color_by_percentage(percentage)
-
-            print(print_color +
-                  f"Used characters: {character_count} ({percentage}%)", Fore.RESET + f'\n')
+            print(
+                print_color + f"Used characters: {character_count} ({percentage}%)", Fore.RESET + f'\n')
 
         else:
             print(Fore.RED + f"\nError retrieving usage info.",
