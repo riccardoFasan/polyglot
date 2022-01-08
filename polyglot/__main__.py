@@ -4,8 +4,8 @@ import os
 from argparse import ArgumentParser
 from colorama import init, Fore
 
-from deeply.deepl import Deepl
-from deeply.managers import BaseManager, JSONManager, POManager
+from polyglot.deepl import Deepl
+from polyglot.managers import BaseManager, JSONManager, POManager
 
 init()
 

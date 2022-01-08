@@ -43,12 +43,27 @@ class Deepl:
 
         if response.status_code == 200:
             body: dict = json.loads(response.text)
+            character_count: int = body['character_count']
+            character_limit: int = body['character_limit']
+            percentage: int = round((character_count / character_limit) * 100)
             print(
-                f"\nAPI key: {self.key}.\nUsed characters: {body['character_count']} \nCharacters LEN_LIMIT: {body['character_limit']}\n")
+                f"\nAPI key: {self.key}.\nCharacters limit: {character_limit}")
+
+            print_color: str = self.get_color_by_percentage(percentage)
+
+            print(print_color +
+                  f"Used characters: {character_count} ({percentage}%)", Fore.RESET + f'\n')
 
         else:
             print(Fore.RED + f"\nError retrieving usage info.",
                   f'Error code: {response.status_code}.', Fore.RESET + f'\n')
+
+    def get_color_by_percentage(self, percentage: int):
+        if percentage > 90:
+            return Fore.RED
+        if percentage > 60:
+            return Fore.YELLOW
+        return Fore.RESET
 
     def print_supported_languages(self):
         response: Response = requests.get(

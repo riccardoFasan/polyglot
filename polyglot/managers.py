@@ -4,7 +4,7 @@ from polib import POEntry, POFile, pofile
 from progressbar import ProgressBar
 from colorama import Fore
 
-from deeply.deepl import Deepl
+from polyglot.deepl import Deepl
 
 
 class BaseManager:

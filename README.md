@@ -1,51 +1,51 @@
-# Deeply - Automate translations with DeepL
+# Polyglot - Automate translations with DeepL
 
-Deeply is a CLI tool that automates translations tasks.
-Using the [**DeepL API**](https://www.deepl.com/it/docs-api/), Deeply generates a translated file from a given source file. 
+Polyglot is a CLI tool that automates translations tasks.
+Using the [**DeepL API**](https://www.deepl.com/it/docs-api/), Polyglot generates a translated file from a given source file.
 
-Deeply is born to translate **JSON** and **PO** files, but it supports even **common text files**, like .txt.
+Polyglot is born to translate **JSON** and **PO** files, but it supports even **common text files**, like .txt.
 
 ## Installation
 
-Install [Python](https://www.python.org/) if you haven't already done so, then use **pip** to install Deeply.
+Install [Python](https://www.python.org/) if you haven't already done so, then use **pip** to install Polyglot.
 
 ```shell
-pip install deeply-translator
+pip install polyglot-translator
 ```
 
-Then you can run Deeply by running:
+Then you can run Polyglot by running:
 
 ```shell
-python -m deeply
+python -m polyglot
 ```
 
 And that's all.
 
 Soon the whole script will be packaged for other package managers like pacman, apt and brew.
 
-### Optional: add Deeply to PATH
+### Optional: add Polyglot to PATH
 
 I suggest you to update your PATH in order to call the command faster.
-
-The following example is for Linux, but you can easily find online how to update the PATH of your OS.
 
 ```shell
 export PATH=$PATH:$HOME/.local/bin
 ```
 
-Now you can run Deeply simply with: 
+> ⚠️This command can be different depending on your OS.
+
+Now you can run Polyglot simply with:
 
 ```shell
-deeply
+polyglot
 ```
 
 ## Usage
 
-There are three available commands: translate, print_usage_data and print_supported_languages. 
+There are three available commands: translate, print_usage_data and print_supported_languages.
 
 ### Translate
 
-"Translate" is the main feature of Deeply. It reads the passed file and creates one or more new files with the translations. It creates a new file with the translations and doesn't edit the source file. 
+"Translate" is the main feature of Polyglot. It reads the passed file and creates one or more new files with the translations. It creates a new file with the translations and doesn't edit the source file.
 
 > ℹ️ In the case of a PO file, it returns both a PO and an MO file.
 
@@ -63,7 +63,7 @@ There are three available commands: translate, print_usage_data and print_suppor
 E.g.: we have a .json source in English and we want to translate it in Italian.
 
 ```shell
-deeply translate -p en.json -t IT
+polyglot translate -p en.json -t IT
 ```
 
 #### Advanced usage
@@ -71,15 +71,15 @@ deeply translate -p en.json -t IT
 E.g.: we have a .po source in English and we want a .po file translated into Japanese with the corresponding .mo file in our home. We specify the source language to benefit DeepL.
 
 ```shell
-deeply translate -p en.po -t JA -o $HOME -s EN
+polyglot translate -p en.po -t JA -o $HOME -s EN
 ```
 
 ### Print usage data
 
-It returns DeepL usage info related to your API key, run with: 
+It returns DeepL usage info related to your API key, run with:
 
 ```shell
-deeply print_usage_data
+polyglot print_usage_data
 ```
 
 ### Print supported languages
@@ -87,7 +87,7 @@ deeply print_usage_data
 It returns the list of languages currently supported by DeepL, run with:
 
 ```shell
-deeply print_supported_languages
+polyglot print_supported_languages
 ```
 
 ## Dependencies

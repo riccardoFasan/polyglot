@@ -6,15 +6,15 @@ HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
 setup(
-    name="deeply-translator",
-    version="1.2.1",
+    name="polyglot-translator",
+    version="1.3.1",
     description="Automation CLI tool that, using the DeepL API, generates a JSON or a PO file from a given source file.",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/riccardoFasan/deeply",
+    url="https://github.com/riccardoFasan/polyglot",
     project_urls={
-        "BugTracker" : "https://github.com/riccardoFasan/deeply/issues",
-        "Homepage" : "https://github.com/riccardoFasan/deeply"
+        "BugTracker": "https://github.com/riccardoFasan/polyglot/issues",
+        "Homepage": "https://github.com/riccardoFasan/polyglot"
     },
     author="Riccardo Fasan",
     author_email="fasanriccardo21@gmail.com",
@@ -35,7 +35,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "deeply=deeply.__main__:translate_or_print_data",
+            "polyglot=polyglot.__main__:translate_or_print_data",
         ]
     },
 )
