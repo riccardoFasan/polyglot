@@ -35,7 +35,8 @@ class BaseManager:
     def translate_source_file(self):
         self.load_source_content()
         self.translate_content()
-        self.make_translated_files()
+        if self.content:
+            self.make_translated_files()
 
     def load_source_content(self):
         try:
