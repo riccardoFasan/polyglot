@@ -5,9 +5,16 @@ from argparse import ArgumentParser
 from colorama import init, Fore
 
 from polyglot.deepl_request import DeeplRequest
-from polyglot.managers import BaseManager, JSONManager, POManager
+from polyglot.managers import TextManager, JSONManager, POManager, DocumentManager
 
 init(autoreset=True)
+
+DOCUMENTS_SUPPORTED_BY_DEEPL: list = [
+    '.docx',
+    '.pptx',
+    '.html',
+    '.htm'
+]
 
 
 def translate_or_print_data():
@@ -28,14 +35,17 @@ def translate_or_print_data():
 
         name, extension = os.path.splitext(args.source_file)
 
-        if extension == '.json':
+        if extension in DOCUMENTS_SUPPORTED_BY_DEEPL:
+            manager: DocumentManager = DocumentManager(deepl, args.source_file,
+                                                       args.output_directory)
+        elif extension == '.json':
             manager: JSONManager = JSONManager(deepl, args.source_file,
                                                args.output_directory)
         elif extension == '.po':
             manager: POManager = POManager(
                 deepl, args.source_file, args.output_directory)
         else:
-            manager: BaseManager = BaseManager(
+            manager: TextManager = TextManager(
                 deepl, args.source_file, args.output_directory)
 
         manager.translate_source_file()

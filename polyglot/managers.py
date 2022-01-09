@@ -1,5 +1,6 @@
 import os
 import json
+from typing import BinaryIO
 from polib import POEntry, POFile, pofile
 from progressbar import ProgressBar
 from colorama import Fore
@@ -8,8 +9,6 @@ from polyglot.deepl_request import DeeplRequest
 
 
 class BaseManager:
-
-    content: str = ''
 
     def __init__(self, deepl: DeeplRequest, source_file: str, output_directory: str = None):
         self.source_file = source_file
@@ -31,6 +30,11 @@ class BaseManager:
         if not os.path.exists(self.source_file):
             print(f'{Fore.RED}Error: "{self.source_file}" does not exist!')
             os._exit(0)
+
+
+class TextManager(BaseManager):
+
+    content: str = ''
 
     def translate_source_file(self):
         self.load_source_content()
@@ -55,7 +59,7 @@ class BaseManager:
             print(f'Generated {self.target_file}.')
 
 
-class DictionaryManager(BaseManager):
+class DictionaryManager(TextManager):
 
     completion_count: int = 0
     not_translated_count: int = 0
@@ -168,3 +172,40 @@ class POManager(DictionaryManager):
         mofile: str = f'{self.output_directory}/{self.deepl.target_lang.lower()}.mo'
         pofile.save_as_mofile(mofile)
         print(f'Generated {self.target_file} and {mofile}.')
+
+
+class DocumentManager(BaseManager):
+
+    document_id: str = None
+    document_key: str = None
+
+    def translate_source_file(self):
+        document_data: dict = self.deepl.translate_document(self.source_file)
+        self.document_id = document_data['document_id']
+        self.document_key = document_data['document_key']
+        self.download_document_when_ready()
+
+    def download_document_when_ready(self):
+        status_data = self.deepl.check_document_status(
+            self.document_id, self.document_key)
+        status: str = status_data['status']
+
+        if status == 'done':
+            billed_characters: str = status_data['billed_characters']
+            print(
+                f'Translation completed. Billed characters: {billed_characters}.')
+            self.download_target_file()
+            return
+
+        # sometimes there are no seconds even if it's still translating
+        if 'seconds_remaining' in status_data:
+            print(f'Remaining {status_data["seconds_remaining"]} seconds...')
+
+        self.download_document_when_ready()
+
+    def download_target_file(self):
+        binaries: BinaryIO = self.deepl.download_translated_document(
+            self.document_id, self.document_key)
+        with open(self.target_file, 'wb+') as destination:
+            destination.write(binaries)
+            print(f'Generated {self.target_file}.')

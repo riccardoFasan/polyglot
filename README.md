@@ -3,7 +3,23 @@
 Polyglot is a CLI tool that automates translations tasks.
 Using the [**DeepL API**](https://www.deepl.com/it/docs-api/), Polyglot generates a translated file from a given source file.
 
-Polyglot is born to translate **JSON** and **PO** files, but it supports even **common text files**, like .txt.
+## Supported files
+
+Polyglot is born to translate **JSON** and **PO** files, but now it supports other files. This is the complete list:
+
+- json
+
+- po
+
+- docx (Microsoft **Word**)
+
+- pptx (Microsoft **PowerPoint**)
+
+- html
+
+- htm
+
+- raw text files like .txt or .dat
 
 ## Installation
 

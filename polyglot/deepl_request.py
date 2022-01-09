@@ -122,7 +122,6 @@ class DeeplRequest:
         truncated_text: str = self.get_truncated_text(entry)
 
         if response.status_code == 200:
-
             body: dict = json.loads(response.text)
             translation: str | None = self.get_translation(body)
 
@@ -132,7 +131,6 @@ class DeeplRequest:
                 print(f'"{truncated_text}" => "{truncated_translation}"')
                 return translation
 
-            # Writing this 2 print in one line causes an error and it prints nothing. No idea why.
             print(
                 f'{Fore.YELLOW}\nNo traslation found for "{truncated_text}"!\n')
 
@@ -150,3 +148,47 @@ class DeeplRequest:
 
     def get_truncated_text(self, text: str):
         return text[:self.LEN_LIMIT] + '...' if len(text) > self.LEN_LIMIT else text
+
+    def translate_document(self, source_file: str):
+        request_data: dict = {
+            'source_lang': self.source_lang,
+            'auth_key': self.license['key'],
+            'filename': source_file,
+        }
+
+        if self.target_lang:
+            request_data['target_lang'] = self.target_lang
+
+        endpoint: str = f'{self.base_url}document/'
+
+        with open(source_file, 'rb') as document:
+            response: Response = requests.post(
+                endpoint, data=request_data, files={'file': document})
+
+            if response.status_code == 200:
+                return json.loads(response.text)
+
+        print(
+            f'{Fore.RED}\nError translating "{source_file}".\nError code: {response.status_code}.\n')
+        os._exit(0)
+
+    def check_document_status(self, document_id: str, document_key: str):
+        endpoint: str = f'{self.base_url}document/{document_id}?auth_key={self.license["key"]}&document_key={document_key}'
+        response: Response = requests.post(endpoint)
+
+        if response.status_code == 200:
+            return json.loads(response.text)
+
+        print(f'{Fore.RED}\nError checking the status of a document\nError code: {response.status_code}.\n')
+        os._exit(0)
+
+    def download_translated_document(self, document_id: str, document_key: str):
+        endpoint: str = f'{self.base_url}document/{document_id}/result?auth_key={self.license["key"]}&document_key={document_key}'
+        response: Response = requests.post(endpoint)
+
+        if response.status_code == 200:
+            return response.content
+
+        print(
+            f'{Fore.RED}\nError downlaoding a document\nError code: {response.status_code}.\n')
+        os._exit(0)
