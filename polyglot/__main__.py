@@ -7,7 +7,7 @@ from colorama import init, Fore
 from polyglot.deepl_request import DeeplRequest
 from polyglot.managers import BaseManager, JSONManager, POManager
 
-init()
+init(autoreset=True)
 
 
 def translate_or_print_data():
@@ -16,7 +16,7 @@ def translate_or_print_data():
     args: dict = parser.parse_args()
 
     if not args.action:
-        print(Fore.RED + f"No action selected.")
+        print(f"{Fore.RED}No action selected.")
         os._exit(0)
 
     deepl: DeeplRequest = DeeplRequest(args.target_lang, args.source_lang)
@@ -40,7 +40,7 @@ def translate_or_print_data():
 
         manager.translate_source_file()
 
-        print(Fore.GREEN + f'\nFinish.\n')
+        print(f'{Fore.GREEN}\nFinish.\n')
 
     elif args.action == 'print_supported_languages':
         deepl.print_supported_languages()

@@ -29,7 +29,7 @@ class BaseManager:
 
     def check_source_file(self):
         if not os.path.exists(self.source_file):
-            print(Fore.RED + f'Error: "{self.source_file}" does not exist!')
+            print(f'{Fore.RED}Error: "{self.source_file}" does not exist!')
             os._exit(0)
 
     def translate_source_file(self):
@@ -42,7 +42,7 @@ class BaseManager:
             with open(self.source_file, 'r') as source:
                 self.content = source.read()
         except:
-            print(Fore.RED + f'Cannot read {self.extension} files.')
+            print(f'{Fore.RED}Cannot read {self.extension} files.')
             os._exit(0)
 
     def translate_content(self):
@@ -79,7 +79,7 @@ class DictionaryManager(BaseManager):
         print('\nTranslation completed.')
         if self.not_translated_count > 0:
             print(
-                Fore.YELLOW + f'\n{self.not_translated_count} entries have not been translated.', Fore.RESET + f'\n')
+                f'{Fore.YELLOW}\n{self.not_translated_count} entries have not been translated.\n')
 
     def translate_and_handle(self, entry: str):
         translation: str | None = self.deepl.translate(entry)

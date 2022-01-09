@@ -55,11 +55,11 @@ class DeeplRequest:
                 f"\nAPI key: {self.key}.\nCharacters limit: {character_limit}")
             print_color: str = self.get_color_by_percentage(percentage)
             print(
-                print_color + f"Used characters: {character_count} ({percentage}%)", Fore.RESET + f'\n')
+                f"{print_color}Used characters: {character_count} ({percentage}%)\n")
 
         else:
-            print(Fore.RED + f"\nError retrieving usage info.",
-                  f'Error code: {response.status_code}.', Fore.RESET + f'\n')
+            print(f"{Fore.RED}\nError retrieving usage info.",
+                  f'Error code: {response.status_code}.\n')
 
     def get_color_by_percentage(self, percentage: int):
         if percentage > 90:
@@ -79,8 +79,8 @@ class DeeplRequest:
                 print(f"{lang['name']} ({lang['language']})")
 
         else:
-            print(Fore.RED + f'\Error retrieving the supported languages.',
-                  f'Error code: {response.status_code}.', Fore.RESET + f'\n')
+            print(
+                f'{Fore.RED}\nError retrieving the supported languages.\nError code: {response.status_code}\n')
 
     def translate(self, entry: str):
         endpoint: str = f"{self.BASE_URL}translate?auth_key={self.key}&text={entry}&target_lang={self.target_lang}"
@@ -103,14 +103,12 @@ class DeeplRequest:
                 return translation
 
             # Writing this 2 print in one line causes an error and it prints nothing. No idea why.
-            print(Fore.YELLOW + f'\n')
             print(
-                f'No traslation found for "{truncated_text}"!', Fore.RESET + f'\n')
+                f'{Fore.YELLOW}\nNo traslation found for "{truncated_text}"!\n')
 
         else:
             message: str = body['message']
-            print(Fore.RED + f'\nError translating "{truncated_text}".\n\n',
-                  f'Error code: {response.status_code}.\n', f'Error message: {message}', Fore.RESET + f'\n')
+            print(f'{Fore.RED}\nError translating "{truncated_text}".\n\nError code: {response.status_code}.\nError message: {message}\n',)
 
         return None
 
