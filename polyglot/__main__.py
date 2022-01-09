@@ -71,4 +71,7 @@ def get_parser():
 
 
 if __name__ == '__main__':
-    translate_or_print_data()
+    try:
+        translate_or_print_data()
+    except KeyboardInterrupt:
+        print('\n\nInterrupted by user.')
