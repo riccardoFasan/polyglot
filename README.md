@@ -41,7 +41,7 @@ polyglot
 
 ## Usage
 
-There are three available commands: translate, print_usage_data and print_supported_languages.
+There are four available commands: translate, set_key, print_usage_data and print_supported_languages.
 
 ### Translate
 

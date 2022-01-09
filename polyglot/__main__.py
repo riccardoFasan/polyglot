@@ -42,19 +42,19 @@ def translate_or_print_data():
 
         print('\nFinish.\n')
 
+    elif args.action == 'set_key':
+        deepl.set_key()
+
     elif args.action == 'print_supported_languages':
         deepl.print_supported_languages()
 
     elif args.action == 'print_usage_info':
         deepl.print_usage_info()
 
-    elif args.action == 'set_key':
-        deepl.set_key()
-
 
 def get_parser():
-    actions: list[str] = ['translate',
-                          'print_supported_languages', 'print_usage_info', 'set_key']
+    actions: list[str] = ['translate', 'set_key',
+                          'print_supported_languages', 'print_usage_info']
     parser: ArgumentParser = ArgumentParser(
         description='Using the DeepL API, this script translate the given file.')
     parser.add_argument(
