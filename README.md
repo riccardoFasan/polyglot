@@ -74,6 +74,14 @@ E.g.: we have a .po source in English and we want a .po file translated into Jap
 polyglot translate -p en.po -t JA -o $HOME -s EN
 ```
 
+### Set DeepL API key
+
+**DeepL provides you with a key that allows you to use its API**. So, Polyglot requires this key to work and will ask you for it on your first use. You can use the following command to set or change the key manually.
+
+```shell
+polyglot set_key
+```
+
 ### Print usage data
 
 It returns DeepL usage info related to your API key, run with:
