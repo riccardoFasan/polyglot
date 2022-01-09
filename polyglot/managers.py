@@ -51,7 +51,7 @@ class BaseManager:
     def make_translated_files(self):
         with open(self.target_file, 'w+') as destination:
             destination.write(self.content)
-            print(f'\nGenerated {self.target_file}.')
+            print(f'Generated {self.target_file}.')
 
 
 class DictionaryManager(BaseManager):
@@ -123,7 +123,7 @@ class JSONManager(DictionaryManager):
     def make_translated_files(self):
         with open(self.target_file, 'w+') as destination:
             destination.write(json.dumps(self.content, indent=2))
-            print(f'\nGenerated {self.target_file}.')
+            print(f'Generated {self.target_file}.')
 
 
 class POManager(DictionaryManager):
@@ -166,4 +166,4 @@ class POManager(DictionaryManager):
 
         mofile: str = f'{self.output_directory}/{self.deepl.target_lang.lower()}.mo'
         pofile.save_as_mofile(mofile)
-        print(f'\nGenerated {self.target_file} and {mofile}.')
+        print(f'Generated {self.target_file} and {mofile}.')

@@ -1,5 +1,6 @@
 import requests
 import json
+from io import TextIOWrapper
 from colorama import Fore
 from pathlib import Path
 from requests.models import Response
@@ -29,18 +30,19 @@ class DeeplRequest:
     def get_or_ask_key(self):
         with open(self.key_path, 'a+') as key_file:
             key_file.seek(0)  #  Nosense, but OK
-            key: str = key_file.read()
-
-            if key == '':
-                key = input('Type here your Deepl API key: ')
-                key_file.write(key)
-
+            file_content: str = key_file.read()
+            key: str = self.ask_and_save_key(
+                key_file) if file_content == '' else file_content
             return key
 
     def set_key(self):
         with open(self.key_path, 'w+') as key_file:
-            key = input('Type here your Deepl API key: ')
-            key_file.write(key)
+            self.ask_and_save_key(key_file)
+
+    def ask_and_save_key(self, key_file: TextIOWrapper):
+        key = input('Type here your Deepl API key: ')
+        key_file.write(key)
+        return key
 
     def print_usage_info(self):
         response: Response = requests.get(
@@ -89,11 +91,11 @@ class DeeplRequest:
             endpoint += f"&source_lang={self.source_lang}"
 
         response: Response = requests.get(endpoint)
-        body: dict = json.loads(response.text)
         truncated_text: str = self.get_truncated_text(entry)
 
         if response.status_code == 200:
 
+            body: dict = json.loads(response.text)
             translation: str | None = self.get_translation(body)
 
             if translation:
@@ -107,10 +109,10 @@ class DeeplRequest:
                 f'{Fore.YELLOW}\nNo traslation found for "{truncated_text}"!\n')
 
         else:
-            message: str = body['message']
-            print(f'{Fore.RED}\nError translating "{truncated_text}".\n\nError code: {response.status_code}.\nError message: {message}\n',)
+            print(
+                f'{Fore.RED}\nError translating "{truncated_text}".\nError code: {response.status_code}.\n')
 
-        return None
+        return ''
 
     def get_translation(self, body: dict):
         try:

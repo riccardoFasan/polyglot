@@ -40,7 +40,7 @@ def translate_or_print_data():
 
         manager.translate_source_file()
 
-        print(f'{Fore.GREEN}\nFinish.\n')
+        print('\nFinish.\n')
 
     elif args.action == 'print_supported_languages':
         deepl.print_supported_languages()

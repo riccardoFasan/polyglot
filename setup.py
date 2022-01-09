@@ -7,7 +7,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="polyglot-translator",
-    version="1.4.2",
+    version="1.4.3",
     description="Automation CLI tool that, using the DeepL API, generates a JSON or a PO file from a given source file.",
     long_description=README,
     long_description_content_type="text/markdown",
