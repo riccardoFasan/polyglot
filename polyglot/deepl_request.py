@@ -37,6 +37,11 @@ class DeeplRequest:
 
             return key
 
+    def set_key(self):
+        with open(self.key_path, 'w+') as key_file:
+            key = input('Type here your Deepl API key: ')
+            key_file.write(key)
+
     def print_usage_info(self):
         response: Response = requests.get(
             f'{self.BASE_URL}usage', headers=self.headers)
