@@ -30,6 +30,9 @@ class BaseManager:
             print(f'{Fore.RED}Error: "{self.source_file}" does not exist!')
             os._exit(0)
 
+    def translate_source_file(self):
+        pass
+
 
 class TextManager(BaseManager):
 

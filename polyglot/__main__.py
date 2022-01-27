@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-from argparse import ArgumentParser
+from argparse import ArgumentParser, Namespace
 from colorama import init, Fore
 
 from polyglot.deepl_request import DeeplRequest
@@ -20,7 +20,7 @@ DOCUMENTS_SUPPORTED_BY_DEEPL: list = [
 def translate_or_print_data():
 
     parser: ArgumentParser = get_parser()
-    args: dict = parser.parse_args()
+    args: Namespace = parser.parse_args()
 
     if not args.action:
         print(f"{Fore.RED}No action selected.")
@@ -62,7 +62,7 @@ def translate_or_print_data():
         deepl.print_usage_info()
 
 
-def get_parser():
+def get_parser() -> ArgumentParser:
     actions: list[str] = ['translate', 'set_key',
                           'print_supported_languages', 'print_usage_info']
     parser: ArgumentParser = ArgumentParser(
