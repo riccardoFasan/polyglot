@@ -14,22 +14,25 @@ class DeeplRequest:
         'key': ''
     }
 
-    def __init__(self, target_lang: str = None, source_lang: str = None):
+    target_lang: str = ''
+    source_lang: str = ''
+
+    def __init__(self, target_lang: str = '', source_lang: str = ''):
         self.target_lang = target_lang
         self.source_lang = source_lang
         self.apply_license()
 
     @property
-    def base_url(self):
+    def base_url(self) -> str:
         version: str = '' if self.license['version'] == 'pro' else '-free'
         return f'https://api{version}.deepl.com/v2/'
 
     @property
-    def license_path(self):
+    def license_path(self) -> str:
         return f'{Path.home()}/.deepl_api_key.json'
 
     @property
-    def headers(self):
+    def headers(self) -> dict:
         return {
             'Authorization': f'DeepL-Auth-Key {self.license["key"]}',
             'Content-Type': 'application/json'
@@ -37,6 +40,7 @@ class DeeplRequest:
 
     def apply_license(self):
         try:
+
             with open(self.license_path, 'r') as license_file:
                 file_content: dict = json.load(license_file)
 
@@ -58,7 +62,7 @@ class DeeplRequest:
             }
             license_file.write(json.dumps(license, indent=2))
 
-    def get_key_version(self):
+    def get_key_version(self) -> str:
         response: Response = self.get_usage_info()
         if response.status_code == 403:
             if self.license['version'] == 'free':
@@ -72,7 +76,7 @@ class DeeplRequest:
             print(f'{Fore.RED}\nThis key is invalid.\n')
             os._exit(0)
 
-    def get_usage_info(self):
+    def get_usage_info(self) -> Response:
         return requests.get(f'{self.base_url}usage', headers=self.headers)
 
     def print_usage_info(self):
@@ -91,7 +95,7 @@ class DeeplRequest:
             print(
                 f"{Fore.RED}\nError retrieving usage info.\nError code: {response.status_code}.\n")
 
-    def get_color_by_percentage(self, percentage: int):
+    def get_color_by_percentage(self, percentage: int) -> str:
         if percentage > 90:
             return Fore.RED
         if percentage > 60:
@@ -112,7 +116,7 @@ class DeeplRequest:
             print(
                 f'{Fore.RED}\nError retrieving the supported languages.\nError code: {response.status_code}\n')
 
-    def translate(self, entry: str):
+    def translate(self, entry: str) -> str:
         endpoint: str = f"{self.base_url}translate?auth_key={self.license['key']}&text={entry}&target_lang={self.target_lang}"
 
         if self.source_lang:
@@ -146,10 +150,10 @@ class DeeplRequest:
         except:
             return None
 
-    def get_truncated_text(self, text: str):
+    def get_truncated_text(self, text: str) -> str:
         return text[:self.LEN_LIMIT] + '...' if len(text) > self.LEN_LIMIT else text
 
-    def translate_document(self, source_file: str):
+    def translate_document(self, source_file: str) -> dict:
         request_data: dict = {
             'source_lang': self.source_lang,
             'auth_key': self.license['key'],
@@ -172,7 +176,7 @@ class DeeplRequest:
             f'{Fore.RED}\nError translating "{source_file}".\nError code: {response.status_code}.\n')
         os._exit(0)
 
-    def check_document_status(self, document_id: str, document_key: str):
+    def check_document_status(self, document_id: str, document_key: str) -> dict:
         endpoint: str = f'{self.base_url}document/{document_id}?auth_key={self.license["key"]}&document_key={document_key}'
         response: Response = requests.post(endpoint)
 
@@ -182,7 +186,7 @@ class DeeplRequest:
         print(f'{Fore.RED}\nError checking the status of a document\nError code: {response.status_code}.\n')
         os._exit(0)
 
-    def download_translated_document(self, document_id: str, document_key: str):
+    def download_translated_document(self, document_id: str, document_key: str) -> bytes:
         endpoint: str = f'{self.base_url}document/{document_id}/result?auth_key={self.license["key"]}&document_key={document_key}'
         response: Response = requests.post(endpoint)
 

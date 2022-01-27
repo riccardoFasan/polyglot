@@ -1,6 +1,5 @@
 import os
 import json
-from typing import BinaryIO
 from polib import POEntry, POFile, pofile
 from progressbar import ProgressBar
 from colorama import Fore
@@ -10,11 +9,11 @@ from polyglot.deepl_request import DeeplRequest
 
 class BaseManager:
 
-    def __init__(self, deepl: DeeplRequest, source_file: str, output_directory: str = None):
+    def __init__(self, deepl: DeeplRequest, source_file: str, output_directory: str = ''):
         self.source_file = source_file
         self.check_source_file()
         self.deepl = deepl
-        self.output_directory = output_directory if output_directory and os.path.isdir(
+        self.output_directory = output_directory if output_directory != '' and os.path.isdir(
             output_directory) else os.getcwd()
 
     @property
@@ -63,7 +62,7 @@ class DictionaryManager(TextManager):
 
     completion_count: int = 0
     not_translated_count: int = 0
-    progress_bar: ProgressBar = None
+    progress_bar: ProgressBar
     content: dict = dict()
 
     def translate_source_file(self):
@@ -77,8 +76,8 @@ class DictionaryManager(TextManager):
         number_of_translations: int = self.get_number_of_translations()
         return ProgressBar(max_value=number_of_translations, redirect_stdout=True)
 
-    def get_number_of_translations(self):
-        pass
+    def get_number_of_translations(self) -> int:
+        return 0
 
     def print_ending_messages(self):
         print('\nTranslation completed.')
@@ -176,8 +175,8 @@ class POManager(DictionaryManager):
 
 class DocumentManager(BaseManager):
 
-    document_id: str = None
-    document_key: str = None
+    document_id: str = ''
+    document_key: str = ''
 
     def translate_source_file(self):
         document_data: dict = self.deepl.translate_document(self.source_file)
@@ -204,7 +203,7 @@ class DocumentManager(BaseManager):
         self.download_document_when_ready()
 
     def download_target_file(self):
-        binaries: BinaryIO = self.deepl.download_translated_document(
+        binaries: bytes = self.deepl.download_translated_document(
             self.document_id, self.document_key)
         with open(self.target_file, 'wb+') as destination:
             destination.write(binaries)
