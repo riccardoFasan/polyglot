@@ -17,31 +17,31 @@ class DeeplRequest:
     target_lang: str = ''
     source_lang: str = ''
 
-    def __init__(self, target_lang: str = '', source_lang: str = ''):
+    def __init__(self, target_lang: str = '', source_lang: str = '') -> None:
         self.target_lang = target_lang
         self.source_lang = source_lang
-        self.apply_license()
+        self.__apply_license()
 
     @property
-    def base_url(self) -> str:
+    def __base_url(self) -> str:
         version: str = '' if self.license['version'] == 'pro' else '-free'
         return f'https://api{version}.deepl.com/v2/'
 
     @property
-    def license_path(self) -> str:
+    def __license_path(self) -> str:
         return f'{pathlib.Path.home()}/.deepl_api_key.json'
 
     @property
-    def headers(self) -> dict[str, str]:
+    def __headers(self) -> dict[str, str]:
         return {
             'Authorization': f'DeepL-Auth-Key {self.license["key"]}',
             'Content-Type': 'application/json'
         }
 
-    def apply_license(self):
+    def __apply_license(self) -> None:
         try:
 
-            with open(self.license_path, 'r') as license_file:
+            with open(self.__license_path, 'r') as license_file:
                 file_content: dict[str, str] = json.load(license_file)
 
                 if file_content['key'] and file_content['version']:
@@ -51,43 +51,43 @@ class DeeplRequest:
         except:
             self.set_key()
 
-    def set_key(self):
-        with open(self.license_path, 'w+') as license_file:
+    def set_key(self) -> None:
+        with open(self.__license_path, 'w+') as license_file:
             self.license['key'] = input('Type here your Deepl API key: ')
-            self.license['version'] = self.get_key_version()
-            self.verify_license()
+            self.license['version'] = self.__get_key_version()
+            self.__verify_license()
             license: dict[str, str] = {
                 'key': self.license['key'],
                 'version': self.license['version']
             }
             license_file.write(json.dumps(license, indent=2))
 
-    def get_key_version(self) -> str:
-        response: Response = self.get_usage_info()
+    def __get_key_version(self) -> str:
+        response: Response = self.__get_usage_info()
         if response.status_code == 403:
             if self.license['version'] == 'free':
                 self.license['version'] = 'pro'
-                self.get_key_version()
+                self.__get_key_version()
             return 'invalid'
         return self.license['version']
 
-    def verify_license(self):
+    def __verify_license(self):
         if self.license['version'] == 'invalid':
             print(f'{colorama.Fore.RED}\nThis key is invalid.\n')
             os._exit(0)
 
-    def get_usage_info(self) -> Response:
-        return requests.get(f'{self.base_url}usage', headers=self.headers)
+    def __get_usage_info(self) -> Response:
+        return requests.get(f'{self.__base_url}usage', headers=self.__headers)
 
-    def print_usage_info(self):
-        response: Response = self.get_usage_info()
+    def print_usage_info(self) -> None:
+        response: Response = self.__get_usage_info()
 
         if response.status_code == 200:
             body: dict[str, int] = json.loads(response.text)
             character_count: int = body['character_count']
             character_limit: int = body['character_limit']
             percentage: int = round((character_count / character_limit) * 100)
-            print_color: str = self.get_color_by_percentage(percentage)
+            print_color: str = self.__get_color_by_percentage(percentage)
             print(
                 f"\nAPI key: {self.license['key']}.\nCharacters limit: {character_limit}\n{print_color}Used characters: {character_count} ({percentage}%)\n")
 
@@ -95,16 +95,16 @@ class DeeplRequest:
             print(
                 f"{colorama.Fore.RED}\nError retrieving usage info.\nError code: {response.status_code}.\n")
 
-    def get_color_by_percentage(self, percentage: int) -> str:
+    def __get_color_by_percentage(self, percentage: int) -> str:
         if percentage > 90:
             return colorama.Fore.RED
         if percentage > 60:
             return colorama.Fore.YELLOW
         return colorama.Fore.RESET
 
-    def print_supported_languages(self):
+    def print_supported_languages(self) -> None:
         response: Response = requests.get(
-            f'{self.base_url}languages', headers=self.headers)
+            f'{self.__base_url}languages', headers=self.__headers)
 
         if response.status_code == 200:
             body: dict = json.loads(response.text)
@@ -117,20 +117,20 @@ class DeeplRequest:
                 f'{colorama.Fore.RED}\nError retrieving the supported languages.\nError code: {response.status_code}\n')
 
     def translate(self, entry: str) -> str:
-        endpoint: str = f"{self.base_url}translate?auth_key={self.license['key']}&text={entry}&target_lang={self.target_lang}"
+        endpoint: str = f"{self.__base_url}translate?auth_key={self.license['key']}&text={entry}&target_lang={self.target_lang}"
 
         if self.source_lang:
             endpoint += f"&source_lang={self.source_lang}"
 
         response: Response = requests.get(endpoint)
-        truncated_text: str = self.get_truncated_text(entry)
+        truncated_text: str = self.__get_truncated_text(entry)
 
         if response.status_code == 200:
             body: dict[str, str] = json.loads(response.text)
-            translation: str | None = self.get_translation(body)
+            translation: str | None = self.__get_translation(body)
 
             if translation:
-                truncated_translation: str = self.get_truncated_text(
+                truncated_translation: str = self.__get_truncated_text(
                     translation)
                 print(f'"{truncated_text}" => "{truncated_translation}"')
                 return translation
@@ -144,13 +144,13 @@ class DeeplRequest:
 
         return ''
 
-    def get_translation(self, body: dict):
+    def __get_translation(self, body: dict) -> str | None:
         try:
             return body['translations'][0]['text']
         except:
             return None
 
-    def get_truncated_text(self, text: str) -> str:
+    def __get_truncated_text(self, text: str) -> str:
         return text[:self.LEN_LIMIT] + '...' if len(text) > self.LEN_LIMIT else text
 
     def translate_document(self, source_file: str) -> dict[str, str]:
@@ -163,7 +163,7 @@ class DeeplRequest:
         if self.target_lang:
             request_data['target_lang'] = self.target_lang
 
-        endpoint: str = f'{self.base_url}document/'
+        endpoint: str = f'{self.__base_url}document/'
 
         with open(source_file, 'rb') as document:
             response: Response = requests.post(
@@ -177,7 +177,7 @@ class DeeplRequest:
         os._exit(0)
 
     def check_document_status(self, document_id: str, document_key: str) -> dict[str, str]:
-        endpoint: str = f'{self.base_url}document/{document_id}?auth_key={self.license["key"]}&document_key={document_key}'
+        endpoint: str = f'{self.__base_url}document/{document_id}?auth_key={self.license["key"]}&document_key={document_key}'
         response: Response = requests.post(endpoint)
 
         if response.status_code == 200:
@@ -187,7 +187,7 @@ class DeeplRequest:
         os._exit(0)
 
     def download_translated_document(self, document_id: str, document_key: str) -> bytes:
-        endpoint: str = f'{self.base_url}document/{document_id}/result?auth_key={self.license["key"]}&document_key={document_key}'
+        endpoint: str = f'{self.__base_url}document/{document_id}/result?auth_key={self.license["key"]}&document_key={document_key}'
         response: Response = requests.post(endpoint)
 
         if response.status_code == 200:
