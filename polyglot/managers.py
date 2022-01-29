@@ -1,3 +1,4 @@
+from abc import ABC, abstractmethod
 import os
 import json
 from polib import POEntry, POFile, pofile
@@ -7,7 +8,7 @@ from colorama import Fore
 from polyglot.deepl_request import DeeplRequest
 
 
-class BaseManager:
+class Manager(ABC):
 
     def __init__(self, deepl: DeeplRequest, source_file: str, output_directory: str = ''):
         self.source_file = source_file
@@ -30,11 +31,12 @@ class BaseManager:
             print(f'{Fore.RED}Error: "{self.source_file}" does not exist!')
             os._exit(0)
 
+    @abstractmethod
     def translate_source_file(self):
         pass
 
 
-class TextManager(BaseManager):
+class TextManager(Manager):
 
     content: str = ''
 
@@ -176,7 +178,7 @@ class POManager(DictionaryManager):
         print(f'Generated {self.target_file} and {mofile}.')
 
 
-class DocumentManager(BaseManager):
+class DocumentManager(Manager):
 
     document_id: str = ''
     document_key: str = ''
