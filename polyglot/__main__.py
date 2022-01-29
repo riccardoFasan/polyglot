@@ -7,7 +7,7 @@ from polyglot import translator
 def translate_or_print_data() -> None:
     collector: arguments.ArgumentsCollector = arguments.CLIArgumentsCollector()
     args: arguments.Arguments = collector.arguments
-    translator.execute_command(args)
+    translator.Translator(args).execute_command()
 
 
 if __name__ == '__main__':
