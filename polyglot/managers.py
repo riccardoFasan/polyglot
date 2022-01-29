@@ -100,12 +100,12 @@ class DictionaryManager(TextManager):
 
 class JSONManager(DictionaryManager):
 
-    def get_number_of_translations(self, obj: dict = None):
-        if not obj:
-            obj = self.content
+    def get_number_of_translations(self, dictionary: dict[str, str] | None = None):
+        if not dictionary:
+            dictionary = self.content
         number: int = 0
 
-        for key, value in obj.items():
+        for key, value in dictionary.items():
             number += self.get_number_of_translations(
                 value) if isinstance(value, dict) else 1
 
@@ -115,18 +115,18 @@ class JSONManager(DictionaryManager):
         with open(self.source_file, 'r') as source:
             self.content = json.load(source)
 
-    def translate_content(self, obj=None):
+    def translate_content(self, dictionary: dict[str, str] | None = None):
 
-        if not obj:
-            obj = self.content
+        if not dictionary:
+            dictionary = self.content
 
-        for key, value in obj.items():
+        for key, value in dictionary.items():
 
             if isinstance(value, dict):
                 self.translate_content(value)
 
             else:
-                obj[key] = self.translate_and_handle(value)
+                dictionary[key] = self.translate_and_handle(value)
                 self.completion_count += 1
                 self.progress_bar.update(self.completion_count)
 
@@ -185,7 +185,8 @@ class DocumentManager(Manager):
     document_key: str = ''
 
     def translate_source_file(self):
-        document_data: dict = self.deepl.translate_document(self.source_file)
+        document_data: dict[str, str] = self.deepl.translate_document(
+            self.source_file)
         self.document_id = document_data['document_id']
         self.document_key = document_data['document_key']
         self.download_document_when_ready()

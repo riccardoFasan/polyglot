@@ -9,7 +9,7 @@ from requests.models import Response
 class DeeplRequest:
 
     LEN_LIMIT: int = 150
-    license: dict = {
+    license: dict[str, str] = {
         'version': 'free',  # 'free', 'pro' or 'invalid'
         'key': ''
     }
@@ -32,7 +32,7 @@ class DeeplRequest:
         return f'{pathlib.Path.home()}/.deepl_api_key.json'
 
     @property
-    def headers(self) -> dict:
+    def headers(self) -> dict[str, str]:
         return {
             'Authorization': f'DeepL-Auth-Key {self.license["key"]}',
             'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ class DeeplRequest:
         try:
 
             with open(self.license_path, 'r') as license_file:
-                file_content: dict = json.load(license_file)
+                file_content: dict[str, str] = json.load(license_file)
 
                 if file_content['key'] and file_content['version']:
                     self.license['key'] = file_content['key']
@@ -56,7 +56,7 @@ class DeeplRequest:
             self.license['key'] = input('Type here your Deepl API key: ')
             self.license['version'] = self.get_key_version()
             self.verify_license()
-            license: dict = {
+            license: dict[str, str] = {
                 'key': self.license['key'],
                 'version': self.license['version']
             }
@@ -83,7 +83,7 @@ class DeeplRequest:
         response: Response = self.get_usage_info()
 
         if response.status_code == 200:
-            body: dict = json.loads(response.text)
+            body: dict[str, int] = json.loads(response.text)
             character_count: int = body['character_count']
             character_limit: int = body['character_limit']
             percentage: int = round((character_count / character_limit) * 100)
@@ -126,7 +126,7 @@ class DeeplRequest:
         truncated_text: str = self.get_truncated_text(entry)
 
         if response.status_code == 200:
-            body: dict = json.loads(response.text)
+            body: dict[str, str] = json.loads(response.text)
             translation: str | None = self.get_translation(body)
 
             if translation:
@@ -153,8 +153,8 @@ class DeeplRequest:
     def get_truncated_text(self, text: str) -> str:
         return text[:self.LEN_LIMIT] + '...' if len(text) > self.LEN_LIMIT else text
 
-    def translate_document(self, source_file: str) -> dict:
-        request_data: dict = {
+    def translate_document(self, source_file: str) -> dict[str, str]:
+        request_data: dict[str, str] = {
             'source_lang': self.source_lang,
             'auth_key': self.license['key'],
             'filename': source_file,
@@ -176,7 +176,7 @@ class DeeplRequest:
             f'{colorama.Fore.RED}\nError translating "{source_file}".\nError code: {response.status_code}.\n')
         os._exit(0)
 
-    def check_document_status(self, document_id: str, document_key: str) -> dict:
+    def check_document_status(self, document_id: str, document_key: str) -> dict[str, str]:
         endpoint: str = f'{self.base_url}document/{document_id}?auth_key={self.license["key"]}&document_key={document_key}'
         response: Response = requests.post(endpoint)
 
