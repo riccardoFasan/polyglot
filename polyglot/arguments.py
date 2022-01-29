@@ -1,6 +1,5 @@
+import argparse
 from abc import ABC, abstractmethod
-from argparse import ArgumentParser, Namespace
-from contextlib import AbstractAsyncContextManager
 from dataclasses import dataclass
 
 ACTIONS: list[str] = ['translate', 'set_key',
@@ -17,7 +16,6 @@ class Arguments():
 
 
 class ArgumentsCollector(ABC):
-
     arguments: Arguments
 
     def __init__(self) -> None:
@@ -35,8 +33,8 @@ class ArgumentsCollector(ABC):
 
 class CLIArgumentsCollector(ArgumentsCollector):
 
-    __parser: ArgumentParser
-    __namespace: Namespace
+    __parser: argparse.ArgumentParser
+    __namespace: argparse.Namespace
 
     def _collect_arguments(self) -> None:
         self.__set_parser()
@@ -51,7 +49,7 @@ class CLIArgumentsCollector(ArgumentsCollector):
 
     def __set_parser(self) -> None:
 
-        parser: ArgumentParser = ArgumentParser(
+        parser: argparse.ArgumentParser = argparse.ArgumentParser(
             description='Using the selected translation engine, Polyglot will translate the given files.')
 
         parser.add_argument(

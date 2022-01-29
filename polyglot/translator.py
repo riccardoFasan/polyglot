@@ -1,12 +1,12 @@
 import os
-from colorama import Fore
 
-from polyglot.deepl_request import DeeplRequest
-from polyglot.managers import TextManager, JSONManager, POManager, DocumentManager, Manager
+import colorama
 
-from polyglot.arguments import Arguments
+from polyglot import managers
+from polyglot import deepl_request
+from polyglot import arguments
 
-DOCUMENTS_SUPPORTED_BY_DEEPL: list = [
+DOCUMENTS_SUPPORTED_BY_DEEPL: list[str] = [
     '.docx',
     '.pptx',
     '.html',
@@ -14,33 +14,20 @@ DOCUMENTS_SUPPORTED_BY_DEEPL: list = [
 ]
 
 
-def execute_command(arguments: Arguments):
+def execute_command(arguments: arguments.Arguments):
+
+    colorama.init(autoreset=True)
 
     if not arguments.action:
-        print(f"{Fore.RED}No action selected.")
+        print(f"{colorama.Fore.RED}No action selected.")
         os._exit(0)
 
-    deepl: DeeplRequest = DeeplRequest(arguments.target_lang, arguments.source_lang)
+    deepl: deepl_request.DeeplRequest = deepl_request.DeeplRequest(
+        arguments.target_lang, arguments.source_lang)
 
     if arguments.action == 'translate':
-
-        name, extension = os.path.splitext(arguments.source_file)
-
-        if extension in DOCUMENTS_SUPPORTED_BY_DEEPL:
-            manager: Manager = DocumentManager(deepl, arguments.source_file,
-                                               arguments.output_directory)
-        elif extension == '.json':
-            manager: Manager = JSONManager(deepl, arguments.source_file,
-                                           arguments.output_directory)
-        elif extension == '.po':
-            manager: Manager = POManager(
-                deepl, arguments.source_file, arguments.output_directory)
-        else:
-            manager: Manager = TextManager(
-                deepl, arguments.source_file, arguments.output_directory)
-
+        manager: managers.Manager = get_manager(deepl, arguments)
         manager.translate_source_file()
-
         print('\nFinish.\n')
 
     elif arguments.action == 'set_key':
@@ -51,3 +38,16 @@ def execute_command(arguments: Arguments):
 
     elif arguments.action == 'print_usage_info':
         deepl.print_usage_info()
+
+
+def get_manager(deepl: deepl_request.DeeplRequest, arguments: arguments.Arguments) -> managers.Manager:
+
+    name, extension = os.path.splitext(arguments.source_file)
+
+    if extension in DOCUMENTS_SUPPORTED_BY_DEEPL:
+        return managers.DocumentManager(deepl, arguments.source_file, arguments.output_directory)
+    if extension == '.json':
+        return managers.JSONManager(deepl, arguments.source_file, arguments.output_directory)
+    if extension == '.po':
+        return managers.POManager(deepl, arguments.source_file, arguments.output_directory)
+    return managers.TextManager(deepl, arguments.source_file, arguments.output_directory)

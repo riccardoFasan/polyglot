@@ -1,8 +1,8 @@
 import requests
 import json
 import os
-from colorama import Fore
-from pathlib import Path
+import pathlib
+import colorama
 from requests.models import Response
 
 
@@ -29,7 +29,7 @@ class DeeplRequest:
 
     @property
     def license_path(self) -> str:
-        return f'{Path.home()}/.deepl_api_key.json'
+        return f'{pathlib.Path.home()}/.deepl_api_key.json'
 
     @property
     def headers(self) -> dict:
@@ -73,7 +73,7 @@ class DeeplRequest:
 
     def verify_license(self):
         if self.license['version'] == 'invalid':
-            print(f'{Fore.RED}\nThis key is invalid.\n')
+            print(f'{colorama.Fore.RED}\nThis key is invalid.\n')
             os._exit(0)
 
     def get_usage_info(self) -> Response:
@@ -93,14 +93,14 @@ class DeeplRequest:
 
         else:
             print(
-                f"{Fore.RED}\nError retrieving usage info.\nError code: {response.status_code}.\n")
+                f"{colorama.Fore.RED}\nError retrieving usage info.\nError code: {response.status_code}.\n")
 
     def get_color_by_percentage(self, percentage: int) -> str:
         if percentage > 90:
-            return Fore.RED
+            return colorama.Fore.RED
         if percentage > 60:
-            return Fore.YELLOW
-        return Fore.RESET
+            return colorama.Fore.YELLOW
+        return colorama.Fore.RESET
 
     def print_supported_languages(self):
         response: Response = requests.get(
@@ -114,7 +114,7 @@ class DeeplRequest:
 
         else:
             print(
-                f'{Fore.RED}\nError retrieving the supported languages.\nError code: {response.status_code}\n')
+                f'{colorama.Fore.RED}\nError retrieving the supported languages.\nError code: {response.status_code}\n')
 
     def translate(self, entry: str) -> str:
         endpoint: str = f"{self.base_url}translate?auth_key={self.license['key']}&text={entry}&target_lang={self.target_lang}"
@@ -136,11 +136,11 @@ class DeeplRequest:
                 return translation
 
             print(
-                f'{Fore.YELLOW}\nNo traslation found for "{truncated_text}"!\n')
+                f'{colorama.Fore.YELLOW}\nNo traslation found for "{truncated_text}"!\n')
 
         else:
             print(
-                f'{Fore.RED}\nError translating "{truncated_text}".\nError code: {response.status_code}.\n')
+                f'{colorama.Fore.RED}\nError translating "{truncated_text}".\nError code: {response.status_code}.\n')
 
         return ''
 
@@ -173,7 +173,7 @@ class DeeplRequest:
                 return json.loads(response.text)
 
         print(
-            f'{Fore.RED}\nError translating "{source_file}".\nError code: {response.status_code}.\n')
+            f'{colorama.Fore.RED}\nError translating "{source_file}".\nError code: {response.status_code}.\n')
         os._exit(0)
 
     def check_document_status(self, document_id: str, document_key: str) -> dict:
@@ -183,7 +183,7 @@ class DeeplRequest:
         if response.status_code == 200:
             return json.loads(response.text)
 
-        print(f'{Fore.RED}\nError checking the status of a document\nError code: {response.status_code}.\n')
+        print(f'{colorama.Fore.RED}\nError checking the status of a document\nError code: {response.status_code}.\n')
         os._exit(0)
 
     def download_translated_document(self, document_id: str, document_key: str) -> bytes:
@@ -194,5 +194,5 @@ class DeeplRequest:
             return response.content
 
         print(
-            f'{Fore.RED}\nError downlaoding a document\nError code: {response.status_code}.\n')
+            f'{colorama.Fore.RED}\nError downlaoding a document\nError code: {response.status_code}.\n')
         os._exit(0)

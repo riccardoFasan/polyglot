@@ -1,18 +1,13 @@
 #!/usr/bin/env python3
 
-from colorama import init
-
-from polyglot.arguments import Arguments, ArgumentsCollector, CLIArgumentsCollector
-from polyglot.translator import execute_command
-
-
-init(autoreset=True)
+from polyglot import arguments
+from polyglot import translator
 
 
 def translate_or_print_data() -> None:
-    collector: ArgumentsCollector = CLIArgumentsCollector()
-    args: Arguments = collector.arguments
-    execute_command(args)
+    collector: arguments.ArgumentsCollector = arguments.CLIArgumentsCollector()
+    args: arguments.Arguments = collector.arguments
+    translator.execute_command(args)
 
 
 if __name__ == '__main__':

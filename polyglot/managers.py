@@ -1,16 +1,17 @@
-from abc import ABC, abstractmethod
 import os
 import json
-from polib import POEntry, POFile, pofile
-from progressbar import ProgressBar
-from colorama import Fore
+from abc import ABC, abstractmethod
 
-from polyglot.deepl_request import DeeplRequest
+import polib
+import colorama
+import progressbar
+
+from polyglot import deepl_request
 
 
 class Manager(ABC):
 
-    def __init__(self, deepl: DeeplRequest, source_file: str, output_directory: str = ''):
+    def __init__(self, deepl: deepl_request.DeeplRequest, source_file: str, output_directory: str = ''):
         self.source_file = source_file
         self.check_source_file()
         self.deepl = deepl
@@ -28,7 +29,7 @@ class Manager(ABC):
 
     def check_source_file(self):
         if not os.path.exists(self.source_file):
-            print(f'{Fore.RED}Error: "{self.source_file}" does not exist!')
+            print(f'{colorama.Fore.RED}Error: "{self.source_file}" does not exist!')
             os._exit(0)
 
     @abstractmethod
@@ -51,7 +52,7 @@ class TextManager(Manager):
             with open(self.source_file, 'r') as source:
                 self.content = source.read()
         except:
-            print(f'{Fore.RED}Cannot read {self.extension} files.')
+            print(f'{colorama.Fore.RED}Cannot read {self.extension} files.')
             os._exit(0)
 
     def translate_content(self):
@@ -67,7 +68,7 @@ class DictionaryManager(TextManager):
 
     completion_count: int = 0
     not_translated_count: int = 0
-    progress_bar: ProgressBar
+    progress_bar: progressbar.ProgressBar
     content: dict = dict()
 
     def translate_source_file(self):
@@ -79,7 +80,7 @@ class DictionaryManager(TextManager):
 
     def get_progress_bar(self):
         number_of_translations: int = self.get_number_of_translations()
-        return ProgressBar(max_value=number_of_translations, redirect_stdout=True)
+        return progressbar.ProgressBar(max_value=number_of_translations, redirect_stdout=True)
 
     def get_number_of_translations(self) -> int:
         return 0
@@ -88,7 +89,7 @@ class DictionaryManager(TextManager):
         print('\nTranslation completed.')
         if self.not_translated_count > 0:
             print(
-                f'{Fore.YELLOW}\n{self.not_translated_count} entries have not been translated.\n')
+                f'{colorama.Fore.YELLOW}\n{self.not_translated_count} entries have not been translated.\n')
 
     def translate_and_handle(self, entry: str):
         translation: str | None = self.deepl.translate(entry)
@@ -139,13 +140,13 @@ class POManager(DictionaryManager):
 
     @property
     def pofile_source(self):
-        return pofile(self.source_file)
+        return polib.pofile(self.source_file)
 
     def get_number_of_translations(self):
         return len(self.content.items())
 
     def load_source_content(self):
-        pofile: POFile = self.pofile_source
+        pofile: polib.POFile = self.pofile_source
 
         for entry in pofile:
             self.content[entry.msgid] = {
@@ -160,11 +161,11 @@ class POManager(DictionaryManager):
             self.progress_bar.update(self.completion_count)
 
     def make_translated_files(self):
-        pofile: POFile = POFile()
+        pofile: polib.POFile = polib.POFile()
         pofile.metadata = self.pofile_source.metadata
 
         for key, value in self.content.items():
-            entry: POEntry = POEntry(
+            entry: polib.POEntry = polib.POEntry(
                 msgid=key,
                 msgstr=value["msgstr"],
                 occurrences=value['occurrences']
