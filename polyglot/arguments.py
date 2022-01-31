@@ -39,8 +39,13 @@ class CLIArgumentsCollector(ArgumentsCollector):
     def _collect_arguments(self) -> None:
         self.__set_parser()
         self.__namespace = self.__parser.parse_args()
-        self.arguments = Arguments(self.__namespace.action, self.__namespace.source_file,
-                                   self.__namespace.target_lang, self.__namespace.output_directory, self.__namespace.source_lang)
+        self.arguments = Arguments(
+            action=self.__namespace.action,
+            source_file=self.__namespace.source_file,
+            target_lang=self.__namespace.target_lang,
+            output_directory=self.__namespace.output_directory,
+            source_lang=self.__namespace.source_lang
+        )
 
     def _validate_arguments(self) -> None:
         if self.__namespace.source_file is None or self.__namespace.target_lang is None:

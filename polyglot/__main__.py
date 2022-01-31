@@ -7,8 +7,8 @@ from polyglot import translator
 def main() -> None:
     try:
         collector: arguments.ArgumentsCollector = arguments.CLIArgumentsCollector()
-        args: arguments.Arguments = collector.arguments
-        translator.Translator(args).execute_command()
+        options: arguments.Arguments = collector.arguments
+        translator.Translator(options).execute_command()
     except KeyboardInterrupt:
         print('\n\nInterrupted by user.')
 

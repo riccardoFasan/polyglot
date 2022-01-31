@@ -22,7 +22,9 @@ class Translator():
         colorama.init(autoreset=True)
         self.__options = arguments
         self.__deepl = deepl_request.DeeplRequest(
-            self.__options.target_lang, self.__options.source_lang)
+            target_lang=self.__options.target_lang,
+            source_lang=self.__options.source_lang
+        )
 
     def execute_command(self):
 
