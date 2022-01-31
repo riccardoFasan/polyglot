@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-from polyglot import arguments
-from polyglot import translator
+from polyglot import arguments, translator
 
 
 def main() -> None:

@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 from abc import ABC, abstractmethod
 
@@ -7,7 +8,6 @@ import colorama
 import progressbar
 
 from polyglot import deepl_request
-
 
 class Manager(ABC):
 
@@ -29,8 +29,8 @@ class Manager(ABC):
 
     def __check_source_file(self) -> None:
         if not os.path.exists(self.source_file):
-            print(f'{colorama.Fore.RED}Error: "{self.source_file}" does not exist!')
-            os._exit(0)
+            raise FileNotFoundError(
+                f'{colorama.Fore.RED}\n"{self.source_file}" wan not found!')
 
     @abstractmethod
     def translate_source_file(self) -> None:
@@ -52,8 +52,7 @@ class TextManager(Manager):
             with open(self.source_file, 'r') as source:
                 self.content = source.read()
         except:
-            print(f'{colorama.Fore.RED}Cannot read {self._extension} files.')
-            os._exit(0)
+            sys.exit(f'{colorama.Fore.RED}Cannot read {self._extension} files.')
 
     def _translate_content(self) -> None:
         self.content = self.deepl.translate(self.content)

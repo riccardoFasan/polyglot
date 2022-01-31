@@ -1,10 +1,6 @@
 import os
-
 import colorama
-
-from polyglot import managers
-from polyglot import deepl_request
-from polyglot import arguments
+from polyglot import managers, deepl_request, arguments
 
 DOCUMENTS_SUPPORTED_BY_DEEPL: list[str] = [
     '.docx',
@@ -27,10 +23,6 @@ class Translator():
         )
 
     def execute_command(self):
-
-        if not self.__options.action:
-            print(f"{colorama.Fore.RED}No action selected.")
-            os._exit(0)
 
         if self.__options.action == 'translate':
             manager: managers.Manager = self.__get_manager()

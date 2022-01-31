@@ -1,9 +1,20 @@
+
 import requests
 import json
-import os
+import sys
 import pathlib
 import colorama
 from requests.models import Response
+
+
+class DeeplError(Exception):
+    status_code: int
+    message: str
+
+    def __init__(self, status_code: int, message: str):
+        self.status_code = status_code
+        self.message = message
+        super().__init__(f"{colorama.Fore.RED}\n{message}\n")
 
 
 class DeeplRequest:
@@ -48,7 +59,7 @@ class DeeplRequest:
                     self.license['key'] = file_content['key']
                     self.license['version'] = file_content['version']
 
-        except:
+        except FileNotFoundError:
             self.set_key()
 
     def set_key(self) -> None:
@@ -73,8 +84,7 @@ class DeeplRequest:
 
     def __verify_license(self):
         if self.license['version'] == 'invalid':
-            print(f'{colorama.Fore.RED}\nThis key is invalid.\n')
-            os._exit(0)
+            sys.exit(f'{colorama.Fore.RED}\nThis key is invalid.\n')
 
     def __get_usage_info(self) -> Response:
         return requests.get(f'{self.__base_url}usage', headers=self.__headers)
@@ -82,7 +92,7 @@ class DeeplRequest:
     def print_usage_info(self) -> None:
         response: Response = self.__get_usage_info()
 
-        if response.status_code == 200:
+        try:
             body: dict[str, int] = json.loads(response.text)
             character_count: int = body['character_count']
             character_limit: int = body['character_limit']
@@ -91,9 +101,11 @@ class DeeplRequest:
             print(
                 f"\nAPI key: {self.license['key']}.\nCharacters limit: {character_limit}\n{print_color}Used characters: {character_count} ({percentage}%)\n")
 
-        else:
-            print(
-                f"{colorama.Fore.RED}\nError retrieving usage info.\nError code: {response.status_code}.\n")
+        except:
+            raise DeeplError(
+                status_code=response.status_code,
+                message='Error retrieving usage info'
+            )
 
     def __get_color_by_percentage(self, percentage: int) -> str:
         if percentage > 90:
@@ -106,15 +118,17 @@ class DeeplRequest:
         response: Response = requests.get(
             f'{self.__base_url}languages', headers=self.__headers)
 
-        if response.status_code == 200:
+        try:
             body: dict = json.loads(response.text)
 
             for lang in body:
                 print(f"{lang['name']} ({lang['language']})")
 
-        else:
-            print(
-                f'{colorama.Fore.RED}\nError retrieving the supported languages.\nError code: {response.status_code}\n')
+        except:
+            raise DeeplError(
+                status_code=response.status_code,
+                message='Error retrieving the supported languages.'
+            )
 
     def translate(self, entry: str) -> str:
         endpoint: str = f"{self.__base_url}translate?auth_key={self.license['key']}&text={entry}&target_lang={self.target_lang}"
@@ -125,30 +139,27 @@ class DeeplRequest:
         response: Response = requests.get(endpoint)
         truncated_text: str = self.__get_truncated_text(entry)
 
-        if response.status_code == 200:
-            body: dict[str, str] = json.loads(response.text)
-            translation: str | None = self.__get_translation(body)
+        try:
 
-            if translation:
-                truncated_translation: str = self.__get_truncated_text(
-                    translation)
-                print(f'"{truncated_text}" => "{truncated_translation}"')
-                return translation
+            body: dict = json.loads(response.text)
+            translation: str = body['translations'][0]['text']
 
+            truncated_translation: str = self.__get_truncated_text(
+                translation)
+            print(f'"{truncated_text}" => "{truncated_translation}"')
+            return translation
+
+        except KeyError:
             print(
                 f'{colorama.Fore.YELLOW}\nNo traslation found for "{truncated_text}"!\n')
 
-        else:
-            print(
-                f'{colorama.Fore.RED}\nError translating "{truncated_text}".\nError code: {response.status_code}.\n')
-
-        return ''
-
-    def __get_translation(self, body: dict) -> str | None:
-        try:
-            return body['translations'][0]['text']
         except:
-            return None
+            raise DeeplError(
+                status_code=response.status_code,
+                message=f'Error translating "{truncated_text}".\n'
+            )
+        finally:
+            return ''
 
     def __get_truncated_text(self, text: str) -> str:
         return text[:self.LEN_LIMIT] + '...' if len(text) > self.LEN_LIMIT else text
@@ -172,9 +183,10 @@ class DeeplRequest:
             if response.status_code == 200:
                 return json.loads(response.text)
 
-        print(
-            f'{colorama.Fore.RED}\nError translating "{source_file}".\nError code: {response.status_code}.\n')
-        os._exit(0)
+        raise DeeplError(
+            status_code=response.status_code,
+            message=f'Error translating document "{source_file}"'
+        )
 
     def check_document_status(self, document_id: str, document_key: str) -> dict[str, str]:
         endpoint: str = f'{self.__base_url}document/{document_id}?auth_key={self.license["key"]}&document_key={document_key}'
@@ -183,8 +195,10 @@ class DeeplRequest:
         if response.status_code == 200:
             return json.loads(response.text)
 
-        print(f'{colorama.Fore.RED}\nError checking the status of a document\nError code: {response.status_code}.\n')
-        os._exit(0)
+        raise DeeplError(
+            status_code=response.status_code,
+            message='Error checking the status of a document'
+        )
 
     def download_translated_document(self, document_id: str, document_key: str) -> bytes:
         endpoint: str = f'{self.__base_url}document/{document_id}/result?auth_key={self.license["key"]}&document_key={document_key}'
@@ -193,6 +207,7 @@ class DeeplRequest:
         if response.status_code == 200:
             return response.content
 
-        print(
-            f'{colorama.Fore.RED}\nError downlaoding a document\nError code: {response.status_code}.\n')
-        os._exit(0)
+        raise DeeplError(
+            status_code=response.status_code,
+            message='Error downlaoding a document.'
+        )
