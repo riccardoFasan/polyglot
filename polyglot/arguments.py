@@ -55,10 +55,10 @@ class CLIArgumentsCollector(ArgumentsCollector):
         parser.add_argument(
             'action', type=str, help="The command that will be exectued. The following options are for the translate command.", choices=ACTIONS)
 
-        parser.add_argument('-p', '--source_file', type=list[str],
+        parser.add_argument('-p', '--source_file', type=str,
                             help='The file to be translated. Required if the action is "translate."', default='')
 
-        parser.add_argument('-t', '--target_lang', type=list[str],
+        parser.add_argument('-t', '--target_lang', type=str,
                             help='The code of the language into which you want to translate the source file. Required if the action is "translate".', default='')
 
         parser.add_argument('-o', '--output_directory', type=str,
