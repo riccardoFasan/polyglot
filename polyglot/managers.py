@@ -64,6 +64,7 @@ class TextManager(Manager):
             print(f'Generated {self._target_file}.')
 
 
+# ! Liskov substitution principle violation: extended classes JSONManager and POManager are manipulating self.content in ways completelly differents
 class DictionaryManager(TextManager):
 
     completion_count: int = 0
@@ -103,13 +104,7 @@ class JSONManager(DictionaryManager):
     def _get_number_of_translations(self, dictionary: dict[str, str] | None = None) -> int:
         if not dictionary:
             dictionary = self.content
-        number: int = 0
-
-        for key, value in dictionary.items():
-            number += self._get_number_of_translations(
-                value) if isinstance(value, dict) else 1
-
-        return number
+        return sum(self._get_number_of_translations(value) if isinstance(value, dict) else 1 for key, value in dictionary.items())
 
     def _load_source_content(self) -> None:
         with open(self.source_file, 'r') as source:
