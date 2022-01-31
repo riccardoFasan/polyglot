@@ -17,7 +17,7 @@ class DeeplError(Exception):
         super().__init__(f"{colorama.Fore.RED}\n{message}\n")
 
 
-class DeeplRequest:
+class Deepl:
 
     LEN_LIMIT: int = 150
     license: dict[str, str] = {

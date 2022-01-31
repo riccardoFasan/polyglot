@@ -1,6 +1,6 @@
 import os
 import colorama
-from polyglot import managers, deepl_request, arguments
+from polyglot import deepl, managers, arguments
 
 DOCUMENTS_SUPPORTED_BY_DEEPL: list[str] = [
     '.docx',
@@ -12,12 +12,12 @@ DOCUMENTS_SUPPORTED_BY_DEEPL: list[str] = [
 
 class Translator():
     __options: arguments.Arguments
-    __deepl: deepl_request.DeeplRequest
+    __deepl: deepl.Deepl
 
     def __init__(self, arguments: arguments.Arguments):
         colorama.init(autoreset=True)
         self.__options = arguments
-        self.__deepl = deepl_request.DeeplRequest(
+        self.__deepl = deepl.Deepl(
             target_lang=self.__options.target_lang,
             source_lang=self.__options.source_lang
         )

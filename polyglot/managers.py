@@ -7,11 +7,12 @@ import polib
 import colorama
 import progressbar
 
-from polyglot import deepl_request
+from polyglot import deepl
+
 
 class Manager(ABC):
 
-    def __init__(self, deepl: deepl_request.DeeplRequest, source_file: str, output_directory: str = '') -> None:
+    def __init__(self, deepl: deepl.Deepl, source_file: str, output_directory: str = '') -> None:
         self.source_file = source_file
         self.__check_source_file()
         self.deepl = deepl
