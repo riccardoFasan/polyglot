@@ -2,7 +2,7 @@ import argparse
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
-ACTIONS: list[str] = ['translate', 'set_key',
+ACTIONS: list[str] = ['translate', 'set_license',
                       'print_supported_languages', 'print_usage_info']
 
 

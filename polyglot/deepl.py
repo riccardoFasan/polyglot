@@ -1,9 +1,59 @@
 
+import os
 import requests
 import json
 import pathlib
 import colorama
+from dataclasses import dataclass
 from requests.models import Response
+from distutils.util import strtobool
+
+
+@dataclass
+class License:
+    key: str = ''
+    version: str = 'free'  # 'free' or 'pro'
+
+
+class LicenseManager:
+
+    @property
+    def __license_path(self) -> str:
+        return f'{pathlib.Path.home()}/.deepl_api_key.json'
+
+    def get_license(self) -> License:
+        try:
+            with open(self.__license_path, 'r') as license_file:
+                file_content: dict[str, str] = json.load(license_file)
+
+                if file_content['key'] and file_content['version']:
+                    return License(key=file_content['key'], version=file_content['version'])
+                return self.__set_and_get_license()
+        except:
+            return self.__set_and_get_license()
+
+    def __set_and_get_license(self) -> License:
+        self.set_license()
+        return self.get_license()
+
+    def set_license(self) -> None:
+        with open(self.__license_path, 'w+') as license_file:
+            key: str = input('Type here your Deepl API key: ')
+            version: str = 'pro' if self.__yes_no_input(
+                'Are you using the pro license?') else 'free'
+            license: dict[str, str] = {
+                'key': key,
+                'version': version
+            }
+            license_file.write(json.dumps(license, indent=2))
+
+    def __yes_no_input(self, question: str) -> bool:
+        while True:
+            user_input = input(question + " [y/n]: ")
+            try:
+                return bool(strtobool(user_input))
+            except ValueError:
+                print("Please use y/n or yes/no.\n")
 
 
 class DeeplError(Exception):
@@ -17,74 +67,32 @@ class DeeplError(Exception):
             f"\n\n{colorama.Fore.RED}Status code: {status_code}.\nMessage: {message}\n")
 
 
-class Deepl:
+class Requester:
 
     LEN_LIMIT: int = 150
-    license: dict[str, str] = {
-        'version': 'free',  # 'free', 'pro' or 'invalid'
-        'key': ''
-    }
 
     target_lang: str = ''
     source_lang: str = ''
 
+    __license: License
+    __license_manager: LicenseManager = LicenseManager()
+
     def __init__(self, target_lang: str = '', source_lang: str = '') -> None:
         self.target_lang = target_lang
         self.source_lang = source_lang
-        self.__apply_license()
+        self.__license = self.__license_manager.get_license()
 
     @property
     def __base_url(self) -> str:
-        version: str = '' if self.license['version'] == 'pro' else '-free'
+        version: str = '' if self.__license.version == 'pro' else '-free'
         return f'https://api{version}.deepl.com/v2/'
-
-    @property
-    def __license_path(self) -> str:
-        return f'{pathlib.Path.home()}/.deepl_api_key.json'
 
     @property
     def __headers(self) -> dict[str, str]:
         return {
-            'Authorization': f'DeepL-Auth-Key {self.license["key"]}',
+            'Authorization': f'DeepL-Auth-Key {self.__license.key}',
             'Content-Type': 'application/json'
         }
-
-    def __apply_license(self) -> None:
-        try:
-
-            with open(self.__license_path, 'r') as license_file:
-                file_content: dict[str, str] = json.load(license_file)
-
-                if file_content['key'] and file_content['version']:
-                    self.license['key'] = file_content['key']
-                    self.license['version'] = file_content['version']
-
-        except FileNotFoundError:
-            self.set_key()
-
-    def set_key(self) -> None:
-        with open(self.__license_path, 'w+') as license_file:
-            self.license['key'] = input('Type here your Deepl API key: ')
-            self.license['version'] = self.__get_key_version()
-            self.__verify_license()
-            license: dict[str, str] = {
-                'key': self.license['key'],
-                'version': self.license['version']
-            }
-            license_file.write(json.dumps(license, indent=2))
-
-    def __get_key_version(self) -> str:
-        response: Response = self.__get_usage_info()
-        if response.status_code == 403:
-            if self.license['version'] == 'free':
-                self.license['version'] = 'pro'
-                self.__get_key_version()
-            return 'invalid'
-        return self.license['version']
-
-    def __verify_license(self):
-        if self.license['version'] == 'invalid':
-            quit(f'{colorama.Fore.RED}\nThis key is invalid.\n')
 
     def __get_usage_info(self) -> Response:
         return requests.get(f'{self.__base_url}usage', headers=self.__headers)
@@ -99,7 +107,7 @@ class Deepl:
             percentage: int = round((character_count / character_limit) * 100)
             print_color: str = self.__get_color_by_percentage(percentage)
             print(
-                f"\nAPI key: {self.license['key']}.\nCharacters limit: {character_limit}\n{print_color}Used characters: {character_count} ({percentage}%)\n")
+                f"\nAPI key: {self.__license.key}.\nCharacters limit: {character_limit}\n{print_color}Used characters: {character_count} ({percentage}%)\n")
 
         except:
             raise DeeplError(
@@ -131,7 +139,7 @@ class Deepl:
             )
 
     def translate(self, entry: str) -> str:
-        endpoint: str = f"{self.__base_url}translate?auth_key={self.license['key']}&text={entry}&target_lang={self.target_lang}"
+        endpoint: str = f"{self.__base_url}translate?auth_key={self.__license.key}&text={entry}&target_lang={self.target_lang}"
 
         if self.source_lang:
             endpoint += f"&source_lang={self.source_lang}"
@@ -167,7 +175,7 @@ class Deepl:
     def translate_document(self, source_file: str) -> dict[str, str]:
         request_data: dict[str, str] = {
             'source_lang': self.source_lang,
-            'auth_key': self.license['key'],
+            'auth_key': self.__license.key,
             'filename': source_file,
         }
 
@@ -189,7 +197,7 @@ class Deepl:
         )
 
     def check_document_status(self, document_id: str, document_key: str) -> dict[str, str]:
-        endpoint: str = f'{self.__base_url}document/{document_id}?auth_key={self.license["key"]}&document_key={document_key}'
+        endpoint: str = f'{self.__base_url}document/{document_id}?auth_key={self.__license.key}&document_key={document_key}'
         response: Response = requests.post(endpoint)
 
         if response.status_code == 200:
@@ -201,7 +209,7 @@ class Deepl:
         )
 
     def download_translated_document(self, document_id: str, document_key: str) -> bytes:
-        endpoint: str = f'{self.__base_url}document/{document_id}/result?auth_key={self.license["key"]}&document_key={document_key}'
+        endpoint: str = f'{self.__base_url}document/{document_id}/result?auth_key={self.__license.key}&document_key={document_key}'
         response: Response = requests.post(endpoint)
 
         if response.status_code == 200:

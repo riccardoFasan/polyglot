@@ -57,7 +57,7 @@ polyglot
 
 ## Usage
 
-There are four available commands: translate, set_key, print_usage_data and print_supported_languages.
+There are four available commands: translate, set_license, print_usage_data and print_supported_languages.
 
 ### Translate
 
@@ -68,7 +68,7 @@ There are four available commands: translate, set_key, print_usage_data and prin
 #### Command options
 
 | Option                 | Required | Description                                                                                                                                        |
-|:---------------------- |:-------- |:-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 | -p, --source_file      | yes      | The file to be translated.                                                                                                                         |
 | -t, --target_lang      | yes      | the code of the language into which you want to translate the source file                                                                          |
 | -o, --output_directory | no       | The directory where the output file will be located. **Will be used the working directory if this option is invalid or not used**.                 |
@@ -95,7 +95,7 @@ polyglot translate -p en.po -t JA -o $HOME -s EN
 **DeepL provides you with a key that allows you to use its API**. So, Polyglot requires this key to work and will ask you for it on your first use. You can use the following command to set or change the key manually.
 
 ```shell
-polyglot set_key
+polyglot set_license
 ```
 
 ### Print usage data

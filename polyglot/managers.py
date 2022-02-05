@@ -11,10 +11,10 @@ from polyglot import deepl
 
 class Manager(ABC):
 
-    def __init__(self, deepl: deepl.Deepl, source_file: str, output_directory: str = '') -> None:
+    def __init__(self, requester: deepl.Requester, source_file: str, output_directory: str = '') -> None:
         self.source_file = source_file
         self.__check_source_file()
-        self.deepl = deepl
+        self.requester = requester
         self.output_directory = output_directory if output_directory != '' and os.path.isdir(
             output_directory) else os.getcwd()
 
@@ -25,7 +25,7 @@ class Manager(ABC):
 
     @property
     def _target_file(self) -> str:
-        return f'{self.output_directory}/{self.deepl.target_lang.lower()}{self._extension}'
+        return f'{self.output_directory}/{self.requester.target_lang.lower()}{self._extension}'
 
     def __check_source_file(self) -> None:
         if not os.path.exists(self.source_file):
@@ -55,7 +55,7 @@ class TextManager(Manager):
             quit(f'{colorama.Fore.RED}Cannot read {self._extension} files.')
 
     def _translate_content(self) -> None:
-        self.content = self.deepl.translate(self.content)
+        self.content = self.requester.translate(self.content)
 
     def _make_translated_files(self) -> None:
         with open(self._target_file, 'w+') as destination:
@@ -92,7 +92,7 @@ class DictionaryManager(TextManager):
                 f'{colorama.Fore.YELLOW}\n{self.not_translated_count} entries have not been translated.\n')
 
     def _translate_and_handle(self, entry: str) -> str:
-        translation: str | None = self.deepl.translate(entry)
+        translation: str | None = self.requester.translate(entry)
         if not translation:
             self.not_translated_count += 1
         return translation if translation else entry
@@ -168,7 +168,7 @@ class POManager(DictionaryManager):
 
         pofile.save(self._target_file)
 
-        mofile: str = f'{self.output_directory}/{self.deepl.target_lang.lower()}.mo'
+        mofile: str = f'{self.output_directory}/{self.requester.target_lang.lower()}.mo'
         pofile.save_as_mofile(mofile)
         print(f'Generated {self._target_file} and {mofile}.')
 
@@ -179,14 +179,14 @@ class DocumentManager(Manager):
     __document_key: str = ''
 
     def translate_source_file(self) -> None:
-        document_data: dict[str, str] = self.deepl.translate_document(
+        document_data: dict[str, str] = self.requester.translate_document(
             self.source_file)
         self.__document_id = document_data['document_id']
         self.__document_key = document_data['document_key']
         self.__download_document_when_ready()
 
     def __download_document_when_ready(self) -> None:
-        status_data = self.deepl.check_document_status(
+        status_data = self.requester.check_document_status(
             self.__document_id, self.__document_key)
         status: str = status_data['status']
 
@@ -204,7 +204,7 @@ class DocumentManager(Manager):
         self.__download_document_when_ready()
 
     def __download_target_file(self) -> None:
-        binaries: bytes = self.deepl.download_translated_document(
+        binaries: bytes = self.requester.download_translated_document(
             self.__document_id, self.__document_key)
         with open(self._target_file, 'wb+') as destination:
             destination.write(binaries)
