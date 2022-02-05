@@ -1,5 +1,4 @@
 import os
-import sys
 import json
 from abc import ABC, abstractmethod
 
@@ -53,7 +52,7 @@ class TextManager(Manager):
             with open(self.source_file, 'r') as source:
                 self.content = source.read()
         except:
-            sys.exit(f'{colorama.Fore.RED}Cannot read {self._extension} files.')
+            quit(f'{colorama.Fore.RED}Cannot read {self._extension} files.')
 
     def _translate_content(self) -> None:
         self.content = self.deepl.translate(self.content)

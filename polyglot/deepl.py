@@ -1,7 +1,6 @@
 
 import requests
 import json
-import sys
 import pathlib
 import colorama
 from requests.models import Response
@@ -14,7 +13,8 @@ class DeeplError(Exception):
     def __init__(self, status_code: int, message: str):
         self.status_code = status_code
         self.message = message
-        super().__init__(f"{colorama.Fore.RED}\n{message}\n")
+        super().__init__(
+            f"\n\n{colorama.Fore.RED}Status code: {status_code}.\nMessage: {message}\n")
 
 
 class Deepl:
@@ -84,7 +84,7 @@ class Deepl:
 
     def __verify_license(self):
         if self.license['version'] == 'invalid':
-            sys.exit(f'{colorama.Fore.RED}\nThis key is invalid.\n')
+            quit(f'{colorama.Fore.RED}\nThis key is invalid.\n')
 
     def __get_usage_info(self) -> Response:
         return requests.get(f'{self.__base_url}usage', headers=self.__headers)
