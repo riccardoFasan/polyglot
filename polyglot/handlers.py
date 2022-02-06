@@ -9,9 +9,9 @@ import progressbar
 from polyglot import deepl
 
 
-class Manager(ABC):
+class Handler(ABC):
 
-    def __init__(self, requester: deepl.Requester, source_file: str, output_directory: str = '') -> None:
+    def __init__(self, requester: deepl.Deepl, source_file: str, output_directory: str = '') -> None:
         self.source_file = source_file
         self.__check_source_file()
         self.requester = requester
@@ -37,7 +37,7 @@ class Manager(ABC):
         pass
 
 
-class TextManager(Manager):
+class TextHandler(Handler):
 
     content: str = ''
 
@@ -63,8 +63,8 @@ class TextManager(Manager):
             print(f'Generated {self._target_file}.')
 
 
-# ! Liskov substitution principle violation: extended classes JSONManager and POManager are manipulating self.content in ways completelly differents
-class DictionaryManager(TextManager):
+# ! Liskov substitution principle violation: extended classes JSONHandler and POHandler are manipulating self.content in ways completelly differents
+class DictionaryHandler(TextHandler):
 
     completion_count: int = 0
     not_translated_count: int = 0
@@ -98,7 +98,7 @@ class DictionaryManager(TextManager):
         return translation if translation else entry
 
 
-class JSONManager(DictionaryManager):
+class JSONHandler(DictionaryHandler):
 
     def _get_number_of_translations(self, dictionary: dict[str, str] | None = None) -> int:
         if not dictionary:
@@ -130,7 +130,7 @@ class JSONManager(DictionaryManager):
             print(f'Generated {self._target_file}.')
 
 
-class POManager(DictionaryManager):
+class POHandler(DictionaryHandler):
 
     @property
     def __pofile_source(self) -> polib.POFile:
@@ -173,7 +173,7 @@ class POManager(DictionaryManager):
         print(f'Generated {self._target_file} and {mofile}.')
 
 
-class DocumentManager(Manager):
+class DocumentHandler(Handler):
 
     __document_id: str = ''
     __document_key: str = ''

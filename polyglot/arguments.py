@@ -2,6 +2,8 @@ import argparse
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
+from polyglot import license
+
 ACTIONS: list[str] = ['translate', 'set_license',
                       'print_supported_languages', 'print_usage_info']
 
@@ -13,6 +15,7 @@ class Arguments():
     target_lang: str
     output_directory: str
     source_lang: str
+    license_manager: license.LicenseManager
 
 
 class ArgumentsCollector(ABC):
@@ -44,7 +47,8 @@ class CLIArgumentsCollector(ArgumentsCollector):
             source_file=self.__namespace.source_file,
             target_lang=self.__namespace.target_lang,
             output_directory=self.__namespace.output_directory,
-            source_lang=self.__namespace.source_lang
+            source_lang=self.__namespace.source_lang,
+            license_manager=license.CLILicenseManager()
         )
 
     def _validate_arguments(self) -> None:

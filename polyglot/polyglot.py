@@ -1,6 +1,6 @@
 import os
 import colorama
-from polyglot import deepl, managers, arguments
+from polyglot import deepl, handlers, arguments, license
 
 DOCUMENTS_SUPPORTED_BY_DEEPL: list[str] = [
     '.docx',
@@ -10,30 +10,33 @@ DOCUMENTS_SUPPORTED_BY_DEEPL: list[str] = [
 ]
 
 
-class Translator():
+class Polyglot():
     __options: arguments.Arguments
-    __requester: deepl.Requester
-    __license_manager: deepl.LicenseManager
+    __requester: deepl.Deepl
 
     def __init__(self, arguments: arguments.Arguments):
         colorama.init(autoreset=True)
         self.__options = arguments
 
+    @property
+    def __license_manager(self) -> license.LicenseManager:
+        return self.__options.license_manager
+
     def execute_command(self):
 
         if self.__options.action == 'set_license':
-            self.__license_manager: deepl.LicenseManager = deepl.LicenseManager()
             self.__license_manager.set_license()
 
         else:
-            self.__requester = deepl.Requester(
+            self.__requester = deepl.Deepl(
                 target_lang=self.__options.target_lang,
-                source_lang=self.__options.source_lang
+                source_lang=self.__options.source_lang,
+                license_manager=self.__license_manager
             )
 
         if self.__options.action == 'translate':
-            manager: managers.Manager = self.__get_manager()
-            manager.translate_source_file()
+            handler: handlers.Handler = self.__get_handler()
+            handler.translate_source_file()
             print('\nFinish.\n')
 
         elif self.__options.action == 'print_supported_languages':
@@ -42,14 +45,14 @@ class Translator():
         elif self.__options.action == 'print_usage_info':
             self.__requester.print_usage_info()
 
-    def __get_manager(self) -> managers.Manager:
+    def __get_handler(self) -> handlers.Handler:
 
         name, extension = os.path.splitext(self.__options.source_file)
 
         if extension in DOCUMENTS_SUPPORTED_BY_DEEPL:
-            return managers.DocumentManager(self.__requester, self.__options.source_file, self.__options.output_directory)
+            return handlers.DocumentHandler(self.__requester, self.__options.source_file, self.__options.output_directory)
         if extension == '.json':
-            return managers.JSONManager(self.__requester, self.__options.source_file, self.__options.output_directory)
+            return handlers.JSONHandler(self.__requester, self.__options.source_file, self.__options.output_directory)
         if extension == '.po':
-            return managers.POManager(self.__requester, self.__options.source_file, self.__options.output_directory)
-        return managers.TextManager(self.__requester, self.__options.source_file, self.__options.output_directory)
+            return handlers.POHandler(self.__requester, self.__options.source_file, self.__options.output_directory)
+        return handlers.TextHandler(self.__requester, self.__options.source_file, self.__options.output_directory)

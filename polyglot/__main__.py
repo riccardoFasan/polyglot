@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
-from polyglot import arguments, translator
+from polyglot import arguments, polyglot
 
 
 def main() -> None:
     try:
         collector: arguments.ArgumentsCollector = arguments.CLIArgumentsCollector()
         options: arguments.Arguments = collector.arguments
-        translator.Translator(options).execute_command()
+        polyglot.Polyglot(options).execute_command()
     except KeyboardInterrupt:
         print('\n\nInterrupted by user.')
 
