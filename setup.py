@@ -29,14 +29,14 @@ setup(
     packages=find_packages(exclude=("tests",)),
     include_package_data=True,
     install_requires=[
+        "requests",
         "colorama",
         "polib",
         "progressbar2",
-        "requests",
     ],
     entry_points={
         "console_scripts": [
-            "polyglot=polyglot.__main__:translate_or_print_data",
+            "polyglot=polyglot.__main__:main",
         ]
     },
 )
