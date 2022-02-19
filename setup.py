@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 import pathlib
 from setuptools import find_packages, setup
-from polyglot import polyglot
+import polyglot
 
 HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
 setup(
     name="polyglot-translator",
-    version=polyglot.VERSION,
+    version=polyglot.__version__,
     description="Automation CLI tool that, using the DeepL API, generates a JSON or a PO file from a given source file.",
     long_description=README,
     long_description_content_type="text/markdown",

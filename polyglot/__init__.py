@@ -1,3 +1,2 @@
 #!/usr/bin/env python3
-from polyglot import polyglot
-__version__ = polyglot.VERSION
+__version__ = "2.0.0"
