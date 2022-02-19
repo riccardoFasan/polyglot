@@ -53,9 +53,9 @@ class CLILicenseManager(LicenseManager):
         with open(self.__license_path, 'w+') as license_file:
             key: str = input('Type here your Deepl API key: ')
             version: LicenseVersion = LicenseVersion.PRO if self.__yes_no_input(
-                'Are you using the pro license?') else  LicenseVersion.FREE
+                'Are you using the pro license?') else LicenseVersion.FREE
             license: dict[str, str] = {
-                'key': key,
+                'key': key.strip(),
                 'version': version.value
             }
             license_file.write(json.dumps(license, indent=2))
