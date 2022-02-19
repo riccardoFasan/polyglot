@@ -117,8 +117,7 @@ class Deepl:
                 status_code=response.status_code,
                 message=f'Error translating "{truncated_text}".\n'
             )
-        finally:
-            return ''
+        return ''
 
     def __get_truncated_text(self, text: str) -> str:
         return text[:self.LEN_LIMIT] + '...' if len(text) > self.LEN_LIMIT else text

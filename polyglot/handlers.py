@@ -197,7 +197,7 @@ class DocumentHandler(Handler):
             self.__download_target_file()
             return
 
-        # sometimes there are no seconds even if it's still translating
+        # * sometimes there are no seconds even if it's still translating
         if 'seconds_remaining' in status_data:
             print(f'Remaining {status_data["seconds_remaining"]} seconds...')
 
