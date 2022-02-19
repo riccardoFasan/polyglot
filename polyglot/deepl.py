@@ -4,6 +4,7 @@ import colorama
 from requests.models import Response
 
 from polyglot import license
+from polyglot import polyglot
 
 
 class DeeplError(Exception):
@@ -58,7 +59,7 @@ class Deepl:
             percentage: int = round((character_count / character_limit) * 100)
             print_color: str = self.__get_color_by_percentage(percentage)
             print(
-                f"\nAPI key: {self.__license.key}.\nCharacters limit: {character_limit}\n{print_color}Used characters: {character_count} ({percentage}%)\n")
+                f"\nPolyglot version: {polyglot.VERSION}\nAPI key: {self.__license.key}.\nCharacters limit: {character_limit}\n{print_color}Used characters: {character_count} ({percentage}%)\n")
 
         except:
             raise DeeplError(

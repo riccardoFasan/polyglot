@@ -1,2 +1,3 @@
 #!/usr/bin/env python3
-__version__ = "1.6.4"
+from polyglot import polyglot
+__version__ = polyglot.VERSION

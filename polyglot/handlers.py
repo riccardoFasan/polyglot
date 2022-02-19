@@ -67,7 +67,7 @@ class TextHandler(Handler):
 class DictionaryHandler(TextHandler):
 
     completion_count: int = 0
-    not_translated_count: int = 0
+    not_translated_entries: list[str] = []
     progress_bar: progressbar.ProgressBar
     content: dict = dict()
 
@@ -87,14 +87,17 @@ class DictionaryHandler(TextHandler):
 
     def __print_ending_messages(self) -> None:
         print('\nTranslation completed.')
-        if self.not_translated_count > 0:
+        if len(self.not_translated_entries) > 0:
             print(
-                f'{colorama.Fore.YELLOW}\n{self.not_translated_count} entries have not been translated.\n')
+                f'{colorama.Fore.YELLOW}\n{len(self.not_translated_entries)} entries have not been translated:\n')
+            for entry in self.not_translated_entries:
+                print(f'"{entry}"')
+            print(colorama.Fore.RESET)
 
     def _translate_and_handle(self, entry: str) -> str:
         translation: str | None = self.requester.translate(entry)
         if not translation:
-            self.not_translated_count += 1
+            self.not_translated_entries.append(entry)
         return translation if translation else entry
 
 

@@ -2,6 +2,9 @@ import os
 import colorama
 from polyglot import deepl, handlers, arguments, license
 
+
+VERSION: str = "2.0.0"
+
 DOCUMENTS_SUPPORTED_BY_DEEPL: list[str] = [
     '.docx',
     '.pptx',
