@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 import pathlib
 from setuptools import find_packages, setup
+import polyglot
 
 HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
 setup(
     name="polyglot-translator",
-    version="1.6.4",
+    version=polyglot.__version__,
     description="Automation CLI tool that, using the DeepL API, generates a JSON or a PO file from a given source file.",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -28,14 +29,14 @@ setup(
     packages=find_packages(exclude=("tests",)),
     include_package_data=True,
     install_requires=[
+        "requests",
         "colorama",
         "polib",
         "progressbar2",
-        "requests",
     ],
     entry_points={
         "console_scripts": [
-            "polyglot=polyglot.__main__:translate_or_print_data",
+            "polyglot=polyglot.__main__:main",
         ]
     },
 )

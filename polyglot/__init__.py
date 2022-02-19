@@ -1,2 +1,2 @@
 #!/usr/bin/env python3
-__version__ = "1.6.4"
+__version__ = "2.0.4"

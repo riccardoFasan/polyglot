@@ -1,6 +1,6 @@
 # Polyglot - Automate translations with DeepL
 
-Polyglot is a CLI tool that automates translations tasks.
+Polyglot is a CLI tool that automates translation tasks and can be easily integrated into your python softwares.
 Using the [**DeepL API**](https://www.deepl.com/it/docs-api/), Polyglot generates a translated file from a given source file.
 
 ## Supported files
@@ -57,7 +57,7 @@ polyglot
 
 ## Usage
 
-There are four available commands: translate, set_key, print_usage_data and print_supported_languages.
+There are four available commands: translate, set_license, print_usage_data and print_supported_languages.
 
 ### Translate
 
@@ -95,7 +95,7 @@ polyglot translate -p en.po -t JA -o $HOME -s EN
 **DeepL provides you with a key that allows you to use its API**. So, Polyglot requires this key to work and will ask you for it on your first use. You can use the following command to set or change the key manually.
 
 ```shell
-polyglot set_key
+polyglot set_license
 ```
 
 ### Print usage data
