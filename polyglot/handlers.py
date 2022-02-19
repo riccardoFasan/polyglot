@@ -95,7 +95,7 @@ class DictionaryHandler(TextHandler):
             print(colorama.Fore.RESET)
 
     def _translate_and_handle(self, entry: str) -> str:
-        translation: str | None = self.requester.translate(entry)
+        translation: str = self.requester.translate(entry)
         if not translation:
             self.not_translated_entries.append(entry)
         return translation if translation else entry
@@ -103,7 +103,7 @@ class DictionaryHandler(TextHandler):
 
 class JSONHandler(DictionaryHandler):
 
-    def _get_number_of_translations(self, dictionary: dict[str, str] | None = None) -> int:
+    def _get_number_of_translations(self, dictionary: dict[str, str] = None) -> int:
         if not dictionary:
             dictionary = self.content
         return sum(self._get_number_of_translations(value) if isinstance(value, dict) else 1 for key, value in dictionary.items())
@@ -112,7 +112,7 @@ class JSONHandler(DictionaryHandler):
         with open(self.source_file, 'r') as source:
             self.content = json.load(source)
 
-    def _translate_content(self, dictionary: dict[str, str] | None = None) -> None:
+    def _translate_content(self, dictionary: dict[str, str] = None) -> None:
 
         if not dictionary:
             dictionary = self.content
