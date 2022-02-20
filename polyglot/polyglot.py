@@ -10,7 +10,6 @@ class Polyglot:
     __requester: deepl.Deepl
 
     def __init__(self, arguments: arguments.Arguments):
-        colorama.init(autoreset=True)
         self.__options = arguments
 
     @property
@@ -32,7 +31,7 @@ class Polyglot:
         if self.__options.action == "translate":
             handler: handlers.Handler = self.__get_handler()
             handler.translate_source_file()
-            print("\nFinish.\n")
+            print(f"\n{colorama.Fore.GREEN}Finish.\n")
 
         elif self.__options.action == "print_supported_languages":
             self.__requester.print_supported_languages()
