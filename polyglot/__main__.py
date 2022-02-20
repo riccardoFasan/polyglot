@@ -9,8 +9,8 @@ def main() -> None:
         options: arguments.Arguments = collector.arguments
         polyglot.Polyglot(options).execute_command()
     except KeyboardInterrupt:
-        print('\n\nInterrupted by user.')
+        print("\n\nInterrupted by user.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
