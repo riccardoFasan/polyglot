@@ -34,7 +34,7 @@ class Handler(ABC):
     def __check_source_file(self) -> None:
         if not os.path.exists(self.source_file):
             raise FileNotFoundError(
-                f'{colorama.Fore.RED}\n"{self.source_file}" wan not found!'
+                f'{colorama.Fore.RED}\n"{self.source_file}" was not found!'
             )
 
     @abstractmethod
@@ -100,7 +100,6 @@ class DictionaryHandler(TextHandler):
             )
             for entry in self.not_translated_entries:
                 print(f'"{entry}"')
-            print(colorama.Fore.RESET)
 
     def _translate_and_handle(self, entry: str) -> str:
         translation: str = self.requester.translate(entry)
