@@ -99,7 +99,7 @@ class DictionaryHandler(TextHandler):
                 f"{colorama.Fore.YELLOW}\n{len(self.not_translated_entries)} entries have not been translated:\n"
             )
             for entry in self.not_translated_entries:
-                print(f'"{entry}"')
+                print(f'{colorama.Fore.RESET}"{entry}"\n')
 
     def _translate_and_handle(self, entry: str) -> str:
         translation: str = self.requester.translate(entry)
