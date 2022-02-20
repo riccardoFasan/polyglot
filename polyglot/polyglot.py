@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+
+# ! Do not move colorama init. Autoreset works only here
+from colorama import init
+
+init(autoreset=True)
+
 import os
 import colorama
 from polyglot import deepl, handlers, arguments, license

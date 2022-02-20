@@ -15,7 +15,7 @@ setup(
     url="https://github.com/riccardoFasan/polyglot",
     project_urls={
         "BugTracker": "https://github.com/riccardoFasan/polyglot/issues",
-        "Homepage": "https://github.com/riccardoFasan/polyglot"
+        "Homepage": "https://github.com/riccardoFasan/polyglot",
     },
     author="Riccardo Fasan",
     author_email="fasanriccardo21@gmail.com",
@@ -25,7 +25,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires=">=3.6",
     packages=find_packages(exclude=("tests",)),
     include_package_data=True,
     install_requires=[
