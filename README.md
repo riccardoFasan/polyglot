@@ -68,7 +68,7 @@ There are four available commands: translate, set_license, print_usage_data and 
 #### Command options
 
 | Option                 | Required | Description                                                                                                                                        |
-|:---------------------- |:-------- |:-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 | -p, --source_file      | yes      | The file to be translated.                                                                                                                         |
 | -t, --target_lang      | yes      | the code of the language into which you want to translate the source file                                                                          |
 | -o, --output_directory | no       | The directory where the output file will be located. **Will be used the working directory if this option is invalid or not used**.                 |
@@ -98,12 +98,12 @@ polyglot translate -p en.po -t JA -o $HOME -s EN
 polyglot set_license
 ```
 
-### Print usage data
+### Print usage info
 
 It returns DeepL usage info related to your API key, run with:
 
 ```shell
-polyglot print_usage_data
+polyglot print_usage_info
 ```
 
 ### Print supported languages

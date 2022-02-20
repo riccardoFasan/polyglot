@@ -4,12 +4,16 @@ from dataclasses import dataclass
 
 from polyglot import license
 
-ACTIONS: list[str] = ['translate', 'set_license',
-                      'print_supported_languages', 'print_usage_info']
+ACTIONS: list[str] = [
+    "translate",
+    "set_license",
+    "print_supported_languages",
+    "print_usage_info",
+]
 
 
 @dataclass
-class Arguments():
+class Arguments:
     action: str
     source_file: str
     target_lang: str
@@ -48,31 +52,55 @@ class CLIArgumentsCollector(ArgumentsCollector):
             target_lang=self.__namespace.target_lang,
             output_directory=self.__namespace.output_directory,
             source_lang=self.__namespace.source_lang,
-            license_manager=license.CLILicenseManager()
+            license_manager=license.CLILicenseManager(),
         )
 
     def _validate_arguments(self) -> None:
         if self.__namespace.source_file is None or self.__namespace.target_lang is None:
-            self.__parser.error(
-                "translate requires --source_file and --target_lang.")
+            self.__parser.error("translate requires --source_file and --target_lang.")
 
     def __set_parser(self) -> None:
 
         parser: argparse.ArgumentParser = argparse.ArgumentParser(
-            description='Using the selected translation engine, Polyglot will translate the given files.')
+            description="Polyglot will translate the given files."
+        )
 
         parser.add_argument(
-            'action', type=str, help="The command that will be exectued. The following options are for the translate command.", choices=ACTIONS)
+            "action",
+            type=str,
+            help="The command that will be exectued. The following options are for the translate command.",
+            choices=ACTIONS,
+        )
 
-        parser.add_argument('-p', '--source_file', type=str,
-                            help='The file to be translated. Required if the action is "translate."', default='')
+        parser.add_argument(
+            "-p",
+            "--source_file",
+            type=str,
+            help='The file to be translated. Required if the action is "translate."',
+            default="",
+        )
 
-        parser.add_argument('-t', '--target_lang', type=str,
-                            help='The code of the language into which you want to translate the source file. Required if the action is "translate".', default='')
+        parser.add_argument(
+            "-t",
+            "--target_lang",
+            type=str,
+            help='The code of the language into which you want to translate the source file. Required if the action is "translate".',
+            default="",
+        )
 
-        parser.add_argument('-o', '--output_directory', type=str,
-                            help='The directory where the output file will be located. Will be used the working directory if this option is invalid or not used.', default='')
+        parser.add_argument(
+            "-o",
+            "--output_directory",
+            type=str,
+            help="The directory where the output file will be located. Will be used the working directory if this option is invalid or not used.",
+            default="",
+        )
 
-        parser.add_argument('-s', '--source_lang', type=str,
-                            help='Source file language code. Detected automatically by DeepL by default. Specifying it can increase performance and make translations more accurate.', default='')
+        parser.add_argument(
+            "-s",
+            "--source_lang",
+            type=str,
+            help="Source file language code. Detected automatically by DeepL by default. Specifying it can increase performance and make translations more accurate.",
+            default="",
+        )
         self.__parser = parser
