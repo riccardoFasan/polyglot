@@ -117,7 +117,8 @@ class Deepl:
 
         except KeyError:
             print(
-                f'{colorama.Fore.YELLOW}\nNo traslation found for "{truncated_text}"!\n'
+                f'{colorama.Fore.YELLOW}\nNo traslation found for "{truncated_text}"!\n',
+                {colorama.Fore.RESET},
             )
 
         except:
