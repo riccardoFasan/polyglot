@@ -13,11 +13,11 @@ from polyglot import deepl
 
 class Handler(ABC):
     def __init__(
-        self, requester: deepl.Deepl, source_file: str, output_directory: str = ""
+        self, dispatcher: deepl.Deepl, source_file: str, output_directory: str = ""
     ) -> None:
         self.source_file = source_file
         self.__check_source_file()
-        self.requester = requester
+        self.dispatcher = dispatcher
         self.output_directory = (
             output_directory
             if output_directory != "" and os.path.isdir(output_directory)
@@ -26,12 +26,12 @@ class Handler(ABC):
 
     @property
     def _extension(self) -> str:
-        name, extension = os.path.splitext(self.source_file)
+        extension = os.path.splitext(self.source_file)[1]
         return extension
 
     @property
     def _target_file(self) -> str:
-        return f"{self.output_directory}/{self.requester.target_lang.lower()}{self._extension}"
+        return f"{self.output_directory}/{self.dispatcher.target_lang.lower()}{self._extension}"
 
     def __check_source_file(self) -> None:
         if not os.path.exists(self.source_file):
@@ -62,7 +62,7 @@ class TextHandler(Handler):
             quit(f"{colorama.Fore.RED}Cannot read {self._extension} files.")
 
     def _translate_content(self) -> None:
-        self.content = self.requester.translate(self.content)
+        self.content = self.dispatcher.translate(self.content)
 
     def _make_translated_files(self) -> None:
         with open(self._target_file, "w+") as destination:
@@ -104,7 +104,7 @@ class DictionaryHandler(TextHandler):
                 print(f'{colorama.Fore.RESET}"{entry}"\n')
 
     def _translate_and_handle(self, entry: str) -> str:
-        translation: str = self.requester.translate(entry)
+        translation: str = self.dispatcher.translate(entry)
         if not translation:
             self.not_translated_entries.append(entry)
         return translation if translation else entry
@@ -179,7 +179,9 @@ class POHandler(DictionaryHandler):
 
         pofile.save(self._target_file)
 
-        mofile: str = f"{self.output_directory}/{self.requester.target_lang.lower()}.mo"
+        mofile: str = (
+            f"{self.output_directory}/{self.dispatcher.target_lang.lower()}.mo"
+        )
         pofile.save_as_mofile(mofile)
         print(f"Generated {self._target_file} and {mofile}.")
 
@@ -190,7 +192,7 @@ class DocumentHandler(Handler):
     __document_key: str = ""
 
     def translate_source_file(self) -> None:
-        document_data: dict[str, str] = self.requester.translate_document(
+        document_data: dict[str, str] = self.dispatcher.translate_document(
             self.source_file
         )
         self.__document_id = document_data["document_id"]
@@ -198,7 +200,7 @@ class DocumentHandler(Handler):
         self.__download_document_when_ready()
 
     def __download_document_when_ready(self) -> None:
-        status_data = self.requester.check_document_status(
+        status_data = self.dispatcher.check_document_status(
             self.__document_id, self.__document_key
         )
         status: str = status_data["status"]
@@ -216,7 +218,7 @@ class DocumentHandler(Handler):
         self.__download_document_when_ready()
 
     def __download_target_file(self) -> None:
-        binaries: bytes = self.requester.download_translated_document(
+        binaries: bytes = self.dispatcher.download_translated_document(
             self.__document_id, self.__document_key
         )
         with open(self._target_file, "wb+") as destination:
