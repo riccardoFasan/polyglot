@@ -26,7 +26,7 @@ class Handler(ABC):
 
     @property
     def _extension(self) -> str:
-        extension = os.path.splitext(self.source_file)[1]
+        extension: str = os.path.splitext(self.source_file)[1]
         return extension
 
     @property

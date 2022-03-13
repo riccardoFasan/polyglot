@@ -48,7 +48,7 @@ class Polyglot:
 
     def __get_handler(self) -> handlers.Handler:
 
-        extension = os.path.splitext(self.__options.source_file)[1]
+        extension: str = os.path.splitext(self.__options.source_file)[1]
 
         if extension in DOCUMENTS_SUPPORTED_BY_DEEPL:
             return handlers.DocumentHandler(
