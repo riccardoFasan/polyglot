@@ -25,8 +25,8 @@ class Deepl:
 
     LEN_LIMIT: int = 150
 
-    target_lang: str = ""
-    source_lang: str = ""
+    target_lang: str
+    source_lang: str
 
     __license: license.License
     __license_manager: license.LicenseManager

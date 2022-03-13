@@ -3,6 +3,7 @@
 import os
 import json
 from abc import ABC, abstractmethod
+from xmlrpc.client import Boolean
 
 import polib
 import colorama
@@ -12,6 +13,11 @@ from polyglot import deepl
 
 
 class Handler(ABC):
+
+    dispatcher: deepl.Deepl
+    source_file: str
+    output_directory: str
+
     def __init__(
         self, dispatcher: deepl.Deepl, source_file: str, output_directory: str = ""
     ) -> None:
@@ -20,7 +26,7 @@ class Handler(ABC):
         self.dispatcher = dispatcher
         self.output_directory = (
             output_directory
-            if output_directory != "" and os.path.isdir(output_directory)
+            if output_directory and os.path.isdir(output_directory)
             else os.getcwd()
         )
 
@@ -46,7 +52,7 @@ class Handler(ABC):
 
 class TextHandler(Handler):
 
-    content: str = ""
+    content: str
 
     def translate_source_file(self) -> None:
         self._load_source_content()
@@ -188,8 +194,8 @@ class POHandler(DictionaryHandler):
 
 class DocumentHandler(Handler):
 
-    __document_id: str = ""
-    __document_key: str = ""
+    __document_id: str
+    __document_key: str
 
     def translate_source_file(self) -> None:
         document_data: dict[str, str] = self.dispatcher.translate_document(

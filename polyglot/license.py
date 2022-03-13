@@ -15,7 +15,7 @@ class LicenseVersion(Enum):
 
 @dataclass
 class License:
-    key: str = ""
+    key: str
     version: LicenseVersion = LicenseVersion.FREE
 
 
