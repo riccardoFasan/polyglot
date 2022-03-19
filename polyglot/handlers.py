@@ -48,7 +48,7 @@ class FileHandler(ABC):
         pass
 
     @abstractmethod
-    def write(self, content: Any) -> None:
+    def write(self, translated_content: Any) -> None:
         pass
 
 
@@ -58,9 +58,9 @@ class TextHandler(FileHandler):
         with open(self.source_file, "r") as source:
             return source.read()
 
-    def write(self, content: str) -> None:
+    def write(self, translated_content: str) -> None:
         with open(self._target_file, "w+") as destination:
-            destination.write(content)
+            destination.write(translated_content)
             print(f"Generated {self._target_file}.")
 
 
@@ -70,35 +70,43 @@ class JSONHandler(FileHandler):
         with open(self.source_file, "r") as source:
             return json.load(source)
 
-    def write(self, content: dict) -> None:
+    def write(self, translated_content: dict) -> None:
         with open(self._target_file, "w+") as destination:
-            destination.write(json.dumps(content, indent=2))
+            destination.write(json.dumps(translated_content, indent=2))
             print(f"Generated {self._target_file}.")
 
 
 class POHandler(FileHandler):
+
+    __content: dict[str, Any] = {}
+
     @verfiy_source
     def read(self) -> dict:
+
         pofile: polib.POFile = self.__pofile_source
-        content: dict = {}
+        translatables: dict[str, str] = {}
 
         for entry in pofile:
-            content[entry.msgid] = {
-                "msgstr": entry.msgid if entry.msgstr == "" else entry.msgstr,
+            message: str = entry.msgid if entry.msgstr == "" else entry.msgstr
+            self.__content[entry.msgid] = {
+                "msgstr": message,
                 "occurrences": entry.occurrences,
             }
+            translatables[entry.msgid] = message
 
-        return content
+        return translatables
 
     @property
     def __pofile_source(self) -> polib.POFile:
         return polib.pofile(self.source_file)
 
-    def write(self, content: dict) -> None:
+    def write(self, translated_content: dict[str, str]) -> None:
         pofile: polib.POFile = polib.POFile()
         pofile.metadata = self.__pofile_source.metadata
 
-        for key, value in content.items():
+        self.__update_content(translated_content)
+
+        for key, value in self.__content.items():
             entry: polib.POEntry = polib.POEntry(
                 msgid=key, msgstr=value["msgstr"], occurrences=value["occurrences"]
             )
@@ -110,6 +118,10 @@ class POHandler(FileHandler):
 
         print(f"Generated {self._target_file} and {mofile_path}.")
 
+    def __update_content(self, translated_content: dict[str, str]) -> None:
+        for key, value in translated_content.items():
+            self.__content[key]["msgstr"] = value
+
 
 class DocumentHandler(FileHandler):
     @verfiy_source
@@ -117,7 +129,7 @@ class DocumentHandler(FileHandler):
         with open(self.source_file, "r") as source:
             return self.source_file
 
-    def write(self, content: bytes) -> None:
+    def write(self, translated_content: bytes) -> None:
         with open(self._target_file, "wb+") as destination:
-            destination.write(content)
+            destination.write(translated_content)
             print(f"Generated {self._target_file}.")

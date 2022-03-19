@@ -12,6 +12,7 @@ class DeeplError(Exception):
             f"\n\n{colorama.Fore.RED}Status code: {status_code}.\nMessage: {message}\n"
         )
 
+
 class HandlerError(Exception):
     source_file: str
     message: str

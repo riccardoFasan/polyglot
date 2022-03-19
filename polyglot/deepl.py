@@ -1,3 +1,4 @@
+from email import message
 import requests
 import json
 import colorama
@@ -76,6 +77,7 @@ class Deepl:
     def translate(
         self, entry: str, target_lang: str, source_lang: str | None = None
     ) -> str:
+
         endpoint: str = f"{self.__base_url}translate?auth_key={self.__license.key}&text={entry}&target_lang={target_lang}"
 
         if source_lang:
@@ -96,6 +98,12 @@ class Deepl:
             return translation
 
         except KeyError:
+            message: str = json.loads(response.text)["message"]
+            if message:
+                raise DeeplError(
+                    status_code=response.status_code,
+                    message=f'Error translating "{truncated_text}". Message: {message}"\n',
+                )
             print(
                 f'{colorama.Fore.YELLOW}\nNo traslation found for "{truncated_text}"!\n'
             )
