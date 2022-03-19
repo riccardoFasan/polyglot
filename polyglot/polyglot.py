@@ -1,15 +1,21 @@
-#!/usr/bin/env python3
+import os
+from dataclasses import dataclass
+from typing import Any
+import colorama
+from colorama import init
+from polyglot import deepl, handlers, arguments, license, translators
 
 # ! Do not move colorama init. Autoreset works only here
-from colorama import init
-
 init(autoreset=True)
 
-import os
-import colorama
-from polyglot import deepl, handlers, arguments, license
 
 DOCUMENTS_SUPPORTED_BY_DEEPL: list[str] = [".docx", ".pptx", ".html", ".htm"]
+
+
+@dataclass
+class FileTranslator:
+    handler: handlers.FileHandler
+    translator: translators.Translator
 
 
 class Polyglot:
@@ -30,14 +36,14 @@ class Polyglot:
             return
 
         self.__dispatcher = deepl.Deepl(
-            target_lang=self.__options.target_lang,
-            source_lang=self.__options.source_lang,
             license_manager=self.__license_manager,
         )
 
         if self.__options.action == "translate":
-            handler: handlers.Handler = self.__get_handler()
-            handler.translate_source_file()
+            file_translator: FileTranslator = self.__get_file_translator()
+            content: Any = file_translator.handler.read()
+            translated_content: Any = file_translator.translator.translate(content)
+            file_translator.handler.write(translated_content)
             print(f"\n{colorama.Fore.GREEN}Finish.\n")
 
         elif self.__options.action == "print_supported_languages":
@@ -46,33 +52,43 @@ class Polyglot:
         elif self.__options.action == "print_usage_info":
             self.__dispatcher.print_usage_info()
 
-    def __get_handler(self) -> handlers.Handler:
-
+    def __get_file_translator(self) -> FileTranslator:
         extension: str = os.path.splitext(self.__options.source_file)[1]
+        handler: handlers.FileHandler = self.__get_handler(extension)
+        translator: translators.Translator = self.__get_translator(extension)
+        return FileTranslator(handler=handler, translator=translator)
+
+    def __get_handler(self, extension: str) -> handlers.FileHandler:
+
+        file_handler_options: dict = {
+            "source_file": self.__options.source_file,
+            "output_directory": self.__options.output_directory,
+            "target_lang": self.__options.target_lang,
+        }
 
         if extension in DOCUMENTS_SUPPORTED_BY_DEEPL:
-            return handlers.DocumentHandler(
-                self.__dispatcher,
-                self.__options.source_file,
-                self.__options.output_directory,
-            )
+            return handlers.DocumentHandler(**file_handler_options)
 
         if extension == ".json":
-            return handlers.JSONHandler(
-                self.__dispatcher,
-                self.__options.source_file,
-                self.__options.output_directory,
-            )
+            return handlers.JSONHandler(**file_handler_options)
 
         if extension == ".po":
-            return handlers.POHandler(
-                self.__dispatcher,
-                self.__options.source_file,
-                self.__options.output_directory,
-            )
+            return handlers.POHandler(**file_handler_options)
 
-        return handlers.TextHandler(
-            self.__dispatcher,
-            self.__options.source_file,
-            self.__options.output_directory,
-        )
+        return handlers.TextHandler(**file_handler_options)
+
+    def __get_translator(self, extension: str) -> translators.Translator:
+
+        translator_options = {
+            "target_lang": self.__options.target_lang,
+            "source_lang": self.__options.source_file,
+            "dispatcher": self.__dispatcher,
+        }
+
+        if extension in DOCUMENTS_SUPPORTED_BY_DEEPL:
+            return translators.DocumentTranslator(**translator_options)
+
+        if extension == ".json" or extension == ".po":
+            return translators.DictionaryTranslator(**translator_options)
+
+        return translators.TextTranslator(**translator_options)

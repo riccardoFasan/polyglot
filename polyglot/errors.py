@@ -11,3 +11,14 @@ class DeeplError(Exception):
         super().__init__(
             f"\n\n{colorama.Fore.RED}Status code: {status_code}.\nMessage: {message}\n"
         )
+
+class HandlerError(Exception):
+    source_file: str
+    message: str
+
+    def __init__(self, source_file: str, message: str):
+        self.source_file = source_file
+        self.message = message
+        super().__init__(
+            f"\n\n{colorama.Fore.RED}Cannot read {self.source_file}.\nMessage: {message}\n"
+        )

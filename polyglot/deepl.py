@@ -6,16 +6,12 @@ from requests.models import Response
 import polyglot
 from polyglot import license
 from polyglot.errors import DeeplError
-
 from polyglot.utilities import get_color_by_percentage, get_truncated_text
 
 
 class Deepl:
 
-    LEN_LIMIT: int = 150
-
-    target_lang: str
-    source_lang: str
+    __LEN_LIMIT: int = 150
 
     __license: license.License
     __license_manager: license.LicenseManager
@@ -23,11 +19,7 @@ class Deepl:
     def __init__(
         self,
         license_manager: license.LicenseManager,
-        target_lang: str = "",
-        source_lang: str = "",
     ) -> None:
-        self.target_lang = target_lang
-        self.source_lang = source_lang
         self.__license_manager = license_manager
         self.__license = self.__license_manager.get_license()
 
@@ -81,21 +73,25 @@ class Deepl:
                 message="Error retrieving the supported languages.",
             )
 
-    def translate(self, entry: str) -> str:
-        endpoint: str = f"{self.__base_url}translate?auth_key={self.__license.key}&text={entry}&target_lang={self.target_lang}"
+    def translate(
+        self, entry: str, target_lang: str, source_lang: str | None = None
+    ) -> str:
+        endpoint: str = f"{self.__base_url}translate?auth_key={self.__license.key}&text={entry}&target_lang={target_lang}"
 
-        if self.source_lang:
-            endpoint += f"&source_lang={self.source_lang}"
+        if source_lang:
+            endpoint += f"&source_lang={source_lang}"
 
         response: Response = requests.get(endpoint)
-        truncated_text: str = get_truncated_text(entry, self.LEN_LIMIT)
+        truncated_text: str = get_truncated_text(entry, self.__LEN_LIMIT)
 
         try:
 
             body: dict = json.loads(response.text)
             translation: str = body["translations"][0]["text"]
 
-            truncated_translation: str = get_truncated_text(translation, self.LEN_LIMIT)
+            truncated_translation: str = get_truncated_text(
+                translation, self.__LEN_LIMIT
+            )
             print(f'"{truncated_text}" => "{truncated_translation}"')
             return translation
 
@@ -111,15 +107,17 @@ class Deepl:
             )
         return ""
 
-    def translate_document(self, source_file: str) -> dict[str, str]:
+    def translate_document(
+        self, source_file: str, target_lang: str, source_lang: str | None = None
+    ) -> dict[str, str]:
         request_data: dict[str, str] = {
-            "source_lang": self.source_lang,
+            "target_lang": target_lang,
             "auth_key": self.__license.key,
             "filename": source_file,
         }
 
-        if self.target_lang:
-            request_data["target_lang"] = self.target_lang
+        if source_lang:
+            request_data["source_lang"] = source_lang
 
         endpoint: str = f"{self.__base_url}document/"
 
