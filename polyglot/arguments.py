@@ -56,7 +56,9 @@ class CLIArgumentsCollector(ArgumentsCollector):
         )
 
     def _validate_arguments(self) -> None:
-        if not self.__namespace.source_file or not self.__namespace.target_lang:
+        if self.__namespace.action == "translate" and (
+            not self.__namespace.source_file or not self.__namespace.target_lang
+        ):
             self.__parser.error("translate requires --source_file and --target_lang.")
 
     def __set_parser(self) -> None:
