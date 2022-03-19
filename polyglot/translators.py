@@ -27,7 +27,7 @@ class Translator(ABC):
 
 
 class TextTranslator(Translator):
-    def translate(self, content: str) -> Any:
+    def translate(self, content: str) -> str:
         return self._dispatcher.translate(content, self._target_lang, self._source_lang)
 
 
