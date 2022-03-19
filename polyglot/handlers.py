@@ -1,9 +1,7 @@
-#!/usr/bin/env python3
-
 import os
 import json
+
 from abc import ABC, abstractmethod
-from xmlrpc.client import Boolean
 
 import polib
 import colorama

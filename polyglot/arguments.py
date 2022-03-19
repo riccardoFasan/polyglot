@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import argparse
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
