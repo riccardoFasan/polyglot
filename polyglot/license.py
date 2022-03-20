@@ -1,8 +1,6 @@
-#!/usr/bin/env python3
-
-from enum import Enum
 import json
 import pathlib
+from enum import Enum
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from distutils.util import strtobool
@@ -15,7 +13,7 @@ class LicenseVersion(Enum):
 
 @dataclass
 class License:
-    key: str = ""
+    key: str
     version: LicenseVersion = LicenseVersion.FREE
 
 

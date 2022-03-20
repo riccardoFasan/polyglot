@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-
+from email import message
 import requests
 import json
 import colorama
@@ -7,26 +6,13 @@ from requests.models import Response
 
 import polyglot
 from polyglot import license
-
-
-class DeeplError(Exception):
-    status_code: int
-    message: str
-
-    def __init__(self, status_code: int, message: str):
-        self.status_code = status_code
-        self.message = message
-        super().__init__(
-            f"\n\n{colorama.Fore.RED}Status code: {status_code}.\nMessage: {message}\n"
-        )
+from polyglot.errors import DeeplError
+from polyglot.utilities import get_color_by_percentage, get_truncated_text
 
 
 class Deepl:
 
-    LEN_LIMIT: int = 150
-
-    target_lang: str = ""
-    source_lang: str = ""
+    __LEN_LIMIT: int = 150
 
     __license: license.License
     __license_manager: license.LicenseManager
@@ -34,11 +20,7 @@ class Deepl:
     def __init__(
         self,
         license_manager: license.LicenseManager,
-        target_lang: str = "",
-        source_lang: str = "",
     ) -> None:
-        self.target_lang = target_lang
-        self.source_lang = source_lang
         self.__license_manager = license_manager
         self.__license = self.__license_manager.get_license()
 
@@ -65,7 +47,7 @@ class Deepl:
             character_count: int = body["character_count"]
             character_limit: int = body["character_limit"]
             percentage: int = round((character_count / character_limit) * 100)
-            print_color: str = self.__get_color_by_percentage(percentage)
+            print_color: str = get_color_by_percentage(percentage)
             print(
                 f"\nPolyglot version: {polyglot.__version__}\nAPI key: {self.__license.key}\nCharacters limit: {character_limit}\n{print_color}Used characters: {character_count} ({percentage}%)\n"
             )
@@ -74,13 +56,6 @@ class Deepl:
             raise DeeplError(
                 status_code=response.status_code, message="Error retrieving usage info"
             )
-
-    def __get_color_by_percentage(self, percentage: int) -> str:
-        if percentage > 90:
-            return colorama.Fore.RED
-        if percentage > 60:
-            return colorama.Fore.YELLOW
-        return colorama.Fore.RESET
 
     def print_supported_languages(self) -> None:
         response: Response = requests.get(
@@ -99,25 +74,36 @@ class Deepl:
                 message="Error retrieving the supported languages.",
             )
 
-    def translate(self, entry: str) -> str:
-        endpoint: str = f"{self.__base_url}translate?auth_key={self.__license.key}&text={entry}&target_lang={self.target_lang}"
+    def translate(
+        self, entry: str, target_lang: str, source_lang: str | None = None
+    ) -> str:
 
-        if self.source_lang:
-            endpoint += f"&source_lang={self.source_lang}"
+        endpoint: str = f"{self.__base_url}translate?auth_key={self.__license.key}&text={entry}&target_lang={target_lang}"
+
+        if source_lang:
+            endpoint += f"&source_lang={source_lang}"
 
         response: Response = requests.get(endpoint)
-        truncated_text: str = self.__get_truncated_text(entry)
+        truncated_text: str = get_truncated_text(entry, self.__LEN_LIMIT)
 
         try:
 
             body: dict = json.loads(response.text)
             translation: str = body["translations"][0]["text"]
 
-            truncated_translation: str = self.__get_truncated_text(translation)
+            truncated_translation: str = get_truncated_text(
+                translation, self.__LEN_LIMIT
+            )
             print(f'"{truncated_text}" => "{truncated_translation}"')
             return translation
 
         except KeyError:
+            message: str = json.loads(response.text)["message"]
+            if message:
+                raise DeeplError(
+                    status_code=response.status_code,
+                    message=f'Error translating "{truncated_text}". Message: {message}"\n',
+                )
             print(
                 f'{colorama.Fore.YELLOW}\nNo traslation found for "{truncated_text}"!\n'
             )
@@ -129,18 +115,17 @@ class Deepl:
             )
         return ""
 
-    def __get_truncated_text(self, text: str) -> str:
-        return text[: self.LEN_LIMIT] + "..." if len(text) > self.LEN_LIMIT else text
-
-    def translate_document(self, source_file: str) -> dict[str, str]:
+    def translate_document(
+        self, source_file: str, target_lang: str, source_lang: str | None = None
+    ) -> dict[str, str]:
         request_data: dict[str, str] = {
-            "source_lang": self.source_lang,
+            "target_lang": target_lang,
             "auth_key": self.__license.key,
             "filename": source_file,
         }
 
-        if self.target_lang:
-            request_data["target_lang"] = self.target_lang
+        if source_lang:
+            request_data["source_lang"] = source_lang
 
         endpoint: str = f"{self.__base_url}document/"
 
