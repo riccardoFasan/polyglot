@@ -38,7 +38,7 @@ class FileHandler(ABC):
     def __set_target_file(self, output_directory: str, target_lang: str) -> None:
         output_directory = (
             output_directory
-            if output_directory and os.path.isdir(output_directory)
+            if output_directory != "" and os.path.isdir(output_directory)
             else os.getcwd()
         )
         if output_directory[-1] == "/":
