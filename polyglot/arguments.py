@@ -57,7 +57,7 @@ class CLIArgumentsCollector(ArgumentsCollector):
 
     def _validate_arguments(self) -> None:
         if self.__namespace.action == "translate" and (
-            not self.__namespace.source_file or not self.__namespace.target_lang
+            self.__namespace.source_file == "" or self.__namespace.target_lang == ""
         ):
             self.__parser.error("translate requires --source_file and --target_lang.")
 
@@ -79,6 +79,7 @@ class CLIArgumentsCollector(ArgumentsCollector):
             "--source_file",
             type=str,
             help='The file to be translated. Required if the action is "translate."',
+            default="",
         )
 
         parser.add_argument(
@@ -86,6 +87,7 @@ class CLIArgumentsCollector(ArgumentsCollector):
             "--target_lang",
             type=str,
             help='The code of the language into which you want to translate the source file. Required if the action is "translate".',
+            default="",
         )
 
         parser.add_argument(
@@ -93,6 +95,7 @@ class CLIArgumentsCollector(ArgumentsCollector):
             "--output_directory",
             type=str,
             help="The directory where the output file will be located. Will be used the working directory if this option is invalid or not used.",
+            default="",
         )
 
         parser.add_argument(
@@ -100,5 +103,6 @@ class CLIArgumentsCollector(ArgumentsCollector):
             "--source_lang",
             type=str,
             help="Source file language code. Detected automatically by DeepL by default. Specifying it can increase performance and make translations more accurate.",
+            default="",
         )
         self.__parser = parser
