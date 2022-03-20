@@ -41,6 +41,8 @@ class FileHandler(ABC):
             if output_directory and os.path.isdir(output_directory)
             else os.getcwd()
         )
+        if output_directory[-1] == "/":
+            output_directory = output_directory[:-1]
         self._target_file = f"{output_directory}/{target_lang.lower()}{self._extension}"
 
     @abstractmethod

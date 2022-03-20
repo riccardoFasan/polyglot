@@ -44,7 +44,7 @@ class Polyglot:
             content: Any = file_translator.handler.read()
             translated_content: Any = file_translator.translator.translate(content)
             file_translator.handler.write(translated_content)
-            print(f"\n{colorama.Fore.GREEN}Finish.\n")
+            print(f"\n{colorama.Fore.GREEN}Finish.\n{colorama.Fore.RESET}")
 
         elif self.__arguments.action == "print_supported_languages":
             self.__dispatcher.print_supported_languages()
