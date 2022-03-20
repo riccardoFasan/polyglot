@@ -2,6 +2,7 @@ from email import message
 import requests
 import json
 import colorama
+import urllib.parse
 from requests.models import Response
 
 import polyglot
@@ -76,7 +77,8 @@ class Deepl:
 
     def translate(self, entry: str, target_lang: str, source_lang: str = "") -> str:
 
-        endpoint: str = f"{self.__base_url}translate?auth_key={self.__license.key}&text={entry}&target_lang={target_lang}"
+        escaped_entry: str = urllib.parse.quote(entry)
+        endpoint: str = f"{self.__base_url}translate?auth_key={self.__license.key}&text={escaped_entry}&target_lang={target_lang}"
 
         if source_lang != "":
             endpoint += f"&source_lang={source_lang}"
