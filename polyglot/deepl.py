@@ -74,13 +74,11 @@ class Deepl:
                 message="Error retrieving the supported languages.",
             )
 
-    def translate(
-        self, entry: str, target_lang: str, source_lang: str | None = None
-    ) -> str:
+    def translate(self, entry: str, target_lang: str, source_lang: str = "") -> str:
 
         endpoint: str = f"{self.__base_url}translate?auth_key={self.__license.key}&text={entry}&target_lang={target_lang}"
 
-        if source_lang:
+        if source_lang != "":
             endpoint += f"&source_lang={source_lang}"
 
         response: Response = requests.get(endpoint)
@@ -116,7 +114,7 @@ class Deepl:
         return ""
 
     def translate_document(
-        self, source_file: str, target_lang: str, source_lang: str | None = None
+        self, source_file: str, target_lang: str, source_lang: str = ""
     ) -> dict[str, str]:
         request_data: dict[str, str] = {
             "target_lang": target_lang,
@@ -124,7 +122,7 @@ class Deepl:
             "filename": source_file,
         }
 
-        if source_lang:
+        if source_lang != "":
             request_data["source_lang"] = source_lang
 
         endpoint: str = f"{self.__base_url}document/"
