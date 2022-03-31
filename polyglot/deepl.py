@@ -27,7 +27,7 @@ class Deepl:
 
     @property
     def __base_url(self) -> str:
-        version: str = "" if self.__license.version == "pro" else "-free"
+        version: str = "" if self.__license.version == license.LicenseVersion.PRO else "-free"
         return f"https://api{version}.deepl.com/v2/"
 
     @property
