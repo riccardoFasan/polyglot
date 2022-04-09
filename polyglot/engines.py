@@ -1,9 +1,11 @@
-from email import message
-import requests
+import asyncio
 import json
-import colorama
+import requests
 import urllib.parse
 from requests.models import Response
+from abc import ABC, abstractmethod
+
+import colorama
 
 import polyglot
 from polyglot import license
@@ -11,12 +13,34 @@ from polyglot.errors import DeeplError
 from polyglot.utilities import get_color_by_percentage, get_truncated_text
 
 
-class Deepl:
+class TranslationEngine(ABC):
+    @abstractmethod
+    def print_usage_info(self) -> None:
+        pass
+
+    @abstractmethod
+    def print_supported_languages(self) -> None:
+        pass
+
+    @abstractmethod
+    def translate(self, entry: str, target_lang: str, source_lang: str = "") -> str:
+        pass
+
+    @abstractmethod
+    def translate_document(
+        self, source_file: str, target_lang: str, source_lang: str = ""
+    ) -> bytes:
+        pass
+
+
+class DeeplEngine(TranslationEngine):
 
     __LEN_LIMIT: int = 150
 
     __license: license.License
     __license_manager: license.LicenseManager
+
+    __document: bytes
 
     def __init__(
         self,
@@ -27,7 +51,9 @@ class Deepl:
 
     @property
     def __base_url(self) -> str:
-        version: str = "" if self.__license.version == license.LicenseVersion.PRO else "-free"
+        version: str = (
+            "" if self.__license.version == license.LicenseVersion.PRO else "-free"
+        )
         return f"https://api{version}.deepl.com/v2/"
 
     @property
@@ -117,6 +143,15 @@ class Deepl:
 
     def translate_document(
         self, source_file: str, target_lang: str, source_lang: str = ""
+    ) -> bytes:
+        document_data: dict[str, str] = self.__send_document(
+            source_file, target_lang, source_lang
+        )
+        asyncio.run(self.__get_document(document_data))
+        return self.__document
+
+    def __send_document(
+        self, source_file: str, target_lang: str, source_lang: str = ""
     ) -> dict[str, str]:
         request_data: dict[str, str] = {
             "target_lang": target_lang,
@@ -142,7 +177,27 @@ class Deepl:
             message=f'Error translating document "{source_file}"',
         )
 
-    def check_document_status(
+    async def __get_document(self, document_data: dict[str, str]) -> None:
+        status_data = self.__check_document_status(
+            document_data["document_id"], document_data["document_key"]
+        )
+        status: str = status_data["status"]
+
+        if status == "done":
+            billed_characters: str = status_data["billed_characters"]
+            print(f"Translation completed. Billed characters: {billed_characters}.")
+            self.__document = self.__download_translated_document(
+                document_data["document_id"], document_data["document_key"]
+            )
+            return
+
+        # * sometimes there are no seconds even if it's still translating
+        if "seconds_remaining" in status_data:
+            print(f'Remaining {status_data["seconds_remaining"]} seconds...')
+
+        await self.__get_document(document_data)
+
+    def __check_document_status(
         self, document_id: str, document_key: str
     ) -> dict[str, str]:
         endpoint: str = f"{self.__base_url}document/{document_id}?auth_key={self.__license.key}&document_key={document_key}"
@@ -156,7 +211,7 @@ class Deepl:
             message="Error checking the status of a document",
         )
 
-    def download_translated_document(
+    def __download_translated_document(
         self, document_id: str, document_key: str
     ) -> bytes:
         endpoint: str = f"{self.__base_url}document/{document_id}/result?auth_key={self.__license.key}&document_key={document_key}"
