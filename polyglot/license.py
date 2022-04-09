@@ -3,7 +3,8 @@ import pathlib
 from enum import Enum
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from distutils.util import strtobool
+
+from polyglot.utilities import yes_no_input
 
 
 class LicenseVersion(Enum):
@@ -55,16 +56,8 @@ class CLILicenseManager(LicenseManager):
             key: str = input("Type here your Deepl API key: ")
             version: LicenseVersion = (
                 LicenseVersion.PRO
-                if self.__yes_no_input("Are you using the pro license?")
+                if yes_no_input("Are you using the pro license?")
                 else LicenseVersion.FREE
             )
             license: dict[str, str] = {"key": key.strip(), "version": version.value}
             license_file.write(json.dumps(license, indent=2))
-
-    def __yes_no_input(self, question: str) -> bool:
-        while True:
-            user_input = input(question + " [y/n]: ")
-            try:
-                return bool(strtobool(user_input))
-            except ValueError:
-                print("Please use y/n or yes/no.\n")
