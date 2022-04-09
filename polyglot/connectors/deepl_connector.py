@@ -1,72 +1,58 @@
+from abc import ABC, abstractmethod
 import asyncio
 import json
+from typing import Any
 import requests
 import urllib.parse
 from requests.models import Response
-from abc import ABC, abstractmethod
 
 import colorama
 
 import polyglot
 from polyglot import license
-from polyglot.errors import DeeplException
+from polyglot.exceptions import DeeplException
 from polyglot.utilities import get_color_by_percentage, get_truncated_text
+from polyglot.connectors import connector
 
 
-class TranslationEngine(ABC):
-    @abstractmethod
-    def print_usage_info(self) -> None:
-        pass
+class DeeplConnectorData:
 
-    @abstractmethod
-    def print_supported_languages(self) -> None:
-        pass
+    _license: license.License
 
-    @abstractmethod
-    def translate(self, entry: str, target_lang: str, source_lang: str = "") -> str:
-        pass
-
-    @abstractmethod
-    def translate_document(
-        self, source_file: str, target_lang: str, source_lang: str = ""
-    ) -> bytes:
-        pass
-
-
-class DeeplEngine(TranslationEngine):
-
-    __LEN_LIMIT: int = 150
-
-    __license: license.License
-    __license_manager: license.LicenseManager
-
-    __document: bytes
-
-    def __init__(
-        self,
-        license_manager: license.LicenseManager,
-    ) -> None:
-        self.__license_manager = license_manager
-        self.__license = self.__license_manager.get_license()
+    def __init__(self, license: license.License) -> None:
+        self._license = license
 
     @property
-    def __base_url(self) -> str:
+    def base_url(self) -> str:
         version: str = (
-            "" if self.__license.version == license.LicenseVersion.PRO else "-free"
+            "" if self._license.version == license.LicenseVersion.PRO else "-free"
         )
         return f"https://api{version}.deepl.com/v2/"
 
     @property
-    def __headers(self) -> dict[str, str]:
+    def headers(self) -> dict[str, str]:
         return {
-            "Authorization": f"DeepL-Auth-Key {self.__license.key}",
+            "Authorization": f"DeepL-Auth-Key {self._license.key}",
             "Content-Type": "application/json",
         }
 
-    def __get_usage_info(self) -> Response:
-        return requests.get(f"{self.__base_url}usage", headers=self.__headers)
 
-    def print_usage_info(self) -> None:
+class DeeplCommand(ABC):
+
+    _license: license.License
+    _request_data: DeeplConnectorData
+
+    def __init__(self, license: license.License):
+        self._license = license
+        self._request_data = DeeplConnectorData(self._license)
+
+    @abstractmethod
+    def execute(self) -> Any:
+        pass
+
+
+class PrintUsageInfo(DeeplCommand):
+    def execute(self) -> None:
         response: Response = self.__get_usage_info()
 
         try:
@@ -76,7 +62,7 @@ class DeeplEngine(TranslationEngine):
             percentage: int = round((character_count / character_limit) * 100)
             print_color: str = get_color_by_percentage(percentage)
             print(
-                f"\nPolyglot version: {polyglot.__version__}\nAPI key: {self.__license.key}\nCharacters limit: {character_limit}\n{print_color}Used characters: {character_count} ({percentage}%)\n"
+                f"\nPolyglot version: {polyglot.__version__}\nAPI key: {self._license.key}\nCharacters limit: {character_limit}\n{print_color}Used characters: {character_count} ({percentage}%)\n"
             )
 
         except:
@@ -84,9 +70,17 @@ class DeeplEngine(TranslationEngine):
                 status_code=response.status_code, message="Error retrieving usage info"
             )
 
-    def print_supported_languages(self) -> None:
+    def __get_usage_info(self) -> Response:
+        return requests.get(
+            f"{self._request_data.base_url}usage", headers=self._request_data.headers
+        )
+
+
+class PrintSupportedLanguages(DeeplCommand):
+    def execute(self) -> None:
         response: Response = requests.get(
-            f"{self.__base_url}languages", headers=self.__headers
+            f"{self._request_data.base_url}languages",
+            headers=self._request_data.headers,
         )
 
         try:
@@ -101,16 +95,39 @@ class DeeplEngine(TranslationEngine):
                 message="Error retrieving the supported languages.",
             )
 
-    def translate(self, entry: str, target_lang: str, source_lang: str = "") -> str:
 
-        escaped_entry: str = urllib.parse.quote(entry)
-        endpoint: str = f"{self.__base_url}translate?auth_key={self.__license.key}&text={escaped_entry}&target_lang={target_lang}"
+class TranslateCommand(DeeplCommand, ABC):
 
-        if source_lang != "":
-            endpoint += f"&source_lang={source_lang}"
+    _content: Any
+    _target_lang: str
+    _source_lang: str
+
+    def __init__(
+        self, license: license.License, content: Any, target_lang: str, source_lang: str
+    ):
+        super().__init__(license)
+        self._content = content
+        self._target_lang = target_lang
+        self._source_lang = source_lang
+
+    @abstractmethod
+    def execute(self) -> Any:
+        pass
+
+
+class TranslateText(TranslateCommand):
+
+    __LEN_LIMIT: int = 150
+
+    def execute(self) -> str:
+        escaped_content: str = urllib.parse.quote(self._content)
+        endpoint: str = f"{self._request_data.base_url}translate?auth_key={self._license.key}&text={escaped_content}&target_lang={self._target_lang}"
+
+        if self._source_lang != "":
+            endpoint += f"&source_lang={self._source_lang}"
 
         response: Response = requests.get(endpoint)
-        truncated_text: str = get_truncated_text(entry, self.__LEN_LIMIT)
+        truncated_text: str = get_truncated_text(self._content, self.__LEN_LIMIT)
 
         try:
 
@@ -141,30 +158,29 @@ class DeeplEngine(TranslationEngine):
             )
         return ""
 
-    def translate_document(
-        self, source_file: str, target_lang: str, source_lang: str = ""
-    ) -> bytes:
-        document_data: dict[str, str] = self.__send_document(
-            source_file, target_lang, source_lang
-        )
+
+class TranslateDocumentCommand(TranslateCommand):
+
+    __document: bytes
+
+    def execute(self) -> bytes:
+        document_data: dict[str, str] = self.__send_document()
         asyncio.run(self.__get_document(document_data))
         return self.__document
 
-    def __send_document(
-        self, source_file: str, target_lang: str, source_lang: str = ""
-    ) -> dict[str, str]:
+    def __send_document(self) -> dict[str, str]:
         request_data: dict[str, str] = {
-            "target_lang": target_lang,
-            "auth_key": self.__license.key,
-            "filename": source_file,
+            "target_lang": self._target_lang,
+            "auth_key": self._license.key,
+            "filename": self._content,
         }
 
-        if source_lang != "":
-            request_data["source_lang"] = source_lang
+        if self._source_lang != "":
+            request_data["source_lang"] = self._source_lang
 
-        endpoint: str = f"{self.__base_url}document/"
+        endpoint: str = f"{self._request_data.base_url}document/"
 
-        with open(source_file, "rb") as document:
+        with open(self._content, "rb") as document:
             response: Response = requests.post(
                 endpoint, data=request_data, files={"file": document}
             )
@@ -174,7 +190,7 @@ class DeeplEngine(TranslationEngine):
 
         raise DeeplException(
             status_code=response.status_code,
-            message=f'Error translating document "{source_file}"',
+            message=f'Error translating document "{self._content}"',
         )
 
     async def __get_document(self, document_data: dict[str, str]) -> None:
@@ -200,7 +216,7 @@ class DeeplEngine(TranslationEngine):
     def __check_document_status(
         self, document_id: str, document_key: str
     ) -> dict[str, str]:
-        endpoint: str = f"{self.__base_url}document/{document_id}?auth_key={self.__license.key}&document_key={document_key}"
+        endpoint: str = f"{self._request_data.base_url}document/{document_id}?auth_key={self._license.key}&document_key={document_key}"
         response: Response = requests.post(endpoint)
 
         if response.status_code == 200:
@@ -214,7 +230,7 @@ class DeeplEngine(TranslationEngine):
     def __download_translated_document(
         self, document_id: str, document_key: str
     ) -> bytes:
-        endpoint: str = f"{self.__base_url}document/{document_id}/result?auth_key={self.__license.key}&document_key={document_key}"
+        endpoint: str = f"{self._request_data.base_url}document/{document_id}/result?auth_key={self._license.key}&document_key={document_key}"
         response: Response = requests.post(endpoint)
 
         if response.status_code == 200:
@@ -223,3 +239,27 @@ class DeeplEngine(TranslationEngine):
         raise DeeplException(
             status_code=response.status_code, message="Error downlaoding a document."
         )
+
+
+class DeeplConnector(connector.EngineConnector):
+    def print_usage_info(self) -> None:
+        command: PrintUsageInfo = PrintUsageInfo(self._license)
+        return command.execute()
+
+    def print_supported_languages(self) -> None:
+        command: PrintSupportedLanguages = PrintSupportedLanguages(self._license)
+        return command.execute()
+
+    def translate(self, content: str, target_lang: str, source_lang: str = "") -> str:
+        command: TranslateText = TranslateText(
+            self._license, content, target_lang, source_lang
+        )
+        return command.execute()
+
+    def translate_document(
+        self, source_file: str, target_lang: str, source_lang: str = ""
+    ) -> bytes:
+        command: TranslateDocumentCommand = TranslateDocumentCommand(
+            self._license, source_file, target_lang, source_lang
+        )
+        return command.execute()

@@ -4,21 +4,24 @@ from typing import Any
 import colorama
 import progressbar
 
-from polyglot import engines
+from polyglot.connectors import connector
 
 
 class Translator(ABC):
 
     _target_lang: str
     _source_lang: str
-    _engine: engines.TranslationEngine
+    _connector: connector.EngineConnector
 
     def __init__(
-        self, target_lang: str, source_lang: str, engine: engines.TranslationEngine
+        self,
+        target_lang: str,
+        source_lang: str,
+        connector: connector.EngineConnector,
     ) -> None:
         self._target_lang = target_lang
         self._source_lang = source_lang
-        self._engine = engine
+        self._connector = connector
 
     @abstractmethod
     def translate(self, content: Any) -> Any:
@@ -27,7 +30,7 @@ class Translator(ABC):
 
 class TextTranslator(Translator):
     def translate(self, content: str) -> str:
-        return self._engine.translate(content, self._target_lang, self._source_lang)
+        return self._connector.translate(content, self._target_lang, self._source_lang)
 
 
 class DictionaryTranslator(Translator):
@@ -67,7 +70,7 @@ class DictionaryTranslator(Translator):
                 self.__progress_bar.update(self.__completion_count)
 
     def __translate_entry(self, entry: str) -> str:
-        translation: str = self._engine.translate(
+        translation: str = self._connector.translate(
             entry, self._target_lang, self._source_lang
         )
         if not translation:
@@ -86,6 +89,6 @@ class DictionaryTranslator(Translator):
 
 class DocumentTranslator(Translator):
     def translate(self, content: str) -> bytes:
-        return self._engine.translate_document(
+        return self._connector.translate_document(
             content, self._target_lang, self._source_lang
         )

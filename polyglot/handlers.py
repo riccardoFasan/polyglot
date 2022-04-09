@@ -1,13 +1,14 @@
 import json
 import os
-import polib
 from abc import ABC, abstractmethod
-from typing import Any
+from typing import Any, Callable
 
-from polyglot.errors import HandlerException
+import polib
+
+from polyglot.exceptions import HandlerException
 
 # TODO: Check if the file is empty
-def verfiy_source(function: Any) -> Any:
+def verfiy_source(function: Callable) -> Any:
     def function_wrapper(instance: FileHandler):
         try:
             return function(instance)

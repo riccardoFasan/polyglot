@@ -1,13 +1,15 @@
 import os
 from dataclasses import dataclass
 from typing import Any
+
 import colorama
 from colorama import init
-from polyglot import engines, handlers, arguments, license, translators
+
+from polyglot import handlers, arguments, license, translators
+from polyglot.connectors import connector, deepl_connector
 
 # ! Do not move colorama init. Autoreset works only here
 init(autoreset=True)
-
 
 DOCUMENTS_SUPPORTED_BY_DEEPL: list[str] = [".docx", ".pptx", ".html", ".htm"]
 
@@ -20,7 +22,7 @@ class FileTranslator:
 
 class Polyglot:
     __arguments: arguments.Arguments
-    __engine: engines.TranslationEngine
+    __connector: connector.EngineConnector
 
     def __init__(self, arguments: arguments.Arguments):
         self.__arguments = arguments
@@ -35,7 +37,7 @@ class Polyglot:
             self.__license_manager.set_license()
             return
 
-        self.__engine = engines.DeeplEngine(
+        self.__connector = deepl_connector.DeeplConnector(
             license_manager=self.__license_manager,
         )
 
@@ -47,10 +49,10 @@ class Polyglot:
             print(f"\n{colorama.Fore.GREEN}Finish.\n{colorama.Fore.RESET}")
 
         elif self.__arguments.action == "print_supported_languages":
-            self.__engine.print_supported_languages()
+            self.__connector.print_supported_languages()
 
         elif self.__arguments.action == "print_usage_info":
-            self.__engine.print_usage_info()
+            self.__connector.print_usage_info()
 
     def __get_file_translator(self) -> FileTranslator:
         extension: str = os.path.splitext(self.__arguments.source_file)[1]
@@ -82,7 +84,7 @@ class Polyglot:
         translator_options: dict[str, Any] = {
             "target_lang": self.__arguments.target_lang,
             "source_lang": self.__arguments.source_lang,
-            "engine": self.__engine,
+            "connector": self.__connector,
         }
 
         if extension in DOCUMENTS_SUPPORTED_BY_DEEPL:
