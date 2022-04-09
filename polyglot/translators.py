@@ -4,20 +4,19 @@ from typing import Any
 import colorama
 import progressbar
 
-from polyglot.connectors import connector
-
+from polyglot import connectors
 
 class Translator(ABC):
 
     _target_lang: str
     _source_lang: str
-    _connector: connector.EngineConnector
+    _connector: connectors.EngineConnector
 
     def __init__(
         self,
         target_lang: str,
         source_lang: str,
-        connector: connector.EngineConnector,
+        connector: connectors.EngineConnector,
     ) -> None:
         self._target_lang = target_lang
         self._source_lang = source_lang

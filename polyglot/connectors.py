@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
 from polyglot import license
+from polyglot import commands
 
 
 class EngineConnector(ABC):
@@ -32,3 +33,23 @@ class EngineConnector(ABC):
         self, source_file: str, target_lang: str, source_lang: str = ""
     ) -> bytes:
         pass
+
+
+class DeeplConnector(EngineConnector):
+    def print_usage_info(self) -> None:
+        return commands.PrintUsageInfo(self._license).execute()
+
+    def print_supported_languages(self) -> None:
+        return commands.PrintSupportedLanguages(self._license).execute()
+
+    def translate(self, content: str, target_lang: str, source_lang: str = "") -> str:
+        return commands.TranslateText(
+            self._license, content, target_lang, source_lang
+        ).execute()
+
+    def translate_document(
+        self, source_file: str, target_lang: str, source_lang: str = ""
+    ) -> bytes:
+        return commands.TranslateDocumentCommand(
+            self._license, source_file, target_lang, source_lang
+        ).execute()

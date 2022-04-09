@@ -5,8 +5,7 @@ from typing import Any
 import colorama
 from colorama import init
 
-from polyglot import handlers, arguments, license, translators
-from polyglot.connectors import connector, deepl_connector
+from polyglot import handlers, arguments, license, translators, connectors
 
 # ! Do not move colorama init. Autoreset works only here
 init(autoreset=True)
@@ -22,7 +21,7 @@ class FileTranslator:
 
 class Polyglot:
     __arguments: arguments.Arguments
-    __connector: connector.EngineConnector
+    __connector: connectors.EngineConnector
 
     def __init__(self, arguments: arguments.Arguments):
         self.__arguments = arguments
@@ -37,7 +36,7 @@ class Polyglot:
             self.__license_manager.set_license()
             return
 
-        self.__connector = deepl_connector.DeeplConnector(
+        self.__connector = connectors.DeeplConnector(
             license_manager=self.__license_manager,
         )
 
