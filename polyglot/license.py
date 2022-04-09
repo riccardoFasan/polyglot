@@ -1,27 +1,11 @@
-import json
 import pathlib
-from enum import Enum
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
-
-from polyglot.utilities import yes_no_input
-
-
-class LicenseVersion(Enum):
-    FREE = "free"
-    PRO = "pro"
-
-
-@dataclass
-class License:
-    key: str
-    version: LicenseVersion = LicenseVersion.FREE
 
 
 class LicenseManager(ABC):
     @abstractmethod
-    def get_license(self) -> License:
-        return License(key="", version=LicenseVersion.FREE)
+    def get_license(self) -> str:
+        return ""
 
     @abstractmethod
     def set_license(self) -> None:
@@ -29,35 +13,22 @@ class LicenseManager(ABC):
 
 
 class CLILicenseManager(LicenseManager):
-    @property
-    def __license_path(self) -> str:
-        return f"{pathlib.Path.home()}/.deepl_api_key.json"
-
-    def get_license(self) -> License:
+    def get_license(self) -> str:
         try:
             with open(self.__license_path, "r") as license_file:
-                file_content: dict[str, str] = json.load(license_file)
-
-                if file_content["key"] and file_content["version"]:
-                    return License(
-                        key=file_content["key"],
-                        version=LicenseVersion(file_content["version"]),
-                    )
-                return self.__set_and_get_license()
+                return license_file.read()
         except:
             return self.__set_and_get_license()
-
-    def __set_and_get_license(self) -> License:
-        self.set_license()
-        return self.get_license()
 
     def set_license(self) -> None:
         with open(self.__license_path, "w+") as license_file:
             key: str = input("Type here your Deepl API key: ")
-            version: LicenseVersion = (
-                LicenseVersion.PRO
-                if yes_no_input("Are you using the pro license?")
-                else LicenseVersion.FREE
-            )
-            license: dict[str, str] = {"key": key.strip(), "version": version.value}
-            license_file.write(json.dumps(license, indent=2))
+            license_file.write(key.strip())
+
+    @property
+    def __license_path(self) -> str:
+        return f"{pathlib.Path.home()}/.deepl_api_key.dat"
+
+    def __set_and_get_license(self) -> str:
+        self.set_license()
+        return self.get_license()

@@ -7,16 +7,16 @@ from abc import ABC, abstractmethod
 import colorama
 
 import polyglot
-from polyglot import license, clients
+from polyglot import clients
 from polyglot.exceptions import DeeplException
 from polyglot.utilities import get_color_by_percentage, get_truncated_text
 
 class DeeplCommand(ABC):
 
-    _license: license.License
+    _license: str
     _client: clients.DeeplClient
 
-    def __init__(self, license: license.License):
+    def __init__(self, license: str):
         self._license = license
         self._client = clients.DeeplClient(self._license)
 
@@ -31,7 +31,7 @@ class TranslateCommand(DeeplCommand, ABC):
     _source_lang: str
 
     def __init__(
-        self, license: license.License, content: Any, target_lang: str, source_lang: str
+        self, license: str, content: Any, target_lang: str, source_lang: str
     ):
         super().__init__(license)
         self._content = content
@@ -54,7 +54,7 @@ class PrintUsageInfo(DeeplCommand):
             percentage: int = round((character_count / character_limit) * 100)
             print_color: str = get_color_by_percentage(percentage)
             print(
-                f"\nPolyglot version: {polyglot.__version__}\nAPI key: {self._license.key}\nCharacters limit: {character_limit}\n{print_color}Used characters: {character_count} ({percentage}%)\n"
+                f"\nPolyglot version: {polyglot.__version__}\nAPI key: {self._license}\nCharacters limit: {character_limit}\n{print_color}Used characters: {character_count} ({percentage}%)\n"
             )
 
         except:
@@ -105,7 +105,7 @@ class TranslateText(TranslateCommand):
             if message:
                 raise DeeplException(
                     status_code=response.status_code,
-                    message=f'Error translating "{truncated_text}". Message: {message}"\n',
+                    message=f'Error translating "{truncated_text}". Message: {message}."\n',
                 )
             print(
                 f'{colorama.Fore.YELLOW}\nNo traslation found for "{truncated_text}"!\n'
@@ -170,7 +170,7 @@ class TranslateDocumentCommand(TranslateCommand):
 
         raise DeeplException(
             status_code=response.status_code,
-            message="Error checking the status of a document",
+            message=f"Error checking the status of document with id {document_id} and key {document_key}.",
         )
 
     def __download_translated_document(
@@ -182,6 +182,6 @@ class TranslateDocumentCommand(TranslateCommand):
             return response.content
 
         raise DeeplException(
-            status_code=response.status_code, message="Error downlaoding a document."
+            status_code=response.status_code, message=f"Error downlaoding document with id {document_id} and key {document_key}."
         )
         

@@ -9,7 +9,7 @@ class DeeplException(Exception):
         self.status_code = status_code
         self.message = message
         if status_code == 403:
-            message = f"{message}.\nCheck that your licence is valid"
+            message = f"{message}\nCheck that your licence is valid"
         super().__init__(
             f"\n\n{colorama.Fore.RED}Status code: {status_code}.\nMessage: {message}.\n"
         )

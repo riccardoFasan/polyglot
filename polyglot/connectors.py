@@ -6,7 +6,7 @@ from polyglot import commands
 
 class EngineConnector(ABC):
 
-    _license: license.License
+    _license: str
     __license_manager: license.LicenseManager
 
     def __init__(
