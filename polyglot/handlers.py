@@ -4,7 +4,7 @@ import polib
 from abc import ABC, abstractmethod
 from typing import Any
 
-from polyglot.errors import HandlerError
+from polyglot.errors import HandlerException
 
 # TODO: Check if the file is empty
 def verfiy_source(function: Any) -> Any:
@@ -12,9 +12,9 @@ def verfiy_source(function: Any) -> Any:
         try:
             return function(instance)
         except FileNotFoundError:
-            raise HandlerError(instance.source_file, "File not found.")
+            raise HandlerException(instance.source_file, "File not found.")
         except:
-            raise HandlerError(instance.source_file, "File not supported.")
+            raise HandlerException(instance.source_file, "File not supported.")
 
     return function_wrapper
 

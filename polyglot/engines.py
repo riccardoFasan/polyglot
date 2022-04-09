@@ -9,7 +9,7 @@ import colorama
 
 import polyglot
 from polyglot import license
-from polyglot.errors import DeeplError
+from polyglot.errors import DeeplException
 from polyglot.utilities import get_color_by_percentage, get_truncated_text
 
 
@@ -80,7 +80,7 @@ class DeeplEngine(TranslationEngine):
             )
 
         except:
-            raise DeeplError(
+            raise DeeplException(
                 status_code=response.status_code, message="Error retrieving usage info"
             )
 
@@ -96,7 +96,7 @@ class DeeplEngine(TranslationEngine):
                 print(f"{lang['name']} ({lang['language']})")
 
         except:
-            raise DeeplError(
+            raise DeeplException(
                 status_code=response.status_code,
                 message="Error retrieving the supported languages.",
             )
@@ -126,7 +126,7 @@ class DeeplEngine(TranslationEngine):
         except KeyError:
             message: str = json.loads(response.text)["message"]
             if message:
-                raise DeeplError(
+                raise DeeplException(
                     status_code=response.status_code,
                     message=f'Error translating "{truncated_text}". Message: {message}"\n',
                 )
@@ -135,7 +135,7 @@ class DeeplEngine(TranslationEngine):
             )
 
         except:
-            raise DeeplError(
+            raise DeeplException(
                 status_code=response.status_code,
                 message=f'Error translating "{truncated_text}".\n',
             )
@@ -172,7 +172,7 @@ class DeeplEngine(TranslationEngine):
             if response.status_code == 200:
                 return json.loads(response.text)
 
-        raise DeeplError(
+        raise DeeplException(
             status_code=response.status_code,
             message=f'Error translating document "{source_file}"',
         )
@@ -206,7 +206,7 @@ class DeeplEngine(TranslationEngine):
         if response.status_code == 200:
             return json.loads(response.text)
 
-        raise DeeplError(
+        raise DeeplException(
             status_code=response.status_code,
             message="Error checking the status of a document",
         )
@@ -220,6 +220,6 @@ class DeeplEngine(TranslationEngine):
         if response.status_code == 200:
             return response.content
 
-        raise DeeplError(
+        raise DeeplException(
             status_code=response.status_code, message="Error downlaoding a document."
         )

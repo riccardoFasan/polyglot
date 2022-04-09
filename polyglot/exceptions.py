@@ -1,7 +1,7 @@
 import colorama
 
 
-class DeeplError(Exception):
+class DeeplException(Exception):
     status_code: int
     message: str
 
@@ -15,7 +15,7 @@ class DeeplError(Exception):
         )
 
 
-class HandlerError(Exception):
+class HandlerException(Exception):
     source_file: str
     message: str
 
