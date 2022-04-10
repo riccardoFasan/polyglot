@@ -14,9 +14,9 @@ def verfiy_source(function: Callable) -> Any:
         try:
             return function(instance)
         except FileNotFoundError:
-            HandlerError(instance.source_file, "File not found.")
+            HandlerError("File not found", instance.source_file)
         except:
-            HandlerError(instance.source_file, "File not supported.")
+            HandlerError("File not supported", instance.source_file)
 
     return function_wrapper
 
