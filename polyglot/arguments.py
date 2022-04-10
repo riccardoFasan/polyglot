@@ -6,9 +6,9 @@ from polyglot import license
 
 ACTIONS: list[str] = [
     "translate",
-    "set_license",
-    "print_supported_languages",
-    "print_usage_info",
+    "set-license",
+    "languages",
+    "info",
 ]
 
 
@@ -59,7 +59,7 @@ class CLIArgumentsCollector(ArgumentsCollector):
         if self.__namespace.action == "translate" and (
             self.__namespace.source_file == "" or self.__namespace.target_lang == ""
         ):
-            self.__parser.error("translate requires --source_file and --target_lang.")
+            self.__parser.error("translate requires --source-file and --target-lang.")
 
     def __set_parser(self) -> None:
 
@@ -75,34 +75,39 @@ class CLIArgumentsCollector(ArgumentsCollector):
         )
 
         parser.add_argument(
-            "-p",
-            "--source_file",
+            "-s",
+            "--source-file",
             type=str,
             help='The file to be translated. Required if the action is "translate."',
             default="",
+            dest="source_file",
         )
 
         parser.add_argument(
-            "-t",
-            "--target_lang",
+            "--to",
+            "--target-lang",
             type=str,
             help='The code of the language into which you want to translate the source file. Required if the action is "translate".',
             default="",
+            dest="target_lang",
         )
 
         parser.add_argument(
-            "-o",
-            "--output_directory",
-            type=str,
-            help="The directory where the output file will be located. Will be used the working directory if this option is invalid or not used.",
-            default="",
-        )
-
-        parser.add_argument(
-            "-s",
-            "--source_lang",
+            "--from",
+            "--source-lang",
             type=str,
             help="Source file language code. Detected automatically by DeepL by default. Specifying it can increase performance and make translations more accurate.",
             default="",
+            dest="source_lang",
         )
+
+        parser.add_argument(
+            "-d",
+            "--destination-dir",
+            type=str,
+            help="The directory where the output file will be located. Will be used the working directory if this option is invalid or not used.",
+            default="",
+            dest="output_directory",
+        )
+
         self.__parser = parser

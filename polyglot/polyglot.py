@@ -28,7 +28,7 @@ class Polyglot:
 
     def execute_command(self):
 
-        if self.__arguments.action == "set_license":
+        if self.__arguments.action == "set-license":
             self.__license_manager.set_license()
             return
 
@@ -43,10 +43,10 @@ class Polyglot:
             file_translator.handler.write(translated_content)
             print(f"\n{colorama.Fore.GREEN}Finish.\n{colorama.Fore.RESET}")
 
-        elif self.__arguments.action == "print_supported_languages":
+        elif self.__arguments.action == "languages":
             self.__connector.print_supported_languages()
 
-        elif self.__arguments.action == "print_usage_info":
+        elif self.__arguments.action == "info":
             self.__connector.print_usage_info()
 
     @property
