@@ -3,6 +3,8 @@
 Polyglot is a CLI tool that automates translation tasks and can be easily integrated into your python softwares.
 Using the [**DeepL API**](https://www.deepl.com/it/docs-api/), Polyglot generates a translated file from a given source file.
 
+<img title="" src="./docs/images/process_of_translations.jpg" alt="alt text" data-align="center" width="593">
+
 ## Supported files
 
 Polyglot is born to translate **JSON** and **PO** files, but now it supports other files. This is the complete list:
@@ -68,7 +70,7 @@ There are four available commands: translate, set_license, print_usage_data and 
 #### Command options
 
 | Option                 | Required | Description                                                                                                                                        |
-| :--------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+|:---------------------- |:-------- |:-------------------------------------------------------------------------------------------------------------------------------------------------- |
 | -p, --source_file      | yes      | The file to be translated.                                                                                                                         |
 | -t, --target_lang      | yes      | the code of the language into which you want to translate the source file                                                                          |
 | -o, --output_directory | no       | The directory where the output file will be located. **Will be used the working directory if this option is invalid or not used**.                 |
