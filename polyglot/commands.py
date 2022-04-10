@@ -63,7 +63,9 @@ class PrintUsageInfo(DeeplCommand):
         limit: Optional[int] = usage.character.limit
         count: Optional[int] = usage.character.count
 
-        print(f"\nPolyglot version: {polyglot.__version__}\nAPI key: {self._license}")
+        print(
+            f"\nPolyglot version: {polyglot.__version__}\nDeepL version: {deepl.__version__}\nAPI key: {self._license}"
+        )
 
         if limit is not None:
             print(f"Characters limit: {limit}")
