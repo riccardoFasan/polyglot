@@ -10,6 +10,7 @@ charset-normalizer==2.0.9
 colorama==0.4.4
 cryptography==36.0.1
 distlib==0.3.1
+deepl==1.5.0
 docutils==0.18.1
 filelock==3.0.12
 grapheme==0.6.0

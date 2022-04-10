@@ -28,12 +28,7 @@ setup(
     python_requires=">=3.6",
     packages=find_packages(exclude=("tests",)),
     include_package_data=True,
-    install_requires=[
-        "requests",
-        "colorama",
-        "polib",
-        "progressbar2",
-    ],
+    install_requires=["requests", "colorama", "polib", "progressbar2", "deepl"],
     entry_points={
         "console_scripts": [
             "polyglot=polyglot.__main__:main",
