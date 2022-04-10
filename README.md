@@ -17,7 +17,7 @@ Polyglot is born to translate **JSON** and **PO** files, but now it supports oth
 - pdf
 - raw text files like .txt or .dat
 
-> ⚠️If you want to translate **PDF**s, rember to enable the PDF translations from your DeepL API account. 
+> ⚠️ If you want to translate **PDF**s, rember to enable the PDF translations from your DeepL API account.
 
 ## Installation
 
@@ -50,7 +50,7 @@ There are four available commands: translate, set_license, print_usage_data and 
 #### Command options
 
 | Option                | Required | Description                                                                                                                                        |
-|:--------------------- |:-------- |:-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :-------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 | -s, --source-file     | yes      | The file to be translated.                                                                                                                         |
 | --to, --target-lang   | yes      | the code of the language into which you want to translate the source file                                                                          |
 | -d, --destination-dir | no       | The directory where the output file will be located. **Will be used the working directory if this option is invalid or not used**.                 |
