@@ -10,7 +10,7 @@ from polyglot import handlers, arguments, license, translators, connectors
 # ! Do not move colorama init. Autoreset works only here
 init(autoreset=True)
 
-DOCUMENTS_SUPPORTED_BY_DEEPL: list[str] = [".docx", ".pptx", ".html", ".htm"]
+DOCUMENTS_SUPPORTED_BY_DEEPL: list[str] = [".docx", ".pptx", ".html", ".htm", ".pdf"]
 
 
 @dataclass

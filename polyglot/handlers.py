@@ -131,7 +131,6 @@ class DocumentHandler(FileHandler):
     def read(self) -> str:
         return self.source_file
 
-    # TODO: test this
     def write(self, translated_content: DownloadedDocumentStream) -> None:
         if translated_content:
             with open(self._target_file, "wb+") as destination:
