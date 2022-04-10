@@ -5,6 +5,7 @@ import colorama
 import progressbar
 
 from polyglot import connectors
+from polyglot.common import DownloadedDocumentStream
 
 class Translator(ABC):
 
@@ -87,7 +88,7 @@ class DictionaryTranslator(Translator):
 
 
 class DocumentTranslator(Translator):
-    def translate(self, content: str) -> bytes:
+    def translate(self, content: str) -> DownloadedDocumentStream:
         return self._connector.translate_document(
             content, self._target_lang, self._source_lang
         )

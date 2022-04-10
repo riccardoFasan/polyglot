@@ -5,7 +5,8 @@ from typing import Any, Callable
 
 import polib
 
-from polyglot.exceptions import HandlerException
+from polyglot.common import DownloadedDocumentStream
+from polyglot.errors import HandlerError
 
 # TODO: Check if the file is empty
 def verfiy_source(function: Callable) -> Any:
@@ -13,9 +14,9 @@ def verfiy_source(function: Callable) -> Any:
         try:
             return function(instance)
         except FileNotFoundError:
-            raise HandlerException(instance.source_file, "File not found.")
+            HandlerError(instance.source_file, "File not found.")
         except:
-            raise HandlerException(instance.source_file, "File not supported.")
+            HandlerError(instance.source_file, "File not supported.")
 
     return function_wrapper
 
@@ -32,6 +33,14 @@ class FileHandler(ABC):
         self.target_lang = target_lang
         self.__set_target_file(output_directory, target_lang)
 
+    @abstractmethod
+    def read(self) -> Any:
+        pass
+
+    @abstractmethod
+    def write(self, translated_content: Any) -> None:
+        pass
+
     @property
     def _extension(self) -> str:
         return os.path.splitext(self.source_file)[1]
@@ -45,14 +54,6 @@ class FileHandler(ABC):
         if output_directory[-1] == "/":
             output_directory = output_directory[:-1]
         self._target_file = f"{output_directory}/{target_lang.lower()}{self._extension}"
-
-    @abstractmethod
-    def read(self) -> Any:
-        pass
-
-    @abstractmethod
-    def write(self, translated_content: Any) -> None:
-        pass
 
 
 class TextHandler(FileHandler):
@@ -99,10 +100,6 @@ class POHandler(FileHandler):
 
         return translatables
 
-    @property
-    def __pofile_source(self) -> polib.POFile:
-        return polib.pofile(self.source_file)
-
     def write(self, translated_content: dict[str, str]) -> None:
         pofile: polib.POFile = polib.POFile()
         pofile.metadata = self.__pofile_source.metadata
@@ -121,6 +118,10 @@ class POHandler(FileHandler):
 
         print(f"Generated {self._target_file} and {mofile_path}.")
 
+    @property
+    def __pofile_source(self) -> polib.POFile:
+        return polib.pofile(self.source_file)
+
     def __update_content(self, translated_content: dict[str, str]) -> None:
         for key, value in translated_content.items():
             self.__content[key]["msgstr"] = value
@@ -129,10 +130,12 @@ class POHandler(FileHandler):
 class DocumentHandler(FileHandler):
     @verfiy_source
     def read(self) -> str:
-        with open(self.source_file, "r") as source:
-            return self.source_file
+        return self.source_file
 
-    def write(self, translated_content: bytes) -> None:
-        with open(self._target_file, "wb+") as destination:
-            destination.write(translated_content)
-            print(f"Generated {self._target_file}.")
+    # TODO: test this
+    def write(self, translated_content: DownloadedDocumentStream) -> None:
+        if translated_content:
+            with open(self._target_file, "wb+") as destination:
+                for chunk in translated_content:
+                    destination.write(chunk)
+                print(f"Generated {self._target_file}.")

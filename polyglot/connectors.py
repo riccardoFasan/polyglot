@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 from polyglot import license
 from polyglot import commands
+from polyglot.common import DownloadedDocumentStream
 
 
 class EngineConnector(ABC):
@@ -31,7 +32,7 @@ class EngineConnector(ABC):
     @abstractmethod
     def translate_document(
         self, source_file: str, target_lang: str, source_lang: str = ""
-    ) -> bytes:
+    ) -> DownloadedDocumentStream:
         pass
 
 
@@ -49,7 +50,7 @@ class DeeplConnector(EngineConnector):
 
     def translate_document(
         self, source_file: str, target_lang: str, source_lang: str = ""
-    ) -> bytes:
+    ) -> DownloadedDocumentStream:
         return commands.TranslateDocumentCommand(
             self._license, source_file, target_lang, source_lang
         ).execute()

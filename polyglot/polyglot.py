@@ -26,10 +26,6 @@ class Polyglot:
     def __init__(self, arguments: arguments.Arguments):
         self.__arguments = arguments
 
-    @property
-    def __license_manager(self) -> license.LicenseManager:
-        return self.__arguments.license_manager
-
     def execute_command(self):
 
         if self.__arguments.action == "set_license":
@@ -52,6 +48,10 @@ class Polyglot:
 
         elif self.__arguments.action == "print_usage_info":
             self.__connector.print_usage_info()
+
+    @property
+    def __license_manager(self) -> license.LicenseManager:
+        return self.__arguments.license_manager
 
     def __get_file_translator(self) -> FileTranslator:
         extension: str = os.path.splitext(self.__arguments.source_file)[1]
