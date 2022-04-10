@@ -41,22 +41,6 @@ And that's all.
 
 Soon the whole script will be packaged for other package managers like pacman, apt and brew.
 
-### Optional: add Polyglot to PATH
-
-I suggest you to update your PATH in order to call the command faster.
-
-```shell
-export PATH=$PATH:$HOME/.local/bin
-```
-
-> ⚠️This command can be different depending on your OS.
-
-Now you can run Polyglot simply with:
-
-```shell
-polyglot
-```
-
 ## Usage
 
 There are four available commands: translate, set_license, print_usage_data and print_supported_languages.
@@ -69,19 +53,19 @@ There are four available commands: translate, set_license, print_usage_data and 
 
 #### Command options
 
-| Option                 | Required | Description                                                                                                                                        |
-|:---------------------- |:-------- |:-------------------------------------------------------------------------------------------------------------------------------------------------- |
-| -p, --source_file      | yes      | The file to be translated.                                                                                                                         |
-| -t, --target_lang      | yes      | the code of the language into which you want to translate the source file                                                                          |
-| -o, --output_directory | no       | The directory where the output file will be located. **Will be used the working directory if this option is invalid or not used**.                 |
-| -s, --source_lang      | no       | Source file language code. Detected automatically by DeepL by default. Specifying it can increase performance and make translations more accurate. |
+| Option                | Required | Description                                                                                                                                        |
+| :-------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -s, --source-file     | yes      | The file to be translated.                                                                                                                         |
+| --to, --target-lang   | yes      | the code of the language into which you want to translate the source file                                                                          |
+| -d, --destination-dir | no       | The directory where the output file will be located. **Will be used the working directory if this option is invalid or not used**.                 |
+| --from, --source-lang | no       | Source file language code. Detected automatically by DeepL by default. Specifying it can increase performance and make translations more accurate. |
 
 #### Basic usage
 
 E.g.: we have a .json source in English and we want to translate it in Italian.
 
 ```shell
-polyglot translate -p en.json -t IT
+python -m polyglot translate -s en.json --to IT
 ```
 
 #### Advanced usage
@@ -89,7 +73,7 @@ polyglot translate -p en.json -t IT
 E.g.: we have a .po source in English and we want a .po file translated into Japanese with the corresponding .mo file in our home. We specify the source language to benefit DeepL.
 
 ```shell
-polyglot translate -p en.po -t JA -o $HOME -s EN
+python -m polyglot translate -s en.po --to JA -d $HOME --from EN-US
 ```
 
 ### Set DeepL API key
@@ -97,7 +81,7 @@ polyglot translate -p en.po -t JA -o $HOME -s EN
 **DeepL provides you with a key that allows you to use its API**. So, Polyglot requires this key to work and will ask you for it on your first use. You can use the following command to set or change the key manually.
 
 ```shell
-polyglot set_license
+python -m polyglot set-license
 ```
 
 ### Print usage info
@@ -105,7 +89,7 @@ polyglot set_license
 It returns DeepL usage info related to your API key, run with:
 
 ```shell
-polyglot print_usage_info
+python -m polyglot info
 ```
 
 ### Print supported languages
@@ -113,7 +97,7 @@ polyglot print_usage_info
 It returns the list of languages currently supported by DeepL, run with:
 
 ```shell
-polyglot print_supported_languages
+python -m polyglot languages
 ```
 
 ## Dependencies
