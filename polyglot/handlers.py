@@ -87,10 +87,9 @@ class POHandler(FileHandler):
     @verfiy_source
     def read(self) -> dict:
 
-        pofile: polib.POFile = self.__pofile_source
         translatables: dict[str, str] = {}
 
-        for entry in pofile:
+        for entry in self.__pofile_source:
             message: str = entry.msgid if entry.msgstr == "" else entry.msgstr
             self.__content[entry.msgid] = {
                 "msgstr": message,
@@ -112,11 +111,11 @@ class POHandler(FileHandler):
             )
             pofile.append(entry)
 
-        pofile.save(self._target_file)
-        mofile_path: str = f"{ os.path.splitext(self._target_file)[0]}.mo"
-        pofile.save_as_mofile(mofile_path)
+        basename: str = os.path.splitext(self._target_file)[0]
+        pofile.save(f"{basename}.po")
+        pofile.save_as_mofile(f"{basename}.mo")
 
-        print(f"Generated {self._target_file} and {mofile_path}.")
+        print(f"Generated {basename}.po and {basename}.mo.")
 
     @property
     def __pofile_source(self) -> polib.POFile:

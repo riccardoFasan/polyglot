@@ -10,17 +10,11 @@ Using the [**DeepL API**](https://www.deepl.com/it/docs-api/), Polyglot generate
 Polyglot is born to translate **JSON** and **PO** files, but now it supports other files. This is the complete list:
 
 - json
-
-- po
-
+- po and pot
 - docx (Microsoft **Word**)
-
 - pptx (Microsoft **PowerPoint**)
-
 - html
-
 - htm
-
 - raw text files like .txt or .dat
 
 ## Installation
@@ -49,7 +43,7 @@ There are four available commands: translate, set_license, print_usage_data and 
 
 "Translate" is the main feature of Polyglot. It reads the passed file and creates one or more new files with the translations. It creates a new file with the translations and doesn't edit the source file.
 
-> ℹ️ In the case of a PO file, it returns both a PO and an MO file.
+> ℹ️ In the case of a PO and POT files, it returns both a PO and an MO file.
 
 #### Command options
 

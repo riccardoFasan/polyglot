@@ -73,7 +73,7 @@ class Polyglot:
         if extension == ".json":
             return handlers.JSONHandler(**file_handler_options)
 
-        if extension == ".po":
+        if extension == ".po" or extension == ".pot":
             return handlers.POHandler(**file_handler_options)
 
         return handlers.TextHandler(**file_handler_options)
@@ -89,7 +89,7 @@ class Polyglot:
         if extension in DOCUMENTS_SUPPORTED_BY_DEEPL:
             return translators.DocumentTranslator(**translator_options)
 
-        if extension == ".json" or extension == ".po":
+        if extension == ".json" or extension == ".po" or extension == ".pot":
             return translators.DictionaryTranslator(**translator_options)
 
         return translators.TextTranslator(**translator_options)
