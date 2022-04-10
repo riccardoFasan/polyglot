@@ -21,8 +21,8 @@ class CLILicenseManager(LicenseManager):
             return self.__set_and_get_license()
 
     def set_license(self) -> None:
+        key: str = input("Type here your Deepl API key: ")
         with open(self.__license_path, "w+") as license_file:
-            key: str = input("Type here your Deepl API key: ")
             license_file.write(key.strip())
 
     @property
