@@ -1,5 +1,8 @@
 # Polyglot - Automate translations with DeepL
 
+[![PyPI - License](https://img.shields.io/pypi/l/polyglot-translator)](https://img.shields.io/pypi/l/polyglot-translator)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/polyglot-translator)](https://img.shields.io/pypi/dm/polyglot-translator)
+
 Polyglot is a CLI tool that automates translation tasks and can be easily integrated into your python softwares.
 Using the [**DeepL API**](https://www.deepl.com/it/docs-api/), Polyglot generates a translated file from a given source file.
 
