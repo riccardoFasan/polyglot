@@ -1,13 +1,19 @@
-# Polyglot - Automate translations with DeepL
+<h1 align="center" style="text-align: center;">Polyglot - Automate translations with DeepL</h1>
 
-![PyPI](https://img.shields.io/pypi/v/polyglot-translator)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/polyglot-translator)
-![PyPI - License](https://img.shields.io/pypi/l/polyglot-translator)
+<div align="center" style="text-align: center;">
+
+    ![PyPI](https://img.shields.io/pypi/v/polyglot-translator)
+    ![PyPI - Downloads](https://img.shields.io/pypi/dm/polyglot-translator)
+    ![PyPI - License](https://img.shields.io/pypi/l/polyglot-translator)
+
+</div>
 
 Polyglot is a CLI tool that automates translation tasks and can be easily integrated into your python softwares.
 Using the [**DeepL API**](https://www.deepl.com/it/docs-api/), Polyglot generates a translated file from a given source file.
 
-<img title="" src="./docs/images/process_of_translations.jpg" alt="alt text" data-align="center" width="593">
+<div align="center" style="text-align: center;">
+    <img title="" src="./docs/images/process_of_translations.jpg" alt="alt text" data-align="center">
+</div>
 
 ## Supported files
 
