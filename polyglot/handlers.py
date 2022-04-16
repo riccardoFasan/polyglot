@@ -8,8 +8,8 @@ import polib
 from polyglot.common import DownloadedDocumentStream
 from polyglot.errors import HandlerError
 
-# TODO: Check if the file is empty
-def verfiy_source(function: Callable) -> Any:
+
+def verfiy_source(function: Callable) -> Callable:
     def function_wrapper(instance: FileHandler):
         try:
             return function(instance)

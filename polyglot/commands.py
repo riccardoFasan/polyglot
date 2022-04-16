@@ -14,7 +14,7 @@ from polyglot.common import (
 from polyglot.errors import DeeplError
 
 
-def handle_error(function: Callable) -> Any:
+def handle_error(function: Callable) -> Callable:
     def function_wrapper(instance: DeeplCommand):
         try:
             return function(instance)
