@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 
-from polyglot import license
-from polyglot import commands
+from polyglot import commands, license
 from polyglot.common import DownloadedDocumentStream
 
 

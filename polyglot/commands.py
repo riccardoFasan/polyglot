@@ -29,7 +29,7 @@ class DeeplCommand(ABC):
     _license: str
     _translator: deepl.Translator
 
-    def __init__(self, license: str):
+    def __init__(self, license: str) -> None:
         self._license = license
         self._translator = deepl.Translator(self._license)
 
@@ -44,7 +44,7 @@ class TranslateCommand(DeeplCommand, ABC):
     _target_lang: str
     _source_lang: str
 
-    def __init__(self, license: str, content: Any, target_lang: str, source_lang: str):
+    def __init__(self, license: str, content: Any, target_lang: str, source_lang: str) -> None:
         super().__init__(license)
         self._content = content
         if target_lang == 'EN': # * EN as a target language is deprecated
@@ -102,7 +102,6 @@ class TranslateText(TranslateCommand):
 
     @handle_error
     def execute(self) -> str:
-
         truncated_text: str = get_truncated_text(self._content, self.__LEN_LIMIT)
         response: Any = self._translator.translate_text(
             [self._content],
