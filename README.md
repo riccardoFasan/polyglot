@@ -2,9 +2,9 @@
 
 <div align="center" style="text-align: center;">
 
-    ![PyPI](https://img.shields.io/pypi/v/polyglot-translator)
-    ![PyPI - Downloads](https://img.shields.io/pypi/dm/polyglot-translator)
-    ![PyPI - License](https://img.shields.io/pypi/l/polyglot-translator)
+![PyPI](https://img.shields.io/pypi/v/polyglot-translator)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/polyglot-translator)
+![PyPI - License](https://img.shields.io/pypi/l/polyglot-translator)
 
 </div>
 
