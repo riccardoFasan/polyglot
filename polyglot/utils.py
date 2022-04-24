@@ -13,3 +13,4 @@ def get_color_by_percentage(percentage: int) -> str:
     if percentage > 50:
         return colorama.Fore.YELLOW
     return colorama.Fore.RESET
+

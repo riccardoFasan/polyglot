@@ -5,7 +5,7 @@ from typing import Any, Callable
 
 import polib
 
-from polyglot.common import DownloadedDocumentStream
+from polyglot.utils import DownloadedDocumentStream
 from polyglot.errors import HandlerError
 
 
@@ -17,7 +17,6 @@ def verfiy_source(function: Callable) -> Callable:
             HandlerError("File not found", instance.source_file)
         except:
             HandlerError("File not supported", instance.source_file)
-
     return function_wrapper
 
 

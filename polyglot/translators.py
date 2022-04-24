@@ -5,7 +5,7 @@ import colorama
 import progressbar
 
 from polyglot import connectors
-from polyglot.common import DownloadedDocumentStream
+from polyglot.utils import DownloadedDocumentStream
 
 class Translator(ABC):
 

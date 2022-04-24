@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 from polyglot import commands, license
-from polyglot.common import DownloadedDocumentStream
+from polyglot.utils import DownloadedDocumentStream
 
 
 class EngineConnector(ABC):

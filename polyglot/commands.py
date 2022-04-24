@@ -6,7 +6,7 @@ import colorama
 import deepl
 
 import polyglot
-from polyglot.common import (
+from polyglot.utils import (
     DownloadedDocumentStream,
     get_color_by_percentage,
     get_truncated_text,
