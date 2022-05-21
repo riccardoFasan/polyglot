@@ -1,11 +1,13 @@
-from abc import ABC, abstractmethod
+import asyncio
 from typing import Any
+from abc import ABC, abstractmethod
 
 import colorama
 import progressbar
 
 from polyglot import connectors
 from polyglot.utils import DownloadedDocumentStream
+
 
 class Translator(ABC):
 
@@ -38,10 +40,14 @@ class DictionaryTranslator(Translator):
     __progress_bar: progressbar.ProgressBar
     __completion_count: int = 0
     __not_translated_entries: list[str] = []
+    __loop:asyncio.AbstractEventLoop = asyncio.get_event_loop()
+    __futures:list[asyncio.Future] = []
 
     def translate(self, content: dict) -> dict:
         self.__set_progress_bar(content)
-        self.__translate_dictionary(content)
+        self.__populate_futures(content)
+        loop:asyncio.AbstractEventLoop = asyncio.get_event_loop()
+        loop.run_until_complete(self.__translate_dictionary())
         self.__print_messages()
         return content
 
@@ -57,25 +63,29 @@ class DictionaryTranslator(Translator):
             for key, value in dictionary.items()
         )
 
-    def __translate_dictionary(self, dictionary: dict) -> None:
-
+    def __populate_futures(self, dictionary: dict) -> None:
         for key, value in dictionary.items():
 
             if isinstance(value, dict):
-                self.__translate_dictionary(value)
+                self.__populate_futures(value)
 
             else:
-                dictionary[key] = self.__translate_entry(value)
-                self.__completion_count += 1
-                self.__progress_bar.update(self.__completion_count)
+                self.__futures.append(self.__loop.run_in_executor(None, self.__translate_entry, value, dictionary,key))
+             
 
-    def __translate_entry(self, entry: str) -> str:
+    def __translate_entry(self, entry: str, dictionary:dict, key:str) -> None:
         translation: str = self._connector.translate(
             entry, self._target_lang, self._source_lang
         )
         if not translation:
             self.__not_translated_entries.append(entry)
-        return translation if translation else entry
+        self.__completion_count += 1
+        self.__progress_bar.update(self.__completion_count)
+        dictionary[key] = translation if translation else entry
+
+    async def __translate_dictionary(self) -> None :
+        await asyncio.gather(*self.__futures)
+
 
     def __print_messages(self) -> None:
         print("\nTranslation completed.")
