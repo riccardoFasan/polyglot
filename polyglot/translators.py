@@ -1,6 +1,8 @@
 import asyncio
-from typing import Any
+from concurrent.futures import ThreadPoolExecutor
+
 from abc import ABC, abstractmethod
+from typing import Any
 
 import colorama
 import progressbar
@@ -40,8 +42,10 @@ class DictionaryTranslator(Translator):
     __progress_bar: progressbar.ProgressBar
     __completion_count: int = 0
     __not_translated_entries: list[str] = []
+
     __loop:asyncio.AbstractEventLoop = asyncio.get_event_loop()
     __futures:list[asyncio.Future] = []
+    __executor:ThreadPoolExecutor = ThreadPoolExecutor(max_workers=30) # ? I honestly don't know whether it is too much or too little
 
     def translate(self, content: dict) -> dict:
         self.__set_progress_bar(content)
@@ -70,7 +74,7 @@ class DictionaryTranslator(Translator):
                 self.__populate_futures(value)
 
             else:
-                self.__futures.append(self.__loop.run_in_executor(None, self.__translate_entry, value, dictionary,key))
+                self.__futures.append(self.__loop.run_in_executor(self.__executor, self.__translate_entry, value, dictionary,key))
              
 
     def __translate_entry(self, entry: str, dictionary:dict, key:str) -> None:
