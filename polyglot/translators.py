@@ -41,16 +41,18 @@ class DictionaryTranslator(Translator):
 
     __progress_bar: progressbar.ProgressBar
     __completion_count: int = 0
-    __not_translated_entries: list[str] = []
+    __not_translated_entries: list = []
 
-    __loop:asyncio.AbstractEventLoop = asyncio.get_event_loop()
-    __futures:list[asyncio.Future] = []
-    __executor:ThreadPoolExecutor = ThreadPoolExecutor(max_workers=30) # ? I honestly don't know whether it is too much or too little
+    __loop: asyncio.AbstractEventLoop = asyncio.get_event_loop()
+    __futures: list = []
+    __executor: ThreadPoolExecutor = ThreadPoolExecutor(
+        max_workers=30
+    )  # ? I honestly don't know whether it is too much or too little
 
     def translate(self, content: dict) -> dict:
         self.__set_progress_bar(content)
         self.__populate_futures(content)
-        loop:asyncio.AbstractEventLoop = asyncio.get_event_loop()
+        loop: asyncio.AbstractEventLoop = asyncio.get_event_loop()
         loop.run_until_complete(self.__translate_dictionary())
         self.__print_messages()
         return content
@@ -74,10 +76,13 @@ class DictionaryTranslator(Translator):
                 self.__populate_futures(value)
 
             else:
-                self.__futures.append(self.__loop.run_in_executor(self.__executor, self.__translate_entry, value, dictionary,key))
-             
+                self.__futures.append(
+                    self.__loop.run_in_executor(
+                        self.__executor, self.__translate_entry, value, dictionary, key
+                    )
+                )
 
-    def __translate_entry(self, entry: str, dictionary:dict, key:str) -> None:
+    def __translate_entry(self, entry: str, dictionary: dict, key: str) -> None:
         translation: str = self._connector.translate(
             entry, self._target_lang, self._source_lang
         )
@@ -87,9 +92,8 @@ class DictionaryTranslator(Translator):
         self.__progress_bar.update(self.__completion_count)
         dictionary[key] = translation if translation else entry
 
-    async def __translate_dictionary(self) -> None :
+    async def __translate_dictionary(self) -> None:
         await asyncio.gather(*self.__futures)
-
 
     def __print_messages(self) -> None:
         print("\nTranslation completed.")

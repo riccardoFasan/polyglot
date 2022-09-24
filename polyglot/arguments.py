@@ -4,7 +4,7 @@ from dataclasses import dataclass
 
 from polyglot import license
 
-ACTIONS: list[str] = [
+ACTIONS: list = [
     "translate",
     "set-license",
     "languages",

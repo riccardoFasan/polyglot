@@ -10,7 +10,7 @@ from polyglot import handlers, arguments, license, translators, connectors
 # ! Do not move colorama init. Autoreset works only here
 init(autoreset=True)
 
-DOCUMENTS_SUPPORTED_BY_DEEPL: list[str] = [".docx", ".pptx", ".html", ".htm", ".pdf"]
+DOCUMENTS_SUPPORTED_BY_DEEPL: list = [".docx", ".pptx", ".html", ".htm", ".pdf"]
 
 
 @dataclass
@@ -61,7 +61,7 @@ class Polyglot:
 
     def __get_handler(self, extension: str) -> handlers.FileHandler:
 
-        file_handler_options: dict[str, str] = {
+        file_handler_options: dict = {
             "source_file": self.__arguments.source_file,
             "output_directory": self.__arguments.output_directory,
             "target_lang": self.__arguments.target_lang,
@@ -80,7 +80,7 @@ class Polyglot:
 
     def __get_translator(self, extension: str) -> translators.Translator:
 
-        translator_options: dict[str, Any] = {
+        translator_options: dict = {
             "target_lang": self.__arguments.target_lang,
             "source_lang": self.__arguments.source_lang,
             "connector": self.__connector,

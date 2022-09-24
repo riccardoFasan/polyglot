@@ -17,6 +17,7 @@ def verfiy_source(function: Callable) -> Callable:
             HandlerError("File not found", instance.source_file)
         except:
             HandlerError("File not supported", instance.source_file)
+
     return function_wrapper
 
 
@@ -81,12 +82,12 @@ class JSONHandler(FileHandler):
 
 class POHandler(FileHandler):
 
-    __content: dict[str, Any] = {}
+    __content: dict = {}
 
     @verfiy_source
     def read(self) -> dict:
 
-        translatables: dict[str, str] = {}
+        translatables: dict = {}
 
         for entry in self.__pofile_source:
             message: str = entry.msgid if entry.msgstr == "" else entry.msgstr
@@ -98,7 +99,7 @@ class POHandler(FileHandler):
 
         return translatables
 
-    def write(self, translated_content: dict[str, str]) -> None:
+    def write(self, translated_content: dict) -> None:
         pofile: polib.POFile = polib.POFile()
         pofile.metadata = self.__pofile_source.metadata
 
@@ -120,7 +121,7 @@ class POHandler(FileHandler):
     def __pofile_source(self) -> polib.POFile:
         return polib.pofile(self.source_file)
 
-    def __update_content(self, translated_content: dict[str, str]) -> None:
+    def __update_content(self, translated_content: dict) -> None:
         for key, value in translated_content.items():
             self.__content[key]["msgstr"] = value
 
