@@ -84,7 +84,7 @@ class DictionaryTranslator(Translator):
 
     def __translate_entry(self, entry: str, dictionary: dict, key: str) -> None:
         translation: str = self._connector.translate(
-            entry, self._target_lang, self._source_lang
+            entry.strip(), self._target_lang, self._source_lang
         )
         if not translation:
             self.__not_translated_entries.append(entry)

@@ -7,7 +7,7 @@ class Error:
 
     def __init__(self, message: str = "Something went wrong!") -> None:
         self.__message = message
-        print(f"\n\n{colorama.Fore.RED}{self.__message}\n")
+        print(f"\n{colorama.Fore.RED}{self.__message}\n")
         quit()
 
 
@@ -29,4 +29,6 @@ class DeeplError(Error):
             return "DeepL error: quota for this billing period has been exceeded!"
         if isinstance(exception, deepl.DocumentTranslationException):
             return f"Error translating document with id {exception.document_handle.id} and key {exception.document_handle.key}!"
+        if isinstance(exception, deepl.DeepLException):
+            return f"DeepL API error - {exception}"
         return "Error using DeepL API!"

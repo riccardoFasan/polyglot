@@ -44,11 +44,13 @@ class TranslateCommand(DeeplCommand, ABC):
     _target_lang: str
     _source_lang: str
 
-    def __init__(self, license: str, content: Any, target_lang: str, source_lang: str) -> None:
+    def __init__(
+        self, license: str, content: Any, target_lang: str, source_lang: str
+    ) -> None:
         super().__init__(license)
         self._content = content
-        if target_lang == 'EN': # * EN as a target language is deprecated
-            target_lang = 'EN-US'
+        if target_lang == "EN":  # * EN as a target language is deprecated
+            target_lang = "EN-US"
         self._target_lang = target_lang
         self._source_lang = source_lang
 
