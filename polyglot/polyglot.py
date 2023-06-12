@@ -27,7 +27,6 @@ class Polyglot:
         self.__arguments = arguments
 
     def execute_command(self):
-
         if self.__arguments.action == "set-license":
             self.__license_manager.set_license()
             return
@@ -60,7 +59,6 @@ class Polyglot:
         return FileTranslator(handler=handler, translator=translator)
 
     def __get_handler(self, extension: str) -> handlers.FileHandler:
-
         file_handler_options: dict = {
             "source_file": self.__arguments.source_file,
             "output_directory": self.__arguments.output_directory,
@@ -79,14 +77,18 @@ class Polyglot:
         return handlers.TextHandler(**file_handler_options)
 
     def __get_translator(self, extension: str) -> translators.Translator:
+        is_document: bool = extension in DOCUMENTS_SUPPORTED_BY_DEEPL
 
         translator_options: dict = {
             "target_lang": self.__arguments.target_lang,
             "source_lang": self.__arguments.source_lang,
             "connector": self.__connector,
+            "variable_wrapper": self.__arguments.variable_wrapper
+            if not is_document
+            else None,
         }
 
-        if extension in DOCUMENTS_SUPPORTED_BY_DEEPL:
+        if is_document:
             return translators.DocumentTranslator(**translator_options)
 
         if extension == ".json" or extension == ".po" or extension == ".pot":

@@ -1,11 +1,10 @@
 from abc import ABC, abstractmethod
 
 from polyglot import commands, license
-from polyglot.utils import DownloadedDocumentStream
+from polyglot.utils import DownloadedDocumentStream, VariableWrapper
 
 
 class EngineConnector(ABC):
-
     _license: str
     __license_manager: license.LicenseManager
 
@@ -42,9 +41,15 @@ class DeeplConnector(EngineConnector):
     def print_supported_languages(self) -> None:
         return commands.PrintSupportedLanguages(self._license).execute()
 
-    def translate(self, content: str, target_lang: str, source_lang: str = "") -> str:
+    def translate(
+        self,
+        content: str,
+        target_lang: str,
+        source_lang: str = "",
+        wrapper: VariableWrapper | None = None,
+    ) -> str:
         return commands.TranslateText(
-            self._license, content, target_lang, source_lang
+            self._license, content, target_lang, source_lang, wrapper
         ).execute()
 
     def translate_document(

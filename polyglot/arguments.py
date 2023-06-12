@@ -3,8 +3,9 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
 from polyglot import license
+from polyglot.utils import VariableWrapper
 
-ACTIONS: list = [
+ACTIONS: list[str] = [
     "translate",
     "set-license",
     "languages",
@@ -20,6 +21,7 @@ class Arguments:
     output_directory: str
     source_lang: str
     license_manager: license.LicenseManager
+    variable_wrapper: VariableWrapper | None = None
 
 
 class ArgumentsCollector(ABC):
@@ -39,7 +41,6 @@ class ArgumentsCollector(ABC):
 
 
 class CLIArgumentsCollector(ArgumentsCollector):
-
     __parser: argparse.ArgumentParser
     __namespace: argparse.Namespace
 
@@ -52,17 +53,36 @@ class CLIArgumentsCollector(ArgumentsCollector):
             target_lang=self.__namespace.target_lang,
             output_directory=self.__namespace.output_directory,
             source_lang=self.__namespace.source_lang,
+            variable_wrapper=VariableWrapper(
+                self.__namespace.variable_wrapper[0],
+                self.__namespace.variable_wrapper[1],
+            )
+            if self.__namespace.variable_wrapper
+            else None,
             license_manager=license.CLILicenseManager(),
         )
 
     def _validate_arguments(self) -> None:
-        if self.__namespace.action == "translate" and (
-            self.__namespace.source_file == "" or self.__namespace.target_lang == ""
-        ):
-            self.__parser.error("translate requires --source-file and --target-lang.")
+        is_translate: bool = self.__namespace.action == "translate"
+
+        if is_translate:
+            has_both_languages: bool = (
+                self.__namespace.source_lang and self.__namespace.target_lang
+            )
+
+            if not has_both_languages:
+                self.__parser.error(
+                    "translate requires --source-file and --target-lang."
+                )
+
+            has_not_both_edges: bool = len(self.__namespace.variable_wrapper) != 2
+
+            if is_translate and (
+                self.__namespace.variable_wrapper == None or has_not_both_edges
+            ):
+                self.__parser.error("Variable wrapper must be a list of two strings.")
 
     def __set_parser(self) -> None:
-
         parser: argparse.ArgumentParser = argparse.ArgumentParser(
             description="Polyglot will translate the given files."
         )
@@ -108,6 +128,17 @@ class CLIArgumentsCollector(ArgumentsCollector):
             help="The directory where the output file will be located. Will be used the working directory if this option is invalid or not used.",
             default="",
             dest="output_directory",
+        )
+
+        parser.add_argument(
+            "-v",
+            "--variable_wrappers",
+            type=str,
+            nargs="+",
+            help='A wrapper around variables that should not be translated. The first argument is the opening wrapper and the second argument is the closing wrapper. E.g.: -v "%(" "%)".',
+            default="",
+            dest="variable_wrapper",
+            required=False,
         )
 
         self.__parser = parser
