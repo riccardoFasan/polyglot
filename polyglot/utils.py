@@ -1,4 +1,5 @@
 from typing import Any, Iterator, Optional
+from dataclasses import dataclass
 import colorama
 
 DownloadedDocumentStream = Optional[Iterator[Any]]
@@ -14,3 +15,9 @@ def get_color_by_percentage(percentage: int) -> str:
     if percentage > 50:
         return colorama.Fore.YELLOW
     return colorama.Fore.RESET
+
+
+@dataclass
+class KeywordWrapper:
+    start: str
+    end: str

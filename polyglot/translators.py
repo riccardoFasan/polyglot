@@ -8,24 +8,26 @@ import colorama
 import progressbar
 
 from polyglot import connectors
-from polyglot.utils import DownloadedDocumentStream
+from polyglot.utils import DownloadedDocumentStream, KeywordWrapper
 
 
 class Translator(ABC):
-
     _target_lang: str
     _source_lang: str
     _connector: connectors.EngineConnector
+    _keyword_wrapper: KeywordWrapper | None
 
     def __init__(
         self,
         target_lang: str,
         source_lang: str,
         connector: connectors.EngineConnector,
+        keyword_wrapper: KeywordWrapper | None = None,
     ) -> None:
         self._target_lang = target_lang
         self._source_lang = source_lang
         self._connector = connector
+        self._keyword_wrapper = keyword_wrapper
 
     @abstractmethod
     def translate(self, content: Any) -> Any:
@@ -34,11 +36,12 @@ class Translator(ABC):
 
 class TextTranslator(Translator):
     def translate(self, content: str) -> str:
-        return self._connector.translate(content, self._target_lang, self._source_lang)
+        return self._connector.translate(
+            content, self._target_lang, self._source_lang, self._keyword_wrapper
+        )
 
 
 class DictionaryTranslator(Translator):
-
     __progress_bar: progressbar.ProgressBar
     __completion_count: int = 0
     __not_translated_entries: list = []
@@ -54,7 +57,7 @@ class DictionaryTranslator(Translator):
         self.__populate_futures(content)
         loop: asyncio.AbstractEventLoop = asyncio.get_event_loop()
         loop.run_until_complete(self.__translate_dictionary())
-        self.__print_messages()
+        self.__print_summary()
         return content
 
     def __set_progress_bar(self, content: dict) -> None:
@@ -71,20 +74,19 @@ class DictionaryTranslator(Translator):
 
     def __populate_futures(self, dictionary: dict) -> None:
         for key, value in dictionary.items():
-
             if isinstance(value, dict):
                 self.__populate_futures(value)
+                return
 
-            else:
-                self.__futures.append(
-                    self.__loop.run_in_executor(
-                        self.__executor, self.__translate_entry, value, dictionary, key
-                    )
+            self.__futures.append(
+                self.__loop.run_in_executor(
+                    self.__executor, self.__translate_entry, value, dictionary, key
                 )
+            )
 
     def __translate_entry(self, entry: str, dictionary: dict, key: str) -> None:
         translation: str = self._connector.translate(
-            entry.strip(), self._target_lang, self._source_lang
+            entry.strip(), self._target_lang, self._source_lang, self._keyword_wrapper
         )
         if not translation:
             self.__not_translated_entries.append(entry)
@@ -95,7 +97,7 @@ class DictionaryTranslator(Translator):
     async def __translate_dictionary(self) -> None:
         await asyncio.gather(*self.__futures)
 
-    def __print_messages(self) -> None:
+    def __print_summary(self) -> None:
         print("\nTranslation completed.")
         if len(self.__not_translated_entries) > 0:
             print(

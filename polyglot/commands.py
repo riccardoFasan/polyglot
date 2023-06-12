@@ -10,6 +10,7 @@ from polyglot.utils import (
     DownloadedDocumentStream,
     get_color_by_percentage,
     get_truncated_text,
+    KeywordWrapper,
 )
 from polyglot.errors import DeeplError
 
@@ -25,7 +26,6 @@ def handle_error(function: Callable) -> Callable:
 
 
 class DeeplCommand(ABC):
-
     _license: str
     _translator: deepl.Translator
 
@@ -39,7 +39,6 @@ class DeeplCommand(ABC):
 
 
 class TranslateCommand(DeeplCommand, ABC):
-
     _content: Any
     _target_lang: str
     _source_lang: str
@@ -98,20 +97,43 @@ class PrintSupportedLanguages(DeeplCommand):
             print(lang)
 
 
-class TranslateText(TranslateCommand):
+class TranslateText(DeeplCommand):
+    _content: Any
+    _target_lang: str
+    _source_lang: str
+    __keyword_wrapper: KeywordWrapper
 
     __LEN_LIMIT: int = 150
+    __REQUEST_wrapper: KeywordWrapper = KeywordWrapper("<ignorekey>", "</ignorekey>")
+
+    def __init__(
+        self,
+        license: str,
+        content: Any,
+        target_lang: str,
+        source_lang: str,
+        keyword_wrapper: KeywordWrapper | None = None,
+    ) -> None:
+        super().__init__(license)
+        if target_lang == "EN":  # * EN as a target language is deprecated
+            target_lang = "EN-US"
+        self._target_lang = target_lang
+        self._source_lang = source_lang
+        self.__keyword_wrapper = keyword_wrapper
+        self._content = content
 
     @handle_error
     def execute(self) -> str:
         truncated_text: str = get_truncated_text(self._content, self.__LEN_LIMIT)
         response: Any = self._translator.translate_text(
-            [self._content],
+            [self.__replace_wrappers(self._content)],
             target_lang=self._target_lang,
             source_lang=self._source_lang,
+            tag_handling="xml",
+            ignore_tags="ignorekey",
         )
         try:
-            translation: str = response[0].text
+            translation: str = self.__restore_wrappers(response[0].text)
             truncated_translation: str = get_truncated_text(
                 translation, self.__LEN_LIMIT
             )
@@ -123,9 +145,22 @@ class TranslateText(TranslateCommand):
             )
         return ""
 
+    def __replace_wrappers(self, text: str) -> str:
+        if self.__keyword_wrapper is None:
+            return text
+        return text.replace(
+            self.__keyword_wrapper.start, self.__REQUEST_wrapper.start
+        ).replace(self.__keyword_wrapper.end, self.__REQUEST_wrapper.end)
+
+    def __restore_wrappers(self, text: str) -> str:
+        if self.__keyword_wrapper is None:
+            return text
+        return text.replace(
+            self.__REQUEST_wrapper.start, self.__keyword_wrapper.start
+        ).replace(self.__REQUEST_wrapper.end, self.__keyword_wrapper.end)
+
 
 class TranslateDocumentCommand(TranslateCommand):
-
     __document: DownloadedDocumentStream
     __remaining: int = 0
 
