@@ -8,26 +8,26 @@ import colorama
 import progressbar
 
 from polyglot import connectors
-from polyglot.utils import DownloadedDocumentStream, KeywordWrapper
+from polyglot.utils import DownloadedDocumentStream, VariableWrapper
 
 
 class Translator(ABC):
     _target_lang: str
     _source_lang: str
     _connector: connectors.EngineConnector
-    _keyword_wrapper: KeywordWrapper | None
+    _keyword_wrapper: VariableWrapper | None
 
     def __init__(
         self,
         target_lang: str,
         source_lang: str,
         connector: connectors.EngineConnector,
-        keyword_wrapper: KeywordWrapper | None = None,
+        variable_wrapper: VariableWrapper | None = None,
     ) -> None:
         self._target_lang = target_lang
         self._source_lang = source_lang
         self._connector = connector
-        self._keyword_wrapper = keyword_wrapper
+        self._keyword_wrapper = variable_wrapper
 
     @abstractmethod
     def translate(self, content: Any) -> Any:

@@ -83,7 +83,7 @@ class Polyglot:
             "target_lang": self.__arguments.target_lang,
             "source_lang": self.__arguments.source_lang,
             "connector": self.__connector,
-            "keyword_wrapper": self.__arguments.keyword_wrapper
+            "variable_wrapper": self.__arguments.variable_wrapper
             if not is_document
             else None,
         }

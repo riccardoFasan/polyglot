@@ -18,6 +18,6 @@ def get_color_by_percentage(percentage: int) -> str:
 
 
 @dataclass
-class KeywordWrapper:
+class VariableWrapper:
     start: str
     end: str

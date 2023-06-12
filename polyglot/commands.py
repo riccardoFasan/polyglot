@@ -10,7 +10,7 @@ from polyglot.utils import (
     DownloadedDocumentStream,
     get_color_by_percentage,
     get_truncated_text,
-    KeywordWrapper,
+    VariableWrapper,
 )
 from polyglot.errors import DeeplError
 
@@ -101,10 +101,10 @@ class TranslateText(DeeplCommand):
     _content: Any
     _target_lang: str
     _source_lang: str
-    __keyword_wrapper: KeywordWrapper
+    __keyword_wrapper: VariableWrapper
 
     __LEN_LIMIT: int = 150
-    __REQUEST_wrapper: KeywordWrapper = KeywordWrapper("<ignorekey>", "</ignorekey>")
+    __REQUEST_wrapper: VariableWrapper = VariableWrapper("<ignorekey>", "</ignorekey>")
 
     def __init__(
         self,
@@ -112,14 +112,14 @@ class TranslateText(DeeplCommand):
         content: Any,
         target_lang: str,
         source_lang: str,
-        keyword_wrapper: KeywordWrapper | None = None,
+        variable_wrapper: VariableWrapper | None = None,
     ) -> None:
         super().__init__(license)
         if target_lang == "EN":  # * EN as a target language is deprecated
             target_lang = "EN-US"
         self._target_lang = target_lang
         self._source_lang = source_lang
-        self.__keyword_wrapper = keyword_wrapper
+        self.__keyword_wrapper = variable_wrapper
         self._content = content
 
     @handle_error

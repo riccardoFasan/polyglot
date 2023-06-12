@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 from polyglot import commands, license
-from polyglot.utils import DownloadedDocumentStream, KeywordWrapper
+from polyglot.utils import DownloadedDocumentStream, VariableWrapper
 
 
 class EngineConnector(ABC):
@@ -46,7 +46,7 @@ class DeeplConnector(EngineConnector):
         content: str,
         target_lang: str,
         source_lang: str = "",
-        wrapper: KeywordWrapper | None = None,
+        wrapper: VariableWrapper | None = None,
     ) -> str:
         return commands.TranslateText(
             self._license, content, target_lang, source_lang, wrapper

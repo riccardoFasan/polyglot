@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
 from polyglot import license
-from polyglot.utils import KeywordWrapper
+from polyglot.utils import VariableWrapper
 
 ACTIONS: list[str] = [
     "translate",
@@ -21,7 +21,7 @@ class Arguments:
     output_directory: str
     source_lang: str
     license_manager: license.LicenseManager
-    keyword_wrapper: KeywordWrapper | None = None
+    variable_wrapper: VariableWrapper | None = None
 
 
 class ArgumentsCollector(ABC):
@@ -53,10 +53,11 @@ class CLIArgumentsCollector(ArgumentsCollector):
             target_lang=self.__namespace.target_lang,
             output_directory=self.__namespace.output_directory,
             source_lang=self.__namespace.source_lang,
-            keyword_wrapper=KeywordWrapper(
-                self.__namespace.keyword_wrapper[0], self.__namespace.keyword_wrapper[1]
+            variable_wrapper=VariableWrapper(
+                self.__namespace.variable_wrapper[0],
+                self.__namespace.variable_wrapper[1],
             )
-            if self.__namespace.keyword_wrapper
+            if self.__namespace.variable_wrapper
             else None,
             license_manager=license.CLILicenseManager(),
         )
@@ -74,15 +75,12 @@ class CLIArgumentsCollector(ArgumentsCollector):
                     "translate requires --source-file and --target-lang."
                 )
 
-            has_not_both_keyword_wrapper_edges: bool = (
-                len(self.__namespace.keyword_wrapper) != 2
-            )
+            has_not_both_edges: bool = len(self.__namespace.variable_wrapper) != 2
 
             if is_translate and (
-                self.__namespace.keyword_wrapper == None
-                or has_not_both_keyword_wrapper_edges
+                self.__namespace.variable_wrapper == None or has_not_both_edges
             ):
-                self.__parser.error("Keyword wrapper must be a list of two strings.")
+                self.__parser.error("Variable wrapper must be a list of two strings.")
 
     def __set_parser(self) -> None:
         parser: argparse.ArgumentParser = argparse.ArgumentParser(
@@ -133,13 +131,13 @@ class CLIArgumentsCollector(ArgumentsCollector):
         )
 
         parser.add_argument(
-            "-k",
-            "--keyword_wrappers",
+            "-v",
+            "--variable_wrappers",
             type=str,
             nargs="+",
-            help='A wrapper around keywords that should not be translated. The first argument is the opening wrapper and the second argument is the closing wrapper. E.g.: -k "%(" "%)".',
+            help='A wrapper around variables that should not be translated. The first argument is the opening wrapper and the second argument is the closing wrapper. E.g.: -v "%(" "%)".',
             default="",
-            dest="keyword_wrapper",
+            dest="variable_wrapper",
             required=False,
         )
 
